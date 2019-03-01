@@ -1,0 +1,98 @@
+[DEBUG] 2019-03-01 16:31:56.568 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:31:57.443 [main] cn.edu.thu.Main.main:40 - thread num : 1
+[ERROR] 2019-03-01 16:31:57.446 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:82 - java.lang.NumberFormatException: For input string: ".DS_Store"
+[DEBUG] 2019-03-01 16:32:57.956 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:32:58.420 [main] cn.edu.thu.Main.main:42 - thread num : 1
+[ERROR] 2019-03-01 16:33:11.115 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:82 - java.lang.NumberFormatException: For input string: ".DS_Store"
+[DEBUG] 2019-03-01 16:33:21.860 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:33:22.472 [main] cn.edu.thu.Main.main:42 - thread num : 1
+[INFO ] 2019-03-01 16:33:22.476 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:66 - resolving the 1 datafile 1
+[INFO ] 2019-03-01 16:33:22.481 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 1 is fully read
+[INFO ] 2019-03-01 16:33:22.482 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:66 - resolving the 2 datafile 2
+[INFO ] 2019-03-01 16:33:22.485 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 2 is fully read
+[INFO ] 2019-03-01 16:33:22.485 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 16:33:47.394 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:33:47.810 [main] cn.edu.thu.Main.main:42 - thread num : 1
+[INFO ] 2019-03-01 16:33:47.812 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:66 - resolving the 1 datafile 1
+[INFO ] 2019-03-01 16:33:47.815 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 1 is fully read
+[INFO ] 2019-03-01 16:33:47.815 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:66 - resolving the 2 datafile 2
+[INFO ] 2019-03-01 16:33:47.817 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 2 is fully read
+[INFO ] 2019-03-01 16:33:47.817 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 16:36:06.813 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:36:07.187 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:36:07.189 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:66 - resolving the 1 datafile 1
+[INFO ] 2019-03-01 16:36:07.190 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:61 - 1 need not to be read, skip it
+[INFO ] 2019-03-01 16:36:07.191 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:66 - resolving the 2 datafile 2
+[INFO ] 2019-03-01 16:36:07.194 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:76 - 1 is fully read
+[INFO ] 2019-03-01 16:36:07.195 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:61 - 2 need not to be read, skip it
+[INFO ] 2019-03-01 16:36:07.195 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
+[INFO ] 2019-03-01 16:36:07.195 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 2 is fully read
+[INFO ] 2019-03-01 16:36:07.196 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 16:37:57.936 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:37:58.600 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:37:58.626 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:72 - 1 is fully read
+[INFO ] 2019-03-01 16:37:58.627 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:75 - total produce 2 files and 0 lines
+[INFO ] 2019-03-01 16:37:58.628 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:72 - 2 is fully read
+[INFO ] 2019-03-01 16:37:58.628 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:75 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 16:39:57.624 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:39:58.121 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:39:58.142 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:74 - 1 is fully read
+[INFO ] 2019-03-01 16:39:58.142 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:74 - 2 is fully read
+[INFO ] 2019-03-01 16:39:58.142 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:77 - total produce 2 files and 0 lines
+[INFO ] 2019-03-01 16:39:58.143 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:77 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 16:48:41.711 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:48:42.208 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:48:51.233 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:77 - 1 is fully read
+[INFO ] 2019-03-01 16:48:51.233 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:80 - total produce 2 files and 0 lines
+[INFO ] 2019-03-01 16:48:51.234 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:77 - 2 is fully read
+[INFO ] 2019-03-01 16:48:51.234 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:80 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 16:50:53.713 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:50:54.148 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:51:12.912 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:77 - 2 is fully read
+[INFO ] 2019-03-01 16:51:12.913 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:80 - total produce 2 files and 0 lines
+[INFO ] 2019-03-01 16:51:12.913 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:77 - 1 is fully read
+[INFO ] 2019-03-01 16:51:12.914 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:80 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 16:51:31.705 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:51:32.230 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:51:39.959 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 2 is fully read
+[INFO ] 2019-03-01 16:51:39.959 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
+[INFO ] 2019-03-01 16:51:39.960 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:76 - 1 is fully read
+[INFO ] 2019-03-01 16:51:39.960 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 16:56:13.270 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:56:13.706 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:56:21.655 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:81 - 2 is fully read
+[INFO ] 2019-03-01 16:56:21.655 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
+[INFO ] 2019-03-01 16:56:21.655 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:81 - 1 is fully read
+[INFO ] 2019-03-01 16:56:21.656 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 16:56:29.968 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:56:30.398 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:57:02.002 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:81 - 2 is fully read
+[INFO ] 2019-03-01 16:57:02.003 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
+[INFO ] 2019-03-01 16:57:02.004 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:81 - 1 is fully read
+[INFO ] 2019-03-01 16:57:02.004 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 16:57:11.852 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 16:57:12.304 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:57:30.699 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:81 - 1 is fully read
+[INFO ] 2019-03-01 16:57:30.699 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
+[INFO ] 2019-03-01 16:57:30.699 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:81 - 2 is fully read
+[INFO ] 2019-03-01 16:57:30.700 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 17:10:58.117 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 17:10:58.667 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[ERROR] 2019-03-01 17:12:03.194 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:98 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
+[ERROR] 2019-03-01 17:12:03.194 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:98 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
+[DEBUG] 2019-03-01 17:13:46.207 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 17:13:46.677 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[ERROR] 2019-03-01 17:15:37.758 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:98 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
+[ERROR] 2019-03-01 17:15:37.758 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:98 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
+[DEBUG] 2019-03-01 17:18:51.133 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 17:18:51.616 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[ERROR] 2019-03-01 17:19:05.511 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
+[ERROR] 2019-03-01 17:19:05.511 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
+[DEBUG] 2019-03-01 17:24:14.213 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 17:24:14.781 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[ERROR] 2019-03-01 17:25:41.385 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
+[ERROR] 2019-03-01 17:25:41.385 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
+[DEBUG] 2019-03-01 17:25:45.937 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
+[INFO ] 2019-03-01 17:25:46.398 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[ERROR] 2019-03-01 17:25:51.112 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
+[ERROR] 2019-03-01 17:25:51.112 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement

@@ -1,25 +1,25 @@
 [DEBUG] 2019-03-01 16:31:56.568 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:31:57.443 [main] cn.edu.thu.Main.main:40 - thread num : 1
+[INFO ] 2019-03-01 16:31:57.443 [main] cn.edu.thu.MainLoad.main:40 - thread num : 1
 [ERROR] 2019-03-01 16:31:57.446 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:82 - java.lang.NumberFormatException: For input string: ".DS_Store"
 [DEBUG] 2019-03-01 16:32:57.956 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:32:58.420 [main] cn.edu.thu.Main.main:42 - thread num : 1
+[INFO ] 2019-03-01 16:32:58.420 [main] cn.edu.thu.MainLoad.main:42 - thread num : 1
 [ERROR] 2019-03-01 16:33:11.115 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:82 - java.lang.NumberFormatException: For input string: ".DS_Store"
 [DEBUG] 2019-03-01 16:33:21.860 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:33:22.472 [main] cn.edu.thu.Main.main:42 - thread num : 1
+[INFO ] 2019-03-01 16:33:22.472 [main] cn.edu.thu.MainLoad.main:42 - thread num : 1
 [INFO ] 2019-03-01 16:33:22.476 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:66 - resolving the 1 datafile 1
 [INFO ] 2019-03-01 16:33:22.481 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 1 is fully read
 [INFO ] 2019-03-01 16:33:22.482 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:66 - resolving the 2 datafile 2
 [INFO ] 2019-03-01 16:33:22.485 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 2 is fully read
 [INFO ] 2019-03-01 16:33:22.485 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 16:33:47.394 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:33:47.810 [main] cn.edu.thu.Main.main:42 - thread num : 1
+[INFO ] 2019-03-01 16:33:47.810 [main] cn.edu.thu.MainLoad.main:42 - thread num : 1
 [INFO ] 2019-03-01 16:33:47.812 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:66 - resolving the 1 datafile 1
 [INFO ] 2019-03-01 16:33:47.815 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 1 is fully read
 [INFO ] 2019-03-01 16:33:47.815 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:66 - resolving the 2 datafile 2
 [INFO ] 2019-03-01 16:33:47.817 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 2 is fully read
 [INFO ] 2019-03-01 16:33:47.817 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 16:36:06.813 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:36:07.187 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:36:07.187 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [INFO ] 2019-03-01 16:36:07.189 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:66 - resolving the 1 datafile 1
 [INFO ] 2019-03-01 16:36:07.190 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:61 - 1 need not to be read, skip it
 [INFO ] 2019-03-01 16:36:07.191 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:66 - resolving the 2 datafile 2
@@ -29,70 +29,239 @@
 [INFO ] 2019-03-01 16:36:07.195 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 2 is fully read
 [INFO ] 2019-03-01 16:36:07.196 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 16:37:57.936 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:37:58.600 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:37:58.600 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [INFO ] 2019-03-01 16:37:58.626 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:72 - 1 is fully read
 [INFO ] 2019-03-01 16:37:58.627 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:75 - total produce 2 files and 0 lines
 [INFO ] 2019-03-01 16:37:58.628 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:72 - 2 is fully read
 [INFO ] 2019-03-01 16:37:58.628 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:75 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 16:39:57.624 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:39:58.121 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:39:58.121 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [INFO ] 2019-03-01 16:39:58.142 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:74 - 1 is fully read
 [INFO ] 2019-03-01 16:39:58.142 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:74 - 2 is fully read
 [INFO ] 2019-03-01 16:39:58.142 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:77 - total produce 2 files and 0 lines
 [INFO ] 2019-03-01 16:39:58.143 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:77 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 16:48:41.711 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:48:42.208 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:48:42.208 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [INFO ] 2019-03-01 16:48:51.233 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:77 - 1 is fully read
 [INFO ] 2019-03-01 16:48:51.233 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:80 - total produce 2 files and 0 lines
 [INFO ] 2019-03-01 16:48:51.234 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:77 - 2 is fully read
 [INFO ] 2019-03-01 16:48:51.234 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:80 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 16:50:53.713 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:50:54.148 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:50:54.148 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [INFO ] 2019-03-01 16:51:12.912 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:77 - 2 is fully read
 [INFO ] 2019-03-01 16:51:12.913 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:80 - total produce 2 files and 0 lines
 [INFO ] 2019-03-01 16:51:12.913 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:77 - 1 is fully read
 [INFO ] 2019-03-01 16:51:12.914 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:80 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 16:51:31.705 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:51:32.230 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:51:32.230 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [INFO ] 2019-03-01 16:51:39.959 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:76 - 2 is fully read
 [INFO ] 2019-03-01 16:51:39.959 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
 [INFO ] 2019-03-01 16:51:39.960 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:76 - 1 is fully read
 [INFO ] 2019-03-01 16:51:39.960 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:79 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 16:56:13.270 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:56:13.706 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:56:13.706 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [INFO ] 2019-03-01 16:56:21.655 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:81 - 2 is fully read
 [INFO ] 2019-03-01 16:56:21.655 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
 [INFO ] 2019-03-01 16:56:21.655 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:81 - 1 is fully read
 [INFO ] 2019-03-01 16:56:21.656 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 16:56:29.968 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:56:30.398 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:56:30.398 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [INFO ] 2019-03-01 16:57:02.002 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:81 - 2 is fully read
 [INFO ] 2019-03-01 16:57:02.003 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
 [INFO ] 2019-03-01 16:57:02.004 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:81 - 1 is fully read
 [INFO ] 2019-03-01 16:57:02.004 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 16:57:11.852 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 16:57:12.304 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 16:57:12.304 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [INFO ] 2019-03-01 16:57:30.699 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:81 - 1 is fully read
 [INFO ] 2019-03-01 16:57:30.699 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
 [INFO ] 2019-03-01 16:57:30.699 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:81 - 2 is fully read
 [INFO ] 2019-03-01 16:57:30.700 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:84 - total produce 2 files and 0 lines
 [DEBUG] 2019-03-01 17:10:58.117 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 17:10:58.667 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 17:10:58.667 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [ERROR] 2019-03-01 17:12:03.194 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:98 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
 [ERROR] 2019-03-01 17:12:03.194 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:98 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
 [DEBUG] 2019-03-01 17:13:46.207 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 17:13:46.677 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 17:13:46.677 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [ERROR] 2019-03-01 17:15:37.758 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:98 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
 [ERROR] 2019-03-01 17:15:37.758 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:98 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
 [DEBUG] 2019-03-01 17:18:51.133 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 17:18:51.616 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 17:18:51.616 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [ERROR] 2019-03-01 17:19:05.511 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
 [ERROR] 2019-03-01 17:19:05.511 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
 [DEBUG] 2019-03-01 17:24:14.213 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 17:24:14.781 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 17:24:14.781 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [ERROR] 2019-03-01 17:25:41.385 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
 [ERROR] 2019-03-01 17:25:41.385 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
 [DEBUG] 2019-03-01 17:25:45.937 [main] cn.edu.thu.conf.Config.<init>:35 - construct config with config file
-[INFO ] 2019-03-01 17:25:46.398 [main] cn.edu.thu.Main.main:42 - thread num : 2
+[INFO ] 2019-03-01 17:25:46.398 [main] cn.edu.thu.MainLoad.main:42 - thread num : 2
 [ERROR] 2019-03-01 17:25:51.112 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
 [ERROR] 2019-03-01 17:25:51.112 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:95 - java.lang.IllegalArgumentException: Expecting a non-empty string for measurement
+[DEBUG] 2019-03-01 20:06:29.066 [main] cn.edu.thu.conf.Config.<init>:43 - construct config with config file
+[INFO ] 2019-03-01 20:06:29.596 [main] cn.edu.thu.MainLoad.main:40 - thread num : 2
+[INFO ] 2019-03-01 20:06:29.912 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:89 - 1 is fully read
+[INFO ] 2019-03-01 20:06:29.912 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:92 - total produce 2 files and 0 lines
+[INFO ] 2019-03-01 20:06:30.058 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:89 - 2 is fully read
+[INFO ] 2019-03-01 20:06:30.059 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:92 - total produce 2 files and 0 lines
+[DEBUG] 2019-03-01 20:08:37.051 [main] cn.edu.thu.conf.Config.<init>:43 - construct config with config file
+[INFO ] 2019-03-01 20:08:37.548 [main] cn.edu.thu.MainLoad.main:40 - thread num : 2
+[INFO ] 2019-03-01 20:08:37.955 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:92 - 2 is fully read
+[INFO ] 2019-03-01 20:08:37.955 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:92 - 1 is fully read
+[INFO ] 2019-03-01 20:08:37.956 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:95 - total produce 2 files and 366 lines
+[INFO ] 2019-03-01 20:08:37.956 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:95 - total produce 2 files and 358 lines
+[DEBUG] 2019-03-01 20:42:58.146 [main] cn.edu.thu.conf.Config.<init>:55 - construct config with config file
+[DEBUG] 2019-03-01 20:43:35.666 [main] cn.edu.thu.conf.Config.<init>:55 - construct config with config file
+[DEBUG] 2019-03-01 20:43:36.023 [main] cn.edu.thu.manager.InfluxDB.count:54 - Executing sql select count(MAX) from station where and deviceId ='deviceId'
+[DEBUG] 2019-03-01 20:43:49.034 [main] cn.edu.thu.conf.Config.<init>:55 - construct config with config file
+[DEBUG] 2019-03-01 20:43:49.454 [main] cn.edu.thu.manager.InfluxDB.count:54 - Executing sql select count(MAX) from station where and deviceId ='deviceId'
+[DEBUG] 2019-03-01 20:44:05.472 [main] cn.edu.thu.conf.Config.<init>:55 - construct config with config file
+[DEBUG] 2019-03-01 20:44:05.821 [main] cn.edu.thu.manager.InfluxDB.count:54 - Executing sql select count(MAX) from station where deviceId ='deviceId'
+[DEBUG] 2019-03-01 20:44:05.877 [main] cn.edu.thu.manager.InfluxDB.count:58 - influx query time: 56
+[DEBUG] 2019-03-01 20:46:12.311 [main] cn.edu.thu.conf.Config.<init>:45 - construct config without config file
+[DEBUG] 2019-03-01 20:46:25.660 [main] cn.edu.thu.conf.Config.<init>:45 - construct config without config file
+[DEBUG] 2019-03-01 20:46:26.014 [main] cn.edu.thu.manager.InfluxDB.count:54 - Executing sql select count(MAX) from station where deviceId ='deviceId'
+[INFO ] 2019-03-01 20:46:26.071 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 62
+[DEBUG] 2019-03-02 09:47:13.864 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 09:47:14.227 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[INFO ] 2019-03-02 09:47:14.820 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:104 - total produce 2 files and 724 lines
+[INFO ] 2019-03-02 09:47:14.820 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:109 - points:15260,time:346,speed:44000
+[DEBUG] 2019-03-02 10:17:57.891 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[DEBUG] 2019-03-02 10:18:15.425 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 10:18:15.432 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[DEBUG] 2019-03-02 10:25:06.111 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 10:25:06.130 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[DEBUG] 2019-03-02 10:26:21.669 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 10:26:27.960 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[DEBUG] 2019-03-02 10:27:18.678 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 10:27:18.685 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[ERROR] 2019-03-02 10:27:19.105 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:45 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[ERROR] 2019-03-02 10:27:19.202 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:45 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[INFO ] 2019-03-02 10:27:19.212 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:104 - total produce 2 files and 724 lines
+[INFO ] 2019-03-02 10:27:19.212 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:109 - points:15260,time:456,speed:33000
+[DEBUG] 2019-03-02 10:28:44.460 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 10:28:46.488 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[ERROR] 2019-03-02 10:30:14.107 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:45 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[ERROR] 2019-03-02 10:30:22.607 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:45 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[INFO ] 2019-03-02 10:30:22.610 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:104 - total produce 2 files and 724 lines
+[INFO ] 2019-03-02 10:30:22.610 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:109 - points:15260,time:96011,speed:0
+[DEBUG] 2019-03-02 11:00:30.868 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 11:00:30.886 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[ERROR] 2019-03-02 11:16:08.994 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:45 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[DEBUG] 2019-03-02 11:16:45.475 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 11:16:45.506 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[DEBUG] 2019-03-02 11:17:23.670 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 11:17:23.683 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[ERROR] 2019-03-02 11:17:35.578 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:65 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[DEBUG] 2019-03-02 11:18:49.111 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 11:18:49.123 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[DEBUG] 2019-03-02 11:18:59.933 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 11:18:59.948 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[ERROR] 2019-03-02 13:32:45.331 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:46 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[DEBUG] 2019-03-02 15:14:31.389 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 15:14:31.400 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[ERROR] 2019-03-02 15:14:31.956 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:46 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[ERROR] 2019-03-02 15:14:32.057 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:46 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[INFO ] 2019-03-02 15:14:32.060 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:104 - total produce 2 files and 724 lines
+[INFO ] 2019-03-02 15:14:32.060 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:109 - points:15260,time:572,speed:26000
+[DEBUG] 2019-03-02 15:21:43.116 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 15:21:43.138 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[ERROR] 2019-03-02 15:22:15.637 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:46 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[DEBUG] 2019-03-02 15:22:17.832 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 15:22:17.858 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[ERROR] 2019-03-02 15:23:00.086 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:46 - Server returned HTTP response code: 400 for URL: http://127.0.0.1:4242/api/put?summary
+[DEBUG] 2019-03-02 15:34:43.675 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 15:34:43.689 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[INFO ] 2019-03-02 15:35:04.056 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:43 - {"success":2,"failed":0}
+[DEBUG] 2019-03-02 15:35:15.436 [main] cn.edu.thu.common.Config.<init>:46 - construct config without config file
+[INFO ] 2019-03-02 15:35:15.443 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[INFO ] 2019-03-02 15:35:16.144 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:42 - {"success":5124,"failed":0}
+[INFO ] 2019-03-02 15:35:16.405 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:42 - {"success":5012,"failed":0}
+[INFO ] 2019-03-02 15:35:16.408 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:104 - total produce 2 files and 724 lines
+[INFO ] 2019-03-02 15:35:16.409 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:109 - points:15260,time:885,speed:17000
+[DEBUG] 2019-03-02 16:02:46.214 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[INFO ] 2019-03-02 16:02:46.582 [main] cn.edu.thu.MainLoad.main:54 - thread num : 1
+[INFO ] 2019-03-02 16:02:47.588 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:106 - total produce 2 files and 724 lines
+[INFO ] 2019-03-02 16:02:47.589 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:111 - points:15260,time:573,speed:26000
+[DEBUG] 2019-03-02 16:02:56.978 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[DEBUG] 2019-03-02 16:02:59.540 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[INFO ] 2019-03-02 16:02:59.906 [main] cn.edu.thu.MainLoad.main:54 - thread num : 2
+[INFO ] 2019-03-02 16:03:00.311 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:106 - total produce 2 files and 366 lines
+[INFO ] 2019-03-02 16:03:00.311 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:106 - total produce 2 files and 358 lines
+[INFO ] 2019-03-02 16:03:00.312 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:111 - points:5012,time:274,speed:18000
+[INFO ] 2019-03-02 16:03:00.311 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:111 - points:5124,time:275,speed:18000
+[DEBUG] 2019-03-02 16:03:37.249 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[INFO ] 2019-03-02 16:03:37.647 [main] cn.edu.thu.MainLoad.main:54 - thread num : 2
+[INFO ] 2019-03-02 16:03:38.170 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:106 - total produce 1 files and 358 lines
+[INFO ] 2019-03-02 16:03:38.171 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:111 - points:5012,time:314,speed:15000
+[INFO ] 2019-03-02 16:03:38.172 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:106 - total produce 1 files and 366 lines
+[INFO ] 2019-03-02 16:03:38.173 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:111 - points:5124,time:320,speed:16000
+[DEBUG] 2019-03-02 18:44:06.513 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[INFO ] 2019-03-02 18:44:06.968 [main] cn.edu.thu.MainLoad.main:54 - thread num : 2
+[INFO ] 2019-03-02 18:44:07.773 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:106 - total produce 1 files and 358 lines
+[INFO ] 2019-03-02 18:44:07.773 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:111 - points:5012,time:557,speed:8000
+[INFO ] 2019-03-02 18:44:07.783 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:106 - total produce 1 files and 366 lines
+[INFO ] 2019-03-02 18:44:07.783 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:111 - points:5124,time:570,speed:8000
+[DEBUG] 2019-03-02 18:44:25.818 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[INFO ] 2019-03-02 18:44:25.832 [main] cn.edu.thu.MainLoad.main:54 - thread num : 2
+[DEBUG] 2019-03-02 18:51:33.184 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[DEBUG] 2019-03-02 18:54:31.946 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[DEBUG] 2019-03-02 18:55:13.787 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[DEBUG] 2019-03-02 19:03:12.522 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[DEBUG] 2019-03-02 19:04:55.629 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[DEBUG] 2019-03-02 19:05:51.234 [main] cn.edu.thu.common.Config.<init>:47 - construct config without config file
+[DEBUG] 2019-03-02 19:06:14.635 [main] cn.edu.thu.manager.OpenTSDB.count:101 - [{"metric":"MAX","tags":{"deviceId":"033110"},"aggregateTags":[],"dps":{"1072887412389":1.0}}]
+[INFO ] 2019-03-02 19:06:15.778 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 24530
+[DEBUG] 2019-03-02 19:20:39.723 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 19:25:39.686 [main] cn.edu.thu.manager.OpenTSDB.count:105 - [{"metric":"","tags":{},"aggregateTags":[],"dps":{}}]
+[INFO ] 2019-03-02 19:25:39.689 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 299943
+[DEBUG] 2019-03-02 19:29:28.398 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 19:30:33.526 [main] cn.edu.thu.manager.OpenTSDB.count:105 - [{"metric":"MAX","tags":{"deviceId":"033110"},"aggregateTags":[],"dps":{"1073560800988":1.0}}]
+[INFO ] 2019-03-02 19:30:33.530 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 65119
+[DEBUG] 2019-03-02 19:30:43.326 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[INFO ] 2019-03-02 19:30:43.332 [main] cn.edu.thu.MainLoad.main:54 - thread num : 2
+[INFO ] 2019-03-02 19:30:44.031 [pool-1-thread-2] cn.edu.thu.manager.OpenTSDB.insertBatch:42 - {"success":5012,"failed":0}
+[INFO ] 2019-03-02 19:30:44.031 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:106 - total produce 1 files and 358 lines
+[INFO ] 2019-03-02 19:30:44.035 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:111 - points:5012,time:639,speed:7000
+[INFO ] 2019-03-02 19:30:44.039 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:42 - {"success":5124,"failed":0}
+[INFO ] 2019-03-02 19:30:44.040 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:106 - total produce 1 files and 366 lines
+[INFO ] 2019-03-02 19:30:44.040 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:111 - points:5124,time:655,speed:7000
+[DEBUG] 2019-03-02 19:33:07.720 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[INFO ] 2019-03-02 19:33:07.734 [main] cn.edu.thu.MainLoad.main:54 - thread num : 2
+[DEBUG] 2019-03-02 19:35:26.968 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 19:36:18.950 [main] cn.edu.thu.manager.OpenTSDB.count:105 - [{"metric":"MAX","tags":{"deviceId":"033110"},"aggregateTags":[],"dps":{"1073000001073":1.0}}]
+[INFO ] 2019-03-02 19:36:18.955 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 51973
+[DEBUG] 2019-03-02 19:41:44.127 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[INFO ] 2019-03-02 19:41:44.136 [main] cn.edu.thu.MainLoad.main:54 - thread num : 2
+[INFO ] 2019-03-02 19:41:45.443 [pool-1-thread-2] cn.edu.thu.manager.OpenTSDB.insertBatch:42 - {"success":5012,"failed":0}
+[INFO ] 2019-03-02 19:41:45.444 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:108 - total produce 1 files and 358 lines
+[INFO ] 2019-03-02 19:41:45.444 [pool-1-thread-1] cn.edu.thu.manager.OpenTSDB.insertBatch:42 - {"success":5124,"failed":0}
+[INFO ] 2019-03-02 19:41:45.447 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:108 - total produce 1 files and 366 lines
+[INFO ] 2019-03-02 19:41:45.447 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:113 - points:5124,time:385,speed:13000
+[INFO ] 2019-03-02 19:41:45.446 [pool-1-thread-2] cn.edu.thu.client.ClientThread.run:113 - points:5012,time:404,speed:12000
+[DEBUG] 2019-03-02 19:52:22.220 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 19:53:39.868 [main] cn.edu.thu.manager.OpenTSDB.count:105 - [{"metric":"MAX","tags":{"deviceId":"033110"},"aggregateTags":[],"dps":{}}]
+[INFO ] 2019-03-02 19:53:39.872 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 77640
+[DEBUG] 2019-03-02 19:53:42.422 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 20:20:25.573 [main] cn.edu.thu.manager.OpenTSDB.count:105 - [{"metric":"MAX","tags":{"deviceId":"033110"},"aggregateTags":[],"dps":{"1551526367053":1.0}}]
+[INFO ] 2019-03-02 20:20:25.578 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 1603132
+[DEBUG] 2019-03-02 20:21:11.467 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 20:22:37.565 [main] cn.edu.thu.manager.OpenTSDB.count:105 - [{"metric":"MXSPD","tags":{"deviceId":"033110"},"aggregateTags":[],"dps":{"1551526900000":1.0}}]
+[INFO ] 2019-03-02 20:22:37.569 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 86087
+[DEBUG] 2019-03-02 20:23:01.385 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 20:36:47.015 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 20:36:47.531 [main] cn.edu.thu.manager.InfluxDB.count:53 - Executing sql select count(MXSPD) from station where time >= 1551526239000ms and time <= 1551527079000ms and deviceId ='033110'
+[DEBUG] 2019-03-02 20:41:23.500 [main] cn.edu.thu.manager.InfluxDB.count:57 - QueryResult [results=[Result [series=null, error=null]], error=null]
+[INFO ] 2019-03-02 20:41:23.501 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 275972
+[DEBUG] 2019-03-02 20:41:31.819 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 20:41:32.294 [main] cn.edu.thu.manager.InfluxDB.count:53 - Executing sql select count(MXSPD) from station where deviceId ='033110'
+[DEBUG] 2019-03-02 20:41:43.092 [main] cn.edu.thu.manager.InfluxDB.count:57 - QueryResult [results=[Result [series=[Series [name=station, tags=null, columns=[time, count], values=[[1970-01-01T00:00:00Z, 358.0]]]], error=null]], error=null]
+[INFO ] 2019-03-02 20:41:43.093 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 10801
+[DEBUG] 2019-03-02 20:58:13.613 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 20:58:13.830 [main] cn.edu.thu.manager.OpenTSDB.count:105 - [{"metric":"","tags":{},"aggregateTags":[],"dps":{}}]
+[INFO ] 2019-03-02 20:58:13.834 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 206
+[DEBUG] 2019-03-02 20:58:21.071 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 21:02:13.735 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 21:03:05.395 [main] cn.edu.thu.manager.OpenTSDB.count:105 - [{"metric":"","tags":{},"aggregateTags":[],"dps":{}}]
+[INFO ] 2019-03-02 21:03:05.400 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 51654
+[DEBUG] 2019-03-02 21:03:32.269 [main] cn.edu.thu.common.Config.<init>:48 - construct config without config file
+[DEBUG] 2019-03-02 21:03:41.211 [main] cn.edu.thu.manager.OpenTSDB.count:105 - [{"metric":"MXSPD","tags":{"deviceId":"033110"},"aggregateTags":[],"dps":{"1072886400000":1.0,"1072972800000":1.0,"1073059200000":1.0,"1073145600000":1.0,"1073232000000":1.0,"1073318400000":1.0,"1073404800000":1.0,"1073491200000":1.0,"1073577600000":1.0,"1073664000000":1.0,"1073750400000":1.0,"1073836800000":1.0,"1073923200000":1.0,"1074009600000":1.0,"1074096000000":1.0,"1074182400000":1.0,"1074268800000":1.0,"1074355200000":1.0,"1074441600000":1.0,"1074528000000":1.0,"1074614400000":1.0,"1074700800000":1.0,"1074787200000":1.0,"1074873600000":1.0,"1074960000000":1.0,"1075046400000":1.0,"1075132800000":1.0,"1075219200000":1.0,"1075305600000":1.0,"1075392000000":1.0,"1075478400000":1.0,"1075564800000":1.0,"1075651200000":1.0,"1075737600000":1.0,"1075824000000":1.0,"1075910400000":1.0,"1075996800000":1.0,"1076083200000":1.0,"1076169600000":1.0,"1076256000000":1.0,"1076342400000":1.0,"1076428800000":1.0,"1076515200000":1.0,"1076601600000":1.0,"1076688000000":1.0,"1076774400000":1.0,"1076860800000":1.0,"1076947200000":1.0,"1077033600000":1.0,"1077120000000":1.0,"1077206400000":1.0,"1077292800000":1.0,"1077379200000":1.0,"1077465600000":1.0,"1077552000000":1.0,"1077638400000":1.0,"1077724800000":1.0,"1077811200000":1.0,"1077897600000":1.0,"1078243200000":1.0,"1078329600000":1.0,"1078416000000":1.0,"1078502400000":1.0,"1078588800000":1.0,"1078761600000":1.0,"1078848000000":1.0,"1078934400000":1.0,"1079020800000":1.0,"1079107200000":1.0,"1079193600000":1.0,"1079280000000":1.0,"1079366400000":1.0,"1079452800000":1.0,"1079539200000":1.0,"1079625600000":1.0,"1079712000000":1.0,"1079798400000":1.0,"1079884800000":1.0,"1079971200000":1.0,"1080057600000":1.0,"1080144000000":1.0,"1080230400000":1.0,"1080316800000":1.0,"1080403200000":1.0,"1080489600000":1.0,"1080576000000":1.0,"1080662400000":1.0,"1080748800000":1.0,"1080835200000":1.0,"1080921600000":1.0,"1081008000000":1.0,"1081094400000":1.0,"1081180800000":1.0,"1081267200000":1.0,"1081353600000":1.0,"1081440000000":1.0,"1081526400000":1.0,"1081612800000":1.0,"1081699200000":1.0,"1081785600000":1.0,"1081872000000":1.0,"1081958400000":1.0,"1082044800000":1.0,"1082131200000":1.0,"1082217600000":1.0,"1082304000000":1.0,"1082390400000":1.0,"1082476800000":1.0,"1082563200000":1.0,"1082649600000":1.0,"1082736000000":1.0,"1082822400000":1.0,"1082908800000":1.0,"1082995200000":1.0,"1083081600000":1.0,"1083254400000":1.0,"1083340800000":1.0,"1083427200000":1.0,"1083513600000":1.0,"1083600000000":1.0,"1083686400000":1.0,"1083772800000":1.0,"1083859200000":1.0,"1083945600000":1.0,"1084032000000":1.0,"1084118400000":1.0,"1084204800000":1.0,"1084291200000":1.0,"1084377600000":1.0,"1084464000000":1.0,"1084550400000":1.0,"1084636800000":1.0,"1084723200000":1.0,"1084809600000":1.0,"1084896000000":1.0,"1084982400000":1.0,"1085068800000":1.0,"1085155200000":1.0,"1085241600000":1.0,"1085328000000":1.0,"1085414400000":1.0,"1085500800000":1.0,"1085587200000":1.0,"1085673600000":1.0,"1085760000000":1.0,"1085846400000":1.0,"1085932800000":1.0,"1086019200000":1.0,"1086105600000":1.0,"1086192000000":1.0,"1086278400000":1.0,"1086364800000":1.0,"1086451200000":1.0,"1086537600000":1.0,"1086624000000":1.0,"1086710400000":1.0,"1086796800000":1.0,"1086883200000":1.0,"1086969600000":1.0,"1087056000000":1.0,"1087142400000":1.0,"1087228800000":1.0,"1087315200000":1.0,"1087488000000":1.0,"1087574400000":1.0,"1087660800000":1.0,"1087747200000":1.0,"1087833600000":1.0,"1087920000000":1.0,"1088006400000":1.0,"1088092800000":1.0,"1088179200000":1.0,"1088265600000":1.0,"1088352000000":1.0,"1088438400000":1.0,"1088524800000":1.0,"1088611200000":1.0,"1088697600000":1.0,"1088784000000":1.0,"1088870400000":1.0,"1088956800000":1.0,"1089043200000":1.0,"1089129600000":1.0,"1089216000000":1.0,"1089302400000":1.0,"1089388800000":1.0,"1089475200000":1.0,"1089561600000":1.0,"1089648000000":1.0,"1089734400000":1.0,"1089820800000":1.0,"1089907200000":1.0,"1089993600000":1.0,"1090080000000":1.0,"1090166400000":1.0,"1090252800000":1.0,"1090339200000":1.0,"1090425600000":1.0,"1090512000000":1.0,"1090598400000":1.0,"1090684800000":1.0,"1090771200000":1.0,"1090857600000":1.0,"1090944000000":1.0,"1091030400000":1.0,"1091116800000":1.0,"1091203200000":1.0,"1091289600000":1.0,"1091376000000":1.0,"1091462400000":1.0,"1091548800000":1.0,"1091635200000":1.0,"1091721600000":1.0,"1091808000000":1.0,"1091894400000":1.0,"1091980800000":1.0,"1092067200000":1.0,"1092153600000":1.0,"1092240000000":1.0,"1092326400000":1.0,"1092412800000":1.0,"1092499200000":1.0,"1092585600000":1.0,"1092672000000":1.0,"1092758400000":1.0,"1092844800000":1.0,"1092931200000":1.0,"1093017600000":1.0,"1093104000000":1.0,"1093190400000":1.0,"1093276800000":1.0,"1093363200000":1.0,"1093449600000":1.0,"1093536000000":1.0,"1093622400000":1.0,"1093708800000":1.0,"1093795200000":1.0,"1093881600000":1.0,"1093968000000":1.0,"1094054400000":1.0,"1094140800000":1.0,"1094227200000":1.0,"1094313600000":1.0,"1094400000000":1.0,"1094486400000":1.0,"1094572800000":1.0,"1094659200000":1.0,"1094745600000":1.0,"1094832000000":1.0,"1094918400000":1.0,"1095004800000":1.0,"1095091200000":1.0,"1095177600000":1.0,"1095264000000":1.0,"1095350400000":1.0,"1095436800000":1.0,"1095523200000":1.0,"1095609600000":1.0,"1095696000000":1.0,"1095782400000":1.0,"1095868800000":1.0,"1095955200000":1.0,"1096041600000":1.0,"1096128000000":1.0,"1096214400000":1.0,"1096300800000":1.0,"1096387200000":1.0,"1096473600000":1.0,"1096560000000":1.0,"1096646400000":1.0,"1096732800000":1.0,"1096819200000":1.0,"1096905600000":1.0,"1096992000000":1.0,"1097078400000":1.0,"1097164800000":1.0,"1097251200000":1.0,"1097337600000":1.0,"1097424000000":1.0,"1097510400000":1.0,"1097596800000":1.0,"1097683200000":1.0,"1097769600000":1.0,"1097856000000":1.0,"1097942400000":1.0,"1098028800000":1.0,"1098115200000":1.0,"1098201600000":1.0,"1098288000000":1.0,"1098374400000":1.0,"1098460800000":1.0,"1098547200000":1.0,"1098633600000":1.0,"1098720000000":1.0,"1098806400000":1.0,"1098892800000":1.0,"1098979200000":1.0,"1099065600000":1.0,"1099152000000":1.0,"1099238400000":1.0,"1099324800000":1.0,"1099411200000":1.0,"1099497600000":1.0,"1099584000000":1.0,"1099670400000":1.0,"1099756800000":1.0,"1099843200000":1.0,"1099929600000":1.0,"1100016000000":1.0,"1100102400000":1.0,"1100188800000":1.0,"1100275200000":1.0,"1100361600000":1.0,"1100448000000":1.0,"1100534400000":1.0,"1100620800000":1.0,"1100707200000":1.0,"1100793600000":1.0,"1100880000000":1.0,"1100966400000":1.0,"1101052800000":1.0,"1101139200000":1.0,"1101225600000":1.0,"1101312000000":1.0,"1101398400000":1.0,"1101484800000":1.0,"1101571200000":1.0,"1101657600000":1.0,"1101744000000":1.0,"1101830400000":1.0,"1101916800000":1.0,"1102003200000":1.0,"1102089600000":1.0,"1102176000000":1.0,"1102262400000":1.0,"1102348800000":1.0,"1102435200000":1.0,"1102521600000":1.0,"1102608000000":1.0,"1102694400000":1.0,"1102780800000":1.0,"1102867200000":1.0,"1102953600000":1.0,"1103040000000":1.0,"1103126400000":1.0,"1103212800000":1.0,"1103299200000":1.0,"1103385600000":1.0,"1103472000000":1.0,"1103558400000":1.0,"1103644800000":1.0,"1103731200000":1.0,"1103817600000":1.0,"1104076800000":1.0,"1104163200000":1.0,"1104249600000":1.0,"1104336000000":1.0,"1104422400000":1.0,"1551526900000":1.0}}]
+[INFO ] 2019-03-02 21:03:41.216 [main] cn.edu.thu.MainQuery.main:49 - influx query time: 8931

@@ -1,4 +1,4 @@
-package cn.edu.thu;
+package cn.edu.thu.common;
 
 import java.util.List;
 

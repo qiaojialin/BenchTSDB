@@ -1,4 +1,4 @@
-package cn.edu.thu.conf;
+package cn.edu.thu.common;
 
 
 import org.slf4j.Logger;
@@ -12,16 +12,33 @@ public class Config {
 
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
-    public String DATABASE = "SUMMARYSTORE";
+    // INFLUXDB, OPENTSDB, SUMMARYSTORE
+    public String DATABASE = "OPENTSDB";
 
-    public int THREAD_NUM = 1;
+    public int THREAD_NUM = 2;
+
+    public String INFLUXDB_URL = "http://127.0.0.1:8086";
+    public String OPENTSDB_URL = "http://127.0.0.1:4242";
 
     public String DATA_DIR = "data";
 
-    public String SERIESID = "deviceId";
+    public String DEVICE_ID = "deviceId";
 
     public String[] FIELDS = new String[]{"WBAN", "TEMP", "DEWP", "SLP", "STP",
             "VISIB", "WDSP", "MXSPD", "GUST", "MAX", "MIN", "PRCP", "SNDP", "FRSHTT"};
+
+
+
+    // for query
+
+    public String DEVICE = "033110";
+
+    public String FIELD = "MXSPD";
+
+    //  1072972800000L, -1
+    public long START_TIME = 1072972800000L;
+
+    public long END_TIME = -1;
 
 
     public Config() {
@@ -46,5 +63,13 @@ public class Config {
         DATABASE = properties.getOrDefault("DATABASE", DATABASE).toString();
         THREAD_NUM = Integer.parseInt(properties.getOrDefault("THREAD_NUM", THREAD_NUM).toString());
         DATA_DIR = properties.getOrDefault("DATA_DIR", DATA_DIR).toString();
+        INFLUXDB_URL = properties.getOrDefault("INFLUX_URL", INFLUXDB_URL).toString();
+        OPENTSDB_URL = properties.getOrDefault("OPENTSDB_URL", OPENTSDB_URL).toString();
+
+        DEVICE = properties.getOrDefault("DEVICE", DEVICE).toString();
+        FIELD = properties.getOrDefault("FIELD", FIELD).toString();
+        START_TIME = Long.parseLong(properties.getOrDefault("START_TIME", START_TIME).toString());
+        END_TIME = Long.parseLong(properties.getOrDefault("END_TIME", END_TIME).toString());
+
     }
 }

@@ -1,9 +1,10 @@
 package cn.edu.thu;
 
 import cn.edu.thu.client.ClientThread;
-import cn.edu.thu.conf.Config;
-import cn.edu.thu.manager.IDBManager;
-import cn.edu.thu.manager.InfluxDBManager;
+import cn.edu.thu.common.Config;
+import cn.edu.thu.manager.IDataBase;
+import cn.edu.thu.manager.InfluxDB;
+import cn.edu.thu.manager.OpenTSDB;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,13 +12,14 @@ import java.io.FileInputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Main {
 
-    private static Logger logger = LoggerFactory.getLogger(Main.class);
+public class MainLoad {
+
+    private static Logger logger = LoggerFactory.getLogger(MainLoad.class);
 
     public static void main(String args[]) {
 
-        args = new String[]{"conf/config.properties"};
+        //args = new String[]{"conf/config.properties"};
 
         Config config;
         if(args.length > 0) {
@@ -35,7 +37,19 @@ public class Main {
 
         ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
 
-        IDBManager database = new InfluxDBManager(config);
+        IDataBase database = null;
+        switch (config.DATABASE) {
+            case "INFLUXDB":
+                database = new InfluxDB(config);
+                break;
+            case "OPENTSDB":
+                database = new OpenTSDB(config);
+                break;
+            case "SUMMARYSTORE":
+                break;
+            default:
+                throw new RuntimeException(config.DATABASE + " not supported");
+        }
 
         logger.info("thread num : {}", config.THREAD_NUM);
 

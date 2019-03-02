@@ -1,11 +1,12 @@
 package cn.edu.thu.manager;
 
-import cn.edu.thu.Record;
-import cn.edu.thu.conf.Config;
-import org.influxdb.InfluxDB;
+import cn.edu.thu.common.Record;
+import cn.edu.thu.common.Config;
 import org.influxdb.InfluxDBFactory;
 import org.influxdb.dto.BatchPoints;
 import org.influxdb.dto.Point;
+import org.influxdb.dto.Query;
+import org.influxdb.dto.QueryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,26 +15,51 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class InfluxDBManager implements IDBManager {
+public class InfluxDB implements IDataBase {
 
-    private InfluxDB influxDB = InfluxDBFactory.connect("http://127.0.0.1:8086");
-    private static Logger logger = LoggerFactory.getLogger(InfluxDBManager.class);
-    private String measurementId = "default";
+    private org.influxdb.InfluxDB influxDB;
+    private static Logger logger = LoggerFactory.getLogger(InfluxDB.class);
+    private String measurementId = "station";
+    private String database = "test";
     private Config config;
 
-    public InfluxDBManager(Config config) {
+    private static String COUNT_SQL_WITH_TIME = "select count(%s) from %s where time >= %dms and time <= %dms and %s ='%s'";
+
+    private static String COUNT_SQL_WITHOUT_TIME = "select count(%s) from %s where %s ='%s'";
+
+
+    public InfluxDB(Config config) {
         this.config = config;
+        influxDB = InfluxDBFactory.connect(config.INFLUXDB_URL);
     }
 
     @Override
     public void createSchema() {
+        influxDB.deleteDatabase(database);
+        influxDB.createDatabase(database);
+    }
+
+    @Override
+    public void count(String deviceId, String field, long startTime, long endTime) {
+
+        String sql;
+
+        if(startTime == -1 || endTime == -1) {
+            sql = String.format(COUNT_SQL_WITHOUT_TIME, field, measurementId, config.DEVICE_ID, deviceId);
+        } else {
+            sql = String.format(COUNT_SQL_WITH_TIME, field, measurementId, startTime, endTime, config.DEVICE_ID, deviceId);
+        }
+
+        logger.debug("Executing sql {}", sql);
+
+        QueryResult queryResult = influxDB.query(new Query(sql, database));
+
+        logger.debug(queryResult.toString());
 
     }
 
     @Override
-    public void process(List<Record> records) {
-
-        String database = "";
+    public void insertBatch(List<Record> records) {
 
         // get data points
         List<Point> points = convertRecords(records);
@@ -43,7 +69,7 @@ public class InfluxDBManager implements IDBManager {
             influxDB.write(batchPoints);
         } catch (Exception e) {
             if (e.getMessage() != null && e.getMessage().contains("Failed to connect to")) {
-                logger.error("InfluxDBManager is down!!!!!!");
+                logger.error("InfluxDB is down!!!!!!");
             } else {
                 e.printStackTrace();
             }
@@ -63,7 +89,7 @@ public class InfluxDBManager implements IDBManager {
     private Point convertRecord(Record record) {
 
         HashMap<String, String> tagSet = new HashMap<>();
-        tagSet.put(config.SERIESID, record.deviceId);
+        tagSet.put(config.DEVICE_ID, record.deviceId);
 
         HashMap<String, Object> fieldSet = new HashMap<>();
         for(int i = 0; i < config.FIELDS.length; i++) {

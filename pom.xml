@@ -84,7 +84,8 @@
             <configuration>
               <archive>
                 <manifest>
-                  <mainClass>cn.edu.thu.MainLoad</mainClass>
+                  <!--<mainClass>cn.edu.thu.MainLoad</mainClass>-->
+                  <mainClass>cn.edu.thu.MainQuery</mainClass>
                 </manifest>
               </archive>
               <descriptorRefs>

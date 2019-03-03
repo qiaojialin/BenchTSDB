@@ -93,11 +93,9 @@ public class ClientThread implements Runnable {
                 reader.close();
 
                 // write all data in this file to database
-                long start = System.currentTimeMillis();
-                database.insertBatch(records);
-                start = System.currentTimeMillis() - start;
+                long timecost = database.insertBatch(records);
 
-                totalTime += start;
+                totalTime += timecost;
 
             }
 
@@ -107,7 +105,7 @@ public class ClientThread implements Runnable {
             totalPoints = lineNum * config.FIELDS.length;
             long speed = totalPoints / totalTime * 1000;
 
-            logger.info("points:{},time:{},s,speed:{},points/s", totalPoints, totalTime, speed);
+            logger.info("points:{},time:{},ms,speed:{},points/s", totalPoints, totalTime, speed);
 
         } catch (Exception e) {
             logger.error(e.toString());
@@ -119,7 +117,8 @@ public class ClientThread implements Runnable {
 
         List<Object> fields = new ArrayList<>();
 
-        String deviceID = line.substring(0, 6).trim();
+        String tag1 = line.substring(0, 6).trim();
+        String tag2 = line.substring(7, 12).trim();
 
         //add 70 years, make sure time > 0
         String yearmoda = line.substring(14, 22).trim();
@@ -130,7 +129,6 @@ public class ClientThread implements Runnable {
         date = rightNow.getTime();
         long time = date.getTime();
 
-        fields.add(Integer.parseInt(line.substring(7, 12).trim()));
         fields.add(Float.parseFloat(line.substring(24, 30).trim()));
         fields.add(Float.parseFloat(line.substring(35, 41).trim()));
         fields.add(Float.parseFloat(line.substring(46, 52).trim()));
@@ -145,7 +143,7 @@ public class ClientThread implements Runnable {
         fields.add(Float.parseFloat(line.substring(125, 130).trim()));
         fields.add(Integer.parseInt(line.substring(132, 138).trim()));
 
-        return new Record(time, deviceID, fields);
+        return new Record(time, tag1, tag2, fields);
 
     }
 

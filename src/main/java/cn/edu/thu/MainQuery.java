@@ -44,9 +44,9 @@ public class MainQuery {
         }
 
         long start = System.currentTimeMillis();
-        database.count(config.DEVICE, config.FIELD, config.START_TIME, config.END_TIME);
+        database.count(config.QUERY_TAG_1, config.QUERY_TAG_2, config.FIELD, config.START_TIME, config.END_TIME);
         start = System.currentTimeMillis()-start;
-        logger.info("influx query time: {}",start);
+        logger.info("query time: {}",start);
 
     }
 }

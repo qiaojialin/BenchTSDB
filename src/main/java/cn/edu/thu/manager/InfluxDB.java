@@ -23,9 +23,9 @@ public class InfluxDB implements IDataBase {
     private String database = "test";
     private Config config;
 
-    private static String COUNT_SQL_WITH_TIME = "select count(%s) from %s where time >= %dms and time <= %dms and %s ='%s'";
+    private static String COUNT_SQL_WITH_TIME = "select count(%s) from %s where time >= %dms and time <= %dms and %s='%s' and %s='%s'";
 
-    private static String COUNT_SQL_WITHOUT_TIME = "select count(%s) from %s where %s ='%s'";
+    private static String COUNT_SQL_WITHOUT_TIME = "select count(%s) from %s where %s ='%s' and %s='%s'";
 
 
     public InfluxDB(Config config) {
@@ -40,14 +40,14 @@ public class InfluxDB implements IDataBase {
     }
 
     @Override
-    public void count(String deviceId, String field, long startTime, long endTime) {
+    public void count(String tag1, String tag2, String field, long startTime, long endTime) {
 
         String sql;
 
         if(startTime == -1 || endTime == -1) {
-            sql = String.format(COUNT_SQL_WITHOUT_TIME, field, measurementId, config.DEVICE_ID, deviceId);
+            sql = String.format(COUNT_SQL_WITHOUT_TIME, field, measurementId, config.tag1, tag1, config.tag2, tag2);
         } else {
-            sql = String.format(COUNT_SQL_WITH_TIME, field, measurementId, startTime, endTime, config.DEVICE_ID, deviceId);
+            sql = String.format(COUNT_SQL_WITH_TIME, field, measurementId, startTime, endTime, config.tag1, tag1, config.tag2, tag2);
         }
 
         logger.debug("Executing sql {}", sql);
@@ -59,12 +59,15 @@ public class InfluxDB implements IDataBase {
     }
 
     @Override
-    public void insertBatch(List<Record> records) {
+    public long insertBatch(List<Record> records) {
 
         // get data points
         List<Point> points = convertRecords(records);
 
         BatchPoints batchPoints = BatchPoints.database(database).points(points.toArray(new Point[0])).build();
+
+        long start = System.currentTimeMillis();
+
         try {
             influxDB.write(batchPoints);
         } catch (Exception e) {
@@ -75,6 +78,7 @@ public class InfluxDB implements IDataBase {
             }
         }
 
+        return System.currentTimeMillis() - start;
     }
 
     private List<Point> convertRecords(List<Record> records) {
@@ -89,7 +93,8 @@ public class InfluxDB implements IDataBase {
     private Point convertRecord(Record record) {
 
         HashMap<String, String> tagSet = new HashMap<>();
-        tagSet.put(config.DEVICE_ID, record.deviceId);
+        tagSet.put(config.tag1, record.tag1);
+        tagSet.put(config.tag2, record.tag2);
 
         HashMap<String, Object> fieldSet = new HashMap<>();
         for(int i = 0; i < config.FIELDS.length; i++) {

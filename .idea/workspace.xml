@@ -2,23 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cc7bd03-3231-46f9-b10b-c82aca07f2b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/OpenTSDBPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/ThuHttpRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/IDataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/SummaryStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/bench.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/bench.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Record.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/client/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/client/ClientThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/conf/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/IDBManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/InfluxDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/InfluxDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDBManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Record.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/IDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/IDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/InfluxDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/InfluxDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/SummaryStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/SummaryStore.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,38 +36,38 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6099" />
-          <entry key="properties" value="236" />
-          <entry key="xml" value="94" />
+          <entry key="java" value="6674" />
+          <entry key="properties" value="255" />
+          <entry key="xml" value="96" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6099" />
-          <entry key="Properties" value="236" />
-          <entry key="XML" value="94" />
+          <entry key="JAVA" value="6674" />
+          <entry key="Properties" value="255" />
+          <entry key="XML" value="96" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="1" value="7" />
-          <entry key="2" value="3" />
+          <entry key="1" value="8" />
+          <entry key="2" value="4" />
           <entry key="gitignore" value="1" />
           <entry key="iml" value="1" />
           <entry key="importfile" value="1" />
-          <entry key="java" value="39" />
-          <entry key="properties" value="7" />
+          <entry key="java" value="44" />
+          <entry key="properties" value="10" />
           <entry key="txt" value="3" />
-          <entry key="xml" value="2" />
+          <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="39" />
-          <entry key="PLAIN_TEXT" value="15" />
-          <entry key="Properties" value="7" />
-          <entry key="XML" value="2" />
+          <entry key="JAVA" value="44" />
+          <entry key="PLAIN_TEXT" value="17" />
+          <entry key="Properties" value="10" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -81,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+            <state relative-caret-position="290">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,10 +87,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/config.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="76" selection-start-line="76" selection-end-line="76" />
+            <state relative-caret-position="101">
+              <caret line="83" column="27" lean-forward="true" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -102,37 +119,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/InfluxDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="305">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/SummaryStore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BenchTSDB.iml">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/client/ClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="242">
+              <caret line="118" selection-start-line="118" selection-end-line="118" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="108" column="5" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+            <state relative-caret-position="553">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,10 +153,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/IDataBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+            <state relative-caret-position="255">
+              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,8 +167,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+            <state relative-caret-position="335">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/SummaryStore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -215,18 +227,19 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/InfluxDBManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDBManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/SummaryStoreManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/SummaryStore.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/IDBManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/IDataBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/HttpRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/ThuHttpRequest.java" />
-        <option value="$PROJECT_DIR$/conf/config.properties" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/InfluxDB.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDB.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/client/ClientThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Record.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/IDataBase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/InfluxDB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/SummaryStore.java" />
+        <option value="$PROJECT_DIR$/conf/config.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -255,10 +268,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="641" />
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="825" />
+    <option name="x" value="-68" />
+    <option name="y" value="-1129" />
+    <option name="width" value="2048" />
+    <option name="height" value="1129" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -501,6 +514,13 @@
             <path>
               <item name="BenchTSDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="BenchTSDB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BenchTSDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BenchTSDB" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -511,20 +531,21 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551533794456" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551581384652" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/conf" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -635,10 +656,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="410" y="23" width="1440" height="825" extended-state="1" />
+    <frame x="-68" y="-1129" width="2048" height="1129" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24034335" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21934198" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -647,16 +668,16 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32786885" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.26875854" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26904532" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.260573" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="SonarLint" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.37517053" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.23818707" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.29604366" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.19189972" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -670,29 +691,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDB.java</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/App.java" />
     <entry file="file://$PROJECT_DIR$/conf/importfile" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/Parser.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -704,30 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Record.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="38" lean-forward="true" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/IDataBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -753,6 +731,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BenchTSDB.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Record.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -760,54 +755,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/1">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="6" selection-start-line="1" selection-end-line="1" selection-end-column="6" />
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/IDataBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+        <state relative-caret-position="255">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/OpenTSDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="108" column="5" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/InfluxDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/client/ClientThread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/SummaryStore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
@@ -817,33 +792,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/client/ClientThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+        <state relative-caret-position="290">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/SummaryStore.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="335">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BenchTSDB.iml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/conf/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/manager/InfluxDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        <state relative-caret-position="101">
+          <caret line="83" column="27" lean-forward="true" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -6,10 +6,13 @@ import java.util.List;
 
 public interface IDataBase {
 
-    void insertBatch(List<Record> records);
+    /**
+     * @return time cost in ms
+     */
+    long insertBatch(List<Record> records);
 
     void createSchema();
 
-    void count(String deviceId, String field, long startTime, long endTime);
+    void count(String tag1, String tag2, String field, long startTime, long endTime);
 
 }

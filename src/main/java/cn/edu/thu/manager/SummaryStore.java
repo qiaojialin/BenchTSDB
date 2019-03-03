@@ -6,7 +6,11 @@ import java.util.List;
 
 public class SummaryStore implements IDataBase {
     @Override
-    public void insertBatch(List<Record> records) {
+    public long insertBatch(List<Record> records) {
+
+        long start = System.currentTimeMillis();
+
+        return System.currentTimeMillis() - start;
 
     }
 
@@ -16,7 +20,8 @@ public class SummaryStore implements IDataBase {
     }
 
     @Override
-    public void count(String deviceId, String field, long startTime, long endTime) {
+    public void count(String tag1, String tag2, String field, long startTime, long endTime) {
 
     }
+
 }

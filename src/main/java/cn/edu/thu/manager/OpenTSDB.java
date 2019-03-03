@@ -27,7 +27,7 @@ public class OpenTSDB implements IDataBase {
     }
 
     @Override
-    public void insertBatch(List<Record> records) {
+    public long insertBatch(List<Record> records) {
 
         LinkedList<OpenTSDBPoint> openTSDBPoints = new LinkedList<>();
 
@@ -36,14 +36,15 @@ public class OpenTSDB implements IDataBase {
         }
 
         String body = JSON.toJSONString(openTSDBPoints);
+
+        long start = System.currentTimeMillis();
         try {
-
             String response = ThuHttpRequest.sendPost(writeUrl, body);
-            logger.info(response);
-
         } catch (IOException e) {
             logger.error(e.getMessage());
         }
+
+        return System.currentTimeMillis() - start;
 
     }
 
@@ -57,7 +58,8 @@ public class OpenTSDB implements IDataBase {
             model.setTimestamp(record.timestamp);
             model.setValue(record.fields.get(i));
             Map<String, String> tags = new HashMap<>();
-            tags.put(config.DEVICE_ID, record.deviceId);
+            tags.put(config.tag1, record.tag1);
+            tags.put(config.tag2, record.tag2);
             model.setTags(tags);
             models.addLast(model);
         }
@@ -71,14 +73,15 @@ public class OpenTSDB implements IDataBase {
     }
 
     @Override
-    public void count(String deviceId, String field, long startTime, long endTime) {
+    public void count(String tag1, String tag2, String field, long startTime, long endTime) {
         Map<String, Object> queryMap = new HashMap<>();
         queryMap.put("msResolution", true);
 
         Map<String, Object> subQuery = new HashMap<>();
 
         Map<String, Object> subsubQuery = new HashMap<>();
-        subsubQuery.put(config.DEVICE_ID, deviceId);
+        subsubQuery.put(config.tag1, tag1);
+        subsubQuery.put(config.tag2, tag2);
         subQuery.put("tags", subsubQuery);
 
         if(startTime == -1 || endTime == -1) {

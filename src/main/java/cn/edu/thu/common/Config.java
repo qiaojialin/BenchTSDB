@@ -13,7 +13,7 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE
-    public String DATABASE = "OPENTSDB";
+    public String DATABASE = "INFLUXDB";
 
     public int THREAD_NUM = 2;
 
@@ -22,16 +22,18 @@ public class Config {
 
     public String DATA_DIR = "data";
 
-    public String DEVICE_ID = "deviceId";
+    public String tag1 = "tag1";
+    public String tag2 = "tag2";
 
-    public String[] FIELDS = new String[]{"WBAN", "TEMP", "DEWP", "SLP", "STP",
+    public String[] FIELDS = new String[]{"TEMP", "DEWP", "SLP", "STP",
             "VISIB", "WDSP", "MXSPD", "GUST", "MAX", "MIN", "PRCP", "SNDP", "FRSHTT"};
 
 
 
     // for query
 
-    public String DEVICE = "033110";
+    public String QUERY_TAG_1 = "033110";
+    public String QUERY_TAG_2 = "99999";
 
     public String FIELD = "MXSPD";
 
@@ -66,7 +68,8 @@ public class Config {
         INFLUXDB_URL = properties.getOrDefault("INFLUX_URL", INFLUXDB_URL).toString();
         OPENTSDB_URL = properties.getOrDefault("OPENTSDB_URL", OPENTSDB_URL).toString();
 
-        DEVICE = properties.getOrDefault("DEVICE", DEVICE).toString();
+        QUERY_TAG_1 = properties.getOrDefault("QUERY_TAG_1", QUERY_TAG_1).toString();
+        QUERY_TAG_2 = properties.getOrDefault("QUERY_TAG_2", QUERY_TAG_2).toString();
         FIELD = properties.getOrDefault("FIELD", FIELD).toString();
         START_TIME = Long.parseLong(properties.getOrDefault("START_TIME", START_TIME).toString());
         END_TIME = Long.parseLong(properties.getOrDefault("END_TIME", END_TIME).toString());

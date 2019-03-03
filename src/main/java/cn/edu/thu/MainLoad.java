@@ -52,6 +52,7 @@ public class MainLoad {
         }
 
         logger.info("thread num : {}", config.THREAD_NUM);
+        logger.info("using database: {}", config.DATABASE);
 
         for (int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
             executorService.submit(new ClientThread(database, config, threadId));

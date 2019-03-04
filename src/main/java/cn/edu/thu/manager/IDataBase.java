@@ -13,6 +13,8 @@ public interface IDataBase {
 
     void createSchema();
 
-    void count(String tag1, String tag2, String field, long startTime, long endTime);
+    long count(String tag1, String tag2, String field, long startTime, long endTime);
+
+    long close();
 
 }

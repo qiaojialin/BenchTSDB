@@ -40,7 +40,7 @@ public class InfluxDB implements IDataBase {
     }
 
     @Override
-    public void count(String tag1, String tag2, String field, long startTime, long endTime) {
+    public long count(String tag1, String tag2, String field, long startTime, long endTime) {
 
         String sql;
 
@@ -52,10 +52,19 @@ public class InfluxDB implements IDataBase {
 
         logger.debug("Executing sql {}", sql);
 
+        long start = System.currentTimeMillis();
+
         QueryResult queryResult = influxDB.query(new Query(sql, database));
 
         logger.debug(queryResult.toString());
 
+        return System.currentTimeMillis() - start;
+
+    }
+
+    @Override
+    public long close() {
+        return 0;
     }
 
     @Override

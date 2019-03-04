@@ -4,6 +4,7 @@ import cn.edu.thu.common.Config;
 import cn.edu.thu.manager.IDataBase;
 import cn.edu.thu.manager.InfluxDB;
 import cn.edu.thu.manager.OpenTSDB;
+import cn.edu.thu.manager.SummaryStoreM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,6 +39,7 @@ public class MainQuery {
                 database = new OpenTSDB(config);
                 break;
             case "SUMMARYSTORE":
+                database = new SummaryStoreM(config, true);
                 break;
             default:
                 throw new RuntimeException(config.DATABASE + " not supported");

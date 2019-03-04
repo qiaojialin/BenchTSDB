@@ -26,9 +26,6 @@ public class ClientThread implements Runnable {
         this.database = database;
         this.config = config;
         this.threadId = threadId;
-
-        database.createSchema();
-
     }
 
     @Override
@@ -47,7 +44,6 @@ public class ClientThread implements Runnable {
             }
 
 
-
             String[] files = dirFile.list();
             if (files == null) {
                 logger.error("{} has no file", config.DATA_DIR);
@@ -61,7 +57,13 @@ public class ClientThread implements Runnable {
 
             // datafile name begins from 0
 
-            for(int i = 0; i < files.length; i++) {
+            logger.info("total file num: {}", files.length);
+
+            for (int i = 0; i < files.length; i++) {
+
+                if(i< config.BEGINE_FILE || i > config.END_FILE) {
+                    continue;
+                }
 
                 String fileName = files[i];
 
@@ -81,8 +83,9 @@ public class ClientThread implements Runnable {
 
                 String line;
                 List<Record> records = new ArrayList<>();
+
                 while ((line = reader.readLine()) != null) {
-                    lineNum ++;
+                    lineNum++;
                     try {
                         Record record = convertToRecord(line);
                         records.add(record);
@@ -97,7 +100,10 @@ public class ClientThread implements Runnable {
 
                 totalTime += timecost;
 
+                logger.debug("processed the {}-th file in : {} ms", i, timecost);
             }
+
+            totalTime += database.close();
 
             logger.info("total produce {} files and {} lines", fileNum, lineNum);
 
@@ -123,11 +129,14 @@ public class ClientThread implements Runnable {
         //add 70 years, make sure time > 0
         String yearmoda = line.substring(14, 22).trim();
         Date date = dateFormat.parse(yearmoda);
-        Calendar rightNow = Calendar.getInstance();
-        rightNow.setTime(date);
-        rightNow.add(Calendar.YEAR, 70);
-        date = rightNow.getTime();
-        long time = date.getTime();
+
+//        Date date2 = dateFormat.parse("20400102");
+//        long t = date2.getTime();
+////        Calendar rightNow = Calendar.getInstance();
+////        rightNow.setTime(date);
+////        rightNow.add(Calendar.YEAR, 70);
+////        date = rightNow.getTime();
+        long time = date.getTime() + 2209046400000L;
 
         fields.add(Float.parseFloat(line.substring(24, 30).trim()));
         fields.add(Float.parseFloat(line.substring(35, 41).trim()));
@@ -141,7 +150,7 @@ public class ClientThread implements Runnable {
         fields.add(Float.parseFloat(line.substring(110, 116).trim()));
         fields.add(Float.parseFloat(line.substring(118, 123).trim()));
         fields.add(Float.parseFloat(line.substring(125, 130).trim()));
-        fields.add(Integer.parseInt(line.substring(132, 138).trim()));
+        fields.add(Float.parseFloat(line.substring(132, 138).trim()));
 
         return new Record(time, tag1, tag2, fields);
 

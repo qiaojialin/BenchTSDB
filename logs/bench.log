@@ -280,3 +280,767 @@
 [DEBUG] 2019-03-03 10:19:43.722 [main] cn.edu.thu.manager.InfluxDB.count:53 - Executing sql select count(MXSPD) from station where tag1 ='033110' and tag2='99999'
 [DEBUG] 2019-03-03 10:19:43.780 [main] cn.edu.thu.manager.InfluxDB.count:57 - QueryResult [results=[Result [series=[Series [name=station, tags=null, columns=[time, count], values=[[1970-01-01T00:00:00Z, 358.0]]]], error=null]], error=null]
 [INFO ] 2019-03-03 10:19:43.781 [main] cn.edu.thu.MainQuery.main:49 - query time: 60
+[DEBUG] 2019-03-03 15:56:52.669 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 15:56:52.913 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 15:56:52.915 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 15:56:52.915 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[INFO ] 2019-03-03 15:56:53.088 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.110 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.111 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.112 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.113 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.114 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.114 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.115 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.116 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.116 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.117 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.118 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.121 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.122 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.122 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.123 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.123 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.123 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.124 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.124 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.124 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.125 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.125 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.126 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.126 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.127 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[ERROR] 2019-03-03 15:56:53.133 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:74 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 15:56:53.162 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.163 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.165 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.166 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.166 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.167 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.168 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.170 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.171 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.172 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.173 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.173 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.174 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 15:56:53.175 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.175 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.175 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.175 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.176 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.176 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.176 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.176 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.177 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.177 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.177 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.177 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.178 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 15:56:53.294 [331109999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.297 [102309999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.300 [102309999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.302 [102309999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.302 [331109999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.303 [331109999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.303 [33110999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.304 [33110999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.306 [10230999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.307 [10230999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.309 [10230999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.310 [33110999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.311 [10230999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.312 [33110999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.313 [10230999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.314 [33110999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.316 [10230999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.316 [33110999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.318 [10230999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.318 [33110999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.320 [10230999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.321 [33110999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.323 [10230999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.323 [33110999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 15:56:53.327 [10230999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 15:56:53.328 [33110999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[DEBUG] 2019-03-03 16:02:31.596 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:02:31.772 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:02:31.773 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:02:31.774 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[INFO ] 2019-03-03 16:02:31.916 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.932 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.932 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.933 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.934 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.934 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.935 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.936 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.936 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.937 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.938 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.938 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.940 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.941 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.942 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.942 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.942 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.942 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.942 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.942 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.943 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.943 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.943 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.943 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.943 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.944 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[ERROR] 2019-03-03 16:02:31.947 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:74 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:02:31.968 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.969 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.969 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.971 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.971 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.972 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.973 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.975 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.976 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.977 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.977 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.978 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.979 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:02:31.979 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.980 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.980 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.981 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.981 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.982 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.982 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.982 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.982 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.983 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.983 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.983 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:31.983 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:02:32.162 [331109999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.172 [102309999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.180 [102309999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.188 [102309999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.192 [331109999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.197 [331109999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.203 [33110999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.209 [33110999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.215 [10230999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.221 [10230999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.227 [10230999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.233 [33110999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.241 [10230999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.246 [33110999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.254 [10230999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.261 [33110999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.268 [10230999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.278 [33110999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.288 [10230999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.292 [33110999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.299 [10230999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.303 [33110999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.310 [10230999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.315 [33110999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.325 [10230999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:02:32.330 [33110999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:02:32.348 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:02:32.349 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 2 files and 724 lines
+[INFO ] 2019-03-03 16:02:32.349 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:9412,time:377,ms,speed:24000,points/s
+[DEBUG] 2019-03-03 16:06:52.853 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:07:21.317 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:07:21.478 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[DEBUG] 2019-03-03 16:07:21.481 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[ERROR] 2019-03-03 16:07:21.481 [main] cn.edu.thu.manager.SummaryStoreM.count:125 - invalid streamID 33110999996
+[INFO ] 2019-03-03 16:07:21.484 [main] cn.edu.thu.MainQuery.main:51 - query time: 5
+[DEBUG] 2019-03-03 16:08:04.077 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:08:04.242 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:08:04.244 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:08:04.244 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[INFO ] 2019-03-03 16:08:04.391 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.404 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.407 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.408 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.408 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.409 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.409 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.410 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.410 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.411 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.412 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.412 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.415 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.415 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.415 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.416 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.416 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.416 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.416 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.416 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.417 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.417 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.417 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.417 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.417 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.417 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[ERROR] 2019-03-03 16:08:04.421 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:74 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:08:04.443 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.444 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.445 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.447 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.448 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.449 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.450 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.451 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.451 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.452 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.453 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.454 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.455 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:04.455 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.456 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.456 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.456 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.456 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.457 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.457 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.457 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.457 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.458 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.458 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.458 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.458 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:04.631 [331109999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.639 [102309999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.645 [102309999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.653 [102309999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.660 [331109999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.665 [331109999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.671 [33110999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.676 [33110999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.682 [10230999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.690 [10230999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.696 [10230999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.701 [33110999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.707 [10230999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.712 [33110999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.720 [10230999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.726 [33110999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.730 [10230999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.734 [33110999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.740 [10230999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.743 [33110999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.749 [10230999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.753 [33110999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.759 [10230999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.763 [33110999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.768 [10230999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:04.772 [33110999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:04.784 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:08:04.785 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 2 files and 724 lines
+[INFO ] 2019-03-03 16:08:04.785 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:9412,time:337,ms,speed:27000,points/s
+[DEBUG] 2019-03-03 16:08:15.792 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:08:15.978 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:08:15.979 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:08:15.980 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[INFO ] 2019-03-03 16:08:16.130 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.143 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.145 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.146 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.147 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.147 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.148 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.149 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.149 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.150 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.151 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.151 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.154 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.154 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.154 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.155 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.155 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.155 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.155 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.155 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.156 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.156 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.156 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.156 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.156 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.157 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[ERROR] 2019-03-03 16:08:16.160 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:74 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:08:16.182 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.183 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.184 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.185 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.185 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.186 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.187 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.190 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.191 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.192 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.193 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.194 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.194 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:08:16.195 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.195 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.196 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.196 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.196 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.197 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.197 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.197 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.197 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.197 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.198 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.198 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.198 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:08:16.407 [331109999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.415 [102309999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.425 [102309999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.433 [102309999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.440 [331109999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.445 [331109999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.449 [33110999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.459 [33110999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.466 [10230999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.475 [10230999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.480 [10230999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.484 [33110999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.488 [10230999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.492 [33110999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.497 [10230999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.501 [33110999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.507 [10230999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.514 [33110999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.523 [10230999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.528 [33110999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.534 [10230999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.538 [33110999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.544 [10230999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.548 [33110999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.554 [10230999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:08:16.559 [33110999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:08:16.575 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:08:16.575 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 2 files and 724 lines
+[INFO ] 2019-03-03 16:08:16.575 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:9412,time:387,ms,speed:24000,points/s
+[DEBUG] 2019-03-03 16:08:30.131 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:08:30.731 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1072886400000, 1084032000000, 1104422400000, 1104422400000]; tl / Tl * Sl = 11145600000 / 11145600000 * 124, Sm = 233, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
+[INFO ] 2019-03-03 16:08:30.734 [main] cn.edu.thu.manager.SummaryStoreM.count:123 - <358.0, (358.0,358.0)>
+[INFO ] 2019-03-03 16:08:30.734 [main] cn.edu.thu.MainQuery.main:51 - query time: 58
+[DEBUG] 2019-03-03 16:08:56.693 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:08:57.269 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1072886400000, 1084032000000, 1104422400000, 1104422400000]; tl / Tl * Sl = 11145600000 / 11145600000 * 124, Sm = 233, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
+[INFO ] 2019-03-03 16:08:57.271 [main] cn.edu.thu.manager.SummaryStoreM.count:123 - <358.0, (358.0,358.0)>
+[INFO ] 2019-03-03 16:08:57.281 [331109999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[DEBUG] 2019-03-03 16:09:12.902 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:09:13.444 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1072886400000, 1084032000000, 1104422400000, 1104422400000]; tl / Tl * Sl = 11145600000 / 11145600000 * 124, Sm = 233, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
+[INFO ] 2019-03-03 16:09:13.446 [main] cn.edu.thu.manager.SummaryStoreM.count:123 - <358.0, (358.0,358.0)>
+[INFO ] 2019-03-03 16:09:13.446 [main] cn.edu.thu.MainQuery.main:52 - query time: 58
+[DEBUG] 2019-03-03 16:10:56.991 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:10:57.554 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1072886400000, 1084032000000, 1104422400000, 1104422400000]; tl / Tl * Sl = 11145600000 / 11145600000 * 124, Sm = 233, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
+[INFO ] 2019-03-03 16:10:57.556 [main] cn.edu.thu.manager.SummaryStoreM.count:123 - <358.0, (358.0,358.0)>
+[INFO ] 2019-03-03 16:10:57.556 [main] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:10:57.557 [main] cn.edu.thu.MainQuery.main:52 - query time: 59
+[DEBUG] 2019-03-03 16:12:19.524 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:12:20.253 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1072886400000, 1084032000000, 1104422400000, 1104422400000]; tl / Tl * Sl = 11145600000 / 11145600000 * 124, Sm = 233, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
+[INFO ] 2019-03-03 16:12:20.257 [main] cn.edu.thu.manager.SummaryStoreM.count:122 - <358.0, (358.0,358.0)>
+[INFO ] 2019-03-03 16:12:20.258 [main] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:12:31.149 [main] cn.edu.thu.MainQuery.main:51 - query time: 10013
+[DEBUG] 2019-03-03 16:14:35.994 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:14:36.570 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1072886400000, 1084032000000, 1104422400000, 1104422400000]; tl / Tl * Sl = 11145600000 / 11145600000 * 124, Sm = 233, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
+[INFO ] 2019-03-03 16:14:36.572 [main] cn.edu.thu.manager.SummaryStoreM.count:122 - <358.0, (358.0,358.0)>
+[INFO ] 2019-03-03 16:14:36.572 [main] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:14:36.573 [main] cn.edu.thu.MainQuery.main:51 - query time: 68
+[DEBUG] 2019-03-03 16:15:38.659 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:15:39.218 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1072886400000, 1084032000000, 1104422400000, 1104422400000]; tl / Tl * Sl = 11145600000 / 11145600000 * 124, Sm = 233, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
+[INFO ] 2019-03-03 16:15:39.221 [main] cn.edu.thu.manager.SummaryStoreM.count:122 - <358.0, (358.0,358.0)>
+[INFO ] 2019-03-03 16:15:39.221 [main] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:15:39.222 [main] cn.edu.thu.MainQuery.main:51 - query time: 81
+[DEBUG] 2019-03-03 16:17:41.573 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:17:41.884 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1072886400000, 1084032000000, 1104422400000, 1104422400000]; tl / Tl * Sl = 11145600000 / 11145600000 * 124, Sm = 233, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
+[INFO ] 2019-03-03 16:17:41.885 [main] cn.edu.thu.manager.SummaryStoreM.count:117 - <358.0, (358.0,358.0)>
+[INFO ] 2019-03-03 16:17:41.886 [main] cn.edu.thu.MainQuery.main:51 - query time: 36
+[DEBUG] 2019-03-03 16:18:13.878 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:18:14.202 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1072886400000, 1084032000000, 1104422400000, 1104422400000]; tl / Tl * Sl = 11145600000 / 11145600000 * 124, Sm = 233, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
+[INFO ] 2019-03-03 16:18:14.203 [main] cn.edu.thu.manager.SummaryStoreM.count:117 - <358.0, (358.0,358.0)>
+[INFO ] 2019-03-03 16:18:14.203 [main] cn.edu.thu.MainQuery.main:51 - query time: 36
+[DEBUG] 2019-03-03 16:19:48.789 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:19:48.945 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:19:48.946 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:19:48.946 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[INFO ] 2019-03-03 16:19:49.098 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.112 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.114 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.115 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.116 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.116 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.117 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.118 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.118 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.119 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.120 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.120 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.123 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.123 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.123 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.124 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.124 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.124 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.124 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.125 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.125 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.125 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.125 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.125 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.126 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.126 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[ERROR] 2019-03-03 16:19:49.129 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:78 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:19:49.154 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.155 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.156 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.157 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.159 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.160 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.161 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.163 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.164 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.164 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.166 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.166 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.167 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:19:49.168 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.168 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.169 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.169 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.169 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.169 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.170 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.170 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.170 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.171 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.172 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.172 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.172 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:19:49.321 [331109999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.328 [102309999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.336 [102309999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.343 [102309999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.347 [331109999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.353 [331109999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.358 [33110999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.364 [33110999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.374 [10230999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.380 [10230999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.388 [10230999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.393 [33110999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.400 [10230999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.405 [33110999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.412 [10230999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.419 [33110999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.424 [10230999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.428 [33110999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.432 [10230999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.435 [33110999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.440 [10230999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.444 [33110999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.451 [10230999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.456 [33110999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.462 [10230999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:19:49.467 [33110999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:19:49.482 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:19:49.483 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 2 files and 724 lines
+[INFO ] 2019-03-03 16:19:49.483 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:9412,time:322,ms,speed:29000,points/s
+[DEBUG] 2019-03-03 16:25:34.467 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[ERROR] 2019-03-03 16:25:34.779 [main] cn.edu.thu.manager.SummaryStoreM.count:119 - 
+[INFO ] 2019-03-03 16:25:34.780 [main] cn.edu.thu.MainQuery.main:51 - query time: 32
+[DEBUG] 2019-03-03 16:25:50.098 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:25:50.268 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:25:50.269 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:25:50.270 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[INFO ] 2019-03-03 16:25:50.416 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.430 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.432 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.433 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.433 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.434 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.434 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.435 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.436 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.436 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.437 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.438 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.440 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.440 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.441 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.441 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.441 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.441 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.442 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.442 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.442 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.442 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.442 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.443 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.443 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.443 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[ERROR] 2019-03-03 16:25:50.447 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:78 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:25:50.469 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.470 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.470 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.471 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.472 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.473 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.474 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.476 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.477 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.478 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.479 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.480 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.481 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.setBufferSize:92 - 2 ingest buffers each covering 5 windows and 31 values
+[INFO ] 2019-03-03 16:25:50.481 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.482 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.482 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.482 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.482 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.483 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.483 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.483 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.483 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.484 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.484 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.484 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.484 [pool-1-thread-1] com.samsung.sra.datastore.ingest.CountBasedWBMH.append:170 - N = 0M: 0 unwritten windows, 0 unprocessed merges, 0 unissued merges, 2 empty buffers
+[INFO ] 2019-03-03 16:25:50.663 [331109999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.670 [102309999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.678 [102309999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.685 [102309999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.689 [331109999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.695 [331109999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.700 [33110999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.705 [33110999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.715 [10230999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.722 [10230999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.729 [10230999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.735 [33110999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.744 [10230999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.749 [33110999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.753 [10230999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.758 [33110999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.763 [10230999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.768 [33110999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.773 [10230999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.776 [33110999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.780 [10230999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.784 [33110999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.789 [10230999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.794 [33110999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.800 [10230999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:25:50.804 [33110999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:25:50.820 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:25:50.821 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 2 files and 724 lines
+[INFO ] 2019-03-03 16:25:50.821 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:9412,time:348,ms,speed:27000,points/s
+[DEBUG] 2019-03-03 16:27:54.880 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:27:55.044 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:27:55.045 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:27:55.045 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:27:55.209 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:78 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:27:55.402 [331109999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.409 [102309999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.415 [102309999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.423 [102309999912-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.428 [331109999910-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.432 [331109999911-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.435 [33110999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.440 [33110999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.446 [10230999990-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.452 [10230999991-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.456 [10230999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.462 [33110999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.467 [10230999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.470 [33110999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.475 [10230999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.479 [33110999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.484 [10230999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.488 [33110999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.495 [10230999998-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.499 [33110999994-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.504 [10230999999-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.509 [33110999995-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.514 [10230999996-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.518 [33110999992-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.524 [10230999997-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.1, range = [2.0, 3.0]
+[INFO ] 2019-03-03 16:27:55.528 [33110999993-merger] com.samsung.sra.datastore.ingest.Merger.run:93 - Merge chain length: avg = 2.8, range = [2.0, 4.0]
+[INFO ] 2019-03-03 16:27:55.540 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:27:55.540 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 2 files and 724 lines
+[INFO ] 2019-03-03 16:27:55.540 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:9412,time:305,ms,speed:30000,points/s
+[DEBUG] 2019-03-03 16:28:48.373 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[ERROR] 2019-03-03 16:28:48.508 [main] cn.edu.thu.manager.SummaryStoreM.<init>:35 - org.rocksdb.RocksDBException: sstore/rocksdb/CURRENT: No such file or directory
+[ERROR] 2019-03-03 16:28:48.508 [main] cn.edu.thu.manager.SummaryStoreM.count:119 - 
+[INFO ] 2019-03-03 16:28:48.509 [main] cn.edu.thu.MainQuery.main:51 - query time: 0
+[DEBUG] 2019-03-03 16:29:01.551 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:29:01.722 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:29:01.724 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:29:01.724 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:29:01.910 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:78 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:29:02.239 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:29:02.239 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 2 files and 724 lines
+[INFO ] 2019-03-03 16:29:02.239 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:9412,time:305,ms,speed:30000,points/s
+[DEBUG] 2019-03-03 16:29:30.488 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:29:30.670 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:29:30.672 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:29:30.672 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:29:30.834 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:78 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:29:31.003 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:29:31.003 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 1 files and 366 lines
+[INFO ] 2019-03-03 16:29:31.004 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:4758,time:173,ms,speed:27000,points/s
+[DEBUG] 2019-03-03 16:31:25.663 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:31:25.854 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:31:25.856 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:31:25.856 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:32:41.434 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:78 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:32:41.657 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:32:41.658 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 1 files and 366 lines
+[INFO ] 2019-03-03 16:32:41.659 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:4758,time:75596,ms,speed:0,points/s
+[DEBUG] 2019-03-03 16:32:57.030 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:32:57.259 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:32:57.265 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:32:57.265 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:33:32.965 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:78 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[DEBUG] 2019-03-03 16:33:51.858 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:33:52.049 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:33:52.051 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:33:52.051 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:34:44.892 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:79 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:34:45.085 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:34:45.085 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 1 files and 366 lines
+[INFO ] 2019-03-03 16:34:45.085 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:4758,time:52833,ms,speed:0,points/s
+[DEBUG] 2019-03-03 16:36:45.846 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[INFO ] 2019-03-03 16:36:46.269 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:36:46.270 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[WARN ] 2019-03-03 16:36:46.324 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999990 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.325 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999991 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.325 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999992 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.328 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999993 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.329 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999994 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.329 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999995 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.329 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999996 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.330 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999997 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.330 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999998 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.331 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999999 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.331 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 102309999910 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.333 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 102309999911 multiple times, ignoring
+[WARN ] 2019-03-03 16:36:46.333 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 102309999912 multiple times, ignoring
+[ERROR] 2019-03-03 16:36:46.335 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:79 - out-of-order insert in stream 10230999990: ts = 1893427200000
+[DEBUG] 2019-03-03 16:36:57.598 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:36:57.777 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:36:57.779 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:36:57.779 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:36:57.936 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:79 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:36:58.109 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:36:58.109 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 1 files and 366 lines
+[INFO ] 2019-03-03 16:36:58.109 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:4758,time:178,ms,speed:26000,points/s
+[DEBUG] 2019-03-03 16:39:07.728 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:39:07.891 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:39:07.892 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:39:07.893 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:39:08.058 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:81 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:39:08.228 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:39:08.229 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 1 files and 366 lines
+[INFO ] 2019-03-03 16:39:08.229 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:4758,time:178,ms,speed:26000,points/s
+[DEBUG] 2019-03-03 16:40:48.191 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[INFO ] 2019-03-03 16:40:48.626 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:40:48.627 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[WARN ] 2019-03-03 16:40:48.674 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999990 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.674 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999991 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.675 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999992 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.678 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999993 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.678 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999994 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.679 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999995 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.679 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999996 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.680 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999997 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.680 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999998 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.681 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 10230999999 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.681 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 102309999910 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.682 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 102309999911 multiple times, ignoring
+[WARN ] 2019-03-03 16:40:48.683 [pool-1-thread-1] com.samsung.sra.datastore.SummaryStore.registerStream:212 - Attempting to register stream 102309999912 multiple times, ignoring
+[ERROR] 2019-03-03 16:40:48.684 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:82 - out-of-order insert in stream 10230999990: ts = 1893427200000
+[DEBUG] 2019-03-03 16:40:54.070 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:40:54.242 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:40:54.244 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:40:54.244 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:40:54.412 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:82 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:40:54.614 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:40:54.614 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 1 files and 366 lines
+[INFO ] 2019-03-03 16:40:54.615 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:4758,time:206,ms,speed:23000,points/s
+[DEBUG] 2019-03-03 16:41:08.460 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:41:08.613 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:41:08.615 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:41:08.615 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:41:08.788 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:82 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:41:08.955 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:41:08.955 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:99 - total produce 1 files and 366 lines
+[INFO ] 2019-03-03 16:41:08.955 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:105 - points:4758,time:171,ms,speed:27000,points/s
+[DEBUG] 2019-03-03 16:42:20.095 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:42:20.265 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:42:20.267 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:42:20.267 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[ERROR] 2019-03-03 16:42:20.541 [pool-1-thread-1] cn.edu.thu.manager.SummaryStoreM.insertBatch:82 - out-of-order insert in stream 10230999990: ts = 1898438400000
+[INFO ] 2019-03-03 16:42:20.798 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:42:20.798 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:104 - total produce 1 files and 366 lines
+[INFO ] 2019-03-03 16:42:20.799 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:110 - points:4758,time:264,ms,speed:18000,points/s
+[DEBUG] 2019-03-03 16:43:35.521 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:43:35.698 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:43:35.700 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:43:35.700 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[DEBUG] 2019-03-03 16:44:23.751 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:44:23.940 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:44:23.942 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:44:23.942 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[DEBUG] 2019-03-03 16:47:26.422 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:47:26.611 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:47:26.613 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:47:26.613 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[DEBUG] 2019-03-03 16:47:49.001 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:47:49.177 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:47:49.179 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:47:49.179 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[DEBUG] 2019-03-03 16:48:00.081 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:48:00.246 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:48:00.247 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:48:00.248 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[DEBUG] 2019-03-03 16:48:02.751 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:48:02.933 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:48:02.934 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:48:02.934 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[DEBUG] 2019-03-03 16:48:24.167 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:48:24.342 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:48:24.343 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:48:24.344 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[DEBUG] 2019-03-03 16:49:24.883 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:49:25.047 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:49:25.049 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:49:25.049 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[INFO ] 2019-03-03 16:49:25.509 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:49:25.510 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:104 - total produce 1 files and 366 lines
+[INFO ] 2019-03-03 16:49:25.510 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:110 - points:4758,time:284,ms,speed:16000,points/s
+[DEBUG] 2019-03-03 16:49:50.789 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:49:50.962 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:49:50.963 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:49:50.964 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[INFO ] 2019-03-03 16:49:51.354 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:49:51.355 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:100 - total produce 1 files and 366 lines
+[INFO ] 2019-03-03 16:49:51.355 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:106 - points:4758,time:248,ms,speed:19000,points/s
+[DEBUG] 2019-03-03 16:50:05.542 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:50:05.717 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-03 16:50:05.718 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-03 16:50:05.719 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[INFO ] 2019-03-03 16:50:06.256 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-03 16:50:06.257 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:100 - total produce 2 files and 724 lines
+[INFO ] 2019-03-03 16:50:06.257 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:106 - points:9412,time:383,ms,speed:24000,points/s
+[DEBUG] 2019-03-03 16:50:24.182 [main] cn.edu.thu.common.Config.<init>:51 - construct config without config file
+[DEBUG] 2019-03-03 16:50:24.508 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1893484839000, 1904112000000, 1924934400000, 1924934400000]; tl / Tl * Sl = 10627161000 / 10713600000 * 124, Sm = 241, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
+[INFO ] 2019-03-03 16:50:24.510 [main] cn.edu.thu.manager.SummaryStoreM.count:117 - <364.9995486111111, (242.0,366.0)>
+[INFO ] 2019-03-03 16:50:24.510 [main] cn.edu.thu.MainQuery.main:51 - query time: 36

@@ -73,7 +73,7 @@ public class OpenTSDB implements IDataBase {
     }
 
     @Override
-    public void count(String tag1, String tag2, String field, long startTime, long endTime) {
+    public long count(String tag1, String tag2, String field, long startTime, long endTime) {
         Map<String, Object> queryMap = new HashMap<>();
         queryMap.put("msResolution", true);
 
@@ -103,15 +103,22 @@ public class OpenTSDB implements IDataBase {
         queryMap.put("queries", queries);
 
         String sql = JSON.toJSONString(queryMap);
+
+        long start = System.currentTimeMillis();
+
         try {
             String response = ThuHttpRequest.sendPost(queryUrl, sql);
             logger.debug(response);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return System.currentTimeMillis() - start;
     }
 
-
-
+    @Override
+    public long close() {
+        return 0;
+    }
 
 }

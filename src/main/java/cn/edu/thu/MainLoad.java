@@ -5,6 +5,7 @@ import cn.edu.thu.common.Config;
 import cn.edu.thu.manager.IDataBase;
 import cn.edu.thu.manager.InfluxDB;
 import cn.edu.thu.manager.OpenTSDB;
+import cn.edu.thu.manager.SummaryStoreM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,6 +47,7 @@ public class MainLoad {
                 database = new OpenTSDB(config);
                 break;
             case "SUMMARYSTORE":
+                database = new SummaryStoreM(config, false);
                 break;
             default:
                 throw new RuntimeException(config.DATABASE + " not supported");
@@ -53,6 +55,8 @@ public class MainLoad {
 
         logger.info("thread num : {}", config.THREAD_NUM);
         logger.info("using database: {}", config.DATABASE);
+
+        database.createSchema();
 
         for (int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
             executorService.submit(new ClientThread(database, config, threadId));

@@ -13,14 +13,17 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE
-    public String DATABASE = "INFLUXDB";
+    public String DATABASE = "SUMMARYSTORE";
 
-    public int THREAD_NUM = 2;
+    public int THREAD_NUM = 1;
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
     public String OPENTSDB_URL = "http://127.0.0.1:4242";
+    public String SUMMARYSTORE_PATH = "sstore";
 
     public String DATA_DIR = "data";
+    public int BEGINE_FILE = 6717;
+    public int END_FILE = 25638;
 
     public String tag1 = "tag1";
     public String tag2 = "tag2";
@@ -32,15 +35,15 @@ public class Config {
 
     // for query
 
-    public String QUERY_TAG_1 = "033110";
+    public String QUERY_TAG_1 = "010230";
     public String QUERY_TAG_2 = "99999";
 
     public String FIELD = "MXSPD";
 
     //  1072972800000L, -1
-    public long START_TIME = 1072972800000L;
+    public long START_TIME = 1893484839000L;
 
-    public long END_TIME = -1;
+    public long END_TIME = 1924934439000L;
 
 
     public Config() {
@@ -67,6 +70,9 @@ public class Config {
         DATA_DIR = properties.getOrDefault("DATA_DIR", DATA_DIR).toString();
         INFLUXDB_URL = properties.getOrDefault("INFLUX_URL", INFLUXDB_URL).toString();
         OPENTSDB_URL = properties.getOrDefault("OPENTSDB_URL", OPENTSDB_URL).toString();
+        SUMMARYSTORE_PATH = properties.getOrDefault("SUMMARYSTORE_PATH", SUMMARYSTORE_PATH).toString();
+        BEGINE_FILE = Integer.parseInt(properties.getOrDefault("BEGINE_FILE", BEGINE_FILE).toString());
+        END_FILE = Integer.parseInt(properties.getOrDefault("END_FILE", END_FILE).toString());
 
         QUERY_TAG_1 = properties.getOrDefault("QUERY_TAG_1", QUERY_TAG_1).toString();
         QUERY_TAG_2 = properties.getOrDefault("QUERY_TAG_2", QUERY_TAG_2).toString();

@@ -1044,3 +1044,26 @@
 [DEBUG] 2019-03-03 16:50:24.508 [main] com.samsung.sra.datastore.aggregates.SumEstimator.<init>:70 - [t0, tm0, tm1, te] = [1893484839000, 1904112000000, 1924934400000, 1924934400000]; tl / Tl * Sl = 10627161000 / 10713600000 * 124, Sm = 241, tr / Tr * Sr = 1 / 1 * 1; Slandmark = 0
 [INFO ] 2019-03-03 16:50:24.510 [main] cn.edu.thu.manager.SummaryStoreM.count:117 - <364.9995486111111, (242.0,366.0)>
 [INFO ] 2019-03-03 16:50:24.510 [main] cn.edu.thu.MainQuery.main:51 - query time: 36
+[DEBUG] 2019-03-05 16:22:19.448 [main] cn.edu.thu.common.Config.<init>:53 - construct config without config file
+[INFO ] 2019-03-05 16:22:19.460 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-05 16:22:19.462 [main] cn.edu.thu.MainLoad.main:57 - using database: OPENTSDB
+[INFO ] 2019-03-05 16:22:19.465 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:60 - total file num: 2
+[DEBUG] 2019-03-05 16:22:20.615 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:103 - processed the 0-th file in : 814 ms
+[DEBUG] 2019-03-05 16:22:20.816 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:103 - processed the 1-th file in : 124 ms
+[INFO ] 2019-03-05 16:22:20.817 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:108 - total produce 2 files and 724 lines
+[INFO ] 2019-03-05 16:22:20.817 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:114 - points:9412,time:939,ms,speed:10000,points/s
+[DEBUG] 2019-03-05 16:22:35.491 [main] cn.edu.thu.common.Config.<init>:53 - construct config without config file
+[DEBUG] 2019-03-05 16:22:35.867 [main] cn.edu.thu.manager.OpenTSDB.count:111 - [{"metric":"MXSPD","tags":{"tag1":"010230","tag2":"99999"},"aggregateTags":[],"dps":{"1918425600061":1.0}}]
+[INFO ] 2019-03-05 16:22:35.869 [main] cn.edu.thu.MainQuery.main:51 - query time: 373
+[DEBUG] 2019-03-05 16:26:00.516 [main] cn.edu.thu.common.Config.<init>:53 - construct config without config file
+[DEBUG] 2019-03-05 16:26:00.667 [main] cn.edu.thu.manager.OpenTSDB.count:111 - [{"metric":"MXSPD","tags":{"tag1":"010230","tag2":"99999"},"aggregateTags":[],"dps":{"1918425600061":1.0}}]
+[INFO ] 2019-03-05 16:26:00.669 [main] cn.edu.thu.MainQuery.main:51 - query time: 146
+[DEBUG] 2019-03-05 16:26:27.537 [main] cn.edu.thu.common.Config.<init>:53 - construct config without config file
+[DEBUG] 2019-03-05 16:26:27.733 [main] cn.edu.thu.manager.OpenTSDB.count:111 - [{"metric":"MXSPD","tags":{"tag1":"010230","tag2":"99999"},"aggregateTags":[],"dps":{"1918425600061":463.8}}]
+[INFO ] 2019-03-05 16:26:27.735 [main] cn.edu.thu.MainQuery.main:51 - query time: 191
+[DEBUG] 2019-03-05 16:31:10.198 [main] cn.edu.thu.common.Config.<init>:53 - construct config without config file
+[DEBUG] 2019-03-05 16:31:10.343 [main] cn.edu.thu.manager.OpenTSDB.count:111 - []
+[INFO ] 2019-03-05 16:31:10.344 [main] cn.edu.thu.MainQuery.main:51 - query time: 142
+[DEBUG] 2019-03-05 16:31:33.020 [main] cn.edu.thu.common.Config.<init>:53 - construct config without config file
+[DEBUG] 2019-03-05 16:31:33.197 [main] cn.edu.thu.manager.OpenTSDB.count:111 - [{"metric":"MXSPD","tags":{"tag1":"010230","tag2":"99999"},"aggregateTags":[],"dps":{"1918425600061":20.0}}]
+[INFO ] 2019-03-05 16:31:33.200 [main] cn.edu.thu.MainQuery.main:51 - query time: 175

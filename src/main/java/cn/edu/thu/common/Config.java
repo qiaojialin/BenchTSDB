@@ -13,7 +13,7 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE
-    public String DATABASE = "SUMMARYSTORE";
+    public String DATABASE = "OPENTSDB";
 
     public int THREAD_NUM = 1;
 
@@ -22,8 +22,8 @@ public class Config {
     public String SUMMARYSTORE_PATH = "sstore";
 
     public String DATA_DIR = "data";
-    public int BEGINE_FILE = 6717;
-    public int END_FILE = 25638;
+    public int BEGINE_FILE = 0;
+    public int END_FILE = 1000000;
 
     public String tag1 = "tag1";
     public String tag2 = "tag2";
@@ -40,7 +40,7 @@ public class Config {
 
     public String FIELD = "MXSPD";
 
-    //  1072972800000L, -1
+    //  1893484839000L, -1
     public long START_TIME = 1893484839000L;
 
     public long END_TIME = 1924934439000L;

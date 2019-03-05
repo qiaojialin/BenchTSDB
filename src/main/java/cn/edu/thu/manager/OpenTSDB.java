@@ -85,9 +85,8 @@ public class OpenTSDB implements IDataBase {
         subQuery.put("tags", subsubQuery);
 
         if(startTime == -1 || endTime == -1) {
-            queryMap.put("start", 0);
-            queryMap.remove("end");
-            subQuery.put("downsample", (100000L) + "ms-max");
+            logger.error("do not support");
+            return -1;
         } else {
             queryMap.put("start", startTime - 1);
             queryMap.put("end", endTime + 1);
@@ -96,7 +95,7 @@ public class OpenTSDB implements IDataBase {
         }
 
         subQuery.put("metric", field);
-        subQuery.put("aggregator", "count");
+        subQuery.put("aggregator", "max");
 
         List<Map<String, Object>> queries = new ArrayList<>();
         queries.add(subQuery);

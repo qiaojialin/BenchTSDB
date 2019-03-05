@@ -87,11 +87,11 @@ public class OpenTSDB implements IDataBase {
         if(startTime == -1 || endTime == -1) {
             queryMap.put("start", 0);
             queryMap.remove("end");
-            subQuery.put("downsample", (100000L) + "ms-count");
+            subQuery.put("downsample", (100000L) + "ms-max");
         } else {
             queryMap.put("start", startTime - 1);
             queryMap.put("end", endTime + 1);
-            subQuery.put("downsample", (endTime - startTime + 1) + "ms-count");
+            subQuery.put("downsample", (endTime - startTime + 1) + "ms-max");
 
         }
 

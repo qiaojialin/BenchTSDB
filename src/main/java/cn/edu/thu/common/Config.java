@@ -13,7 +13,7 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE
-    public String DATABASE = "OPENTSDB";
+    public String DATABASE = "SUMMARYSTORE";
 
     public int THREAD_NUM = 1;
 

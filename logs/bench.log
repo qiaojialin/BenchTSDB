@@ -1067,3 +1067,12 @@
 [DEBUG] 2019-03-05 16:31:33.020 [main] cn.edu.thu.common.Config.<init>:53 - construct config without config file
 [DEBUG] 2019-03-05 16:31:33.197 [main] cn.edu.thu.manager.OpenTSDB.count:111 - [{"metric":"MXSPD","tags":{"tag1":"010230","tag2":"99999"},"aggregateTags":[],"dps":{"1918425600061":20.0}}]
 [INFO ] 2019-03-05 16:31:33.200 [main] cn.edu.thu.MainQuery.main:51 - query time: 175
+[DEBUG] 2019-03-06 09:30:29.662 [main] cn.edu.thu.common.Config.<init>:53 - construct config without config file
+[DEBUG] 2019-03-06 09:30:29.886 [main] com.samsung.sra.datastore.SummaryStore.deserializeMetadata:182 - Could not read metadata, initializing assuming empty store
+[INFO ] 2019-03-06 09:30:29.887 [main] cn.edu.thu.MainLoad.main:56 - thread num : 1
+[INFO ] 2019-03-06 09:30:29.888 [main] cn.edu.thu.MainLoad.main:57 - using database: SUMMARYSTORE
+[INFO ] 2019-03-06 09:30:29.890 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:60 - total file num: 1
+[DEBUG] 2019-03-06 09:30:30.178 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:103 - processed the 0-th file in : 135 ms
+[INFO ] 2019-03-06 09:30:30.284 [pool-1-thread-1] com.samsung.sra.datastore.storage.RocksDBBackingStore.close:372 - rocksDB closed
+[INFO ] 2019-03-06 09:30:30.284 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:108 - total produce 1 files and 358 lines
+[INFO ] 2019-03-06 09:30:30.285 [pool-1-thread-1] cn.edu.thu.client.ClientThread.run:114 - points:4654,time:242,ms,speed:19000,points/s

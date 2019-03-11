@@ -57,9 +57,9 @@ public class OpenTSDB implements IDataBase {
             model.setMetric(config.FIELDS[i]);
             model.setTimestamp(record.timestamp);
             model.setValue(record.fields.get(i));
+
             Map<String, String> tags = new HashMap<>();
-            tags.put(config.tag1, record.tag1);
-            tags.put(config.tag2, record.tag2);
+            tags.put(config.TAG_NAME, record.tag);
             model.setTags(tags);
             models.addLast(model);
         }
@@ -73,15 +73,15 @@ public class OpenTSDB implements IDataBase {
     }
 
     @Override
-    public long count(String tag1, String tag2, String field, long startTime, long endTime) {
+    public long count(String tagValue, String field, long startTime, long endTime) {
         Map<String, Object> queryMap = new HashMap<>();
         queryMap.put("msResolution", true);
 
         Map<String, Object> subQuery = new HashMap<>();
 
-        Map<String, Object> subsubQuery = new HashMap<>();
-        subsubQuery.put(config.tag1, tag1);
-        subsubQuery.put(config.tag2, tag2);
+        // query tag
+        Map<String, String> subsubQuery = new HashMap<>();
+        subsubQuery.put(config.TAG_NAME, tagValue);
         subQuery.put("tags", subsubQuery);
 
         if(startTime == -1 || endTime == -1) {

@@ -3,6 +3,7 @@ package cn.edu.thu.manager;
 import cn.edu.thu.common.Record;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IDataBase {
 
@@ -13,7 +14,7 @@ public interface IDataBase {
 
     void createSchema();
 
-    long count(String tag1, String tag2, String field, long startTime, long endTime);
+    long count(String tagValue, String field, long startTime, long endTime);
 
     long close();
 

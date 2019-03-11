@@ -5,7 +5,12 @@ import cn.edu.thu.common.Config;
 import cn.edu.thu.manager.IDataBase;
 import cn.edu.thu.manager.InfluxDB;
 import cn.edu.thu.manager.OpenTSDB;
-import cn.edu.thu.manager.SummaryStoreM;
+//import cn.edu.thu.manager.SummaryStoreM;
+import cn.edu.thu.manager.WaterWheel;
+import cn.edu.thu.parser.GeolifeParser;
+import cn.edu.thu.parser.IParser;
+import cn.edu.thu.parser.NOAAParser;
+import cn.edu.thu.parser.RDFParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +43,7 @@ public class MainLoad {
 
         ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
 
-        IDataBase database = null;
+        IDataBase database;
         switch (config.DATABASE) {
             case "INFLUXDB":
                 database = new InfluxDB(config);
@@ -46,23 +51,41 @@ public class MainLoad {
             case "OPENTSDB":
                 database = new OpenTSDB(config);
                 break;
-            case "SUMMARYSTORE":
-                database = new SummaryStoreM(config, false);
+            case "WATERWHEEL":
+                database = new WaterWheel(config);
                 break;
             default:
                 throw new RuntimeException(config.DATABASE + " not supported");
+        }
+        database.createSchema();
+
+
+
+        IParser parser;
+        switch (config.DATA_SET) {
+            case "NOAA":
+                parser = new NOAAParser();
+                break;
+            case "GEO":
+                parser = new GeolifeParser();
+                break;
+            case "RDF":
+                parser = new RDFParser();
+                break;
+            default:
+                throw new RuntimeException(config.DATA_SET + " not supported");
         }
 
         logger.info("thread num : {}", config.THREAD_NUM);
         logger.info("using database: {}", config.DATABASE);
 
-        database.createSchema();
-
         for (int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
-            executorService.submit(new ClientThread(database, config, threadId));
+            executorService.submit(new ClientThread(parser, config, threadId));
         }
 
         executorService.shutdown();
+
+//        database.close();
 
     }
 }

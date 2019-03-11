@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class InfluxDB implements IDataBase {
@@ -23,9 +24,9 @@ public class InfluxDB implements IDataBase {
     private String database = "test";
     private Config config;
 
-    private static String COUNT_SQL_WITH_TIME = "select count(%s) from %s where time >= %dms and time <= %dms and %s='%s' and %s='%s'";
+    private static String COUNT_SQL_WITH_TIME = "select count(%s) from %s where time >= %dms and time <= %dms and %s='%s'";
 
-    private static String COUNT_SQL_WITHOUT_TIME = "select count(%s) from %s where %s ='%s' and %s='%s'";
+    private static String COUNT_SQL_WITHOUT_TIME = "select count(%s) from %s where %s ='%s'";
 
 
     public InfluxDB(Config config) {
@@ -40,14 +41,14 @@ public class InfluxDB implements IDataBase {
     }
 
     @Override
-    public long count(String tag1, String tag2, String field, long startTime, long endTime) {
+    public long count(String tagValue, String field, long startTime, long endTime) {
 
         String sql;
 
         if(startTime == -1 || endTime == -1) {
-            sql = String.format(COUNT_SQL_WITHOUT_TIME, field, measurementId, config.tag1, tag1, config.tag2, tag2);
+            sql = String.format(COUNT_SQL_WITHOUT_TIME, field, measurementId, config.TAG_NAME, tagValue);
         } else {
-            sql = String.format(COUNT_SQL_WITH_TIME, field, measurementId, startTime, endTime, config.tag1, tag1, config.tag2, tag2);
+            sql = String.format(COUNT_SQL_WITH_TIME, field, measurementId, startTime, endTime, config.TAG_NAME, tagValue);
         }
 
         logger.debug("Executing sql {}", sql);
@@ -101,9 +102,8 @@ public class InfluxDB implements IDataBase {
 
     private Point convertRecord(Record record) {
 
-        HashMap<String, String> tagSet = new HashMap<>();
-        tagSet.put(config.tag1, record.tag1);
-        tagSet.put(config.tag2, record.tag2);
+        Map<String, String> tagSet = new HashMap<>();
+        tagSet.put(config.TAG_NAME, record.tag);
 
         HashMap<String, Object> fieldSet = new HashMap<>();
         for(int i = 0; i < config.FIELDS.length; i++) {

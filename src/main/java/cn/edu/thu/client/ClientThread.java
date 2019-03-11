@@ -3,15 +3,14 @@ package cn.edu.thu.client;
 import cn.edu.thu.common.Record;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.manager.IDataBase;
+import cn.edu.thu.manager.InfluxDB;
+import cn.edu.thu.manager.OpenTSDB;
+import cn.edu.thu.manager.WaterWheel;
+import cn.edu.thu.parser.IParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ClientThread implements Runnable {
@@ -20,10 +19,24 @@ public class ClientThread implements Runnable {
     private IDataBase database;
     private Config config;
     private int threadId;
-    DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+    private IParser parser;
 
-    public ClientThread(IDataBase database, Config config, int threadId) {
-        this.database = database;
+
+    public ClientThread(IParser parser, Config config, int threadId) {
+        switch (config.DATABASE) {
+            case "INFLUXDB":
+                database = new InfluxDB(config);
+                break;
+            case "OPENTSDB":
+                database = new OpenTSDB(config);
+                break;
+            case "WATERWHEEL":
+                database = new WaterWheel(config);
+                break;
+            default:
+                throw new RuntimeException(config.DATABASE + " not supported");
+        }
+        this.parser = parser;
         this.config = config;
         this.threadId = threadId;
     }
@@ -43,31 +56,25 @@ public class ClientThread implements Runnable {
                 return;
             }
 
+            List<String> files = new ArrayList<>();
+            getAllFiles(config.DATA_DIR, files);
 
-            String[] files = dirFile.list();
-            if (files == null) {
-                logger.error("{} has no file", config.DATA_DIR);
-                System.exit(1);
-            }
-
-            Arrays.sort(files);
+            Collections.sort(files);
 
             long lineNum = 0;
             int fileNum = 0;
 
             // datafile name begins from 0
 
-            logger.info("total file num: {}", files.length);
+            logger.info("total file num: {}", files.size());
 
-            for (int i = 0; i < files.length; i++) {
+            for (int i = 0; i < files.size(); i++) {
 
                 if(i< config.BEGINE_FILE || i > config.END_FILE) {
                     continue;
                 }
 
-                String fileName = files[i];
-
-                String filePath = config.DATA_DIR + "/" + fileName;
+                String filePath = files.get(i);
 
                 // only read the file that can be exacted division by threadid
                 if (i % config.THREAD_NUM != threadId) {
@@ -76,24 +83,9 @@ public class ClientThread implements Runnable {
 
                 fileNum++;
 
-                BufferedReader reader = new BufferedReader(new FileReader(filePath));
+                List<Record> records = parser.parse(filePath);
 
-                // skip first line, which is the metadata
-                reader.readLine();
-
-                String line;
-                List<Record> records = new ArrayList<>();
-
-                while ((line = reader.readLine()) != null) {
-                    lineNum++;
-                    try {
-                        Record record = convertToRecord(line);
-                        records.add(record);
-                    } catch (ParseException ignored) {
-                    }
-                }
-
-                reader.close();
+                lineNum += records.size();
 
                 // write all data in this file to database
                 long timecost = database.insertBatch(records);
@@ -114,46 +106,25 @@ public class ClientThread implements Runnable {
             logger.info("points:{},time:{},ms,speed:{},points/s", totalPoints, totalTime, speed);
 
         } catch (Exception e) {
-            logger.error(e.toString());
+            e.printStackTrace();
         }
 
     }
 
-    private Record convertToRecord(String line) throws ParseException {
 
-        List<Object> fields = new ArrayList<>();
-
-        String tag1 = line.substring(0, 6).trim();
-        String tag2 = line.substring(7, 12).trim();
-
-        //add 70 years, make sure time > 0
-        String yearmoda = line.substring(14, 22).trim();
-        Date date = dateFormat.parse(yearmoda);
-
-//        Date date2 = dateFormat.parse("20400102");
-//        long t = date2.getTime();
-////        Calendar rightNow = Calendar.getInstance();
-////        rightNow.setTime(date);
-////        rightNow.add(Calendar.YEAR, 70);
-////        date = rightNow.getTime();
-        long time = date.getTime() + 2209046400000L;
-
-        fields.add(Float.parseFloat(line.substring(24, 30).trim()));
-        fields.add(Float.parseFloat(line.substring(35, 41).trim()));
-        fields.add(Float.parseFloat(line.substring(46, 52).trim()));
-        fields.add(Float.parseFloat(line.substring(57, 63).trim()));
-        fields.add(Float.parseFloat(line.substring(68, 73).trim()));
-        fields.add(Float.parseFloat(line.substring(78, 83).trim()));
-        fields.add(Float.parseFloat(line.substring(88, 93).trim()));
-        fields.add(Float.parseFloat(line.substring(95, 100).trim()));
-        fields.add(Float.parseFloat(line.substring(102, 108).trim()));
-        fields.add(Float.parseFloat(line.substring(110, 116).trim()));
-        fields.add(Float.parseFloat(line.substring(118, 123).trim()));
-        fields.add(Float.parseFloat(line.substring(125, 130).trim()));
-        fields.add(Float.parseFloat(line.substring(132, 138).trim()));
-
-        return new Record(time, tag1, tag2, fields);
-
+    private void getAllFiles(String strPath, List<String> files) {
+        File f = new File(strPath);
+        if (f.isDirectory()) {
+            File[] fs = f.listFiles();
+            for (File f1 : fs) {
+                String fsPath = f1.getAbsolutePath();
+                getAllFiles(fsPath, files);
+            }
+        } else if (f.isFile()) {
+            files.add(f.getAbsolutePath());
+        }
     }
+
+
 
 }

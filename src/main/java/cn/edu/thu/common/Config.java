@@ -18,11 +18,11 @@ public class Config {
     public String DATABASE = "INFLUXDB";
 
     // NOAA, GEO, RDF
-    public String DATA_SET = "RDF";
+    public String DATA_SET = "NOAA";
 
     public String TAG_NAME = "deviceId";
 
-    public int THREAD_NUM = 1;
+    public int THREAD_NUM = 10;
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
     public String OPENTSDB_URL = "http://127.0.0.1:4242";
@@ -30,7 +30,7 @@ public class Config {
     public String SUMMARYSTORE_PATH = "sstore";
 
     // noaa, geolife
-    public String DATA_DIR = "data/rdf";
+    public String DATA_DIR = "data/noaa";
     public int BEGINE_FILE = 0;
     public int END_FILE = 1000000;
 

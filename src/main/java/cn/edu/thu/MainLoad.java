@@ -2,21 +2,13 @@ package cn.edu.thu;
 
 import cn.edu.thu.client.ClientThread;
 import cn.edu.thu.common.Config;
-import cn.edu.thu.manager.IDataBase;
-import cn.edu.thu.manager.InfluxDB;
-import cn.edu.thu.manager.OpenTSDB;
-//import cn.edu.thu.manager.SummaryStoreM;
-import cn.edu.thu.manager.WaterWheel;
-import cn.edu.thu.parser.GeolifeParser;
-import cn.edu.thu.parser.IParser;
-import cn.edu.thu.parser.NOAAParser;
-import cn.edu.thu.parser.RDFParser;
+import cn.edu.thu.common.Statistics;
+import cn.edu.thu.manager.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.FileInputStream;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 
 public class MainLoad {
@@ -26,6 +18,8 @@ public class MainLoad {
     public static void main(String args[]) {
 
         //args = new String[]{"conf/config.properties"};
+
+        final Statistics statistics = new Statistics();
 
         Config config;
         if(args.length > 0) {
@@ -41,8 +35,6 @@ public class MainLoad {
             config = new Config();
         }
 
-        ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
-
         IDataBase database;
         switch (config.DATABASE) {
             case "INFLUXDB":
@@ -50,6 +42,9 @@ public class MainLoad {
                 break;
             case "OPENTSDB":
                 database = new OpenTSDB(config);
+                break;
+            case "SUMMARYSTORE":
+                database = new SummaryStoreM(config, false);
                 break;
             case "WATERWHEEL":
                 database = new WaterWheel(config);
@@ -59,33 +54,28 @@ public class MainLoad {
         }
         database.createSchema();
 
-
-
-        IParser parser;
-        switch (config.DATA_SET) {
-            case "NOAA":
-                parser = new NOAAParser();
-                break;
-            case "GEO":
-                parser = new GeolifeParser();
-                break;
-            case "RDF":
-                parser = new RDFParser();
-                break;
-            default:
-                throw new RuntimeException(config.DATA_SET + " not supported");
-        }
-
         logger.info("thread num : {}", config.THREAD_NUM);
         logger.info("using database: {}", config.DATABASE);
 
-        for (int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
-            executorService.submit(new ClientThread(parser, config, threadId));
+        ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
+        for(int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
+            executorService.submit(new ClientThread(config, threadId, statistics));
         }
 
         executorService.shutdown();
+        logger.info("@+++<<<: shutdown thread pool");
 
-//        database.close();
+        // wait for all threads done
+        boolean allDown = false;
+        while (!allDown) {
+            if(executorService.isTerminated()) {
+                allDown = true;
+            }
+        }
+
+        logger.info("All done! Total lines:{}, points:{}, time:{}ms, speed:{} ", statistics.lineNum, statistics.pointNum,
+                statistics.timeCost, statistics.speed());
 
     }
+
 }

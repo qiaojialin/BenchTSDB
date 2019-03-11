@@ -2,11 +2,12 @@ package cn.edu.thu.client;
 
 import cn.edu.thu.common.Record;
 import cn.edu.thu.common.Config;
-import cn.edu.thu.manager.IDataBase;
-import cn.edu.thu.manager.InfluxDB;
-import cn.edu.thu.manager.OpenTSDB;
-import cn.edu.thu.manager.WaterWheel;
+import cn.edu.thu.common.Statistics;
+import cn.edu.thu.manager.*;
+import cn.edu.thu.parser.GeolifeParser;
 import cn.edu.thu.parser.IParser;
+import cn.edu.thu.parser.NOAAParser;
+import cn.edu.thu.parser.RDFParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,9 +21,13 @@ public class ClientThread implements Runnable {
     private Config config;
     private int threadId;
     private IParser parser;
+    private final Statistics statistics;
 
+    public ClientThread(Config config, int threadId, final Statistics statistics) {
+        this.config = config;
+        this.threadId = threadId;
+        this.statistics = statistics;
 
-    public ClientThread(IParser parser, Config config, int threadId) {
         switch (config.DATABASE) {
             case "INFLUXDB":
                 database = new InfluxDB(config);
@@ -30,24 +35,38 @@ public class ClientThread implements Runnable {
             case "OPENTSDB":
                 database = new OpenTSDB(config);
                 break;
+            case "SUMMARYSTORE":
+                database = new SummaryStoreM(config, false);
+                break;
             case "WATERWHEEL":
                 database = new WaterWheel(config);
                 break;
             default:
                 throw new RuntimeException(config.DATABASE + " not supported");
         }
-        this.parser = parser;
-        this.config = config;
-        this.threadId = threadId;
+
+        switch (config.DATA_SET) {
+            case "NOAA":
+                parser = new NOAAParser();
+                break;
+            case "GEO":
+                parser = new GeolifeParser();
+                break;
+            case "RDF":
+                parser = new RDFParser();
+                break;
+            default:
+                throw new RuntimeException(config.DATA_SET + " not supported");
+        }
+
     }
 
     @Override
     public void run() {
 
-        //read file
+        logger.debug("@+++<<<: running!");
 
         long totalTime = 1;
-        long totalPoints = 0;
 
         try {
             File dirFile = new File(config.DATA_DIR);
@@ -63,8 +82,6 @@ public class ClientThread implements Runnable {
 
             long lineNum = 0;
             int fileNum = 0;
-
-            // datafile name begins from 0
 
             logger.info("total file num: {}", files.size());
 
@@ -99,11 +116,12 @@ public class ClientThread implements Runnable {
 
             logger.info("total produce {} files and {} lines", fileNum, lineNum);
 
-            // points per second
-            totalPoints = lineNum * config.FIELDS.length;
-            long speed = totalPoints / totalTime * 1000;
-
-            logger.info("points:{},time:{},ms,speed:{},points/s", totalPoints, totalTime, speed);
+            synchronized (statistics) {
+                statistics.fileNum += fileNum;
+                statistics.timeCost += totalTime;
+                statistics.lineNum += lineNum;
+                statistics.pointNum += lineNum * config.FIELDS.length;
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

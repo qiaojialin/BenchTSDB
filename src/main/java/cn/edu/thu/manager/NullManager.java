@@ -27,6 +27,11 @@ public class NullManager implements IDataBase{
     }
 
     @Override
+    public long flush() {
+        return 0;
+    }
+
+    @Override
     public long close() {
         return 0;
     }

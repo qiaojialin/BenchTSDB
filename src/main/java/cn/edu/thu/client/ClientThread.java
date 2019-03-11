@@ -23,27 +23,28 @@ public class ClientThread implements Runnable {
     private IParser parser;
     private final Statistics statistics;
 
-    public ClientThread(Config config, int threadId, final Statistics statistics) {
+    public ClientThread(IDataBase database, Config config, int threadId, final Statistics statistics) {
+        this.database = database;
         this.config = config;
         this.threadId = threadId;
         this.statistics = statistics;
 
-        switch (config.DATABASE) {
-            case "INFLUXDB":
-                database = new InfluxDB(config);
-                break;
-            case "OPENTSDB":
-                database = new OpenTSDB(config);
-                break;
-            case "SUMMARYSTORE":
-                database = new SummaryStoreM(config, false);
-                break;
-            case "WATERWHEEL":
-                database = new WaterWheel(config);
-                break;
-            default:
-                throw new RuntimeException(config.DATABASE + " not supported");
-        }
+//        switch (config.DATABASE) {
+//            case "INFLUXDB":
+//                database = new InfluxDB(config);
+//                break;
+//            case "OPENTSDB":
+//                database = new OpenTSDB(config);
+//                break;
+//            case "SUMMARYSTORE":
+//                database = new SummaryStoreM(config, false);
+//                break;
+//            case "WATERWHEEL":
+//                database = new WaterWheel(config);
+//                break;
+//            default:
+//                throw new RuntimeException(config.DATABASE + " not supported");
+//        }
 
         switch (config.DATA_SET) {
             case "NOAA":
@@ -112,7 +113,7 @@ public class ClientThread implements Runnable {
                 logger.debug("processed the {}-th file in : {} ms", i, timecost);
             }
 
-            totalTime += database.close();
+            totalTime += database.flush();
 
             logger.info("total produce {} files and {} lines", fileNum, lineNum);
 

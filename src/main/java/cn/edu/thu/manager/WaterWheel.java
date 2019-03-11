@@ -136,6 +136,11 @@ public class WaterWheel implements IDataBase {
     }
 
     @Override
+    public long flush() {
+        return 0;
+    }
+
+    @Override
     public long close() {
         try {
             if (oneTuplePerTransferIngestionClient != null) {

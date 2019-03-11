@@ -26,7 +26,7 @@ public class SummaryStoreM implements IDataBase {
         this.config = config;
         this.storePath = config.SUMMARYSTORE_PATH;
         try {
-            if(forQuery) {
+            if (forQuery) {
                 store = new SummaryStore(storePath, new SummaryStore.StoreOptions().setKeepReadIndexes(true).setReadOnly(true));
             } else {
                 store = new SummaryStore(storePath, new SummaryStore.StoreOptions().setKeepReadIndexes(true));
@@ -48,7 +48,7 @@ public class SummaryStoreM implements IDataBase {
 
             long stream = getStreamId(tag, i);
             streams.add(stream);
-            if(allStreams.contains(stream)) {
+            if (allStreams.contains(stream)) {
                 continue;
             }
             allStreams.add(stream);
@@ -84,15 +84,14 @@ public class SummaryStoreM implements IDataBase {
 
 
     /**
-     *
-     * @param tag integer connected by "_", for example: 123_123
+     * @param tag   integer connected by "_", for example: 123_123
      * @param field the index of field in config.FIELDS, for example: 4
      * @return 1231234
      */
     private long getStreamId(String tag, String field) {
         StringBuilder builder = new StringBuilder();
 
-        for(String s: tag.split("_")) {
+        for (String s : tag.split("_")) {
             builder.append(s);
         }
 
@@ -112,7 +111,7 @@ public class SummaryStoreM implements IDataBase {
     private long getStreamId(String tag, int i) {
         StringBuilder builder = new StringBuilder();
 
-        for(String s: tag.split("_")) {
+        for (String s : tag.split("_")) {
             builder.append(s);
         }
 
@@ -146,17 +145,25 @@ public class SummaryStoreM implements IDataBase {
     }
 
     @Override
+    public long flush() {
+        long start = System.currentTimeMillis();
+        try {
+            for (long stream : allStreams) {
+                store.unloadStream(stream);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return System.currentTimeMillis() - start;
+    }
+
+    @Override
     public long close() {
         long start = System.currentTimeMillis();
 
         try {
-
-            for(long stream: allStreams) {
-                store.unloadStream(stream);
-            }
-
             store.close();
-        } catch (BackingStoreException | IOException | StreamException e) {
+        } catch (Exception e) {
             logger.error(e.getMessage());
         }
 

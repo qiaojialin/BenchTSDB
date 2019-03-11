@@ -59,7 +59,7 @@ public class MainLoad {
 
         ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
         for(int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
-            executorService.submit(new ClientThread(config, threadId, statistics));
+            executorService.submit(new ClientThread(database, config, threadId, statistics));
         }
 
         executorService.shutdown();
@@ -72,6 +72,8 @@ public class MainLoad {
                 allDown = true;
             }
         }
+
+        database.close();
 
         logger.info("All done! Total lines:{}, points:{}, time:{}ms, speed:{} ", statistics.lineNum, statistics.pointNum,
                 statistics.timeCost, statistics.speed());

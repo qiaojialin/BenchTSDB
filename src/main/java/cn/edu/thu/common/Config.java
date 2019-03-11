@@ -3,11 +3,8 @@ package cn.edu.thu.common;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
 public class Config {
@@ -15,14 +12,14 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL
-    public String DATABASE = "INFLUXDB";
+    public String DATABASE = "SUMMARYSTORE";
 
     // NOAA, GEO, RDF
     public String DATA_SET = "NOAA";
 
     public String TAG_NAME = "deviceId";
 
-    public int THREAD_NUM = 10;
+    public int THREAD_NUM = 1;
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
     public String OPENTSDB_URL = "http://127.0.0.1:4242";
@@ -39,8 +36,6 @@ public class Config {
 
 
     // for query
-
-    public Map<String, String> tags = new HashMap<>();
 
     public String QUERY_TAG = "010230_99999";
 
@@ -101,9 +96,7 @@ public class Config {
         BEGINE_FILE = Integer.parseInt(properties.getOrDefault("BEGINE_FILE", BEGINE_FILE).toString());
         END_FILE = Integer.parseInt(properties.getOrDefault("END_FILE", END_FILE).toString());
 
-
-        String tag = properties.getOrDefault("QUERY_TAG", QUERY_TAG).toString();
-        tags.put("tag", tag);
+        QUERY_TAG = properties.getOrDefault("QUERY_TAG", QUERY_TAG).toString();
 
         FIELD = properties.getOrDefault("FIELD", FIELD).toString();
         START_TIME = Long.parseLong(properties.getOrDefault("START_TIME", START_TIME).toString());

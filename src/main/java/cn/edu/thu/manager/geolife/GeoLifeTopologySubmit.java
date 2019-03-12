@@ -86,7 +86,6 @@ public class GeoLifeTopologySubmit {
 
     public void submitTopology() throws InvalidTopologyException, AuthorizationException, AlreadyAliveException {
         DataSchema rawSchema = getRawDataSchema();
-        DataSchema schema = getDataSchema();
         City city = new City(x1, x2, y1, y2, partitions);
 
         Integer lowerBound = 0;
@@ -108,24 +107,17 @@ public class GeoLifeTopologySubmit {
         InputStreamReceiverBolt dataSource = new InputStreamReceiverBoltServer(rawSchema, 10000, config);
 
         QueryCoordinatorBolt<Integer> queryCoordinatorBolt = new GeoLifeQueryCoordinatorBolt<>(lowerBound,
-                upperBound, 10001, city, config, schema);
+                upperBound, 10001, city, config, rawSchema);
 
-        DataTupleMapper dataTupleMapper = new DataTupleMapper(rawSchema, (Serializable & Function<DataTuple, DataTuple>) t -> {
-            double lon = (double)schema.getValue("lon", t);
-            double lat = (double)schema.getValue("lat", t);
-            int zcode = city.getZCodeForALocation(lon, lat);
-            t.add(zcode);
-            t.add(System.currentTimeMillis());
-            return t;
-        });
+        DataTupleMapper dataTupleMapper = new DataTupleMapper(rawSchema, (Serializable & Function<DataTuple, DataTuple>) t -> t);
 
         List<String> bloomFilterColumns = new ArrayList<>();
-        bloomFilterColumns.add("id");
+        bloomFilterColumns.add("deviceId");
 
         TopologyGenerator<Integer> topologyGenerator = new TopologyGenerator<>();
         topologyGenerator.setNumberOfNodes(NumberOfNodes);
 
-        StormTopology topology = topologyGenerator.generateIndexingTopology(schema, lowerBound, upperBound,
+        StormTopology topology = topologyGenerator.generateIndexingTopology(rawSchema, lowerBound, upperBound,
                 enableLoadBalance, dataSource, queryCoordinatorBolt, dataTupleMapper, bloomFilterColumns, config);
 
         Config conf = new Config();
@@ -180,14 +172,14 @@ public class GeoLifeTopologySubmit {
 
     static private DataSchema getRawDataSchema() {
         DataSchema rawSchema = new DataSchema();
-        rawSchema.addVarcharField("id", 32);
-        rawSchema.addVarcharField("veh_no", 10);
-        rawSchema.addDoubleField("lon");
-        rawSchema.addDoubleField("lat");
-        rawSchema.addIntField("car_status");
-        rawSchema.addDoubleField("speed");
-        rawSchema.addVarcharField("position_type", 10);
-        rawSchema.addVarcharField("update_time", 32);
+        rawSchema.addVarcharField("deviceId", 32);
+        rawSchema.addDoubleField("Latitude");
+        rawSchema.addDoubleField("Longitude");
+        rawSchema.addDoubleField("Zero");
+        rawSchema.addDoubleField("Altitude");
+        rawSchema.addLongField("timestamp");
+        rawSchema.setTemporalField("timestamp");
+        rawSchema.setPrimaryIndexField("deviceId");
         return rawSchema;
     }
 

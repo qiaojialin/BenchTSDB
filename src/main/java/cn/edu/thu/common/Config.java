@@ -12,10 +12,10 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL
-    public String DATABASE = "SUMMARYSTORE";
+    public String DATABASE = "INFLUXDB";
 
-    // NOAA, GEO, RDF
-    public String DATA_SET = "NOAA";
+    // NOAA, GEO, MLAB
+    public String DATA_SET = "MLAB";
 
     public String TAG_NAME = "deviceId";
 
@@ -27,7 +27,7 @@ public class Config {
     public String SUMMARYSTORE_PATH = "sstore";
 
     // noaa, geolife
-    public String DATA_DIR = "data/noaa";
+    public String DATA_DIR = "data/mlab";
     public int BEGINE_FILE = 0;
     public int END_FILE = 1000000;
 
@@ -55,8 +55,11 @@ public class Config {
             case "GEO":
                 FIELDS = new String[]{"Latitude", "Longitude", "Zero", "Altitude"};
                 break;
-            case "RDF":
-                FIELDS = new String[]{"Latitude", "Longitude", "Zero", "Altitude"};
+//            case "RDF":
+//                FIELDS = new String[]{"Latitude", "Longitude", "Zero", "Altitude"};
+//                break;
+            case "MLAB":
+                FIELDS = new String[]{"value"};
                 break;
             default:
                 throw new RuntimeException(DATA_SET + " is not support");

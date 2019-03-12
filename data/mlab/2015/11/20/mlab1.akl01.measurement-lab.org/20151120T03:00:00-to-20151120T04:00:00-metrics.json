@@ -1,0 +1,209 @@
+{"sample": [{"timestamp": 1447992000, "value": 57106432.0}], "metric": "memory.vsize", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 0.0}], "metric": "memory.vsize_locked", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 17137664.0}], "metric": "memory.anonymous", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 21528576.0}], "metric": "memory.rss", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 483044000.0}], "metric": "storage.quota.bytes.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 9516956000.0}], "metric": "storage.quota.bytes.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 24.0}], "metric": "context.vlimit.openfds", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 17.0}], "metric": "context.vlimit.sockets", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 101.0}], "metric": "context.vlimit.files", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 158.47}], "metric": "context.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 6.0}], "metric": "context.threads.other", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 0.0}], "metric": "context.threads.running", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447992000, "value": 6.0}], "metric": "context.processes", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "neubot.mlab"}
+{"sample": [{"timestamp": 1447991990, "value": 629235712.0}, {"timestamp": 1447992000, "value": 635392000.0}], "metric": "memory.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 44621824.0}, {"timestamp": 1447992000, "value": 45745766.399999999}], "metric": "memory.buffered", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 767057920.0}, {"timestamp": 1447992000, "value": 769332019.20000005}], "metric": "memory.cached", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 7053148160.0}, {"timestamp": 1447992000, "value": 7044277862.3999996}], "metric": "memory.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 24217352.0}, {"timestamp": 1447992000, "value": 24217361.0}], "metric": "system.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.swap.io.ops.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.swap.io.ops.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.swap.io.bytes.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.swap.io.bytes.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.swap.io.merged.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.swap.io.merged.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.swap.io.time.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.swap.io.time.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 8.0}], "metric": "cpu.cores", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447992000, "value": 20.857142857142858}], "metric": "system.fork_rate", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "cpu.total.softirq", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "cpu.total.interrupt", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "cpu.total.idle", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "cpu.total.wait", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "cpu.total.steal", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "cpu.total.nice", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 0.0}, {"timestamp": 1447992000, "value": 0.0}], "metric": "swap.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447992000, "value": 0.0}], "metric": "swap.io.in", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 1073733632.0}, {"timestamp": 1447992000, "value": 1073733632.0}], "metric": "swap.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447992000, "value": 0.0}], "metric": "swap.io.out", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 0.0}, {"timestamp": 1447992000, "value": 0.0}], "metric": "swap.cached", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447992000, "value": 1177.7}], "metric": "interface.eth0.bytes.rx", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447992000, "value": 1567.0}], "metric": "interface.eth0.bytes.tx", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447992000, "value": 7.8999999999999995}], "metric": "interface.eth0.packets.rx", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447992000, "value": 9.0999999999999996}], "metric": "interface.eth0.packets.tx", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447992000, "value": 0.0}], "metric": "interface.eth0.errors.rx", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447992000, "value": 0.0}], "metric": "interface.eth0.errors.tx", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.vserver.io.ops.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.vserver.io.ops.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.vserver.io.bytes.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.vserver.io.bytes.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.vserver.io.merged.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.vserver.io.merged.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.vserver.io.time.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.vserver.io.time.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 23509.0}, {"timestamp": 1447992000, "value": 23616.5}], "metric": "system.pages.slab_unreclaimable", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 1723423.0}, {"timestamp": 1447992000, "value": 1719725.8}], "metric": "system.pages.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [{"timestamp": 1447991990, "value": 14076.0}, {"timestamp": 1447992000, "value": 14112.0}], "metric": "system.pages.slab_reclaimable", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "system.pages.page_in", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "system.pages.page_out", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "system.pages.minor_faults", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "system.pages.major_faults", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "system.pages.swap_in", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "system.pages.swap_out", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.root.io.ops.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.root.io.ops.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.root.io.bytes.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.root.io.bytes.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.root.io.merged.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.root.io.merged.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.root.io.time.read", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "disk.root.io.time.write", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "system"}
+{"sample": [], "metric": "memory.vsize", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "memory.vsize_locked", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "memory.anonymous", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "memory.rss", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "storage.quota.bytes.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "storage.quota.bytes.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "context.vlimit.openfds", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "context.vlimit.sockets", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "context.vlimit.files", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "context.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "context.threads.other", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "context.threads.running", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [], "metric": "context.processes", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "bismark.gt"}
+{"sample": [{"timestamp": 1447992000, "value": 574001152.0}], "metric": "memory.vsize", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 0.0}], "metric": "memory.vsize_locked", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 90738688.0}], "metric": "memory.anonymous", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 115818496.0}], "metric": "memory.rss", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 3700040000.0}], "metric": "storage.quota.bytes.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 6299960000.0}], "metric": "storage.quota.bytes.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 175.0}], "metric": "context.vlimit.openfds", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 70.0}], "metric": "context.vlimit.sockets", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 301.0}], "metric": "context.vlimit.files", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 164.27000000000001}], "metric": "context.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 45.0}], "metric": "context.threads.other", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 0.0}], "metric": "context.threads.running", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [{"timestamp": 1447992000, "value": 44.0}], "metric": "context.processes", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ispmon.samknows"}
+{"sample": [], "metric": "memory.vsize", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "memory.vsize_locked", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "memory.anonymous", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "memory.rss", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "storage.quota.bytes.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "storage.quota.bytes.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "context.vlimit.openfds", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "context.vlimit.sockets", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "context.vlimit.files", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "context.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "context.threads.other", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "context.threads.running", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "context.processes", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "geoloc4.uw"}
+{"sample": [], "metric": "memory.vsize", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "memory.vsize_locked", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "memory.anonymous", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "memory.rss", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "storage.quota.bytes.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "storage.quota.bytes.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "context.vlimit.openfds", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "context.vlimit.sockets", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "context.vlimit.files", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "context.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "context.threads.other", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "context.threads.running", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "context.processes", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ooni.mlab"}
+{"sample": [], "metric": "memory.vsize", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "memory.vsize_locked", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "memory.anonymous", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "memory.rss", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "storage.quota.bytes.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "storage.quota.bytes.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "context.vlimit.openfds", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "context.vlimit.sockets", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "context.vlimit.files", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "context.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "context.threads.other", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "context.threads.running", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "context.processes", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "utility.mlab"}
+{"sample": [], "metric": "memory.vsize", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "memory.vsize_locked", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "memory.anonymous", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "memory.rss", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "storage.quota.bytes.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "storage.quota.bytes.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "context.vlimit.openfds", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "context.vlimit.sockets", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "context.vlimit.files", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "context.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "context.threads.other", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "context.threads.running", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [], "metric": "context.processes", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "1.michigan"}
+{"sample": [{"timestamp": 1447992000, "value": 105701376.0}], "metric": "memory.vsize", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [{"timestamp": 1447992000, "value": 0.0}], "metric": "memory.vsize_locked", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "memory.anonymous", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [{"timestamp": 1447992000, "value": 13279232.0}], "metric": "memory.rss", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "storage.quota.bytes.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "storage.quota.bytes.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "context.vlimit.openfds", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "context.vlimit.sockets", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "context.vlimit.files", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "context.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "context.threads.other", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "context.threads.running", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [{"timestamp": 1447992000, "value": 12.0}], "metric": "context.processes", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "broadband.mpisws"}
+{"sample": [], "metric": "memory.vsize", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "memory.vsize_locked", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "memory.anonymous", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "memory.rss", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "storage.quota.bytes.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "storage.quota.bytes.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "context.vlimit.openfds", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "context.vlimit.sockets", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "context.vlimit.files", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "context.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "context.threads.other", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "context.threads.running", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "context.processes", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "npad.iupui"}
+{"sample": [], "metric": "memory.vsize", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "memory.vsize_locked", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "memory.anonymous", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "memory.rss", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "cpu.total.system", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "cpu.total.user", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "storage.quota.bytes.used", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "storage.quota.bytes.free", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "context.vlimit.openfds", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "context.vlimit.sockets", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "context.vlimit.files", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "context.uptime", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "context.threads.other", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "context.threads.running", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}
+{"sample": [], "metric": "context.processes", "hostname": "mlab1.akl01.measurement-lab.org", "experiment": "ndt.iupui"}

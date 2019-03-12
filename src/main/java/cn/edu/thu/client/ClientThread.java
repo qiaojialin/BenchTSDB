@@ -4,10 +4,7 @@ import cn.edu.thu.common.Record;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
 import cn.edu.thu.manager.*;
-import cn.edu.thu.parser.GeolifeParser;
-import cn.edu.thu.parser.IParser;
-import cn.edu.thu.parser.NOAAParser;
-import cn.edu.thu.parser.RDFParser;
+import cn.edu.thu.parser.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,8 +50,11 @@ public class ClientThread implements Runnable {
             case "GEO":
                 parser = new GeolifeParser();
                 break;
-            case "RDF":
-                parser = new RDFParser();
+//            case "RDF":
+//                parser = new RDFParser();
+//                break;
+            case "MLAB":
+                parser = new MLabParser();
                 break;
             default:
                 throw new RuntimeException(config.DATA_SET + " not supported");

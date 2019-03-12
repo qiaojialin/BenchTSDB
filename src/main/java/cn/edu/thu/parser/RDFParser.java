@@ -84,7 +84,7 @@ public class RDFParser implements IParser {
 
 
     /**
-     * test Jena
+     * ChronixTS Jena
      */
     public static void main(String... args) {
         String personURI = "http://somewhere/JohnSmith";

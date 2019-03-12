@@ -29,11 +29,9 @@ public class Config {
     // noaa, geolife
     public String DATA_DIR = "data/mlab";
     public int BEGINE_FILE = 0;
-    public int END_FILE = 1000000;
-
+    public int END_FILE = 100000;
 
     public String[] FIELDS = null;
-
 
     // for query
 

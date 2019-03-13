@@ -16,6 +16,10 @@ import indexingTopology.config.TopologyConfig;
 import indexingTopology.topology.TopologyGenerator;
 import indexingTopology.util.AvailableSocketPool;
 import org.apache.storm.LocalCluster;
+import org.apache.storm.StormSubmitter;
+import org.apache.storm.generated.AlreadyAliveException;
+import org.apache.storm.generated.AuthorizationException;
+import org.apache.storm.generated.InvalidTopologyException;
 import org.apache.storm.generated.StormTopology;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,16 +33,16 @@ public class WaterWheel implements IDataBase {
 
     private static Logger logger = LoggerFactory.getLogger(WaterWheel.class);
     private DataSchema schema;
-    private Config myConfig;
+    private Config config;
     private static final String TIME = "timestamp";
     private IngestionClientBatchMode ingestionClient = null;
 
-    public WaterWheel(Config myConfig, boolean forQuery) {
-        this.myConfig = myConfig;
-        schema = getSchema(myConfig);
+    public WaterWheel(Config config, boolean forQuery) {
+        this.config = config;
+        schema = getSchema(config);
         try {
             if (!forQuery) {
-                ingestionClient = new IngestionClientBatchMode(myConfig.WATERWHEEL_IP, myConfig.WATERWHEEL_INGEST_PORT, schema, 1024);
+                ingestionClient = new IngestionClientBatchMode(config.WATERWHEEL_IP, config.WATERWHEEL_INGEST_PORT, schema, 1024);
                 ingestionClient.connectWithTimeout(10000);
             }
         } catch (IOException e) {
@@ -58,8 +62,7 @@ public class WaterWheel implements IDataBase {
             for (DataTuple tuple : tuples) {
                 ingestionClient.appendInBatch(tuple);
             }
-            ingestionClient.flush();
-            ingestionClient.waitFinish();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -111,7 +114,7 @@ public class WaterWheel implements IDataBase {
     @Override
     public long count(String tagValue, String field, long startTime, long endTime) {
 
-        final QueryClient queryClient = new QueryClient(myConfig.WATERWHEEL_IP, 10001);
+        final QueryClient queryClient = new QueryClient(config.WATERWHEEL_IP, 10001);
 
         try {
             queryClient.connectWithTimeout(10000);
@@ -121,13 +124,18 @@ public class WaterWheel implements IDataBase {
 
         long tagV = toLong(tagValue);
 
-        Aggregator<Integer> aggregator = new Aggregator<>(schema, myConfig.TAG_NAME, new AggregateField(new Count(), field));
+        Aggregator<Integer> aggregator = new Aggregator<>(schema, config.TAG_NAME, new AggregateField(new Count(), field));
 
         long start = System.currentTimeMillis();
         try {
             //a key range query
-            QueryResponse response = queryClient.query(new QueryRequest<>(tagV, tagV, Long.MIN_VALUE, Long.MAX_VALUE, aggregator));
-            logger.info("result: {}", response.getTuples().get(0).get(1));
+            QueryResponse response;
+            if(config.START_TIME == -1 || config.END_TIME == -1) {
+                response = queryClient.query(new QueryRequest<>(tagV, tagV, Long.MIN_VALUE, Long.MAX_VALUE, aggregator));
+            } else {
+                response = queryClient.query(new QueryRequest<>(tagV, tagV, config.START_TIME, config.END_TIME, aggregator));
+            }
+            logger.info("result: {}", response != null ? response.getTuples().get(0).get(1) : "null");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -137,7 +145,14 @@ public class WaterWheel implements IDataBase {
 
     @Override
     public long flush() {
-        return 0;
+        long start = System.currentTimeMillis();
+        try {
+            ingestionClient.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ingestionClient.waitFinish();
+        return System.currentTimeMillis() - start;
     }
 
     @Override
@@ -157,32 +172,38 @@ public class WaterWheel implements IDataBase {
      * deploy WaterWheel
      */
     public static void main(String... args) {
-        Config myConfig;
+        Config config;
         if (args.length > 0) {
             try {
                 FileInputStream fileInputStream = new FileInputStream(args[0]);
-                myConfig = new cn.edu.thu.common.Config(fileInputStream);
+                config = new cn.edu.thu.common.Config(fileInputStream);
             } catch (Exception e) {
                 e.printStackTrace();
-                myConfig = new cn.edu.thu.common.Config();
+                config = new cn.edu.thu.common.Config();
             }
         } else {
-            myConfig = new cn.edu.thu.common.Config();
+            config = new cn.edu.thu.common.Config();
         }
 
-        TopologyConfig config = new TopologyConfig();
+        TopologyConfig topologyConfig = new TopologyConfig();
 
-        LocalCluster cluster;
+        if(config.LOCAL) {
+            topologyConfig.dataChunkDir = "./target/tmp";
+            topologyConfig.metadataDir = "./target/tmp";
+            topologyConfig.HDFSFlag = false;
+        } else {
+            topologyConfig.dataChunkDir = "hdfs://127.0.0.1:9000/waterwheel";
+            topologyConfig.metadataDir = "hdfs://127.0.0.1:9000/waterwheel";
+            topologyConfig.HDFSFlag = false;
+        }
 
-        config.dataChunkDir = "./target/tmp";
-        config.metadataDir = "./target/tmp";
-        config.CHUNK_SIZE = 512 * 1024;
-        config.HDFSFlag = false;
-        config.previousTime = Integer.MAX_VALUE;
-        System.out.println("dataChunkDir is set to " + config.dataChunkDir);
-        cluster = new LocalCluster();
 
-        DataSchema schema = getSchema(myConfig);
+        topologyConfig.CHUNK_SIZE = 512 * 1024;
+
+        topologyConfig.previousTime = Integer.MAX_VALUE;
+        logger.info("dataChunkDir is set to : {}", topologyConfig.dataChunkDir);
+
+        DataSchema schema = getSchema(config);
 
         final long minIndex = 0L;
         final long maxIndex = Long.MAX_VALUE;
@@ -193,18 +214,29 @@ public class WaterWheel implements IDataBase {
 
         TopologyGenerator<Long> topologyGenerator = new TopologyGenerator<>();
 
-        InputStreamReceiverBolt inputStreamReceiverBolt = new InputStreamReceiverBoltServer(schema, ingestionPort, config);
+        InputStreamReceiverBolt inputStreamReceiverBolt = new InputStreamReceiverBoltServer(schema, ingestionPort, topologyConfig);
         QueryCoordinatorBolt<Long> coordinator = new QueryCoordinatorWithQueryReceiverServerBolt<>(minIndex, maxIndex, queryPort,
-                config, schema);
+                topologyConfig, schema);
 
         StormTopology topology = topologyGenerator.generateIndexingTopology(schema, minIndex, maxIndex, false, inputStreamReceiverBolt,
-                coordinator, config);
+                coordinator, topologyConfig);
 
         org.apache.storm.Config conf = new org.apache.storm.Config();
         conf.setDebug(false);
         conf.setNumWorkers(1);
 
-        cluster.submitTopology("qiao_topology", conf, topology);
+        if(config.LOCAL) {
+            LocalCluster cluster = new LocalCluster();
+            cluster.submitTopology("qiao_topology", conf, topology);
+        } else {
+            try {
+                StormSubmitter.submitTopology("testSimpleTopologyKeyRangeQuery", conf, topology);
+                logger.info("Topology is successfully submitted to the cluster!");
+                logger.info(topologyConfig.getCriticalSettings());
+            } catch (AlreadyAliveException | InvalidTopologyException | AuthorizationException e) {
+                e.printStackTrace();
+            }
+        }
 
         logger.info("topology submitted, ingestion port: {}, query port: {}", ingestionPort, queryPort);
     }

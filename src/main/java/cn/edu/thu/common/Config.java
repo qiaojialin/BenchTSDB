@@ -23,8 +23,10 @@ public class Config {
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
     public String OPENTSDB_URL = "http://127.0.0.1:4242";
-    public String WATERWHEEL_IP = "127.0.0.1";
     public String SUMMARYSTORE_PATH = "sstore";
+
+    public String WATERWHEEL_IP = "127.0.0.1";
+    public boolean LOCAL = true;
 
     // noaa, geolife, mlab
     public String DATA_DIR = "data/geolife";
@@ -100,6 +102,7 @@ public class Config {
         END_FILE = Integer.parseInt(properties.getOrDefault("END_FILE", END_FILE).toString());
         WATERWHEEL_INGEST_PORT = Integer.parseInt(properties.getOrDefault("WATERWHEEL_INGEST_PORT", WATERWHEEL_INGEST_PORT).toString());
         WATERWHEEL_QUERY_PORT = Integer.parseInt(properties.getOrDefault("WATERWHEEL_QUERY_PORT", WATERWHEEL_QUERY_PORT).toString());
+        LOCAL = Boolean.parseBoolean(properties.getOrDefault("LOCAL", LOCAL).toString());
 
         QUERY_TAG = properties.getOrDefault("QUERY_TAG", QUERY_TAG).toString();
 

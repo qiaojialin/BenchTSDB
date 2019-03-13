@@ -78,28 +78,13 @@
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-core</artifactId>
             <version>1.1.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>de.qaware.chronix</groupId>
             <artifactId>chronix-timeseries</artifactId>
             <version>0.3.2-beta</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>indexingTopology</groupId>-->
-            <!--<artifactId>client</artifactId>-->
-            <!--<version>1.0-SNAPSHOT</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>storm.topologies</groupId>-->
-            <!--<artifactId>common</artifactId>-->
-            <!--<version>1.0-SNAPSHOT</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.imply</groupId>-->
-            <!--<artifactId>druid-client</artifactId>-->
-            <!--<version>0.1-SNAPSHOT</version>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -110,27 +95,6 @@
             <artifactId>topology</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>storm.topologies</groupId>-->
-            <!--<artifactId>client</artifactId>-->
-            <!--<version>1.0-SNAPSHOT</version>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/net.iharder/base64 -->
-        <!--<dependency>-->
-        <!--<groupId>net.iharder</groupId>-->
-        <!--<artifactId>base64</artifactId>-->
-        <!--<version>2.3.8</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>amplab</groupId>-->
-        <!--<artifactId>succinct-core</artifactId>-->
-        <!--<version>0.1.8</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>com.google.apis</groupId>-->
-        <!--<artifactId>google-api-services-bigquery</artifactId>-->
-        <!--<version>v2-rev426-1.25.0</version>-->
-        <!--</dependency>-->
     </dependencies>
 
     <build>
@@ -153,7 +117,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>cn.edu.thu.MainLoad</mainClass>
+                                    <mainClass>cn.edu.thu.manager.waterwheelsample.GeoSubmit</mainClass>
                                     <!--<mainClass>cn.edu.thu.MainQuery</mainClass>-->
                                 </manifest>
                             </archive>

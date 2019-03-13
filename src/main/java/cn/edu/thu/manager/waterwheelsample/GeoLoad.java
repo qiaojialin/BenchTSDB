@@ -23,12 +23,13 @@ public class GeoLoad {
         final IngestionClientBatchMode ingestionClient = new IngestionClientBatchMode("localhost", 10000, schema, 1024);
         try {
             ingestionClient.connectWithTimeout(10000);
+            System.out.println("successfully connected to waterwheel server");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        for (long i = 0; i < 180; i++) {
-            for(long j = 0; j < 100; j++) {
+        for (long i = 0; i < 100; i++) {
+            for(long j = 0; j < 100000; j++) {
                 DataTuple tuple = new DataTuple();
                 tuple.add(i);
                 tuple.add(3.14d);
@@ -54,5 +55,10 @@ public class GeoLoad {
         // wait for the tuples to be appended.
         ingestionClient.waitFinish();
         System.out.println("finished!");
+        try {
+            ingestionClient.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

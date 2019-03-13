@@ -10,6 +10,10 @@ import indexingTopology.topology.TopologyGenerator;
 import indexingTopology.util.AvailableSocketPool;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
+import org.apache.storm.StormSubmitter;
+import org.apache.storm.generated.AlreadyAliveException;
+import org.apache.storm.generated.AuthorizationException;
+import org.apache.storm.generated.InvalidTopologyException;
 import org.apache.storm.generated.StormTopology;
 
 public class GeoSubmit {
@@ -18,15 +22,25 @@ public class GeoSubmit {
 
         TopologyConfig config = new TopologyConfig();
 
-        LocalCluster cluster;
+        boolean local = true;
 
-        config.dataChunkDir = "./target/tmp";
-        config.metadataDir = "./target/tmp";
         config.CHUNK_SIZE = 512 * 1024;
-        config.HDFSFlag = false;
         config.previousTime = Integer.MAX_VALUE;
+
+        if(local) {
+            config.dataChunkDir = "./target/tmp";
+            config.metadataDir = "./target/tmp";
+
+            config.HDFSFlag = false;
+        } else {
+            config.HDFSFlag = true;
+            config.HDFS_HOST = "hdfs://127.0.0.1:9000/";
+            config.dataChunkDir = "hdfs://127.0.0.1:9000/waterwheel";
+            config.metadataDir = "hdfs://127.0.0.1:9000/waterwheel";
+        }
+
         System.out.println("dataChunkDir is set to " + config.dataChunkDir);
-        cluster = new LocalCluster();
+
 
         DataSchema schema = new DataSchema();
         schema.addLongField("id");
@@ -57,7 +71,18 @@ public class GeoSubmit {
         conf.setDebug(false);
         conf.setNumWorkers(1);
 
-        cluster.submitTopology("testSimpleTopologyKeyRangeQuery", conf, topology);
+        if(local) {
+            LocalCluster cluster = new LocalCluster();
+            cluster.submitTopology("testWaterWheelSample", conf, topology);
+        } else {
+            try {
+                StormSubmitter.submitTopology("testWaterWheelSample", conf, topology);
+                System.out.println("Topology is successfully submitted to the cluster!");
+                System.out.println(config.getCriticalSettings());
+            } catch (AlreadyAliveException | InvalidTopologyException | AuthorizationException e) {
+                e.printStackTrace();
+            }
+        }
 
         System.out.println("ingestionPort: " + ingestionPort);
         System.out.println("queryPort: " + queryPort);

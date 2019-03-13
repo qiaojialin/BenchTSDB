@@ -26,23 +26,6 @@ public class ClientThread implements Runnable {
         this.threadId = threadId;
         this.statistics = statistics;
 
-//        switch (config.DATABASE) {
-//            case "INFLUXDB":
-//                database = new InfluxDB(config);
-//                break;
-//            case "OPENTSDB":
-//                database = new OpenTSDB(config);
-//                break;
-//            case "SUMMARYSTORE":
-//                database = new SummaryStoreM(config, false);
-//                break;
-//            case "WATERWHEEL":
-//                database = new WaterWheel(config);
-//                break;
-//            default:
-//                throw new RuntimeException(config.DATABASE + " not supported");
-//        }
-
         switch (config.DATA_SET) {
             case "NOAA":
                 parser = new NOAAParser();
@@ -65,7 +48,7 @@ public class ClientThread implements Runnable {
     @Override
     public void run() {
 
-        logger.debug("@+++<<<: running!");
+        logger.info("thread running!");
 
         long totalTime = 1;
 
@@ -115,7 +98,7 @@ public class ClientThread implements Runnable {
 
             totalTime += database.flush();
 
-            logger.info("total produce {} files and {} lines", fileNum, lineNum);
+            logger.info("INFO! total produce {} files and {} lines", fileNum, lineNum);
 
             synchronized (statistics) {
                 statistics.fileNum += fileNum;

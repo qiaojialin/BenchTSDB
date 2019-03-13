@@ -12,10 +12,10 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL
-    public String DATABASE = "INFLUXDB";
+    public String DATABASE = "WATERWHEEL";
 
     // NOAA, GEO, MLAB
-    public String DATA_SET = "MLAB";
+    public String DATA_SET = "GEO";
 
     public String TAG_NAME = "deviceId";
 
@@ -26,18 +26,20 @@ public class Config {
     public String WATERWHEEL_IP = "127.0.0.1";
     public String SUMMARYSTORE_PATH = "sstore";
 
-    // noaa, geolife
-    public String DATA_DIR = "data/mlab";
+    // noaa, geolife, mlab
+    public String DATA_DIR = "data/geolife";
     public int BEGINE_FILE = 0;
     public int END_FILE = 100000;
 
     public String[] FIELDS = null;
 
+    public int WATERWHEEL_INGEST_PORT = 10000;
+    public int WATERWHEEL_QUERY_PORT = 10001;
+
     // for query
+    public String QUERY_TAG = "0";
 
-    public String QUERY_TAG = "010230_99999";
-
-    public String FIELD = "MXSPD";
+    public String FIELD = "Latitude";
 
     //  1893484839000L, -1
     public long START_TIME = 1893484839000L;
@@ -96,6 +98,8 @@ public class Config {
         SUMMARYSTORE_PATH = properties.getOrDefault("SUMMARYSTORE_PATH", SUMMARYSTORE_PATH).toString();
         BEGINE_FILE = Integer.parseInt(properties.getOrDefault("BEGINE_FILE", BEGINE_FILE).toString());
         END_FILE = Integer.parseInt(properties.getOrDefault("END_FILE", END_FILE).toString());
+        WATERWHEEL_INGEST_PORT = Integer.parseInt(properties.getOrDefault("WATERWHEEL_INGEST_PORT", WATERWHEEL_INGEST_PORT).toString());
+        WATERWHEEL_QUERY_PORT = Integer.parseInt(properties.getOrDefault("WATERWHEEL_QUERY_PORT", WATERWHEEL_QUERY_PORT).toString());
 
         QUERY_TAG = properties.getOrDefault("QUERY_TAG", QUERY_TAG).toString();
 

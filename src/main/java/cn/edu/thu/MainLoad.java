@@ -47,7 +47,7 @@ public class MainLoad {
                 database = new SummaryStoreM(config, false);
                 break;
             case "WATERWHEEL":
-                database = new WaterWheel(config);
+                database = new WaterWheel(config, false);
                 break;
             default:
                 throw new RuntimeException(config.DATABASE + " not supported");

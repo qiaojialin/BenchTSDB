@@ -20,11 +20,9 @@ public class GeolifeParser implements IParser{
     @Override
     public List<Record> parse(String fileName) {
 
-        System.out.println(fileName);
+        //replace("/Trajectory/", "_").replace(".plt", "").replace("/", "")
 
-        System.out.println(fileName.split("/"));
-
-        tag = fileName.split("geolife")[1].replace("/Trajectory/", "_").replace(".plt", "").replace("/", "");
+        tag = fileName.split("geolife/")[1].split("/Trajectory")[0];
 
         List<Record> records = new ArrayList<>();
 

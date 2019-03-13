@@ -589,7 +589,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="DataSch&#9;FILE&#9;jar:///Users/qiaojialin/.m2/repository/storm/topologies/topology/1.0-SNAPSHOT/topology-1.0-SNAPSHOT.jar!/indexingTopology/common/data/DataSchema.class" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552486450496" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552487412531" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -773,9 +773,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-68" y="-1129" width="2048" height="1129" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1784646" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1784646" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -791,7 +790,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="SonarLint" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.23240116" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.23240116" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.18963166" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />

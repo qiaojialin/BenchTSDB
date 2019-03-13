@@ -35,4 +35,3 @@ cn.edu.thu.manager.WaterWheel 类为拓扑类
 	* 给 cn.edu.thu.manager.WaterWheel 打包
 	* ./bin/storm jar topology.jar mainclass 将拓扑提价到storm上
 	* 运行 MainLoad 导入数据（数据在 hdfs://waterwheel下，一定大小才会刷磁盘）
-	* 运行 MainQuery 查询数据

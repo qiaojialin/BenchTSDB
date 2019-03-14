@@ -117,7 +117,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>cn.edu.thu.manager.waterwheelsample.GeoSubmit</mainClass>
+                                    <mainClass>cn.edu.thu.database.waterwheel.GeoSubmit</mainClass>
                                     <!--<mainClass>cn.edu.thu.MainQuery</mainClass>-->
                                 </manifest>
                             </archive>

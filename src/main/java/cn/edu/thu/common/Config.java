@@ -11,8 +11,8 @@ public class Config {
 
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
-    // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL
-    public String DATABASE = "WATERWHEEL";
+    // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB
+    public String DATABASE = "KAIROSDB";
 
     // NOAA, GEO, MLAB
     public String DATA_SET = "GEO";
@@ -23,6 +23,7 @@ public class Config {
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
     public String OPENTSDB_URL = "http://127.0.0.1:4242";
+    public String KAIROSDB_URL = "http://127.0.0.1:8080";
     public String SUMMARYSTORE_PATH = "sstore";
 
     public String WATERWHEEL_IP = "127.0.0.1";
@@ -39,12 +40,12 @@ public class Config {
     public int WATERWHEEL_QUERY_PORT = 10001;
 
     // for query
-    public String QUERY_TAG = "0";
+    public String QUERY_TAG = "000";
 
     public String FIELD = "Latitude";
 
     //  1893484839000L, -1
-    public long START_TIME = 1893484839000L;
+    public long START_TIME = -1;
 
     public long END_TIME = 1924934439000L;
 
@@ -96,6 +97,7 @@ public class Config {
         DATA_DIR = properties.getOrDefault("DATA_DIR", DATA_DIR).toString();
         INFLUXDB_URL = properties.getOrDefault("INFLUX_URL", INFLUXDB_URL).toString();
         OPENTSDB_URL = properties.getOrDefault("OPENTSDB_URL", OPENTSDB_URL).toString();
+        KAIROSDB_URL = properties.getOrDefault("KAIROSDB_URL", KAIROSDB_URL).toString();
         WATERWHEEL_IP = properties.getOrDefault("WATERWHEEL_IP", WATERWHEEL_IP).toString();
         SUMMARYSTORE_PATH = properties.getOrDefault("SUMMARYSTORE_PATH", SUMMARYSTORE_PATH).toString();
         BEGINE_FILE = Integer.parseInt(properties.getOrDefault("BEGINE_FILE", BEGINE_FILE).toString());

@@ -1,7 +1,8 @@
-package cn.edu.thu.manager;
+package cn.edu.thu.database;
 
 import cn.edu.thu.common.Record;
 import cn.edu.thu.common.Config;
+import org.influxdb.InfluxDB;
 import org.influxdb.InfluxDBFactory;
 import org.influxdb.dto.BatchPoints;
 import org.influxdb.dto.Point;
@@ -16,10 +17,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class InfluxDB implements IDataBase {
+public class InfluxDBM implements IDataBaseM {
 
-    private org.influxdb.InfluxDB influxDB;
-    private static Logger logger = LoggerFactory.getLogger(InfluxDB.class);
+    private InfluxDB influxDB;
+    private static Logger logger = LoggerFactory.getLogger(InfluxDBM.class);
     private String measurementId = "station";
     private String database = "test";
     private Config config;
@@ -29,7 +30,7 @@ public class InfluxDB implements IDataBase {
     private static String COUNT_SQL_WITHOUT_TIME = "select count(%s) from %s where %s ='%s'";
 
 
-    public InfluxDB(Config config) {
+    public InfluxDBM(Config config) {
         this.config = config;
         influxDB = InfluxDBFactory.connect(config.INFLUXDB_URL);
     }
@@ -87,7 +88,7 @@ public class InfluxDB implements IDataBase {
             influxDB.write(batchPoints);
         } catch (Exception e) {
             if (e.getMessage() != null && e.getMessage().contains("Failed to connect to")) {
-                logger.error("InfluxDB is down!!!!!!");
+                logger.error("InfluxDBM is down!!!!!!");
             } else {
                 e.printStackTrace();
             }

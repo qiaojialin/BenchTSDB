@@ -1,4 +1,4 @@
-package cn.edu.thu.manager;
+package cn.edu.thu.database;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.*;
 
-public class SummaryStoreM implements IDataBase {
+public class SummaryStoreM implements IDataBaseM {
 
     private static final Logger logger = LoggerFactory.getLogger(SummaryStoreM.class);
     private String storePath;

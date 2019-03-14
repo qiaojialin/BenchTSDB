@@ -18,6 +18,8 @@
 **/logs/
 **/*.log
 
+.idea/
+
 *.jar
 *.gz
 *.tar.gz

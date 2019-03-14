@@ -1,4 +1,4 @@
-package cn.edu.thu.parser;
+package cn.edu.thu.datasource.parser;
 
 import cn.edu.thu.common.Record;
 
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author qiaojialin
  */
-public class GoogleParser implements IParser{
+public class GoogleParser implements IParser {
 
     @Override
     public List<Record> parse(String fileName) {

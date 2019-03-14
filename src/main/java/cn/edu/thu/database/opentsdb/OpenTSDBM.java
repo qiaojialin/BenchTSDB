@@ -1,9 +1,9 @@
-package cn.edu.thu.manager;
+package cn.edu.thu.database.opentsdb;
 
 import cn.edu.thu.common.Record;
 import cn.edu.thu.common.Config;
-import cn.edu.thu.common.OpenTSDBPoint;
 import cn.edu.thu.common.ThuHttpRequest;
+import cn.edu.thu.database.IDataBaseM;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,15 +11,15 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.*;
 
-public class OpenTSDB implements IDataBase {
+public class OpenTSDBM implements IDataBaseM {
 
-    private static final Logger logger = LoggerFactory.getLogger(OpenTSDB.class);
+    private static final Logger logger = LoggerFactory.getLogger(OpenTSDBM.class);
     private Config config;
     private String dbUrl;
     private String writeUrl;
     private String queryUrl;
 
-    public OpenTSDB(Config config) {
+    public OpenTSDBM(Config config) {
         this.config = config;
         this.dbUrl = config.OPENTSDB_URL;
         this.writeUrl = this.dbUrl + "/api/put?summary ";

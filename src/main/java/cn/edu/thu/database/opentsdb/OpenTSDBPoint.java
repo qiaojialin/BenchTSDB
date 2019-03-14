@@ -1,4 +1,4 @@
-package cn.edu.thu.common;
+package cn.edu.thu.database.opentsdb;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -9,12 +9,10 @@ public class OpenTSDBPoint implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String metric;
-
     private long timestamp;
-
     private Map<String,String> tags=new HashMap<String,String>();
-
     private Object value;
+
 
     public String getMetric() {
         return metric;

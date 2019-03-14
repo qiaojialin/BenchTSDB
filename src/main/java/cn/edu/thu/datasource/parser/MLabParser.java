@@ -1,4 +1,4 @@
-package cn.edu.thu.parser;
+package cn.edu.thu.datasource.parser;
 
 import cn.edu.thu.common.Record;
 import com.google.gson.JsonArray;

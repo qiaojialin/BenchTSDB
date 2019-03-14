@@ -1,4 +1,4 @@
-package cn.edu.thu.parser;
+package cn.edu.thu.datasource.parser;
 
 import cn.edu.thu.common.Record;
 
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class GeolifeParser implements IParser{
+public class GeolifeParser implements IParser {
 
     private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-hh:mm:ss");
     private String tag = "";

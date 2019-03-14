@@ -1,4 +1,4 @@
-package cn.edu.thu.manager.waterwheelsample;
+package cn.edu.thu.database.waterwheel;
 
 import indexingTopology.bolt.InputStreamReceiverBolt;
 import indexingTopology.bolt.InputStreamReceiverBoltServer;

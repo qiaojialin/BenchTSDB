@@ -1,4 +1,4 @@
-package cn.edu.thu.manager;
+package cn.edu.thu.database.test;
 
 import de.qaware.chronix.timeseries.MetricTimeSeries;
 import java.time.Instant;

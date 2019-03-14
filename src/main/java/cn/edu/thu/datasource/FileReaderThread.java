@@ -1,26 +1,29 @@
-package cn.edu.thu.client;
+package cn.edu.thu.datasource;
 
 import cn.edu.thu.common.Record;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
-import cn.edu.thu.manager.*;
-import cn.edu.thu.parser.*;
+import cn.edu.thu.database.*;
+import cn.edu.thu.datasource.parser.GeolifeParser;
+import cn.edu.thu.datasource.parser.IParser;
+import cn.edu.thu.datasource.parser.MLabParser;
+import cn.edu.thu.datasource.parser.NOAAParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.*;
 
-public class ClientThread implements Runnable {
+public class FileReaderThread implements Runnable {
 
-    private static Logger logger = LoggerFactory.getLogger(ClientThread.class);
-    private IDataBase database;
+    private static Logger logger = LoggerFactory.getLogger(FileReaderThread.class);
+    private IDataBaseM database;
     private Config config;
     private int threadId;
     private IParser parser;
     private final Statistics statistics;
 
-    public ClientThread(IDataBase database, Config config, int threadId, final Statistics statistics) {
+    public FileReaderThread(IDataBaseM database, Config config, int threadId, final Statistics statistics) {
         this.database = database;
         this.config = config;
         this.threadId = threadId;

@@ -1,7 +1,8 @@
-package cn.edu.thu.manager;
+package cn.edu.thu.database.waterwheel;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
+import cn.edu.thu.database.IDataBaseM;
 import indexingTopology.api.client.*;
 import indexingTopology.bolt.InputStreamReceiverBolt;
 import indexingTopology.bolt.InputStreamReceiverBoltServer;
@@ -29,15 +30,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WaterWheel implements IDataBase {
+public class WaterWheelM implements IDataBaseM {
 
-    private static Logger logger = LoggerFactory.getLogger(WaterWheel.class);
+    private static Logger logger = LoggerFactory.getLogger(WaterWheelM.class);
     private DataSchema schema;
     private Config config;
     private static final String TIME = "timestamp";
     private IngestionClientBatchMode ingestionClient = null;
 
-    public WaterWheel(Config config, boolean forQuery) {
+    public WaterWheelM(Config config, boolean forQuery) {
         this.config = config;
         schema = getSchema(config);
         try {
@@ -169,7 +170,7 @@ public class WaterWheel implements IDataBase {
 
 
     /**
-     * deploy WaterWheel
+     * deploy WaterWheelM
      */
     public static void main(String... args) {
         Config config;

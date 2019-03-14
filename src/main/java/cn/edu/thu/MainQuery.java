@@ -1,7 +1,10 @@
 package cn.edu.thu;
 
 import cn.edu.thu.common.Config;
-import cn.edu.thu.manager.*;
+import cn.edu.thu.database.*;
+import cn.edu.thu.database.kairosdb.KairosDBM;
+import cn.edu.thu.database.opentsdb.OpenTSDBM;
+import cn.edu.thu.database.waterwheel.WaterWheelM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,19 +30,22 @@ public class MainQuery {
             config = new Config();
         }
 
-        IDataBase database = null;
+        IDataBaseM database = null;
         switch (config.DATABASE) {
             case "INFLUXDB":
-                database = new InfluxDB(config);
+                database = new InfluxDBM(config);
                 break;
             case "OPENTSDB":
-                database = new OpenTSDB(config);
+                database = new OpenTSDBM(config);
+                break;
+            case "KAIROSDB":
+                database = new KairosDBM(config);
                 break;
             case "SUMMARYSTORE":
                 database = new SummaryStoreM(config, true);
                 break;
             case "WATERWHEEL":
-                database = new WaterWheel(config, true);
+                database = new WaterWheelM(config, true);
                 break;
             default:
                 throw new RuntimeException(config.DATABASE + " not supported");

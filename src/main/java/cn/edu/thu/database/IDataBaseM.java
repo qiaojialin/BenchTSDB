@@ -1,10 +1,11 @@
-package cn.edu.thu.manager;
+package cn.edu.thu.database;
 
 import cn.edu.thu.common.Record;
 
+import java.io.IOException;
 import java.util.List;
 
-public interface IDataBase {
+public interface IDataBaseM {
 
     /**
      * @return time cost in ms

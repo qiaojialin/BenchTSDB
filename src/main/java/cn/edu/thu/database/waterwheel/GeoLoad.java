@@ -1,4 +1,4 @@
-package cn.edu.thu.manager.waterwheelsample;
+package cn.edu.thu.database.waterwheel;
 
 import indexingTopology.api.client.IngestionClientBatchMode;
 import indexingTopology.common.data.DataSchema;

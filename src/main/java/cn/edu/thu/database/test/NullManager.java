@@ -1,11 +1,11 @@
-package cn.edu.thu.manager;
+package cn.edu.thu.database.test;
 
 import cn.edu.thu.common.Record;
 
+import cn.edu.thu.database.IDataBaseM;
 import java.util.List;
-import java.util.Map;
 
-public class NullManager implements IDataBase{
+public class NullManager implements IDataBaseM {
 
     public NullManager() {
 

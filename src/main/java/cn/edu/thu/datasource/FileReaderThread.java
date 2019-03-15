@@ -8,6 +8,7 @@ import cn.edu.thu.datasource.parser.GeolifeParser;
 import cn.edu.thu.datasource.parser.IParser;
 import cn.edu.thu.datasource.parser.MLabParser;
 import cn.edu.thu.datasource.parser.NOAAParser;
+import cn.edu.thu.datasource.parser.TDriveParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,6 +42,9 @@ public class FileReaderThread implements Runnable {
 //                break;
             case "MLAB":
                 parser = new MLabParser();
+                break;
+            case "TDRIVE":
+                parser = new TDriveParser();
                 break;
             default:
                 throw new RuntimeException(config.DATA_SET + " not supported");

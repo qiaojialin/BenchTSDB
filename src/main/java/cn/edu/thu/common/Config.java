@@ -12,10 +12,10 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB
-    public String DATABASE = "KAIROSDB";
+    public String DATABASE = "INFLUXDB";
 
-    // NOAA, GEO, MLAB
-    public String DATA_SET = "GEO";
+    // NOAA, GEO, MLAB, TDRIVE
+    public String DATA_SET = "TDRIVE";
 
     public String TAG_NAME = "deviceId";
 
@@ -29,8 +29,8 @@ public class Config {
     public String WATERWHEEL_IP = "127.0.0.1";
     public boolean LOCAL = true;
 
-    // noaa, geolife, mlab
-    public String DATA_DIR = "data/geolife";
+    // noaa, geolife, mlab, tdrive
+    public String DATA_DIR = "data/tdrive";
     public int BEGINE_FILE = 0;
     public int END_FILE = 100000;
 
@@ -63,6 +63,9 @@ public class Config {
 //                break;
             case "MLAB":
                 FIELDS = new String[]{"value"};
+                break;
+            case "TDRIVE":
+                FIELDS = new String[]{"longitude", "latitude"};
                 break;
             default:
                 throw new RuntimeException(DATA_SET + " is not support");

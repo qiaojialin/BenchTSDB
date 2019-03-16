@@ -28,6 +28,7 @@ public class Config {
     public String SUMMARYSTORE_PATH = "sstore";
 
     public String WATERWHEEL_IP = "127.0.0.1";
+    public String HDFS_IP="hdfs://127.0.0.1:9000";
     public boolean LOCAL = true;
 
     // noaa, geolife, mlab_utilization, mlab_ip, tdrive

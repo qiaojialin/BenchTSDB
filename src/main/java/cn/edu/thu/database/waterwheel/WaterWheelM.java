@@ -193,8 +193,8 @@ public class WaterWheelM implements IDataBaseM {
             topologyConfig.metadataDir = "./target/tmp";
             topologyConfig.HDFSFlag = false;
         } else {
-            topologyConfig.dataChunkDir = "hdfs://127.0.0.1:9000/waterwheel";
-            topologyConfig.metadataDir = "hdfs://127.0.0.1:9000/waterwheel";
+            topologyConfig.dataChunkDir = config.HDFS_IP + "/waterwheel";
+            topologyConfig.metadataDir = config.HDFS_IP + "/waterwheel";
             topologyConfig.HDFSFlag = false;
         }
 

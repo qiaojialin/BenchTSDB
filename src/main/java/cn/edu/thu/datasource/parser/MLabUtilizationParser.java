@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MLabParser implements IParser {
+public class MLabUtilizationParser implements IParser {
 
 
     @Override

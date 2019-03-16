@@ -6,7 +6,8 @@ import cn.edu.thu.common.Statistics;
 import cn.edu.thu.database.*;
 import cn.edu.thu.datasource.parser.GeolifeParser;
 import cn.edu.thu.datasource.parser.IParser;
-import cn.edu.thu.datasource.parser.MLabParser;
+import cn.edu.thu.datasource.parser.MLabIPParser;
+import cn.edu.thu.datasource.parser.MLabUtilizationParser;
 import cn.edu.thu.datasource.parser.NOAAParser;
 import cn.edu.thu.datasource.parser.TDriveParser;
 import org.slf4j.Logger;
@@ -34,17 +35,17 @@ public class FileReaderThread implements Runnable {
             case "NOAA":
                 parser = new NOAAParser();
                 break;
-            case "GEO":
+            case "GEOLIFE":
                 parser = new GeolifeParser();
-                break;
-//            case "RDF":
-//                parser = new RDFParser();
-//                break;
-            case "MLAB":
-                parser = new MLabParser();
                 break;
             case "TDRIVE":
                 parser = new TDriveParser();
+                break;
+            case "MLAB_IP":
+                parser = new MLabIPParser(config);
+                break;
+            case "MLAB_UTILIZATION":
+                parser = new MLabUtilizationParser();
                 break;
             default:
                 throw new RuntimeException(config.DATA_SET + " not supported");

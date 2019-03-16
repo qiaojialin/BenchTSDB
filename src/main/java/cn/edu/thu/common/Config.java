@@ -14,8 +14,8 @@ public class Config {
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB
     public String DATABASE = "INFLUXDB";
 
-    // NOAA, GEO, MLAB, TDRIVE
-    public String DATA_SET = "TDRIVE";
+    // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE
+    public String DATA_SET = "MLAB_IP";
 
     public String TAG_NAME = "deviceId";
 
@@ -29,8 +29,8 @@ public class Config {
     public String WATERWHEEL_IP = "127.0.0.1";
     public boolean LOCAL = true;
 
-    // noaa, geolife, mlab, tdrive
-    public String DATA_DIR = "data/tdrive";
+    // noaa, geolife, mlab_utilization, mlab_ip, tdrive
+    public String DATA_DIR = "data/mlab_ip";
     public int BEGINE_FILE = 0;
     public int END_FILE = 100000;
 
@@ -55,21 +55,22 @@ public class Config {
                 FIELDS = new String[]{"TEMP", "DEWP", "SLP", "STP",
                         "VISIB", "WDSP", "MXSPD", "GUST", "MAX", "MIN", "PRCP", "SNDP", "FRSHTT"};
                 break;
-            case "GEO":
+            case "GEOLIFE":
                 FIELDS = new String[]{"Latitude", "Longitude", "Zero", "Altitude"};
-                break;
-//            case "RDF":
-//                FIELDS = new String[]{"Latitude", "Longitude", "Zero", "Altitude"};
-//                break;
-            case "MLAB":
-                FIELDS = new String[]{"value"};
                 break;
             case "TDRIVE":
                 FIELDS = new String[]{"longitude", "latitude"};
                 break;
+            case "MLAB_IP":
+                FIELDS = new String[]{"download_speed", "neubot_version", "connect_time", "upload_speed"};
+                break;
+            case "MLAB_UTILIZATION":
+                FIELDS = new String[]{"value"};
+                break;
             default:
                 throw new RuntimeException(DATA_SET + " is not support");
         }
+        logger.info("use dataset: {}", DATA_SET);
     }
 
     public Config() {

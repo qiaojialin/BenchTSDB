@@ -1,7 +1,6 @@
 package cn.edu.thu.datasource.parser;
 
 import cn.edu.thu.common.Record;
-
 import java.util.List;
 
 public interface IParser {

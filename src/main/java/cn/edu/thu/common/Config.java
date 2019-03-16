@@ -20,6 +20,7 @@ public class Config {
     public String TAG_NAME = "deviceId";
 
     public int THREAD_NUM = 1;
+    public int BATCH_SIZE = 5000;
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
     public String OPENTSDB_URL = "http://127.0.0.1:4242";
@@ -106,6 +107,7 @@ public class Config {
         SUMMARYSTORE_PATH = properties.getOrDefault("SUMMARYSTORE_PATH", SUMMARYSTORE_PATH).toString();
         BEGINE_FILE = Integer.parseInt(properties.getOrDefault("BEGINE_FILE", BEGINE_FILE).toString());
         END_FILE = Integer.parseInt(properties.getOrDefault("END_FILE", END_FILE).toString());
+        BATCH_SIZE = Integer.parseInt(properties.getOrDefault("BATCH_SIZE", BATCH_SIZE).toString());
         WATERWHEEL_INGEST_PORT = Integer.parseInt(properties.getOrDefault("WATERWHEEL_INGEST_PORT", WATERWHEEL_INGEST_PORT).toString());
         WATERWHEEL_QUERY_PORT = Integer.parseInt(properties.getOrDefault("WATERWHEEL_QUERY_PORT", WATERWHEEL_QUERY_PORT).toString());
         LOCAL = Boolean.parseBoolean(properties.getOrDefault("LOCAL", LOCAL).toString());

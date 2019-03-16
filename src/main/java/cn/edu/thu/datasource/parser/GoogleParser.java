@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author qiaojialin
  */
-public class GoogleParser implements IParser {
+@Deprecated public class GoogleParser implements IParser {
 
     @Override
     public List<Record> parse(String fileName) {

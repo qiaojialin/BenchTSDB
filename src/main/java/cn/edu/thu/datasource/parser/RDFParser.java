@@ -20,7 +20,7 @@ import java.util.List;
  * <p>
  * reference: https://jena.apache.org/documentation/io/
  */
-public class RDFParser implements IParser {
+@Deprecated public class RDFParser implements IParser {
 
 
     @Override

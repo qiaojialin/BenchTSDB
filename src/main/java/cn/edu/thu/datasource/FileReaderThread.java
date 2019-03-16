@@ -18,123 +18,150 @@ import java.util.*;
 
 public class FileReaderThread implements Runnable {
 
-    private static Logger logger = LoggerFactory.getLogger(FileReaderThread.class);
-    private IDataBaseM database;
-    private Config config;
-    private int threadId;
-    private IParser parser;
-    private final Statistics statistics;
+  private static Logger logger = LoggerFactory.getLogger(FileReaderThread.class);
+  private IDataBaseM database;
+  private Config config;
+  private int threadId;
+  private IParser parser;
+  private final Statistics statistics;
 
-    public FileReaderThread(IDataBaseM database, Config config, int threadId, final Statistics statistics) {
-        this.database = database;
-        this.config = config;
-        this.threadId = threadId;
-        this.statistics = statistics;
+  public FileReaderThread(IDataBaseM database, Config config, int threadId,
+      final Statistics statistics) {
+    this.database = database;
+    this.config = config;
+    this.threadId = threadId;
+    this.statistics = statistics;
 
-        switch (config.DATA_SET) {
-            case "NOAA":
-                parser = new NOAAParser();
-                break;
-            case "GEOLIFE":
-                parser = new GeolifeParser();
-                break;
-            case "TDRIVE":
-                parser = new TDriveParser();
-                break;
-            case "MLAB_IP":
-                parser = new MLabIPParser(config);
-                break;
-            case "MLAB_UTILIZATION":
-                parser = new MLabUtilizationParser();
-                break;
-            default:
-                throw new RuntimeException(config.DATA_SET + " not supported");
-        }
-
+    switch (config.DATA_SET) {
+      case "NOAA":
+        parser = new NOAAParser();
+        break;
+      case "GEOLIFE":
+        parser = new GeolifeParser();
+        break;
+      case "TDRIVE":
+        parser = new TDriveParser();
+        break;
+      case "MLAB_IP":
+        parser = new MLabIPParser(config);
+        break;
+      case "MLAB_UTILIZATION":
+        parser = new MLabUtilizationParser();
+        break;
+      default:
+        throw new RuntimeException(config.DATA_SET + " not supported");
     }
 
-    @Override
-    public void run() {
+  }
 
-        logger.info("thread running!");
+  @Override
+  public void run() {
 
-        long totalTime = 1;
+    logger.info("thread running!");
 
-        try {
-            File dirFile = new File(config.DATA_DIR);
-            if (!dirFile.exists()) {
-                logger.error(config.DATA_DIR + " do not exit");
-                return;
-            }
+    long totalTime = 1;
 
-            List<String> files = new ArrayList<>();
-            getAllFiles(config.DATA_DIR, files);
+    try {
+      File dirFile = new File(config.DATA_DIR);
+      if (!dirFile.exists()) {
+        logger.error(config.DATA_DIR + " do not exit");
+        return;
+      }
 
-            Collections.sort(files);
+      List<String> files = new ArrayList<>();
+      getAllFiles(config.DATA_DIR, files);
 
-            long lineNum = 0;
-            int fileNum = 0;
+      Collections.sort(files);
 
-            logger.info("total file num: {}", files.size());
+      long lineNum = 0;
+      int fileNum = 0;
 
-            for (int i = 0; i < files.size(); i++) {
+      // clean file
+      List<String> realFiles = new ArrayList<>();
+      for (int i = 0; i < files.size(); i++) {
 
-                if(i< config.BEGINE_FILE || i > config.END_FILE) {
-                    continue;
-                }
+        // control the number of files to read
+//        if (i < config.BEGINE_FILE || i > config.END_FILE) {
+//          continue;
+//        }
 
-                String filePath = files.get(i);
-
-                // only read the file that can be exacted division by threadid
-                if (i % config.THREAD_NUM != threadId) {
-                    continue;
-                }
-
-                fileNum++;
-
-                List<Record> records = parser.parse(filePath);
-
-                lineNum += records.size();
-
-                // write all data in this file to database
-                long timecost = database.insertBatch(records);
-
-                totalTime += timecost;
-
-                logger.debug("processed the {}-th file in : {} ms", i, timecost);
-            }
-
-            totalTime += database.flush();
-
-            logger.info("INFO! total produce {} files and {} lines", fileNum, lineNum);
-
-            synchronized (statistics) {
-                statistics.fileNum += fileNum;
-                statistics.timeCost += totalTime;
-                statistics.lineNum += lineNum;
-                statistics.pointNum += lineNum * config.FIELDS.length;
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        // only read the file that can be exacted division by threadid
+        if (i % config.THREAD_NUM != threadId) {
+          continue;
         }
 
-    }
-
-
-    private void getAllFiles(String strPath, List<String> files) {
-        File f = new File(strPath);
-        if (f.isDirectory()) {
-            File[] fs = f.listFiles();
-            for (File f1 : fs) {
-                String fsPath = f1.getAbsolutePath();
-                getAllFiles(fsPath, files);
-            }
-        } else if (f.isFile()) {
-            files.add(f.getAbsolutePath());
+        String filePath = files.get(i);
+        if (filePath.contains(".DS_Store")) {
+          continue;
         }
+
+        realFiles.add(filePath);
+      }
+
+      logger.info("total file num: {}", realFiles.size());
+
+      List<Record> records = new ArrayList<>();
+      // read files
+      for (int i = 0; i < realFiles.size(); i++) {
+
+        String filePath = realFiles.get(i);
+
+        fileNum++;
+
+        records.addAll(parser.parse(filePath));
+
+        if (records.size() < config.BATCH_SIZE) {
+          continue;
+        }
+
+        // reach a batch
+        lineNum += records.size();
+
+        long timecost = database.insertBatch(records);
+
+        logger.debug("write a batch of {} records in {} ms, the {}-th file is down", records.size(),
+            timecost, i);
+
+        totalTime += timecost;
+
+        records.clear();
+
+      }
+
+      // process the last batch
+      lineNum += records.size();
+      long timecost = database.insertBatch(records);
+      logger.info("Write the last batch of {} records in {} ms, all {} files down!", records.size(),
+          timecost, fileNum);
+      totalTime += timecost;
+      totalTime += database.flush();
+
+      synchronized (statistics) {
+        statistics.fileNum += fileNum;
+        statistics.timeCost += totalTime;
+        statistics.lineNum += lineNum;
+        statistics.pointNum += lineNum * config.FIELDS.length;
+      }
+
+    } catch (Exception e) {
+      e.printStackTrace();
     }
 
+  }
+
+
+  private void getAllFiles(String strPath, List<String> files) {
+    File f = new File(strPath);
+    if (f.isDirectory()) {
+      File[] fs = f.listFiles();
+      for (File f1 : fs) {
+        String fsPath = f1.getAbsolutePath();
+        getAllFiles(fsPath, files);
+      }
+    } else if (f.isFile()) {
+      files.add(f.getAbsolutePath());
+    }
+  }
 
 
 }

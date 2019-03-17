@@ -11,61 +11,73 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GeolifeParser implements IParser {
 
-    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-hh:mm:ss");
-    private String tag = "";
+  private static Logger logger = LoggerFactory.getLogger(GeolifeParser.class);
+  private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-hh:mm:ss");
+  private String tag = "";
+  private String fileName = "";
 
-    @Override
-    public List<Record> parse(String fileName) {
+  @Override
+  public List<Record> parse(String fileName) {
 
-        //replace("/Trajectory/", "_").replace(".plt", "").replace("/", "")
+    this.fileName = fileName;
 
-        tag = fileName.split("geolife/")[1].split("/Trajectory")[0];
+    // skip error files
+    if (fileName.contains("lables.txt")) {
+      return new ArrayList<>();
+    }
 
-        List<Record> records = new ArrayList<>();
+    //replace("/Trajectory/", "_").replace(".plt", "").replace("/", "")
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+    tag = fileName.split("geolife/")[1].split("/Trajectory")[0];
 
-            // skip 6 lines, which is useless
-            for(int i = 0; i < 6; i++) {
-                reader.readLine();
-            }
+    List<Record> records = new ArrayList<>();
 
-            String line;
+    try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
 
-            while ((line = reader.readLine()) != null) {
-                try {
-                    Record record = convertToRecord(line);
-                    records.add(record);
-                } catch (ParseException ignored) {
-                }
-            }
+      // skip 6 lines, which is useless
+      for (int i = 0; i < 6; i++) {
+        reader.readLine();
+      }
 
-        } catch (IOException e) {
-            e.printStackTrace();
+      String line;
+
+      while ((line = reader.readLine()) != null) {
+        Record record = convertToRecord(line);
+        if (record != null) {
+          records.add(record);
         }
+      }
 
-        return records;
+    } catch (IOException e) {
+      e.printStackTrace();
     }
 
-    private Record convertToRecord(String line) throws ParseException {
+    return records;
+  }
 
-        List<Object> fields = new ArrayList<>();
+  private Record convertToRecord(String line) {
+    try {
+      List<Object> fields = new ArrayList<>();
+      String[] items = line.split(",");
 
-        String[] items = line.split(",");
+      fields.add(Float.parseFloat(items[0]));
+      fields.add(Float.parseFloat(items[1]));
+      fields.add(Float.parseFloat(items[2]));
+      fields.add(Float.parseFloat(items[3]));
 
-        fields.add(Float.parseFloat(items[0]));
-        fields.add(Float.parseFloat(items[1]));
-        fields.add(Float.parseFloat(items[2]));
-        fields.add(Float.parseFloat(items[3]));
-
-        Date date = dateFormat.parse(items[5] + "-" + items[6]);
-        long time = date.getTime();
-
-        return new Record(time, tag, fields);
-
+      Date date = dateFormat.parse(items[5] + "-" + items[6]);
+      long time = date.getTime();
+      return new Record(time, tag, fields);
+    } catch (Exception ignore) {
+      logger.warn("can not parse: {}, error message: {}, File name: {}", line, ignore.getMessage(),
+          fileName);
     }
+    return null;
+  }
 
 }

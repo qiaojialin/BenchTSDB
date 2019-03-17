@@ -116,26 +116,46 @@ public class FileReaderThread implements Runnable {
           continue;
         }
 
+        // here records size is enough, maybe too large, so split
+
+        // make sure each batch <= config.BATCH_SIZE
+        List<List<Record>> batches = new ArrayList<>();
+        List<Record> tempBatch = new ArrayList<>();
+        for(int j = 0; j < records.size(); j++) {
+          tempBatch.add(records.get(i));
+          if(tempBatch.size() >= config.BATCH_SIZE) {
+            batches.add(tempBatch);
+            tempBatch = new ArrayList<>();
+          }
+        }
+        if(!tempBatch.isEmpty()) {
+          batches.add(tempBatch);
+        }
+
         // reach a batch
         lineNum += records.size();
 
-        long timecost = database.insertBatch(records);
-
-        logger.debug("write a batch of {} records in {} ms, the {}-th file is down", records.size(),
-            timecost, i);
-
-        totalTime += timecost;
+        for(List<Record> batch: batches) {
+          long timecost = database.insertBatch(batch);
+          logger.info("write a batch of {} records in {} ms, the {}-th file is down", batch.size(),
+              timecost, i);
+          totalTime += timecost;
+        }
 
         records.clear();
 
       }
 
       // process the last batch
-      lineNum += records.size();
-      long timecost = database.insertBatch(records);
-      logger.info("Write the last batch of {} records in {} ms, all {} files down!", records.size(),
-          timecost, fileNum);
-      totalTime += timecost;
+      if(!records.isEmpty()) {
+        lineNum += records.size();
+        long timecost = database.insertBatch(records);
+        logger
+            .info("Write the last batch of {} records in {} ms, all {} files down!", records.size(),
+                timecost, fileNum);
+        totalTime += timecost;
+      }
+
       totalTime += database.flush();
 
       synchronized (statistics) {

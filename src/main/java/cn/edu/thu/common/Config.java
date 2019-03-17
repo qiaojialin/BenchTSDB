@@ -12,18 +12,25 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB
-    public String DATABASE = "INFLUXDB";
+    public String DATABASE = "OPENTSDB";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE
-    public String DATA_SET = "MLAB_IP";
+    public String DATA_SET = "GEOLIFE";
+
+    // noaa, geolife, mlab_utilization, mlab_ip, tdrive
+    public String DATA_DIR = "data/geolife";
+    public int BEGINE_FILE = 0;
+    public int END_FILE = 100000;
+
 
     public String TAG_NAME = "deviceId";
 
-    public int THREAD_NUM = 1;
+    public int THREAD_NUM = 2;
     public int BATCH_SIZE = 5000;
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
     public String OPENTSDB_URL = "http://127.0.0.1:4242";
+//    public String OPENTSDB_URL = "http://192.168.10.64:4242";
     public String KAIROSDB_URL = "http://127.0.0.1:8080";
     public String SUMMARYSTORE_PATH = "sstore";
 
@@ -31,10 +38,7 @@ public class Config {
     public String HDFS_IP="hdfs://127.0.0.1:9000";
     public boolean LOCAL = true;
 
-    // noaa, geolife, mlab_utilization, mlab_ip, tdrive
-    public String DATA_DIR = "data/mlab_ip";
-    public int BEGINE_FILE = 0;
-    public int END_FILE = 100000;
+
 
     public String[] FIELDS = null;
 
@@ -46,10 +50,10 @@ public class Config {
 
     public String FIELD = "Latitude";
 
-    //  1893484839000L, -1
-    public long START_TIME = -1;
+    //  1224656854000L, -1
+    public long START_TIME = 1224656854000L;
 
-    public long END_TIME = 1924934439000L;
+    public long END_TIME = 1224916054000L;
 
     private void init() {
         switch (DATA_SET) {

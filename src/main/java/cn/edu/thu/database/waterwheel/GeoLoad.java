@@ -29,7 +29,7 @@ public class GeoLoad {
         }
 
         for (long i = 0; i < 100; i++) {
-            for(long j = 0; j < 100000; j++) {
+            for(long j = 1000; j > 10; j--) {
                 DataTuple tuple = new DataTuple();
                 tuple.add(i);
                 tuple.add(3.14d);

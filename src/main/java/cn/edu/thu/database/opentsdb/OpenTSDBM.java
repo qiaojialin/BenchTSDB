@@ -22,7 +22,7 @@ public class OpenTSDBM implements IDataBaseM {
     public OpenTSDBM(Config config) {
         this.config = config;
         this.dbUrl = config.OPENTSDB_URL;
-        this.writeUrl = this.dbUrl + "/api/put?summary ";
+        this.writeUrl = this.dbUrl + "/api/put?summary";
         this.queryUrl = this.dbUrl + "/api/query";
     }
 

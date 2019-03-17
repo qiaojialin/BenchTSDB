@@ -122,7 +122,7 @@ public class FileReaderThread implements Runnable {
         List<List<Record>> batches = new ArrayList<>();
         List<Record> tempBatch = new ArrayList<>();
         for(int j = 0; j < records.size(); j++) {
-          tempBatch.add(records.get(i));
+          tempBatch.add(records.get(j));
           if(tempBatch.size() >= config.BATCH_SIZE) {
             batches.add(tempBatch);
             tempBatch = new ArrayList<>();

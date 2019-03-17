@@ -2,6 +2,7 @@ package cn.edu.thu.datasource.parser;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.io.BufferedReader;
@@ -22,12 +23,21 @@ public class MLabIPParser implements IParser {
   public List<Record> parse(String fileName) {
     List<Record> records = new ArrayList<>();
 
+    // cannot parse this type of file
+    if(fileName.contains("_raw")) {
+      return records;
+    }
+
     try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
 
       String line;
 
       while ((line = reader.readLine()) != null) {
-        records.add(convertToRecord(line));
+        if(fileName.contains("_dash")) {
+          records.addAll(convertToRecords(line));
+        } else {
+          records.add(convertToRecord(line));
+        }
       }
 
     } catch (IOException e) {
@@ -37,7 +47,32 @@ public class MLabIPParser implements IParser {
     return records;
   }
 
+  /**
+   * parse _dash file
+   * @return
+   */
+  private List<Record> convertToRecords(String line) {
+    List<Record> records = new ArrayList<>();
+    JsonParser jsonParser = new JsonParser();
+    JsonObject jsonObject = jsonParser.parse(line).getAsJsonObject();
 
+    JsonArray clients = jsonObject.get("client").getAsJsonArray();
+    for(int i = 0; i < clients.size(); i++) {
+      JsonObject client = clients.get(i).getAsJsonObject();
+      String ip = client.get("real_address").getAsString();
+      long time = client.get("timestamp").getAsLong();
+      List<Object> fields = new ArrayList<>();
+      fields.add(client.get("connect_time").getAsFloat());
+      records.add(new Record(time, ip, fields));
+    }
+    return records;
+  }
+
+  /**
+   * parse _speedtest and _bittorrent file
+   * @param line
+   * @return
+   */
   private Record convertToRecord(String line) {
     JsonParser jsonParser = new JsonParser();
     JsonObject jsonObject = jsonParser.parse(line).getAsJsonObject();

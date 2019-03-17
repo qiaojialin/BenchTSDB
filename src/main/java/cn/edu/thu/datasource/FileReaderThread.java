@@ -91,6 +91,8 @@ public class FileReaderThread implements Runnable {
         }
 
         String filePath = files.get(i);
+
+        // skip mac file and mlab_ip raw file
         if (filePath.contains(".DS_Store")) {
           continue;
         }

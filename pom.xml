@@ -117,8 +117,9 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>cn.edu.thu.database.waterwheel.GeoSubmit</mainClass>
-                                    <!--<mainClass>cn.edu.thu.MainQuery</mainClass>-->
+                                    <!--<mainClass>cn.edu.thu.database.waterwheel.GeoSubmit</mainClass>-->
+                                    <!--<mainClass>cn.edu.thu.MainLoad</mainClass>-->
+                                    <mainClass>cn.edu.thu.MainQuery</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>

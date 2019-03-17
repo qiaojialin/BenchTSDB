@@ -64,7 +64,7 @@ public class Config {
                 FIELDS = new String[]{"longitude", "latitude"};
                 break;
             case "MLAB_IP":
-                FIELDS = new String[]{"download_speed", "neubot_version", "connect_time", "upload_speed"};
+                FIELDS = new String[]{"connect_time"};
                 break;
             case "MLAB_UTILIZATION":
                 FIELDS = new String[]{"value"};

@@ -3,17 +3,20 @@ package cn.edu.thu.datasource.parser;
 import cn.edu.thu.common.Record;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TDriveParser implements IParser{
 
   private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+  private static Logger logger = LoggerFactory.getLogger(TDriveParser.class);
+
 
   @Override
   public List<Record> parse(String fileName) {
@@ -37,7 +40,8 @@ public class TDriveParser implements IParser{
         }
       }
 
-    } catch (IOException e) {
+    } catch (Exception e) {
+      logger.warn("parse {} failed, because {}", fileName, e.getMessage());
       e.printStackTrace();
     }
 

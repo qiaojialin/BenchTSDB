@@ -27,6 +27,12 @@ List<Object> fields
 
 ## Waterwheel
 
+### 集群部署
+
+../storm-1.2.2/bin/storm jar waterwheel.jar cn.edu.thu.database.waterwheel.WaterWheelM config.properties
+
+部署上去之后 server 的 ip 是 supervisor 节点中任意一个。
+
 ### 示例程序
 
 示例代码在 cn.edu.thu.database.waterwheel 包下

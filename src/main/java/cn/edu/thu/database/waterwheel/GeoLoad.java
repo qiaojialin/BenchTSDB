@@ -11,16 +11,20 @@ public class GeoLoad {
     public static void main(String... args) {
 
         DataSchema schema = new DataSchema();
-        schema.addLongField("id");
-        schema.addDoubleField("lon");
-        schema.addDoubleField("lat");
-        schema.addDoubleField("alt");
+
+        schema.addLongField("deviceId");
+        schema.setPrimaryIndexField("deviceId");
+
         schema.addLongField("timestamp");
         schema.setTemporalField("timestamp");
-        schema.setPrimaryIndexField("id");
+
+        schema.addDoubleField("Latitude");
+        schema.addDoubleField("Longitude");
+        schema.addDoubleField("Zero");
+        schema.addDoubleField("Altitude");
 
 
-        final IngestionClientBatchMode ingestionClient = new IngestionClientBatchMode("localhost", 10000, schema, 1024);
+        IngestionClientBatchMode ingestionClient = new IngestionClientBatchMode("127.0.0.1", 10000, schema, 1024);
         try {
             ingestionClient.connectWithTimeout(10000);
             System.out.println("successfully connected to waterwheel server");
@@ -32,10 +36,11 @@ public class GeoLoad {
             for(long j = 1000; j > 10; j--) {
                 DataTuple tuple = new DataTuple();
                 tuple.add(i);
+                tuple.add(System.currentTimeMillis() + j);
                 tuple.add(3.14d);
                 tuple.add(100d);
+                tuple.add(0d);
                 tuple.add(200d);
-                tuple.add(System.currentTimeMillis() + j);
                 try {
                     ingestionClient.appendInBatch(tuple);
                 } catch (IOException e) {
@@ -43,22 +48,15 @@ public class GeoLoad {
                 }
             }
         }
-        try {
-            System.out.println("start flush");
-            ingestionClient.flush();
-            System.out.println("end flush");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        System.out.println("wait to finish");
-        // wait for the tuples to be appended.
-        ingestionClient.waitFinish();
-        System.out.println("finished!");
+
         try {
+            ingestionClient.flush();
+            ingestionClient.waitFinish();
             ingestionClient.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

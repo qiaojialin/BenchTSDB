@@ -24,12 +24,15 @@ public class FileReaderThread implements Runnable {
   private int threadId;
   private IParser parser;
   private final Statistics statistics;
+  private List<String> realFiles;
 
   public FileReaderThread(IDataBaseM database, Config config, int threadId,
+      List<String> files,
       final Statistics statistics) {
     this.database = database;
     this.config = config;
     this.threadId = threadId;
+    this.realFiles = files;
     this.statistics = statistics;
 
     switch (config.DATA_SET) {
@@ -57,58 +60,19 @@ public class FileReaderThread implements Runnable {
   @Override
   public void run() {
 
-    logger.info("thread running!");
+    logger.info("thread running!, need to read {} files", realFiles.size());
 
     long totalTime = 1;
 
     try {
-      File dirFile = new File(config.DATA_DIR);
-      if (!dirFile.exists()) {
-        logger.error(config.DATA_DIR + " do not exit");
-        return;
-      }
-
-      List<String> files = new ArrayList<>();
-      getAllFiles(config.DATA_DIR, files);
-
-      Collections.sort(files);
 
       long lineNum = 0;
-      int fileNum = 0;
-
-      // clean file
-      List<String> realFiles = new ArrayList<>();
-      for (int i = 0; i < files.size(); i++) {
-
-        // control the number of files to read
-//        if (i < config.BEGINE_FILE || i > config.END_FILE) {
-//          continue;
-//        }
-
-        // only read the file that can be exacted division by threadid
-        if (i % config.THREAD_NUM != threadId) {
-          continue;
-        }
-
-        String filePath = files.get(i);
-
-        // skip mac file and mlab_ip raw file
-        if (filePath.contains(".DS_Store")) {
-          continue;
-        }
-
-        realFiles.add(filePath);
-      }
-
-      logger.info("total file num: {}", realFiles.size());
 
       List<Record> records = new ArrayList<>();
       // read files
       for (int i = 0; i < realFiles.size(); i++) {
 
         String filePath = realFiles.get(i);
-
-        fileNum++;
 
         records.addAll(parser.parse(filePath));
 
@@ -117,49 +81,47 @@ public class FileReaderThread implements Runnable {
         }
 
         // here records size is enough, maybe too large, so split
-
         // make sure each batch <= config.BATCH_SIZE
         List<List<Record>> batches = new ArrayList<>();
         List<Record> tempBatch = new ArrayList<>();
-        for(int j = 0; j < records.size(); j++) {
+        for (int j = 0; j < records.size(); j++) {
           tempBatch.add(records.get(j));
-          if(tempBatch.size() >= config.BATCH_SIZE) {
+          if (tempBatch.size() >= config.BATCH_SIZE) {
             batches.add(tempBatch);
             tempBatch = new ArrayList<>();
           }
         }
-        if(!tempBatch.isEmpty()) {
+        if (!tempBatch.isEmpty()) {
           batches.add(tempBatch);
         }
 
         // reach a batch
         lineNum += records.size();
 
-        for(List<Record> batch: batches) {
+        for (List<Record> batch : batches) {
           long timecost = database.insertBatch(batch);
-          logger.info("write a batch of {} records in {} ms, the {}-th file is down", batch.size(),
-              timecost, i);
+          logger
+              .info("write a batch of {} records in {} ms, the {}-th file is down", batch.size(),
+                  timecost, i);
           totalTime += timecost;
         }
-
         records.clear();
 
       }
 
       // process the last batch
-      if(!records.isEmpty()) {
+      if (!records.isEmpty()) {
         lineNum += records.size();
         long timecost = database.insertBatch(records);
         logger
-            .info("Write the last batch of {} records in {} ms, all {} files down!", records.size(),
-                timecost, fileNum);
+            .info("Write the last batch of {} records in {} ms, {} files down!", records.size(),
+                timecost, realFiles.size());
         totalTime += timecost;
       }
 
       totalTime += database.flush();
 
       synchronized (statistics) {
-        statistics.fileNum += fileNum;
         statistics.timeCost += totalTime;
         statistics.lineNum += lineNum;
         statistics.pointNum += lineNum * config.FIELDS.length;
@@ -169,21 +131,7 @@ public class FileReaderThread implements Runnable {
       e.printStackTrace();
     }
 
+
   }
-
-
-  private void getAllFiles(String strPath, List<String> files) {
-    File f = new File(strPath);
-    if (f.isDirectory()) {
-      File[] fs = f.listFiles();
-      for (File f1 : fs) {
-        String fsPath = f1.getAbsolutePath();
-        getAllFiles(fsPath, files);
-      }
-    } else if (f.isFile()) {
-      files.add(f.getAbsolutePath());
-    }
-  }
-
 
 }

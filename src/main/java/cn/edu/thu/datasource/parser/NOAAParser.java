@@ -34,7 +34,7 @@ public class NOAAParser implements IParser {
                 }
             }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

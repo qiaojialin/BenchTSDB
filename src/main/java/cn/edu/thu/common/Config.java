@@ -12,7 +12,7 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB
-    public String DATABASE = "OPENTSDB";
+    public String DATABASE = "WATERWHEEL";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE
     public String DATA_SET = "GEOLIFE";
@@ -25,19 +25,23 @@ public class Config {
 
     public String TAG_NAME = "deviceId";
 
-    public int THREAD_NUM = 2;
+    public int THREAD_NUM = 1;
     public int BATCH_SIZE = 5000;
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
-    public String OPENTSDB_URL = "http://127.0.0.1:4242";
-//    public String OPENTSDB_URL = "http://192.168.10.64:4242";
-    public String KAIROSDB_URL = "http://127.0.0.1:8080";
+
+//    public String OPENTSDB_URL = "http://127.0.0.1:4242";
+    public String OPENTSDB_URL = "http://192.168.10.64:4242";
+
+//    public String KAIROSDB_URL = "http://127.0.0.1:1408";
+    public String KAIROSDB_URL = "http://192.168.10.64:1408";
+
     public String SUMMARYSTORE_PATH = "sstore";
 
     public String WATERWHEEL_IP = "127.0.0.1";
-    public String HDFS_IP="hdfs://127.0.0.1:9000";
-    public boolean LOCAL = true;
-
+    // must end with '/'
+    public String HDFS_IP="hdfs://127.0.0.1:9000/";
+    public boolean LOCAL = false;
 
 
     public String[] FIELDS = null;
@@ -47,13 +51,10 @@ public class Config {
 
     // for query
     public String QUERY_TAG = "000";
-
     public String FIELD = "Latitude";
+    public long START_TIME = 1200398115000L;
+    public long END_TIME = 1246816515000L;
 
-    //  1224656854000L, -1
-    public long START_TIME = 1224656854000L;
-
-    public long END_TIME = 1224916054000L;
 
     private void init() {
         switch (DATA_SET) {
@@ -109,6 +110,7 @@ public class Config {
         OPENTSDB_URL = properties.getOrDefault("OPENTSDB_URL", OPENTSDB_URL).toString();
         KAIROSDB_URL = properties.getOrDefault("KAIROSDB_URL", KAIROSDB_URL).toString();
         WATERWHEEL_IP = properties.getOrDefault("WATERWHEEL_IP", WATERWHEEL_IP).toString();
+        HDFS_IP = properties.getOrDefault("HDFS_IP", HDFS_IP).toString();
         SUMMARYSTORE_PATH = properties.getOrDefault("SUMMARYSTORE_PATH", SUMMARYSTORE_PATH).toString();
         BEGINE_FILE = Integer.parseInt(properties.getOrDefault("BEGINE_FILE", BEGINE_FILE).toString());
         END_FILE = Integer.parseInt(properties.getOrDefault("END_FILE", END_FILE).toString());

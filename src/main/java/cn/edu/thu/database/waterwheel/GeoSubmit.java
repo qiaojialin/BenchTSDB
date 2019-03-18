@@ -8,6 +8,7 @@ import indexingTopology.common.data.DataSchema;
 import indexingTopology.config.TopologyConfig;
 import indexingTopology.topology.TopologyGenerator;
 import indexingTopology.util.AvailableSocketPool;
+
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.StormSubmitter;
@@ -22,7 +23,7 @@ public class GeoSubmit {
 
         TopologyConfig config = new TopologyConfig();
 
-        boolean local = true;
+        boolean local = false;
 
         config.CHUNK_SIZE = 512 * 1024;
         config.previousTime = Integer.MAX_VALUE;
@@ -30,7 +31,6 @@ public class GeoSubmit {
         if(local) {
             config.dataChunkDir = "./target/tmp";
             config.metadataDir = "./target/tmp";
-
             config.HDFSFlag = false;
         } else {
             config.HDFSFlag = true;
@@ -43,13 +43,17 @@ public class GeoSubmit {
 
 
         DataSchema schema = new DataSchema();
-        schema.addLongField("id");
-        schema.addDoubleField("lon");
-        schema.addDoubleField("lat");
-        schema.addDoubleField("alt");
+
+        schema.addLongField("deviceId");
+        schema.setPrimaryIndexField("deviceId");
+
         schema.addLongField("timestamp");
         schema.setTemporalField("timestamp");
-        schema.setPrimaryIndexField("id");
+
+        schema.addDoubleField("Latitude");
+        schema.addDoubleField("Longitude");
+        schema.addDoubleField("Zero");
+        schema.addDoubleField("Altitude");
 
         final long minIndex = 0L;
         final long maxIndex = Long.MAX_VALUE;
@@ -73,10 +77,10 @@ public class GeoSubmit {
 
         if(local) {
             LocalCluster cluster = new LocalCluster();
-            cluster.submitTopology("testWaterWheelSample", conf, topology);
+            cluster.submitTopology("GeoSubmitTopology", conf, topology);
         } else {
             try {
-                StormSubmitter.submitTopology("testWaterWheelSample", conf, topology);
+                StormSubmitter.submitTopology("GeoSubmitTopology", conf, topology);
                 System.out.println("Topology is successfully submitted to the cluster!");
                 System.out.println(config.getCriticalSettings());
             } catch (AlreadyAliveException | InvalidTopologyException | AuthorizationException e) {

@@ -13,13 +13,17 @@ public class GeoQuery {
     public static void main(String... args) {
 
         DataSchema schema = new DataSchema();
-        schema.addLongField("id");
-        schema.addDoubleField("lon");
-        schema.addDoubleField("lat");
-        schema.addDoubleField("alt");
+
+        schema.addLongField("deviceId");
+        schema.setPrimaryIndexField("deviceId");
+
         schema.addLongField("timestamp");
         schema.setTemporalField("timestamp");
-        schema.setPrimaryIndexField("id");
+
+        schema.addDoubleField("Latitude");
+        schema.addDoubleField("Longitude");
+        schema.addDoubleField("Zero");
+        schema.addDoubleField("Altitude");
 
 
         final QueryClient queryClient = new QueryClient("localhost", 10001);
@@ -30,7 +34,7 @@ public class GeoQuery {
             e.printStackTrace();
         }
 
-        Aggregator<Integer> aggregator = new Aggregator<>(schema, "id", new AggregateField(new Count(), "lon"));
+        Aggregator<Integer> aggregator = new Aggregator<>(schema, "deviceId", new AggregateField(new Count(), "Latitude"));
 
         try {
             //a key range query

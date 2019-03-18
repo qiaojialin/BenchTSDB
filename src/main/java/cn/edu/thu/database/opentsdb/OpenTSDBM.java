@@ -88,14 +88,14 @@ public class OpenTSDBM implements IDataBaseM {
             logger.error("do not support");
             return -1;
         } else {
-            queryMap.put("start", startTime - 1);
-            queryMap.put("end", endTime + 1);
-            subQuery.put("downsample", (endTime - startTime + 1) + "ms-max");
+            long diff = endTime - startTime;
+            queryMap.put("start", startTime);
+            subQuery.put("downsample", (diff) + "ms-count");
 
         }
 
         subQuery.put("metric", field);
-        subQuery.put("aggregator", "max");
+        subQuery.put("aggregator", "none");
 
         List<Map<String, Object>> queries = new ArrayList<>();
         queries.add(subQuery);
@@ -103,11 +103,12 @@ public class OpenTSDBM implements IDataBaseM {
 
         String sql = JSON.toJSONString(queryMap);
 
+        logger.info("sql: {}", sql);
         long start = System.currentTimeMillis();
 
         try {
             String response = ThuHttpRequest.sendPost(queryUrl, sql);
-            logger.debug(response);
+            logger.info(response);
         } catch (IOException e) {
             e.printStackTrace();
         }

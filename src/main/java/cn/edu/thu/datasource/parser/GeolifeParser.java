@@ -4,9 +4,7 @@ import cn.edu.thu.common.Record;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -53,7 +51,8 @@ public class GeolifeParser implements IParser {
         }
       }
 
-    } catch (IOException e) {
+    } catch (Exception e) {
+      logger.warn("parse {} failed, because {}", fileName, e.getMessage());
       e.printStackTrace();
     }
 

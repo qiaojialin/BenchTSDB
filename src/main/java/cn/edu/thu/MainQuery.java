@@ -54,7 +54,8 @@ public class MainQuery {
 
 
         long start = System.currentTimeMillis();
-        database.count(config.QUERY_TAG, config.FIELD, config.START_TIME, config.END_TIME);
+//        database.count(config.QUERY_TAG, config.FIELD, config.START_TIME, config.END_TIME);
+        database.count(config.QUERY_TAG, config.FIELD, Long.MIN_VALUE, Long.MAX_VALUE);
         start = System.currentTimeMillis()-start;
         logger.info("query time: {}",start);
 

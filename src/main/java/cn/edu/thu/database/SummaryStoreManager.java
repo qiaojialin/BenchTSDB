@@ -12,9 +12,9 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.*;
 
-public class SummaryStoreM implements IDataBaseM {
+public class SummaryStoreManager implements IDataBaseManager {
 
-    private static final Logger logger = LoggerFactory.getLogger(SummaryStoreM.class);
+    private static final Logger logger = LoggerFactory.getLogger(SummaryStoreManager.class);
     private String storePath;
     private Config config;
 
@@ -22,7 +22,7 @@ public class SummaryStoreM implements IDataBaseM {
 
     private Set<Long> allStreams = new HashSet<>();
 
-    public SummaryStoreM(Config config, boolean forQuery) {
+    public SummaryStoreManager(Config config, boolean forQuery) {
         this.config = config;
         this.storePath = config.SUMMARYSTORE_PATH;
         try {

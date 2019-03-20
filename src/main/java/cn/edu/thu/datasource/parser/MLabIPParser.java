@@ -2,9 +2,9 @@ package cn.edu.thu.datasource.parser;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -30,11 +30,12 @@ public class MLabIPParser implements IParser {
       String line;
 
       while ((line = reader.readLine()) != null) {
-        if (fileName.contains("_dash")) {
+        if (fileName.contains("dash")) {
           records.addAll(convertToRecords(line));
-        } else if (fileName.contains("_raw")) {
+        } else if (fileName.contains("raw")) {
           records.add(convertToRecord2(line));
         } else {
+          // speedtest and bittorrent file
           records.add(convertToRecord1(line));
         }
       }
@@ -48,55 +49,57 @@ public class MLabIPParser implements IParser {
   }
 
   /**
-   * parse _dash file
+   * parse dash file
    */
   private List<Record> convertToRecords(String line) {
     List<Record> records = new ArrayList<>();
-    JsonParser jsonParser = new JsonParser();
-    JsonObject jsonObject = jsonParser.parse(line).getAsJsonObject();
+    try {
+      JSONObject jsonObject = JSON.parseObject(line);
 
-    JsonArray clients = jsonObject.get("client").getAsJsonArray();
-    for (int i = 0; i < clients.size(); i++) {
-      JsonObject client = clients.get(i).getAsJsonObject();
-      String ip = client.get("real_address").getAsString();
-      long time = client.get("timestamp").getAsLong();
-      List<Object> fields = new ArrayList<>();
-      fields.add(client.get("connect_time").getAsFloat());
-      records.add(new Record(time, ip, fields));
+      JSONArray clients = jsonObject.getJSONArray("client");
+      for (int i = 0; i < clients.size(); i++) {
+        JSONObject client = clients.getJSONObject(i);
+        String ip = client.getString("real_address");
+        long time = client.getLongValue("timestamp");
+        List<Object> fields = new ArrayList<>();
+        fields.add(client.getFloatValue("connect_time"));
+        records.add(new Record(time, ip, fields));
+      }
+    } catch (Exception ignore) {
+      logger.warn("can not parse: {}", line);
+      logger.warn("exception: {}", ignore.getMessage());
     }
     return records;
   }
 
   /**
-   * parse _speedtest and _bittorrent file
+   * parse speedtest and bittorrent file
    */
   private Record convertToRecord1(String line) {
 
-    JsonParser jsonParser = new JsonParser();
-    JsonObject jsonObject = jsonParser.parse(line).getAsJsonObject();
+    JSONObject jsonObject = JSON.parseObject(line);
 
-    String ip = jsonObject.get("real_address").getAsString();
-    long time = jsonObject.get("timestamp").getAsLong();
+    String ip = jsonObject.getString("real_address");
+    long time = jsonObject.getLongValue("timestamp");
 
     List<Object> fields = new ArrayList<>();
     for (String field : config.FIELDS) {
-      fields.add(jsonObject.get(field).getAsFloat());
+      fields.add(jsonObject.getFloatValue(field));
     }
     return new Record(time, ip, fields);
   }
 
   /**
-   * parse _raw file
+   * parse raw file
    */
   private Record convertToRecord2(String line) {
-    JsonParser jsonParser = new JsonParser();
-    JsonObject jsonObject = jsonParser.parse(line).getAsJsonObject();
+    JSONObject jsonObject = JSON.parseObject(line);
 
-    String ip = jsonObject.get("client").getAsJsonObject().get("myname").getAsString();
-    long time = jsonObject.get("server").getAsJsonObject().get("timestamp").getAsLong();
+    String ip = jsonObject.getJSONObject("client").getString("myname");
+    long time = jsonObject.getJSONObject("server").getLongValue("timestamp");
 
     List<Object> fields = new ArrayList<>();
-    float value = jsonObject.get("client").getAsJsonObject().get("connect_time").getAsFloat();
+    float value = jsonObject.getJSONObject("client").getFloatValue("connect_time");
     fields.add(value);
 
     return new Record(time, ip, fields);

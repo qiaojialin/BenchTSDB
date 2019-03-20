@@ -13,20 +13,19 @@ import cn.edu.thu.datasource.parser.TDriveParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.util.*;
 
 public class FileReaderThread implements Runnable {
 
   private static Logger logger = LoggerFactory.getLogger(FileReaderThread.class);
-  private IDataBaseM database;
+  private IDataBaseManager database;
   private Config config;
   private int threadId;
   private IParser parser;
   private final Statistics statistics;
   private List<String> realFiles;
 
-  public FileReaderThread(IDataBaseM database, Config config, int threadId,
+  public FileReaderThread(IDataBaseManager database, Config config, int threadId,
       List<String> files,
       final Statistics statistics) {
     this.database = database;

@@ -2,7 +2,7 @@ package cn.edu.thu.database.waterwheel;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
-import cn.edu.thu.database.IDataBaseM;
+import cn.edu.thu.database.IDataBaseManager;
 
 
 import indexingTopology.api.client.QueryClient;
@@ -38,15 +38,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WaterWheelM implements IDataBaseM {
+public class WaterWheelManager implements IDataBaseManager {
 
-  private static Logger logger = LoggerFactory.getLogger(WaterWheelM.class);
+  private static Logger logger = LoggerFactory.getLogger(WaterWheelManager.class);
   private DataSchema schema;
   private Config config;
   private static final String TIME = "timestamp";
   private IngestionClientBatchMode ingestionClient;
 
-  public WaterWheelM(Config config, boolean forQuery) {
+  public WaterWheelManager(Config config, boolean forQuery) {
     this.config = config;
     schema = getSchema(config);
     try {
@@ -182,7 +182,7 @@ public class WaterWheelM implements IDataBaseM {
 
 
   /**
-   * deploy WaterWheelM
+   * deploy WaterWheelManager
    */
   public static void main(String... args) {
     Config config;

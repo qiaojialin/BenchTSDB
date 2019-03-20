@@ -3,7 +3,7 @@ package cn.edu.thu.database.kairosdb;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
 import cn.edu.thu.common.ThuHttpRequest;
-import cn.edu.thu.database.IDataBaseM;
+import cn.edu.thu.database.IDataBaseManager;
 import com.alibaba.fastjson.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class KairosDBM implements IDataBaseM {
+public class KairosDBManager implements IDataBaseManager {
 
-  private static final Logger logger = LoggerFactory.getLogger(KairosDBM.class);
+  private static final Logger logger = LoggerFactory.getLogger(KairosDBManager.class);
   private Config config;
   private String queryUrl;
   private String writeUrl;
@@ -25,7 +25,7 @@ public class KairosDBM implements IDataBaseM {
   private static final String QUERY_START_TIME = "start_absolute";
   private static final String QUERY_END_TIME = "end_absolute";
 
-  public KairosDBM(Config config) {
+  public KairosDBManager(Config config) {
     this.config = config;
     this.url = config.KAIROSDB_URL;
     queryUrl = url + "/api/v1/datapoints/query";
@@ -79,7 +79,7 @@ public class KairosDBM implements IDataBaseM {
       try {
         ThuHttpRequest.sendDelete(String.format(deleteUrl, sensor), "");
       } catch (IOException e) {
-        logger.error("Delete metric {} failed when initializing KairosDBM.", sensor);
+        logger.error("Delete metric {} failed when initializing KairosDBManager.", sensor);
         e.printStackTrace();
       }
     }

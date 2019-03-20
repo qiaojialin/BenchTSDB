@@ -2,7 +2,7 @@ package cn.edu.thu.datasource;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
-import cn.edu.thu.database.IDataBaseM;
+import cn.edu.thu.database.IDataBaseManager;
 import cn.edu.thu.datasource.parser.CalculateMLabIPParser;
 import java.io.File;
 import java.util.List;
@@ -12,14 +12,14 @@ import org.slf4j.LoggerFactory;
 public class CalculateThread implements Runnable{
 
   private static Logger logger = LoggerFactory.getLogger(CalculateThread.class);
-  private IDataBaseM database;
+  private IDataBaseManager database;
   private Config config;
   private int threadId;
   private CalculateMLabIPParser parser;
   private final Statistics statistics;
   private List<String> realFiles;
 
-  public CalculateThread(IDataBaseM database, Config config, int threadId,
+  public CalculateThread(IDataBaseManager database, Config config, int threadId,
       List<String> files,
       final Statistics statistics) {
     this.database = database;

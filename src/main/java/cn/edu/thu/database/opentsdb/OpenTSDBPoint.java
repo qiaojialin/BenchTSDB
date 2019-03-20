@@ -13,6 +13,11 @@ public class OpenTSDBPoint implements Serializable {
     private Map<String,String> tags=new HashMap<String,String>();
     private Object value;
 
+    public static void main(String... args) {
+        long nano = System.nanoTime();
+        System.out.println(System.currentTimeMillis());
+        System.out.println(nano);
+    }
 
     public String getMetric() {
         return metric;

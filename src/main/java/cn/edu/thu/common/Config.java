@@ -12,13 +12,13 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB
-    public String DATABASE = "WATERWHEEL";
+    public String DATABASE = "NULL";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE
-    public String DATA_SET = "GEOLIFE";
+    public String DATA_SET = "MLAB_IP";
 
     // noaa, geolife, mlab_utilization, mlab_ip, tdrive
-    public String DATA_DIR = "data/geolife";
+    public String DATA_DIR = "data/mlab_ip";
     public int BEGINE_FILE = 0;
     public int END_FILE = 100000;
 
@@ -33,8 +33,8 @@ public class Config {
 //    public String OPENTSDB_URL = "http://127.0.0.1:4242";
     public String OPENTSDB_URL = "http://192.168.10.64:4242";
 
-//    public String KAIROSDB_URL = "http://127.0.0.1:1408";
-    public String KAIROSDB_URL = "http://192.168.10.64:1408";
+    public String KAIROSDB_URL = "http://127.0.0.1:1408";
+//    public String KAIROSDB_URL = "http://192.168.10.64:1408";
 
     public String SUMMARYSTORE_PATH = "sstore";
 

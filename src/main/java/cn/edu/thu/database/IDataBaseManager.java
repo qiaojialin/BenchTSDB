@@ -4,7 +4,7 @@ import cn.edu.thu.common.Record;
 
 import java.util.List;
 
-public interface IDataBaseM {
+public interface IDataBaseManager {
 
     /**
      * @return time cost in ms

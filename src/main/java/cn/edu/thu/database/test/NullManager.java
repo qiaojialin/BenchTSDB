@@ -2,10 +2,10 @@ package cn.edu.thu.database.test;
 
 import cn.edu.thu.common.Record;
 
-import cn.edu.thu.database.IDataBaseM;
+import cn.edu.thu.database.IDataBaseManager;
 import java.util.List;
 
-public class NullManager implements IDataBaseM {
+public class NullManager implements IDataBaseManager {
 
     public NullManager() {
 

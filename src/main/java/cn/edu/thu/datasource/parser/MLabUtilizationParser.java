@@ -1,9 +1,9 @@
 package cn.edu.thu.datasource.parser;
 
 import cn.edu.thu.common.Record;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -35,19 +35,18 @@ public class MLabUtilizationParser implements IParser {
 
     private List<Record> convertToRecord(String line) {
         List<Record> records = new ArrayList<>();
-        JsonParser jsonParser = new JsonParser();
-        JsonObject jsonObject = jsonParser.parse(line).getAsJsonObject();
+        JSONObject jsonObject = JSON.parseObject(line);
 
-        String tag1 = jsonObject.get("metric").getAsString();
-        String tag2 = jsonObject.get("hostname").getAsString();
-        String tag3 = jsonObject.get("experiment").getAsString();
+        String tag1 = jsonObject.getString("metric");
+        String tag2 = jsonObject.getString("hostname");
+        String tag3 = jsonObject.getString("experiment");
         String tag = tag1 + "." + tag2 + "," + tag3;
 
-        JsonArray jsonArray = jsonObject.get("sample").getAsJsonArray();
+        JSONArray jsonArray = jsonObject.getJSONArray("sample");
         for (int i = 0; i < jsonArray.size(); i++) {
-            JsonObject tv = jsonArray.get(i).getAsJsonObject();
-            long time = tv.get("timestamp").getAsLong();
-            float value = tv.get("value").getAsFloat();
+            JSONObject tv = jsonArray.getJSONObject(i);
+            long time = tv.getLongValue("timestamp");
+            float value = tv.getFloatValue("value");
             List<Object> fields = new ArrayList<>();
             fields.add(value);
             records.add(new Record(time, tag, fields));

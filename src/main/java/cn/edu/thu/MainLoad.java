@@ -1,13 +1,14 @@
 package cn.edu.thu;
 
-import cn.edu.thu.database.kairosdb.KairosDBM;
+import cn.edu.thu.database.kairosdb.KairosDBManager;
 import cn.edu.thu.database.test.NullManager;
-import cn.edu.thu.database.waterwheel.WaterWheelM;
+import cn.edu.thu.database.waterwheel.WaterWheelManager;
+import cn.edu.thu.datasource.CalculateThread;
 import cn.edu.thu.datasource.FileReaderThread;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
 import cn.edu.thu.database.*;
-import cn.edu.thu.database.opentsdb.OpenTSDBM;
+import cn.edu.thu.database.opentsdb.OpenTSDBManager;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,25 +44,25 @@ public class MainLoad {
       config = new Config();
     }
 
-    IDataBaseM database;
+    IDataBaseManager database;
     switch (config.DATABASE) {
       case "NULL":
         database = new NullManager();
         break;
       case "INFLUXDB":
-        database = new InfluxDBM(config);
+        database = new InfluxDBManager(config);
         break;
       case "OPENTSDB":
-        database = new OpenTSDBM(config);
+        database = new OpenTSDBManager(config);
         break;
       case "KAIROSDB":
-        database = new KairosDBM(config);
+        database = new KairosDBManager(config);
         break;
       case "SUMMARYSTORE":
-        database = new SummaryStoreM(config, false);
+        database = new SummaryStoreManager(config, false);
         break;
       case "WATERWHEEL":
-        database = new WaterWheelM(config, false);
+        database = new WaterWheelManager(config, false);
         break;
       default:
         throw new RuntimeException(config.DATABASE + " not supported");
@@ -107,7 +108,7 @@ public class MainLoad {
     ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
     for (int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
       executorService.submit(
-          new FileReaderThread(database, config, threadId, thread_files.get(threadId), statistics));
+          new CalculateThread(database, config, threadId, thread_files.get(threadId), statistics));
     }
 
     executorService.shutdown();

@@ -29,7 +29,7 @@ List<Object> fields
 
 ### 集群部署
 
-../storm-1.2.2/bin/storm jar waterwheel.jar cn.edu.thu.database.waterwheel.WaterWheelM config.properties
+../storm-1.2.2/bin/storm jar waterwheel.jar cn.edu.thu.database.waterwheel.WaterWheelManager config.properties
 
 部署上去之后 server 的 ip 是 supervisor 节点中任意一个。
 
@@ -54,11 +54,11 @@ List<Object> fields
 	
 ### 正式测试
 
-cn.edu.thu.database.waterwheel.WaterWheelM 类为拓扑类
+cn.edu.thu.database.waterwheel.WaterWheelManager 类为拓扑类
 
 * local 模式
 	* 将 pom 中的 storm 的 scope 注释掉
-	* 运行 cn.edu.thu.database.waterwheel.WaterWheelM，提交拓扑到本地
+	* 运行 cn.edu.thu.database.waterwheel.WaterWheelManager，提交拓扑到本地
 	* 运行 MainLoad
 	* 运行 MainQuery
 

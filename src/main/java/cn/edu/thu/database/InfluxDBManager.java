@@ -17,10 +17,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class InfluxDBM implements IDataBaseM {
+public class InfluxDBManager implements IDataBaseManager {
 
     private InfluxDB influxDB;
-    private static Logger logger = LoggerFactory.getLogger(InfluxDBM.class);
+    private static Logger logger = LoggerFactory.getLogger(InfluxDBManager.class);
     private String measurementId = "station";
     private String database = "test";
     private Config config;
@@ -30,7 +30,7 @@ public class InfluxDBM implements IDataBaseM {
     private static String COUNT_SQL_WITHOUT_TIME = "select count(%s) from %s where %s ='%s'";
 
 
-    public InfluxDBM(Config config) {
+    public InfluxDBManager(Config config) {
         this.config = config;
         influxDB = InfluxDBFactory.connect(config.INFLUXDB_URL);
     }
@@ -88,7 +88,7 @@ public class InfluxDBM implements IDataBaseM {
             influxDB.write(batchPoints);
         } catch (Exception e) {
             if (e.getMessage() != null && e.getMessage().contains("Failed to connect to")) {
-                logger.error("InfluxDBM is down!!!!!!");
+                logger.error("InfluxDBManager is down!!!!!!");
             } else {
                 e.printStackTrace();
             }

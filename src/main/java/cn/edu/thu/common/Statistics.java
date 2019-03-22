@@ -1,11 +1,13 @@
 package cn.edu.thu.common;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 public class Statistics {
 
-    public long fileNum = 0;
-    public long lineNum = 0;
-    public long pointNum = 0;
-    public long timeCost = 0;
+    public AtomicLong fileNum = new AtomicLong(0);
+    public AtomicLong lineNum = new AtomicLong(0);
+    public AtomicLong pointNum = new AtomicLong(0);
+    public AtomicLong timeCost = new AtomicLong(0);
 
     public Statistics(){
 
@@ -15,6 +17,6 @@ public class Statistics {
      * @return points / s
      */
     public float speed() {
-        return (float) pointNum / (float) timeCost * 1000;
+        return ((float) pointNum.get()) / ((float) timeCost.get()) * 1000;
     }
 }

@@ -23,7 +23,7 @@ public class GeoSubmit {
 
         TopologyConfig config = new TopologyConfig();
 
-        boolean local = false;
+        boolean local = true;
 
         config.CHUNK_SIZE = 512 * 1024;
         config.previousTime = Integer.MAX_VALUE;
@@ -37,6 +37,7 @@ public class GeoSubmit {
             config.HDFS_HOST = "hdfs://127.0.0.1:9000/";
             config.dataChunkDir = "hdfs://127.0.0.1:9000/waterwheel";
             config.metadataDir = "hdfs://127.0.0.1:9000/waterwheel";
+            config.INSERTION_SERVER_PER_NODE = 4;
         }
 
         System.out.println("dataChunkDir is set to " + config.dataChunkDir);

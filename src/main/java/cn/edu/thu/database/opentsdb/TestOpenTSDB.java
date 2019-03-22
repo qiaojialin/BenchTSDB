@@ -18,8 +18,8 @@ public class TestOpenTSDB {
 
 //    insert();
 
-    query("metric1", 1552821047000L, 1552821050000L);
-    query("metric1", 80L, 1552821050000L);
+//    query("metric1", 1552821047000L, 1552821050000L);
+    query("metric1", 3L, 9000L);
 
   }
 
@@ -35,7 +35,8 @@ public class TestOpenTSDB {
     subQuery.put("tags", subsubQuery);
 
     queryMap.put("start", startTime);
-    subQuery.put("downsample", (endTime - startTime) + "ms-count");
+//    queryMap.put("end", endTime);
+    subQuery.put("downsample", (100) + "ms-avg");
 
     subQuery.put("metric", metric);
     subQuery.put("aggregator", "none");
@@ -59,10 +60,10 @@ public class TestOpenTSDB {
   private static void insert() {
     LinkedList<OpenTSDBPoint> models = new LinkedList<>();
 
-    for (int i = 100; i < 1000; i = i + 10) {
+    for (int i = 100; i < 1000; i = i + 100) {
       OpenTSDBPoint model = new OpenTSDBPoint();
       model.setMetric("metric1");
-      model.setTimestamp(System.currentTimeMillis() + i);
+      model.setTimestamp(i);
       model.setValue(i);
 
       Map<String, String> tags = new HashMap<>();

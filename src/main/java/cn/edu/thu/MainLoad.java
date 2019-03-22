@@ -81,7 +81,7 @@ public class MainLoad {
     List<String> files = new ArrayList<>();
     getAllFiles(config.DATA_DIR, files);
     logger.info("total files: {}", files.size());
-    statistics.fileNum = files.size();
+    statistics.fileNum.addAndGet(files.size());
 
     Collections.sort(files);
 
@@ -108,7 +108,7 @@ public class MainLoad {
     ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
     for (int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
       executorService.submit(
-          new CalculateThread(database, config, threadId, thread_files.get(threadId), statistics));
+          new FileReaderThread(database, config, threadId, thread_files.get(threadId), statistics));
     }
 
     executorService.shutdown();

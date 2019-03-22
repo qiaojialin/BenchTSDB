@@ -15,10 +15,10 @@ public class Config {
     public String DATABASE = "NULL";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE
-    public String DATA_SET = "MLAB_IP";
+    public String DATA_SET = "GEOLIFE";
 
     // noaa, geolife, mlab_utilization, mlab_ip, tdrive
-    public String DATA_DIR = "data/mlab_ip";
+    public String DATA_DIR = "data/geolife";
     public int BEGINE_FILE = 0;
     public int END_FILE = 100000;
 
@@ -26,12 +26,12 @@ public class Config {
     public String TAG_NAME = "deviceId";
 
     public int THREAD_NUM = 1;
-    public int BATCH_SIZE = 5000;
+    public int BATCH_SIZE = 500;
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
 
-//    public String OPENTSDB_URL = "http://127.0.0.1:4242";
-    public String OPENTSDB_URL = "http://192.168.10.64:4242";
+    public String OPENTSDB_URL = "http://127.0.0.1:4242";
+//    public String OPENTSDB_URL = "http://192.168.10.64:4242";
 
     public String KAIROSDB_URL = "http://127.0.0.1:1408";
 //    public String KAIROSDB_URL = "http://192.168.10.64:1408";

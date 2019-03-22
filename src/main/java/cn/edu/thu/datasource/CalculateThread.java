@@ -59,11 +59,9 @@ public class CalculateThread implements Runnable{
         logger.info("file: {}-th", i);
       }
 
-      synchronized (statistics) {
-        statistics.timeCost += totalTime;
-        statistics.lineNum += lineNum;
-        statistics.pointNum += lineNum * config.FIELDS.length;
-      }
+      statistics.timeCost.addAndGet(totalTime);
+      statistics.lineNum.addAndGet(lineNum);
+      statistics.pointNum.addAndGet(lineNum * config.FIELDS.length);
 
     } catch (Exception e) {
       e.printStackTrace();

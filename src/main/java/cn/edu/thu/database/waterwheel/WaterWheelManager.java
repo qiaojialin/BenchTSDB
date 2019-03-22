@@ -200,6 +200,8 @@ public class WaterWheelManager implements IDataBaseManager {
 
     TopologyConfig topologyConfig = new TopologyConfig();
 
+    topologyConfig.INSERTION_SERVER_PER_NODE = 4;
+
     if (config.LOCAL) {
       topologyConfig.dataChunkDir = "./target/tmp";
       topologyConfig.metadataDir = "./target/tmp";
@@ -210,7 +212,6 @@ public class WaterWheelManager implements IDataBaseManager {
       topologyConfig.dataChunkDir = config.HDFS_IP + "waterwheel_data";
       topologyConfig.metadataDir = config.HDFS_IP + "waterwheel_meta";
     }
-
 
     if(config.LOCAL) {
       // 512K

@@ -19,7 +19,7 @@ public class TestOpenTSDB {
 //    insert();
 
 //    query("metric1", 1552821047000L, 1552821050000L);
-    query("metric1", 3L, 9000L);
+    query("metric1", 0L, 9000000L);
 
   }
 
@@ -35,8 +35,8 @@ public class TestOpenTSDB {
     subQuery.put("tags", subsubQuery);
 
     queryMap.put("start", startTime);
-//    queryMap.put("end", endTime);
-    subQuery.put("downsample", (100) + "ms-avg");
+    queryMap.put("end", endTime);
+    subQuery.put("downsample", (endTime-startTime) + "ms-count");
 
     subQuery.put("metric", metric);
     subQuery.put("aggregator", "none");

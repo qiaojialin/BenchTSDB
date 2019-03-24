@@ -1,5 +1,7 @@
 package cn.edu.thu;
 
+import cn.edu.thu.database.fileformat.ParquetManager;
+import cn.edu.thu.database.fileformat.TsFileManager;
 import cn.edu.thu.database.kairosdb.KairosDBManager;
 import cn.edu.thu.database.test.NullManager;
 import cn.edu.thu.database.waterwheel.WaterWheelManager;
@@ -63,6 +65,12 @@ public class MainLoad {
         break;
       case "WATERWHEEL":
         database = new WaterWheelManager(config, false);
+        break;
+      case "TSFILE":
+        database = new TsFileManager(config);
+        break;
+      case "PARQUET":
+        database = new ParquetManager(config);
         break;
       default:
         throw new RuntimeException(config.DATABASE + " not supported");

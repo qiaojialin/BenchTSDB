@@ -139,8 +139,16 @@
       <version>0.8.2</version>
     </dependency>
 
-
-
+    <dependency>
+      <groupId>cn.edu.tsinghua</groupId>
+      <artifactId>tsfile</artifactId>
+      <version>0.7.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_2.11</artifactId>
+      <version>2.3.0</version>
+    </dependency>
     <!-- water wheel-->
     <dependency>
       <groupId>storm.topologies</groupId>
@@ -151,7 +159,7 @@
       <groupId>org.apache.storm</groupId>
       <artifactId>storm-core</artifactId>
       <version>1.1.0</version>
-      <!--<scope>provided</scope>-->
+      <scope>provided</scope>
     </dependency>
 
   </dependencies>
@@ -177,8 +185,8 @@
               <archive>
                 <manifest>
                   <!--<mainClass>cn.edu.thu.database.waterwheel.GeoSubmit</mainClass>-->
-                  <mainClass>cn.edu.thu.database.waterwheel.WaterWheelManager</mainClass>
-                  <!--<mainClass>cn.edu.thu.MainLoad</mainClass>-->
+                  <!--<mainClass>cn.edu.thu.database.waterwheel.WaterWheelManager</mainClass>-->
+                  <mainClass>cn.edu.thu.MainLoad</mainClass>
                   <!--<mainClass>cn.edu.thu.MainQuery</mainClass>-->
                 </manifest>
               </archive>

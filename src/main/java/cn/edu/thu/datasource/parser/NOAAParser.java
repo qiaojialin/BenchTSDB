@@ -41,6 +41,11 @@ public class NOAAParser implements IParser {
         return records;
     }
 
+    @Override
+    public void close() {
+
+    }
+
     private Record convertToRecord(String line) throws ParseException {
 
         List<Object> fields = new ArrayList<>();
@@ -50,6 +55,9 @@ public class NOAAParser implements IParser {
         String yearmoda = line.substring(14, 22).trim();
         Date date = dateFormat.parse(yearmoda);
         long time = date.getTime() + 2209046400000L;
+
+//        System.out.println(time);
+//        long time = System.currentTimeMillis();
 
         fields.add(Float.parseFloat(line.substring(24, 30).trim()));
         fields.add(Float.parseFloat(line.substring(35, 41).trim()));

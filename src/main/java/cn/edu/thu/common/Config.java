@@ -11,14 +11,17 @@ public class Config {
 
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
-    // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET
+    // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
     public String DATABASE = "TSFILE";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE
-    public String DATA_SET = "NOAA";
+    public String DATA_SET = "GEOLIFE";
+
+    public String FILE_PATH = "geolife.tsfile";
 
     // noaa, geolife, mlab_utilization, mlab_ip, tdrive
-    public String DATA_DIR = "data/noaa";
+    public String DATA_DIR = "data/geolife";
+
     public int BEGINE_FILE = 0;
     public int END_FILE = 100000;
 
@@ -43,9 +46,8 @@ public class Config {
     public String HDFS_IP="hdfs://127.0.0.1:9000/";
     public boolean LOCAL = false;
 
-    public String FILE_PATH = "noaa.tsfile";
-
     public String[] FIELDS = null;
+    public int[] PRECISION = null;
 
     public int WATERWHEEL_INGEST_PORT = 10000;
     public int WATERWHEEL_QUERY_PORT = 10001;
@@ -62,12 +64,15 @@ public class Config {
             case "NOAA":
                 FIELDS = new String[]{"TEMP", "DEWP", "SLP", "STP",
                         "VISIB", "WDSP", "MXSPD", "GUST", "MAX", "MIN", "PRCP", "SNDP", "FRSHTT"};
+                PRECISION = new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0};
                 break;
             case "GEOLIFE":
                 FIELDS = new String[]{"Latitude", "Longitude", "Zero", "Altitude"};
+                PRECISION = new int[]{6, 6, 0, 0};
                 break;
             case "TDRIVE":
                 FIELDS = new String[]{"longitude", "latitude"};
+                PRECISION = new int[]{5, 5};
                 break;
             case "MLAB_IP":
                 FIELDS = new String[]{"connect_time"};

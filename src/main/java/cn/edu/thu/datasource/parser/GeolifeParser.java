@@ -19,6 +19,7 @@ public class GeolifeParser implements IParser {
   private String tag = "";
   private String fileName = "";
 
+
   @Override
   public List<Record> parse(String fileName) {
 
@@ -57,6 +58,11 @@ public class GeolifeParser implements IParser {
     }
 
     return records;
+  }
+
+  @Override
+  public void close() {
+
   }
 
   private Record convertToRecord(String line) {

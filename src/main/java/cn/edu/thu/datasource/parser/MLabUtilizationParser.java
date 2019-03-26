@@ -33,6 +33,11 @@ public class MLabUtilizationParser implements IParser {
         return records;
     }
 
+    @Override
+    public void close() {
+
+    }
+
     private List<Record> convertToRecord(String line) {
         List<Record> records = new ArrayList<>();
         JSONObject jsonObject = JSON.parseObject(line);

@@ -3,22 +3,20 @@ package cn.edu.thu.database.fileformat;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
 import cn.edu.thu.database.IDataBaseManager;
-import cn.edu.tsinghua.tsfile.common.constant.JsonFormatConstant;
-import cn.edu.tsinghua.tsfile.common.utils.TsRandomAccessFileWriter;
-import cn.edu.tsinghua.tsfile.file.metadata.enums.CompressionTypeName;
-import cn.edu.tsinghua.tsfile.file.metadata.enums.TSDataType;
-import cn.edu.tsinghua.tsfile.file.metadata.enums.TSEncoding;
-import cn.edu.tsinghua.tsfile.timeseries.write.TsFileWriter;
-import cn.edu.tsinghua.tsfile.timeseries.write.desc.MeasurementDescriptor;
-import cn.edu.tsinghua.tsfile.timeseries.write.exception.WriteProcessException;
-import cn.edu.tsinghua.tsfile.timeseries.write.record.TSRecord;
-import cn.edu.tsinghua.tsfile.timeseries.write.record.datapoint.FloatDataPoint;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.apache.iotdb.tsfile.encoding.encoder.Encoder;
+import org.apache.iotdb.tsfile.file.metadata.enums.CompressionType;
+import org.apache.iotdb.tsfile.file.metadata.enums.TSDataType;
+import org.apache.iotdb.tsfile.file.metadata.enums.TSEncoding;
+import org.apache.iotdb.tsfile.write.TsFileWriter;
+import org.apache.iotdb.tsfile.write.record.TSRecord;
+import org.apache.iotdb.tsfile.write.record.datapoint.FloatDataPoint;
+import org.apache.iotdb.tsfile.write.schema.MeasurementSchema;
 
 public class TsFileManager implements IDataBaseManager {
 
@@ -49,16 +47,14 @@ public class TsFileManager implements IDataBaseManager {
   public void createSchema() {
     File file = new File(filePath);
     try {
-      writer = new TsFileWriter(new TsRandomAccessFileWriter(file));
-      Map<String, String> props = new HashMap<>();
-      props.put(JsonFormatConstant.COMPRESS_TYPE, CompressionTypeName.SNAPPY+"");
+      writer = new TsFileWriter(file);
       for (int i = 0; i < config.FIELDS.length; i++) {
-        MeasurementDescriptor descriptor = new MeasurementDescriptor(config.FIELDS[i], TSDataType.FLOAT, TSEncoding.RLE, props);
-        writer.addMeasurement(descriptor);
+        Map<String, String> props = new HashMap<>();
+        props.put(Encoder.MAX_POINT_NUMBER, config.PRECISION[i]+"");
+        MeasurementSchema schema = new MeasurementSchema(config.FIELDS[i], TSDataType.FLOAT, TSEncoding.RLE, CompressionType.SNAPPY, props);
+        writer.addMeasurement(schema);
       }
-    } catch (WriteProcessException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }

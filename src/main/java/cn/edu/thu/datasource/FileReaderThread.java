@@ -4,15 +4,11 @@ import cn.edu.thu.common.Record;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
 import cn.edu.thu.database.*;
-import cn.edu.thu.datasource.parser.GeolifeParser;
-import cn.edu.thu.datasource.parser.IParser;
-import cn.edu.thu.datasource.parser.MLabIPParser;
-import cn.edu.thu.datasource.parser.MLabUtilizationParser;
-import cn.edu.thu.datasource.parser.NOAAParser;
-import cn.edu.thu.datasource.parser.TDriveParser;
+import cn.edu.thu.datasource.parser.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.util.*;
 
 public class FileReaderThread implements Runnable {
@@ -117,6 +113,8 @@ public class FileReaderThread implements Runnable {
                 timecost, realFiles.size());
         totalTime += timecost;
       }
+
+      parser.close();
 
       totalTime += database.flush();
 

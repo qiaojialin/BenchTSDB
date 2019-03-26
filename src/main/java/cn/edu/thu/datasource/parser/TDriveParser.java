@@ -48,6 +48,11 @@ public class TDriveParser implements IParser{
     return records;
   }
 
+  @Override
+  public void close() {
+
+  }
+
   private Record convertToRecord(String line) throws ParseException {
 
     List<Object> fields = new ArrayList<>();

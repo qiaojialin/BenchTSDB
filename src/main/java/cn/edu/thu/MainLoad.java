@@ -1,5 +1,6 @@
 package cn.edu.thu;
 
+import cn.edu.thu.database.fileformat.ORCManager;
 import cn.edu.thu.database.fileformat.ParquetManager;
 import cn.edu.thu.database.fileformat.TsFileManager;
 import cn.edu.thu.database.kairosdb.KairosDBManager;
@@ -71,6 +72,9 @@ public class MainLoad {
         break;
       case "PARQUET":
         database = new ParquetManager(config);
+        break;
+      case "ORC":
+        database = new ORCManager(config);
         break;
       default:
         throw new RuntimeException(config.DATABASE + " not supported");

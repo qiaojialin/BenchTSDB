@@ -10,4 +10,6 @@ public interface IParser {
      */
     List<Record> parse(String fileName);
 
+    void close();
+
 }

@@ -48,6 +48,11 @@ public class MLabIPParser implements IParser {
     return records;
   }
 
+  @Override
+  public void close() {
+
+  }
+
   /**
    * parse dash file
    */

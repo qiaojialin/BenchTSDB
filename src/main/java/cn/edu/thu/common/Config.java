@@ -12,12 +12,12 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
-    public String DATABASE = "TSFILE";
+    public String DATABASE = "PARQUET";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE
     public String DATA_SET = "GEOLIFE";
 
-    public String FILE_PATH = "geolife.tsfile";
+    public String FILE_PATH = "geolife.parquet";
 
     // noaa, geolife, mlab_utilization, mlab_ip, tdrive
     public String DATA_DIR = "data/geolife";

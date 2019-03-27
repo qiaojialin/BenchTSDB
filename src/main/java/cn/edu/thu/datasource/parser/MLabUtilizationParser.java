@@ -51,7 +51,7 @@ public class MLabUtilizationParser implements IParser {
         for (int i = 0; i < jsonArray.size(); i++) {
             JSONObject tv = jsonArray.getJSONObject(i);
             long time = tv.getLongValue("timestamp");
-            float value = tv.getFloatValue("value");
+            double value = tv.getDoubleValue("value");
             List<Object> fields = new ArrayList<>();
             fields.add(value);
             records.add(new Record(time, tag, fields));

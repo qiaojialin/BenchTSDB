@@ -70,10 +70,10 @@ public class GeolifeParser implements IParser {
       List<Object> fields = new ArrayList<>();
       String[] items = line.split(",");
 
-      fields.add(Float.parseFloat(items[0]));
-      fields.add(Float.parseFloat(items[1]));
-      fields.add(Float.parseFloat(items[2]));
-      fields.add(Float.parseFloat(items[3]));
+      fields.add(Double.parseDouble(items[0]));
+      fields.add(Double.parseDouble(items[1]));
+      fields.add(Double.parseDouble(items[2]));
+      fields.add(Double.parseDouble(items[3]));
 
       Date date = dateFormat.parse(items[5] + "-" + items[6]);
       long time = date.getTime();

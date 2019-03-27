@@ -73,21 +73,21 @@ public class NOAAWriter implements IParser {
 //        System.out.println(time);
 //        long time = System.currentTimeMillis();
 
-//        fields.add(Float.parseFloat(line.substring(24, 30).trim()));
-//        fields.add(Float.parseFloat(line.substring(35, 41).trim()));
-//        fields.add(Float.parseFloat(line.substring(46, 52).trim()));
-//        fields.add(Float.parseFloat(line.substring(57, 63).trim()));
-//        fields.add(Float.parseFloat(line.substring(68, 73).trim()));
-//        fields.add(Float.parseFloat(line.substring(78, 83).trim()));
-//        fields.add(Float.parseFloat(line.substring(88, 93).trim()));
-//        fields.add(Float.parseFloat(line.substring(95, 100).trim()));
-//        fields.add(Float.parseFloat(line.substring(102, 108).trim()));
-//        fields.add(Float.parseFloat(line.substring(110, 116).trim()));
-//        fields.add(Float.parseFloat(line.substring(118, 123).trim()));
-//        fields.add(Float.parseFloat(line.substring(125, 130).trim()));
-//        fields.add(Float.parseFloat(line.substring(132, 138).trim()));
+//        fields.add(Double.parseDouble(line.substring(24, 30).trim()));
+//        fields.add(Double.parseDouble(line.substring(35, 41).trim()));
+//        fields.add(Double.parseDouble(line.substring(46, 52).trim()));
+//        fields.add(Double.parseDouble(line.substring(57, 63).trim()));
+//        fields.add(Double.parseDouble(line.substring(68, 73).trim()));
+//        fields.add(Double.parseDouble(line.substring(78, 83).trim()));
+//        fields.add(Double.parseDouble(line.substring(88, 93).trim()));
+//        fields.add(Double.parseDouble(line.substring(95, 100).trim()));
+//        fields.add(Double.parseDouble(line.substring(102, 108).trim()));
+//        fields.add(Double.parseDouble(line.substring(110, 116).trim()));
+//        fields.add(Double.parseDouble(line.substring(118, 123).trim()));
+//        fields.add(Double.parseDouble(line.substring(125, 130).trim()));
+//        fields.add(Double.parseDouble(line.substring(132, 138).trim()));
 
-        return time + " " + Float.parseFloat(line.substring(68, 73).trim());
+        return time + " " + Double.parseDouble(line.substring(68, 73).trim());
 
     }
 

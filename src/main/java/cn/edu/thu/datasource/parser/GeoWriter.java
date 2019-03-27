@@ -70,7 +70,7 @@ public class GeoWriter implements IParser {
             String[] items = line.split(",");
             Date date = dateFormat.parse(items[5] + "-" + items[6]);
             long time = date.getTime();
-            return time + " " +  Float.parseFloat(items[3]);
+            return time + " " +  Double.parseDouble(items[3]);
         } catch (Exception ignore) {
             logger.warn("can not parse: {}, error message: {}, File name: {}", line, ignore.getMessage(),
                     fileName);

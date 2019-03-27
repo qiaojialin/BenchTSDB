@@ -2,6 +2,9 @@ package cn.edu.thu;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.database.*;
+import cn.edu.thu.database.fileformat.ORCManager;
+import cn.edu.thu.database.fileformat.ParquetManager;
+import cn.edu.thu.database.fileformat.TsFileManager;
 import cn.edu.thu.database.kairosdb.KairosDBManager;
 import cn.edu.thu.database.opentsdb.OpenTSDBManager;
 import cn.edu.thu.database.waterwheel.WaterWheelManager;
@@ -46,6 +49,15 @@ public class MainQuery {
                 break;
             case "WATERWHEEL":
                 database = new WaterWheelManager(config, true);
+                break;
+            case "TSFILE":
+                database = new TsFileManager(config);
+                break;
+            case "PARQUET":
+                database = new ParquetManager(config);
+                break;
+            case "ORC":
+                database = new ORCManager(config);
                 break;
             default:
                 throw new RuntimeException(config.DATABASE + " not supported");

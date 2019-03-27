@@ -59,8 +59,8 @@ public class TDriveParser implements IParser{
 
     String[] items = line.split(",");
 
-    fields.add(Float.parseFloat(items[2]));
-    fields.add(Float.parseFloat(items[3]));
+    fields.add(Double.parseDouble(items[2]));
+    fields.add(Double.parseDouble(items[3]));
 
     Date date = dateFormat.parse(items[1]);
     long time = date.getTime();

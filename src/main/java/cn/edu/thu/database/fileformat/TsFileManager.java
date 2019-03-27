@@ -25,6 +25,7 @@ import org.apache.iotdb.tsfile.read.filter.operator.AndFilter;
 import org.apache.iotdb.tsfile.read.query.dataset.QueryDataSet;
 import org.apache.iotdb.tsfile.write.TsFileWriter;
 import org.apache.iotdb.tsfile.write.record.TSRecord;
+import org.apache.iotdb.tsfile.write.record.datapoint.DoubleDataPoint;
 import org.apache.iotdb.tsfile.write.record.datapoint.FloatDataPoint;
 import org.apache.iotdb.tsfile.write.schema.MeasurementSchema;
 import org.slf4j.Logger;
@@ -77,8 +78,8 @@ public class TsFileManager implements IDataBaseManager {
     for(Record record: records) {
       TSRecord tsRecord = new TSRecord(record.timestamp, record.tag);
       for(int i = 0; i < config.FIELDS.length; i ++) {
-        float floatField = (float) record.fields.get(i);
-        tsRecord.addTuple(new FloatDataPoint(config.FIELDS[i], floatField));
+        double floatField = (double) record.fields.get(i);
+        tsRecord.addTuple(new DoubleDataPoint(config.FIELDS[i], floatField));
       }
       tsRecords.add(tsRecord);
     }

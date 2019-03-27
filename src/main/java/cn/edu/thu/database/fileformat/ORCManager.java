@@ -49,7 +49,7 @@ public class ORCManager implements IDataBaseManager {
 
             for (int j = 0; j < config.FIELDS.length; j++) {
                 DoubleColumnVector v = (DoubleColumnVector) batch.cols[j + 2];
-                v.vector[i] = (float) record.fields.get(j);
+                v.vector[i] = (double) record.fields.get(j);
             }
 
             batch.size++;

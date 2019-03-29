@@ -1,7 +1,8 @@
-package cn.edu.thu.datasource.parser;
+package utils;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
+import cn.edu.thu.datasource.parser.BasicParser;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -38,10 +39,7 @@ public class MLabUtilizationParser extends BasicParser {
         return records;
     }
 
-    @Override
-    void init() throws Exception {
 
-    }
 
     @Override
     public List<Record> nextBatch() {
@@ -50,5 +48,10 @@ public class MLabUtilizationParser extends BasicParser {
             records.addAll(convertToRecord(line));
         }
         return records;
+    }
+
+    @Override
+    public void init() throws Exception {
+
     }
 }

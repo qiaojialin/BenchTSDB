@@ -18,7 +18,6 @@ public class GeolifeParser extends BasicParser {
 
   private static Logger logger = LoggerFactory.getLogger(GeolifeParser.class);
   private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-hh:mm:ss");
-  private String tag = "";
 
   public GeolifeParser(Config config, List<String> files) {
     super(config, files);
@@ -37,7 +36,7 @@ public class GeolifeParser extends BasicParser {
 
       Date date = dateFormat.parse(items[5] + "-" + items[6]);
       long time = date.getTime();
-      return new Record(time, tag, fields);
+      return new Record(time, currentDeviceId, fields);
     } catch (Exception ignore) {
       logger.warn("can not parse: {}, error message: {}, File name: {}", line, ignore.getMessage(),
           files.get(currentFileIndex));
@@ -46,8 +45,8 @@ public class GeolifeParser extends BasicParser {
   }
 
   @Override
-  void init() throws Exception {
-    tag = files.get(currentFileIndex).split("geolife/")[1].split("/Trajectory")[0];
+  public void init() throws Exception {
+    currentDeviceId = currentFile.split("geolife/")[1].split("/Trajectory")[0];
     // skip 6 lines, which is useless
     for (int i = 0; i < 6; i++) {
       reader.readLine();

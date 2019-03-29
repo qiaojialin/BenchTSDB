@@ -1,9 +1,8 @@
-package cn.edu.thu.datasource;
+package utils;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
 import cn.edu.thu.database.IDataBaseManager;
-import cn.edu.thu.datasource.parser.CalculateMLabIPParser;
 import java.io.File;
 import java.util.List;
 import org.slf4j.Logger;

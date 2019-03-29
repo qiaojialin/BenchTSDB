@@ -12,15 +12,15 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
-    public String DATABASE = "TSFILE";
+    public String DATABASE = "ORC";
 
-    // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE
-    public String DATA_SET = "MLAB_UTILIZATION";
+    // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE, REDD
+    public String DATA_SET = "REDD";
 
-    public String FILE_PATH = "mlabip.tsfile";
+    public String FILE_PATH = "redd.orc";
 
-    // noaa, geolife, mlab_utilization, mlab_ip, tdrive
-    public String DATA_DIR = "data/mlab_utilization";
+    // noaa, geolife, mlab_utilization, mlab_ip, tdrive, redd_low
+    public String DATA_DIR = "data/redd_low";
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
@@ -89,6 +89,10 @@ public class Config {
             case "MLAB_UTILIZATION":
                 FIELDS = new String[]{"value"};
                 PRECISION = new int[]{10};
+                break;
+            case "REDD":
+                FIELDS = new String[]{"value"};
+                PRECISION = new int[]{2};
                 break;
             default:
                 throw new RuntimeException(DATA_SET + " is not support");

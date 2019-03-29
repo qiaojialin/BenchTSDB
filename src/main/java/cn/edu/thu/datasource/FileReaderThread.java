@@ -8,6 +8,7 @@ import cn.edu.thu.datasource.parser.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.*;
+import utils.MLabUtilizationParser;
 
 public class FileReaderThread implements Runnable {
 
@@ -36,11 +37,14 @@ public class FileReaderThread implements Runnable {
       case "TDRIVE":
         parser = new TDriveParser(config, files);
         break;
-      case "MLAB_IP":
-        parser = new MLabIPParser(config, files);
-        break;
+//      case "MLAB_IP":
+//        parser = new MLabIPParser(config, files);
+//        break;
       case "MLAB_UTILIZATION":
         parser = new MLabUtilizationParser(config, files);
+        break;
+      case "REDD":
+        parser = new ReddParser(config, files);
         break;
       default:
         throw new RuntimeException(config.DATA_SET + " not supported");

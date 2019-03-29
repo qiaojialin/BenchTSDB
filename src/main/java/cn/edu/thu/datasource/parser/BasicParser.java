@@ -14,18 +14,22 @@ public abstract class BasicParser {
   private static Logger logger = LoggerFactory.getLogger(BasicParser.class);
   private Config config;
   protected List<String> files;
-  protected int currentFileIndex = 0;
   protected BufferedReader reader;
   protected List<String> cachedLines;
+  protected int currentFileIndex = 0;
+
+  protected String currentFile;
+  protected String currentDeviceId;
 
   public BasicParser(Config config, List<String> files) {
     this.config = config;
     this.files = files;
     try {
       reader = new BufferedReader(new FileReader(files.get(currentFileIndex)));
+      currentFile = files.get(currentFileIndex);
       init();
     } catch (Exception e) {
-      logger.error("meet exception when init file: {}", files.get(currentFileIndex));
+      logger.error("meet exception when init file: {}", currentFile);
       e.printStackTrace();
     }
     cachedLines = new ArrayList<>();
@@ -45,19 +49,26 @@ public abstract class BasicParser {
 
         line = reader.readLine();
 
-        // try to read next file
+        // current file end
         if(line == null) {
-          if(currentFileIndex < files.size() - 1) {
-            currentFileIndex++;
-            reader.close();
-            reader = new BufferedReader(new FileReader(files.get(currentFileIndex)));
-            init();
-            continue;
+
+          // current file has been resolved, read next file
+          if(cachedLines.isEmpty()) {
+            if (currentFileIndex < files.size() - 1) {
+              currentFile = files.get(currentFileIndex++);
+              reader.close();
+              reader = new BufferedReader(new FileReader(currentFile));
+              init();
+              continue;
+            } else {
+              // no more file to read
+              reader.close();
+              reader = null;
+              break;
+            }
           } else {
-            // no more file to read
-            reader.close();
-            reader = null;
-            break;
+            // resolve current file
+            return true;
           }
         }
 
@@ -68,7 +79,7 @@ public abstract class BasicParser {
         }
       }
     } catch (Exception ignore) {
-      logger.error("read file {} failed", files.get(currentFileIndex));
+      logger.error("read file {} failed", currentFile);
       ignore.printStackTrace();
       return false;
     }
@@ -76,15 +87,17 @@ public abstract class BasicParser {
     return !cachedLines.isEmpty();
   }
 
-  /**
-   * initialize when start reading a file
-   */
-  abstract void init() throws Exception;
-
 
   /**
    * convert the cachedLines to Record list
    */
-  public abstract List<Record> nextBatch();
+  abstract public List<Record> nextBatch();
+
+  /**
+   * initialize when start reading a file
+   * maybe skip the first lines
+   * maybe init the tagValue(deviceId) from file name
+   */
+  public abstract void init() throws Exception;
 
 }

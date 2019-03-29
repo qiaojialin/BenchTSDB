@@ -77,43 +77,6 @@
     </dependency>
 
 
-    <!-- for druid tranquility-->
-    <dependency>
-      <groupId>com.fasterxml.jackson.module</groupId>
-      <artifactId>jackson-module-scala_2.11</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.module</groupId>
-      <artifactId>jackson-module-jaxb-annotations</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.metamx</groupId>
-      <artifactId>java-util</artifactId>
-      <version>0.27.9</version>
-    </dependency>
-    <dependency>
-      <groupId>joda-time</groupId>
-      <artifactId>joda-time</artifactId>
-      <version>2.9.4</version>
-    </dependency>
-    <dependency>
-      <groupId>io.druid</groupId>
-      <artifactId>tranquility-core_2.11</artifactId>
-      <version>0.8.2</version>
-    </dependency>
-
     <dependency>
       <groupId>org.apache.iotdb</groupId>
       <artifactId>tsfile</artifactId>
@@ -135,6 +98,7 @@
       <groupId>storm.topologies</groupId>
       <artifactId>topology</artifactId>
       <version>1.0-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.storm</groupId>

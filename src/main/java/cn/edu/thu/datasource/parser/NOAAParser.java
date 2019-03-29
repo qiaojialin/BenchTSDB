@@ -53,7 +53,7 @@ public class NOAAParser extends BasicParser {
   }
 
   @Override
-  void init() throws Exception {
+  public void init() throws Exception {
     // skip first line, which is the metadata
     reader.readLine();
   }

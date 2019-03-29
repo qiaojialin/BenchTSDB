@@ -12,17 +12,17 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
-    public String DATABASE = "ORC";
+    public String DATABASE = "TSFILE";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE
-    public String DATA_SET = "GEOLIFE";
+    public String DATA_SET = "MLAB_UTILIZATION";
 
-    public String FILE_PATH = "geolife.orc";
+    public String FILE_PATH = "mlabip.tsfile";
 
     // noaa, geolife, mlab_utilization, mlab_ip, tdrive
-    public String DATA_DIR = "data/geolife";
+    public String DATA_DIR = "data/mlab_utilization";
 
-    public int BEGINE_FILE = 0;
+    public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
 
     public String TAG_NAME = "deviceId";
@@ -53,10 +53,18 @@ public class Config {
     public int WATERWHEEL_QUERY_PORT = 10001;
 
     // for query
+
+    // geolife
     public String QUERY_TAG = "000";
     public String FIELD = "Latitude";
     public long START_TIME = 1200398115000L;
     public long END_TIME = 1246816515000L;
+
+    // noaa
+//    public String QUERY_TAG = "010230_99999";
+//    public String FIELD = "TEMP";
+//    public long START_TIME = 0L;
+//    public long END_TIME = 1946816515000L;
 
 
     private void init() {
@@ -76,9 +84,11 @@ public class Config {
                 break;
             case "MLAB_IP":
                 FIELDS = new String[]{"connect_time"};
+                PRECISION = new int[]{6};
                 break;
             case "MLAB_UTILIZATION":
                 FIELDS = new String[]{"value"};
+                PRECISION = new int[]{10};
                 break;
             default:
                 throw new RuntimeException(DATA_SET + " is not support");
@@ -120,7 +130,7 @@ public class Config {
         SUMMARYSTORE_PATH = properties.getOrDefault("SUMMARYSTORE_PATH", SUMMARYSTORE_PATH).toString();
         FILE_PATH = properties.getOrDefault("FILE_PATH", FILE_PATH).toString();
 
-        BEGINE_FILE = Integer.parseInt(properties.getOrDefault("BEGINE_FILE", BEGINE_FILE).toString());
+        BEGIN_FILE = Integer.parseInt(properties.getOrDefault("BEGIN_FILE", BEGIN_FILE).toString());
         END_FILE = Integer.parseInt(properties.getOrDefault("END_FILE", END_FILE).toString());
         BATCH_SIZE = Integer.parseInt(properties.getOrDefault("BATCH_SIZE", BATCH_SIZE).toString());
         WATERWHEEL_INGEST_PORT = Integer.parseInt(properties.getOrDefault("WATERWHEEL_INGEST_PORT", WATERWHEEL_INGEST_PORT).toString());

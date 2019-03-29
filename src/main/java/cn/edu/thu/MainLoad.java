@@ -6,7 +6,6 @@ import cn.edu.thu.database.fileformat.TsFileManager;
 import cn.edu.thu.database.kairosdb.KairosDBManager;
 import cn.edu.thu.database.test.NullManager;
 import cn.edu.thu.database.waterwheel.WaterWheelManager;
-import cn.edu.thu.datasource.CalculateThread;
 import cn.edu.thu.datasource.FileReaderThread;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
@@ -104,7 +103,7 @@ public class MainLoad {
 
     for (int i = 0; i < files.size(); i++) {
 
-//      if (i < config.BEGINE_FILE || i > config.END_FILE) {
+//      if (i < config.BEGIN_FILE || i > config.END_FILE) {
 //        continue;
 //      }
 
@@ -120,7 +119,7 @@ public class MainLoad {
     ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
     for (int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
       executorService.submit(
-          new FileReaderThread(database, config, threadId, thread_files.get(threadId), statistics));
+          new FileReaderThread(database, config, thread_files.get(threadId), statistics));
     }
 
     executorService.shutdown();
@@ -136,7 +135,7 @@ public class MainLoad {
 
     database.close();
 
-    logger.info("All done! Total lines:{}, points:{}, time:{}ms, speed:{} ", statistics.lineNum,
+    logger.info("All done! Total records:{}, points:{}, time:{}ms, speed:{} ", statistics.recordNum,
         statistics.pointNum,
         statistics.timeCost, statistics.speed());
 

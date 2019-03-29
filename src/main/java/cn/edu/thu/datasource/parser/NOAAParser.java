@@ -1,5 +1,6 @@
 package cn.edu.thu.datasource.parser;
 
+import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
 
 import java.io.BufferedReader;
@@ -10,70 +11,62 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class NOAAParser implements IParser {
+public class NOAAParser extends BasicParser {
 
-    private DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+  private DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 
-    @Override
-    public List<Record> parse(String fileName) {
+  public NOAAParser(Config config, List<String> files) {
+    super(config, files);
+  }
 
-        List<Record> records = new ArrayList<>();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+  private Record convertToRecord(String line) {
 
-            // skip first line, which is the metadata
-            reader.readLine();
+    try {
 
-            String line;
+      List<Object> fields = new ArrayList<>();
 
-            while ((line = reader.readLine()) != null) {
-                try {
-                    Record record = convertToRecord(line);
-                    records.add(record);
-                } catch (ParseException ignored) {
-                }
-            }
+      String tag = line.substring(0, 6).trim() + "_" + line.substring(7, 12).trim();
+      //add 70 years, make sure time > 0
+      String yearmoda = line.substring(14, 22).trim();
+      Date date = dateFormat.parse(yearmoda);
+      long time = date.getTime() + 2209046400000L;
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+      fields.add(Double.parseDouble(line.substring(24, 30).trim()));
+      fields.add(Double.parseDouble(line.substring(35, 41).trim()));
+      fields.add(Double.parseDouble(line.substring(46, 52).trim()));
+      fields.add(Double.parseDouble(line.substring(57, 63).trim()));
+      fields.add(Double.parseDouble(line.substring(68, 73).trim()));
+      fields.add(Double.parseDouble(line.substring(78, 83).trim()));
+      fields.add(Double.parseDouble(line.substring(88, 93).trim()));
+      fields.add(Double.parseDouble(line.substring(95, 100).trim()));
+      fields.add(Double.parseDouble(line.substring(102, 108).trim()));
+      fields.add(Double.parseDouble(line.substring(110, 116).trim()));
+      fields.add(Double.parseDouble(line.substring(118, 123).trim()));
+      fields.add(Double.parseDouble(line.substring(125, 130).trim()));
+      fields.add(Double.parseDouble(line.substring(132, 138).trim()));
 
-        return records;
+      return new Record(time, tag, fields);
+    } catch (Exception ingore) {
+      return null;
     }
+  }
 
-    @Override
-    public void close() {
+  @Override
+  void init() throws Exception {
+    // skip first line, which is the metadata
+    reader.readLine();
+  }
 
+  @Override
+  public List<Record> nextBatch() {
+    List<Record> records = new ArrayList<>();
+    for (String line : cachedLines) {
+      Record record = convertToRecord(line);
+      if (record != null) {
+        records.add(record);
+      }
     }
-
-    private Record convertToRecord(String line) throws ParseException {
-
-        List<Object> fields = new ArrayList<>();
-
-        String tag = line.substring(0, 6).trim() + "_" + line.substring(7, 12).trim();
-        //add 70 years, make sure time > 0
-        String yearmoda = line.substring(14, 22).trim();
-        Date date = dateFormat.parse(yearmoda);
-        long time = date.getTime() + 2209046400000L;
-
-//        System.out.println(time);
-//        long time = System.currentTimeMillis();
-
-        fields.add(Double.parseDouble(line.substring(24, 30).trim()));
-        fields.add(Double.parseDouble(line.substring(35, 41).trim()));
-        fields.add(Double.parseDouble(line.substring(46, 52).trim()));
-        fields.add(Double.parseDouble(line.substring(57, 63).trim()));
-        fields.add(Double.parseDouble(line.substring(68, 73).trim()));
-        fields.add(Double.parseDouble(line.substring(78, 83).trim()));
-        fields.add(Double.parseDouble(line.substring(88, 93).trim()));
-        fields.add(Double.parseDouble(line.substring(95, 100).trim()));
-        fields.add(Double.parseDouble(line.substring(102, 108).trim()));
-        fields.add(Double.parseDouble(line.substring(110, 116).trim()));
-        fields.add(Double.parseDouble(line.substring(118, 123).trim()));
-        fields.add(Double.parseDouble(line.substring(125, 130).trim()));
-        fields.add(Double.parseDouble(line.substring(132, 138).trim()));
-
-        return new Record(time, tag, fields);
-
-    }
+    return records;
+  }
 }

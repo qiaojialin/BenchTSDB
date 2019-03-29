@@ -1,5 +1,6 @@
 package cn.edu.thu.datasource.parser;
 
+import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -10,32 +11,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MLabUtilizationParser implements IParser {
+public class MLabUtilizationParser extends BasicParser {
 
-
-    @Override
-    public List<Record> parse(String fileName) {
-
-        List<Record> records = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                records.addAll(convertToRecord(line));
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return records;
-    }
-
-    @Override
-    public void close() {
-
+    public MLabUtilizationParser(Config config, List<String> files) {
+        super(config, files);
     }
 
     private List<Record> convertToRecord(String line) {
@@ -59,4 +38,17 @@ public class MLabUtilizationParser implements IParser {
         return records;
     }
 
+    @Override
+    void init() throws Exception {
+
+    }
+
+    @Override
+    public List<Record> nextBatch() {
+        List<Record> records = new ArrayList<>();
+        for (String line : cachedLines) {
+            records.addAll(convertToRecord(line));
+        }
+        return records;
+    }
 }

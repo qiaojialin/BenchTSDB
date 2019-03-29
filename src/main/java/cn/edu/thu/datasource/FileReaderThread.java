@@ -7,8 +7,6 @@ import cn.edu.thu.database.*;
 import cn.edu.thu.datasource.parser.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 import java.util.*;
 
 public class FileReaderThread implements Runnable {
@@ -16,35 +14,33 @@ public class FileReaderThread implements Runnable {
   private static Logger logger = LoggerFactory.getLogger(FileReaderThread.class);
   private IDataBaseManager database;
   private Config config;
-  private int threadId;
-  private IParser parser;
+  private BasicParser parser;
   private final Statistics statistics;
-  private List<String> realFiles;
 
-  public FileReaderThread(IDataBaseManager database, Config config, int threadId,
+  public FileReaderThread(IDataBaseManager database, Config config,
       List<String> files,
       final Statistics statistics) {
     this.database = database;
     this.config = config;
-    this.threadId = threadId;
-    this.realFiles = files;
     this.statistics = statistics;
+
+    logger.info("thread construct!, need to read {} files", files.size());
 
     switch (config.DATA_SET) {
       case "NOAA":
-        parser = new NOAAParser();
+        parser = new NOAAParser(config, files);
         break;
       case "GEOLIFE":
-        parser = new GeolifeParser();
+        parser = new GeolifeParser(config, files);
         break;
       case "TDRIVE":
-        parser = new TDriveParser();
+        parser = new TDriveParser(config, files);
         break;
       case "MLAB_IP":
-        parser = new MLabIPParser(config);
+        parser = new MLabIPParser(config, files);
         break;
       case "MLAB_UTILIZATION":
-        parser = new MLabUtilizationParser();
+        parser = new MLabUtilizationParser(config, files);
         break;
       default:
         throw new RuntimeException(config.DATA_SET + " not supported");
@@ -55,32 +51,21 @@ public class FileReaderThread implements Runnable {
   @Override
   public void run() {
 
-    logger.info("thread running!, need to read {} files", realFiles.size());
-
     long totalTime = 1;
 
     try {
 
-      long lineNum = 0;
+      long recordNum = 0;
 
-      List<Record> records = new ArrayList<>();
-      // read files
-      for (int i = 0; i < realFiles.size(); i++) {
+      while(parser.hasNextBatch()) {
+        List<Record> rowBatch = parser.nextBatch();
+        recordNum += rowBatch.size();
 
-        String filePath = realFiles.get(i);
-
-        records.addAll(parser.parse(filePath));
-
-        if (records.size() < config.BATCH_SIZE) {
-          continue;
-        }
-
-        // here records size is enough, maybe too large, so split
-        // make sure each batch <= config.BATCH_SIZE
+        // rowBatch maybe too large, make sure each batch <= config.BATCH_SIZE
         List<List<Record>> batches = new ArrayList<>();
         List<Record> tempBatch = new ArrayList<>();
-        for (int j = 0; j < records.size(); j++) {
-          tempBatch.add(records.get(j));
+        for (int j = 0; j < rowBatch.size(); j++) {
+          tempBatch.add(rowBatch.get(j));
           if (tempBatch.size() >= config.BATCH_SIZE) {
             batches.add(tempBatch);
             tempBatch = new ArrayList<>();
@@ -90,37 +75,20 @@ public class FileReaderThread implements Runnable {
           batches.add(tempBatch);
         }
 
-        // reach a batch
-        lineNum += records.size();
-
         for (List<Record> batch : batches) {
           long timecost = database.insertBatch(batch);
           logger
-              .info("write a batch of {} records in {} ms, the {}-th file is down", batch.size(),
-                  timecost, i);
+              .info("write a batch of {} records in {} ms", batch.size(), timecost);
           totalTime += timecost;
         }
-        records.clear();
 
       }
-
-      // process the last batch
-      if (!records.isEmpty()) {
-        lineNum += records.size();
-        long timecost = database.insertBatch(records);
-        logger
-            .info("Write the last batch of {} records in {} ms, {} files down!", records.size(),
-                timecost, realFiles.size());
-        totalTime += timecost;
-      }
-
-      parser.close();
 
       totalTime += database.flush();
 
       statistics.timeCost.addAndGet(totalTime);
-      statistics.lineNum.addAndGet(lineNum);
-      statistics.pointNum.addAndGet(lineNum * config.FIELDS.length);
+      statistics.recordNum.addAndGet(recordNum);
+      statistics.pointNum.addAndGet(recordNum * config.FIELDS.length);
 
     } catch (Exception e) {
       e.printStackTrace();

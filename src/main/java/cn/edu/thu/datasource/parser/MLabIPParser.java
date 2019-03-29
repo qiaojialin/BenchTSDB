@@ -12,46 +12,15 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MLabIPParser implements IParser {
+public class MLabIPParser extends BasicParser {
 
   private Config config;
   private static Logger logger = LoggerFactory.getLogger(MLabIPParser.class);
 
-  public MLabIPParser(Config config) {
-    this.config = config;
+  public MLabIPParser(Config config, List<String> files) {
+    super(config, files);
   }
 
-  @Override
-  public List<Record> parse(String fileName) {
-    List<Record> records = new ArrayList<>();
-
-    try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-
-      String line;
-
-      while ((line = reader.readLine()) != null) {
-        if (fileName.contains("dash")) {
-          records.addAll(convertToRecords(line));
-        } else if (fileName.contains("raw")) {
-          records.add(convertToRecord2(line));
-        } else {
-          // speedtest and bittorrent file
-          records.add(convertToRecord1(line));
-        }
-      }
-
-    } catch (Exception e) {
-      logger.warn("parse {} failed, because {}", fileName, e.getMessage());
-      e.printStackTrace();
-    }
-
-    return records;
-  }
-
-  @Override
-  public void close() {
-
-  }
 
   /**
    * parse dash file
@@ -60,14 +29,13 @@ public class MLabIPParser implements IParser {
     List<Record> records = new ArrayList<>();
     try {
       JSONObject jsonObject = JSON.parseObject(line);
-
       JSONArray clients = jsonObject.getJSONArray("client");
       for (int i = 0; i < clients.size(); i++) {
         JSONObject client = clients.getJSONObject(i);
         String ip = client.getString("real_address");
         long time = client.getLongValue("timestamp");
         List<Object> fields = new ArrayList<>();
-        fields.add(client.getFloatValue("connect_time"));
+        fields.add(client.getDoubleValue("connect_time"));
         records.add(new Record(time, ip, fields));
       }
     } catch (Exception ignore) {
@@ -89,7 +57,7 @@ public class MLabIPParser implements IParser {
 
     List<Object> fields = new ArrayList<>();
     for (String field : config.FIELDS) {
-      fields.add(jsonObject.getFloatValue(field));
+      fields.add(jsonObject.getDoubleValue(field));
     }
     return new Record(time, ip, fields);
   }
@@ -104,9 +72,30 @@ public class MLabIPParser implements IParser {
     long time = jsonObject.getJSONObject("server").getLongValue("timestamp");
 
     List<Object> fields = new ArrayList<>();
-    float value = jsonObject.getJSONObject("client").getFloatValue("connect_time");
+    double value = jsonObject.getJSONObject("client").getDoubleValue("connect_time");
     fields.add(value);
 
     return new Record(time, ip, fields);
+  }
+
+  @Override
+  void init() throws Exception {
+
+  }
+
+  @Override
+  public List<Record> nextBatch() {
+    List<Record> records = new ArrayList<>();
+    String fileName = files.get(currentFileIndex);
+    for(String line: cachedLines) {
+      if (fileName.contains("dash")) {
+        records.addAll(convertToRecords(line));
+      } else if (fileName.contains("raw")) {
+        records.add(convertToRecord2(line));
+      } else {
+        records.add(convertToRecord1(line));
+      }
+    }
+    return records;
   }
 }

@@ -132,7 +132,7 @@ public class ORCManager implements IDataBaseManager {
                     if (deviceId.endsWith(tagValue))
                         result++;
 
-                    double fieldValue = ((DoubleColumnVector) batch.cols[fieldId + 2]).vector[r];
+                    double fieldValue = ((DoubleColumnVector) batch.cols[2]).vector[r];
                 }
             }
             rowIterator.close();

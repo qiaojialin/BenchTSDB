@@ -21,155 +21,161 @@ import org.slf4j.LoggerFactory;
 
 public class ORCManager implements IDataBaseManager {
 
-    private static Logger logger = LoggerFactory.getLogger(ORCManager.class);
-    private Writer writer;
-    private TypeDescription schema;
-    private Config config;
-    private String filePath;
+  private static Logger logger = LoggerFactory.getLogger(ORCManager.class);
+  private Writer writer;
+  private TypeDescription schema;
+  private Config config;
+  private String filePath;
 
-    public ORCManager(Config config) {
-        this.config = config;
-        this.filePath = config.FILE_PATH;
+  public ORCManager(Config config) {
+    this.config = config;
+    this.filePath = config.FILE_PATH;
+  }
+
+  public ORCManager(Config config, int threadNum) {
+    this.config = config;
+    this.filePath = config.FILE_PATH + "_" + threadNum;
+  }
+
+  @Override
+  public void initServer() {
+
+  }
+
+  @Override
+  public void initClient() {
+    if (Config.FOR_QUERY) {
+      return;
     }
 
-    public ORCManager(Config config, int threadNum) {
-        this.config = config;
-        this.filePath = config.FILE_PATH + "_" + threadNum;
+    schema = TypeDescription.fromString(genWriteSchema());
+    new File(filePath).delete();
+    try {
+      writer = OrcFile.createWriter(new Path(filePath),
+          OrcFile.writerOptions(new Configuration())
+              .setSchema(schema)
+              .compress(CompressionKind.SNAPPY)
+              .version(OrcFile.Version.V_0_12));
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+  }
 
-    @Override
-    public void initServer() {
+  @Override
+  public long insertBatch(List<Record> records) {
 
-    }
+    long start = System.nanoTime();
 
-    @Override
-    public void initClient() {
-        schema = TypeDescription.fromString(genWriteSchema());
-        new File(filePath).delete();
+    VectorizedRowBatch batch = schema.createRowBatch(records.size());
+
+    for (int i = 0; i < records.size(); i++) {
+      Record record = records.get(i);
+      LongColumnVector time = (LongColumnVector) batch.cols[0];
+      time.vector[i] = record.timestamp;
+
+      BytesColumnVector device = (BytesColumnVector) batch.cols[1];
+      device.setVal(i, record.tag.getBytes(StandardCharsets.UTF_8));
+
+      for (int j = 0; j < config.FIELDS.length; j++) {
+        DoubleColumnVector v = (DoubleColumnVector) batch.cols[j + 2];
+        v.vector[i] = (double) record.fields.get(j);
+      }
+
+      batch.size++;
+
+      // If the batch is full, write it out and start over. actually not needed here
+      if (batch.size == batch.getMaxSize()) {
         try {
-            writer = OrcFile.createWriter(new Path(filePath),
-                OrcFile.writerOptions(new Configuration())
-                    .setSchema(schema)
-                    .compress(CompressionKind.SNAPPY)
-                    .version(OrcFile.Version.V_0_12));
+          writer.addRowBatch(batch);
         } catch (IOException e) {
-            e.printStackTrace();
+          e.printStackTrace();
         }
+        batch.reset();
+      }
     }
 
-    @Override
-    public long insertBatch(List<Record> records) {
+    return System.nanoTime() - start;
+  }
 
-        long start = System.nanoTime();
 
-        VectorizedRowBatch batch = schema.createRowBatch(records.size());
+  private String genWriteSchema() {
+    String s = "struct<timestamp:bigint,deviceId:string";
+    for (int i = 0; i < config.FIELDS.length; i++) {
+      s += ("," + config.FIELDS[i] + ":" + "DOUBLE");
+    }
+    s += ">";
+    return s;
+  }
 
-        for (int i = 0; i < records.size(); i++) {
-            Record record = records.get(i);
-            LongColumnVector time = (LongColumnVector) batch.cols[0];
-            time.vector[i] = record.timestamp;
+  private String getReadSchema(String field) {
+    return "struct<timestamp:bigint,deviceId:string," + field + ":DOUBLE>";
+  }
 
-            BytesColumnVector device = (BytesColumnVector) batch.cols[1];
-            device.setVal(i, record.tag.getBytes(StandardCharsets.UTF_8));
+  @Override
+  public long count(String tagValue, String field, long startTime, long endTime) {
 
-            for (int j = 0; j < config.FIELDS.length; j++) {
-                DoubleColumnVector v = (DoubleColumnVector) batch.cols[j + 2];
-                v.vector[i] = (double) record.fields.get(j);
-            }
+    long start = System.nanoTime();
 
-            batch.size++;
+    String schema = getReadSchema(field);
+    try {
+      Reader reader = OrcFile.createReader(new Path(filePath),
+          OrcFile.readerOptions(new Configuration()));
+      TypeDescription readSchema = TypeDescription.fromString(schema);
 
-            // If the batch is full, write it out and start over. actually not needed here
-            if (batch.size == batch.getMaxSize()) {
-                try {
-                    writer.addRowBatch(batch);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                batch.reset();
-            }
+      VectorizedRowBatch batch = readSchema.createRowBatch();
+      RecordReader rowIterator = reader.rows(reader.options().schema(readSchema));
+
+      int fieldId;
+
+      for (fieldId = 0; fieldId < config.FIELDS.length; fieldId++) {
+        if (field.endsWith(config.FIELDS[fieldId])) {
+          break;
         }
+      }
 
-        return System.nanoTime() - start;
-    }
+      int result = 0;
+      while (rowIterator.nextBatch(batch)) {
+        for (int r = 0; r < batch.size; ++r) {
 
+          // time, deviceId, field
+          long t = ((LongColumnVector) batch.cols[0]).vector[r];
+          if (t < startTime || t > endTime) {
+            continue;
+          }
 
-    private String genWriteSchema() {
-        String s = "struct<timestamp:bigint,deviceId:string";
-        for (int i = 0; i < config.FIELDS.length; i++) {
-            s += ("," + config.FIELDS[i] + ":" + "DOUBLE");
+          String deviceId = ((BytesColumnVector) batch.cols[1]).toString(r);
+
+          if (deviceId.endsWith(tagValue)) {
+            result++;
+          }
+
+          double fieldValue = ((DoubleColumnVector) batch.cols[2]).vector[r];
         }
-        s += ">";
-        return s;
+      }
+      rowIterator.close();
+
+      logger.info("ORC result: {}", result);
+
+    } catch (IOException e) {
+      e.printStackTrace();
     }
 
-    private String getReadSchema(String field) {
-        return "struct<timestamp:bigint,deviceId:string," + field + ":DOUBLE>";
+    return System.nanoTime() - start;
+  }
+
+  @Override
+  public long flush() {
+    return 0;
+  }
+
+  @Override
+  public long close() {
+    long start = System.nanoTime();
+    try {
+      writer.close();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
-
-    @Override
-    public long count(String tagValue, String field, long startTime, long endTime) {
-
-        long start = System.nanoTime();
-
-        String schema = getReadSchema(field);
-        try {
-            Reader reader = OrcFile.createReader(new Path(filePath),
-                    OrcFile.readerOptions(new Configuration()));
-            TypeDescription readSchema = TypeDescription.fromString(schema);
-
-            VectorizedRowBatch batch = readSchema.createRowBatch();
-            RecordReader rowIterator = reader.rows(reader.options().schema(readSchema));
-
-            int fieldId;
-
-            for (fieldId = 0; fieldId < config.FIELDS.length; fieldId++) {
-                if (field.endsWith(config.FIELDS[fieldId])) {
-                    break;
-                }
-            }
-
-            int result = 0;
-            while (rowIterator.nextBatch(batch)) {
-                for (int r = 0; r < batch.size; ++r) {
-
-                    // time, deviceId, field
-                    long t = ((LongColumnVector) batch.cols[0]).vector[r];
-                    if (t < startTime || t > endTime)
-                        continue;
-
-                    String deviceId = ((BytesColumnVector) batch.cols[1]).toString(r);
-
-                    if (deviceId.endsWith(tagValue))
-                        result++;
-
-                    double fieldValue = ((DoubleColumnVector) batch.cols[2]).vector[r];
-                }
-            }
-            rowIterator.close();
-
-            logger.info("ORC result: {}", result);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return System.nanoTime() - start;
-    }
-
-    @Override
-    public long flush() {
-        return 0;
-    }
-
-    @Override
-    public long close() {
-        long start = System.nanoTime();
-        try {
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return System.nanoTime() - start;
-    }
+    return System.nanoTime() - start;
+  }
 }

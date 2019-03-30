@@ -33,37 +33,10 @@ public class MainQuery {
             config = new Config();
         }
 
-        IDataBaseManager database = null;
-        switch (config.DATABASE) {
-            case "INFLUXDB":
-                database = new InfluxDBManager(config);
-                break;
-            case "OPENTSDB":
-                database = new OpenTSDBManager(config);
-                break;
-            case "KAIROSDB":
-                database = new KairosDBManager(config);
-                break;
-            case "SUMMARYSTORE":
-                database = new SummaryStoreManager(config, true);
-                break;
-            case "WATERWHEEL":
-                database = new WaterWheelManager(config, true);
-                break;
-            case "TSFILE":
-                database = new TsFileManager(config);
-                break;
-            case "PARQUET":
-                database = new ParquetManager(config);
-                break;
-            case "ORC":
-                database = new ORCManager(config);
-                break;
-            default:
-                throw new RuntimeException(config.DATABASE + " not supported");
-        }
+        Config.FOR_QUERY = true;
 
-
+        IDataBaseManager database = DatabaseFactory.getDbManager(config);
+        database.initClient();
 
         long start = System.nanoTime();
         database.count(config.QUERY_TAG, config.FIELD, config.START_TIME, config.END_TIME);

@@ -12,21 +12,22 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
-    public String DATABASE = "TSFILE";
+    public String DATABASE = "INFLUXDB";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE, REDD
-    public String DATA_SET = "NOAA";
+    public String DATA_SET = "GEOLIFE";
 
-    public String FILE_PATH = "noaa.tsfile";
+    public String FILE_PATH = "geolife.orc";
 
     // noaa, geolife, mlab_utilization, mlab_ip, tdrive, redd_low
-    public String DATA_DIR = "data/noaa";
+    public String DATA_DIR = "data/geolife";
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
 
     public static final String TAG_NAME = "deviceId";
     public static final String TIME_NAME = "time";
+    public static boolean FOR_QUERY = false;
 
     public int THREAD_NUM = 1;
     public int BATCH_SIZE = 500;
@@ -58,8 +59,8 @@ public class Config {
     // geolife
     public String QUERY_TAG = "000";
     public String FIELD = "Latitude";
-    public long START_TIME = 1200398115000L;
-    public long END_TIME = 1246816515000L;
+    public long START_TIME = 0;
+    public long END_TIME = 1946816515000L;
 
     // noaa
 //    public String QUERY_TAG = "010230_99999";

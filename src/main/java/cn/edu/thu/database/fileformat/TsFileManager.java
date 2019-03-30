@@ -34,7 +34,7 @@ public class TsFileManager implements IDataBaseManager {
 
   private static Logger logger = LoggerFactory.getLogger(TsFileManager.class);
   private TsFileWriter writer;
-  private String filePath = "a";
+  private String filePath;
   private Config config;
 
   public TsFileManager(Config config) {
@@ -54,13 +54,18 @@ public class TsFileManager implements IDataBaseManager {
 
   @Override
   public void initClient() {
+    if (Config.FOR_QUERY) {
+      return;
+    }
+
     File file = new File(filePath);
     try {
       writer = new TsFileWriter(file);
       for (int i = 0; i < config.FIELDS.length; i++) {
         Map<String, String> props = new HashMap<>();
-        props.put(Encoder.MAX_POINT_NUMBER, config.PRECISION[i]+"");
-        MeasurementSchema schema = new MeasurementSchema(config.FIELDS[i], TSDataType.DOUBLE, TSEncoding.RLE, CompressionType.SNAPPY, props);
+        props.put(Encoder.MAX_POINT_NUMBER, config.PRECISION[i] + "");
+        MeasurementSchema schema = new MeasurementSchema(config.FIELDS[i], TSDataType.DOUBLE,
+            TSEncoding.RLE, CompressionType.SNAPPY, props);
         writer.addMeasurement(schema);
       }
     } catch (Exception e) {
@@ -72,7 +77,7 @@ public class TsFileManager implements IDataBaseManager {
   public long insertBatch(List<Record> records) {
     long start = System.nanoTime();
     List<TSRecord> tsRecords = convertToRecords(records);
-    for(TSRecord tsRecord: tsRecords) {
+    for (TSRecord tsRecord : tsRecords) {
       try {
         writer.write(tsRecord);
       } catch (Exception e) {
@@ -85,9 +90,9 @@ public class TsFileManager implements IDataBaseManager {
 
   private List<TSRecord> convertToRecords(List<Record> records) {
     List<TSRecord> tsRecords = new ArrayList<>();
-    for(Record record: records) {
+    for (Record record : records) {
       TSRecord tsRecord = new TSRecord(record.timestamp, record.tag);
-      for(int i = 0; i < config.FIELDS.length; i ++) {
+      for (int i = 0; i < config.FIELDS.length; i++) {
         double floatField = (double) record.fields.get(i);
         tsRecord.addTuple(new DoubleDataPoint(config.FIELDS[i], floatField));
       }
@@ -107,7 +112,7 @@ public class TsFileManager implements IDataBaseManager {
       ArrayList<Path> paths = new ArrayList<>();
       paths.add(new Path(tagValue + "." + field));
       IExpression filter = new SingleSeriesExpression(new Path(tagValue + "." + field),
-              new AndFilter(TimeFilter.gtEq(startTime), TimeFilter.ltEq(endTime)));
+          new AndFilter(TimeFilter.gtEq(startTime), TimeFilter.ltEq(endTime)));
 
       QueryExpression queryExpression = QueryExpression.create(paths, filter);
 

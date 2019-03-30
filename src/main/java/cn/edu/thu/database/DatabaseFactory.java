@@ -22,9 +22,9 @@ public class DatabaseFactory {
       case "KAIROSDB":
         return new KairosDBManager(config);
       case "SUMMARYSTORE":
-        return new SummaryStoreManager(config, false);
+        return new SummaryStoreManager(config);
       case "WATERWHEEL":
-        return new WaterWheelManager(config, false);
+        return new WaterWheelManager(config);
       case "TSFILE":
         return new TsFileManager(config);
       case "PARQUET":

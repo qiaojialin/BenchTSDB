@@ -44,12 +44,10 @@ public class WaterWheelManager implements IDataBaseManager {
   private DataSchema schema;
   private Config config;
   private IngestionClientBatchMode ingestionClient;
-  private boolean forQuery;
 
-  public WaterWheelManager(Config config, boolean forQuery) {
+  public WaterWheelManager(Config config) {
     this.config = config;
     schema = getSchema(config);
-    this.forQuery = forQuery;
   }
 
   @Override
@@ -60,7 +58,7 @@ public class WaterWheelManager implements IDataBaseManager {
   @Override
   public void initClient() {
     try {
-      if (!forQuery) {
+      if (!Config.FOR_QUERY) {
         ingestionClient = new IngestionClientBatchMode(config.WATERWHEEL_IP,
             config.WATERWHEEL_INGEST_PORT, schema, 1024);
         ingestionClient.connectWithTimeout(10000);
@@ -127,7 +125,7 @@ public class WaterWheelManager implements IDataBaseManager {
   @Override
   public long count(String tagValue, String field, long startTime, long endTime) {
 
-    final QueryClient queryClient = new QueryClient(config.WATERWHEEL_IP, 10001);
+    final QueryClient queryClient = new QueryClient(config.WATERWHEEL_IP, config.WATERWHEEL_QUERY_PORT);
 
     try {
       queryClient.connectWithTimeout(10000);
@@ -143,14 +141,8 @@ public class WaterWheelManager implements IDataBaseManager {
     long start = System.nanoTime();
     try {
       //a key range query
-      QueryResponse response;
-      if (config.START_TIME == -1 || config.END_TIME == -1) {
-        response = queryClient
-            .query(new QueryRequest<>(tagV, tagV, Long.MIN_VALUE, Long.MAX_VALUE, aggregator));
-      } else {
-        response = queryClient
+      QueryResponse response = queryClient
             .query(new QueryRequest<>(tagV, tagV, startTime, endTime, aggregator));
-      }
       logger.info("result: {}", response != null ? response.getTuples().get(0).get(1) : "null");
     } catch (IOException e) {
       e.printStackTrace();

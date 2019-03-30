@@ -19,14 +19,12 @@ public class SummaryStoreManager implements IDataBaseManager {
     private Config config;
 
     private SummaryStore store = null;
-    private boolean forQuery;
 
     private Set<Long> allStreams = new HashSet<>();
 
-    public SummaryStoreManager(Config config, boolean forQuery) {
+    public SummaryStoreManager(Config config) {
         this.config = config;
         this.storePath = config.SUMMARYSTORE_PATH;
-        this.forQuery = forQuery;
     }
 
     @Override
@@ -37,7 +35,7 @@ public class SummaryStoreManager implements IDataBaseManager {
     @Override
     public void initClient() {
         try {
-            if (forQuery) {
+            if (Config.FOR_QUERY) {
                 store = new SummaryStore(storePath, new SummaryStore.StoreOptions().setKeepReadIndexes(true).setReadOnly(true));
             } else {
                 store = new SummaryStore(storePath, new SummaryStore.StoreOptions().setKeepReadIndexes(true));

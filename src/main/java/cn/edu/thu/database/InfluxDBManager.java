@@ -39,7 +39,6 @@ public class InfluxDBManager implements IDataBaseManager {
     public void initServer() {
         influxDB.deleteDatabase(database);
         influxDB.createDatabase(database);
-        flush();
         close();
     }
 
@@ -58,13 +57,13 @@ public class InfluxDBManager implements IDataBaseManager {
             sql = String.format(COUNT_SQL_WITH_TIME, field, measurementId, startTime, endTime, Config.TAG_NAME, tagValue);
         }
 
-        logger.debug("Executing sql {}", sql);
+        logger.info("Executing sql {}", sql);
 
         long start = System.nanoTime();
 
         QueryResult queryResult = influxDB.query(new Query(sql, database));
 
-        logger.debug(queryResult.toString());
+        logger.info(queryResult.toString());
 
         return System.nanoTime() - start;
 
@@ -72,7 +71,6 @@ public class InfluxDBManager implements IDataBaseManager {
 
     @Override
     public long flush() {
-        influxDB.flush();
         return 0;
     }
 

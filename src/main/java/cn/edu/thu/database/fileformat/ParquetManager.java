@@ -58,6 +58,10 @@ public class ParquetManager implements IDataBaseManager {
 
   @Override
   public void initClient() {
+    if (Config.FOR_QUERY) {
+      return;
+    }
+
     Types.MessageTypeBuilder builder = Types.buildMessage();
     builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.INT64, config.TIME_NAME));
     builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.BINARY, Config.TAG_NAME));

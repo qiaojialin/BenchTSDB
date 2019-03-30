@@ -1,16 +1,9 @@
 package cn.edu.thu;
 
-import cn.edu.thu.database.fileformat.ORCManager;
-import cn.edu.thu.database.fileformat.ParquetManager;
-import cn.edu.thu.database.fileformat.TsFileManager;
-import cn.edu.thu.database.kairosdb.KairosDBManager;
-import cn.edu.thu.database.test.NullManager;
-import cn.edu.thu.database.waterwheel.WaterWheelManager;
-import cn.edu.thu.datasource.FileReaderThread;
+import cn.edu.thu.writer.RealDatasetWriter;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
 import cn.edu.thu.database.*;
-import cn.edu.thu.database.opentsdb.OpenTSDBManager;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -46,39 +39,9 @@ public class MainLoad {
       config = new Config();
     }
 
-    IDataBaseManager database;
-    switch (config.DATABASE) {
-      case "NULL":
-        database = new NullManager();
-        break;
-      case "INFLUXDB":
-        database = new InfluxDBManager(config);
-        break;
-      case "OPENTSDB":
-        database = new OpenTSDBManager(config);
-        break;
-      case "KAIROSDB":
-        database = new KairosDBManager(config);
-        break;
-      case "SUMMARYSTORE":
-        database = new SummaryStoreManager(config, false);
-        break;
-      case "WATERWHEEL":
-        database = new WaterWheelManager(config, false);
-        break;
-      case "TSFILE":
-        database = new TsFileManager(config);
-        break;
-      case "PARQUET":
-        database = new ParquetManager(config);
-        break;
-      case "ORC":
-        database = new ORCManager(config);
-        break;
-      default:
-        throw new RuntimeException(config.DATABASE + " not supported");
-    }
-    database.createSchema();
+    // init database
+    IDataBaseManager database = DatabaseFactory.getDbManager(config);
+    database.initServer();
 
     logger.info("thread num : {}", config.THREAD_NUM);
     logger.info("using database: {}", config.DATABASE);
@@ -119,7 +82,7 @@ public class MainLoad {
     ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
     for (int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
       executorService.submit(
-          new FileReaderThread(database, config, thread_files.get(threadId), statistics));
+          new RealDatasetWriter(config, thread_files.get(threadId), statistics));
     }
 
     executorService.shutdown();
@@ -133,11 +96,8 @@ public class MainLoad {
       }
     }
 
-    database.close();
-
-    logger.info("All done! Total records:{}, points:{}, time:{}ms, speed:{} ", statistics.recordNum,
-        statistics.pointNum,
-        statistics.timeCost, statistics.speed());
+    logger.info("All done! Total records:{}, points:{}, time:{} ms, speed:{} ", statistics.recordNum,
+        statistics.pointNum, (float)statistics.timeCost.get() / 1000_1000F, statistics.speed());
 
   }
 

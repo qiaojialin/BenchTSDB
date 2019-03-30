@@ -25,7 +25,8 @@ public class Config {
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
 
-    public String TAG_NAME = "deviceId";
+    public static final String TAG_NAME = "deviceId";
+    public static final String TIME_NAME = "time";
 
     public int THREAD_NUM = 1;
     public int BATCH_SIZE = 500;
@@ -66,12 +67,28 @@ public class Config {
 //    public long START_TIME = 0L;
 //    public long END_TIME = 1946816515000L;
 
+    public Config() {
+        Properties properties = new Properties();
+        properties.putAll(System.getenv());
+        load(properties);
+        init();
+        logger.debug("construct config without config file");
+    }
+
+    public Config(InputStream stream) throws IOException {
+        Properties properties = new Properties();
+        properties.putAll(System.getenv());
+        properties.load(stream);
+        load(properties);
+        init();
+        logger.debug("construct config with config file");
+    }
 
     private void init() {
         switch (DATA_SET) {
             case "NOAA":
                 FIELDS = new String[]{"TEMP", "DEWP", "SLP", "STP",
-                        "VISIB", "WDSP", "MXSPD", "GUST", "MAX", "MIN", "PRCP", "SNDP", "FRSHTT"};
+                    "VISIB", "WDSP", "MXSPD", "GUST", "MAX", "MIN", "PRCP", "SNDP", "FRSHTT"};
                 PRECISION = new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0};
                 break;
             case "GEOLIFE":
@@ -97,26 +114,10 @@ public class Config {
             default:
                 throw new RuntimeException(DATA_SET + " is not support");
         }
+        if (!DATA_DIR.endsWith("/")) {
+            DATA_DIR += "/";
+        }
         logger.info("use dataset: {}", DATA_SET);
-    }
-
-    public Config() {
-        Properties properties = new Properties();
-        properties.putAll(System.getenv());
-        load(properties);
-        init();
-        logger.debug("construct config without config file");
-    }
-
-    public Config(InputStream stream) throws IOException {
-        Properties properties = new Properties();
-
-        // first from file then from system
-        properties.load(stream);
-        properties.putAll(System.getenv());
-        load(properties);
-        init();
-        logger.debug("construct config with config file");
     }
 
 
@@ -144,9 +145,20 @@ public class Config {
         QUERY_TAG = properties.getOrDefault("QUERY_TAG", QUERY_TAG).toString();
 
         FIELD = properties.getOrDefault("FIELD", FIELD).toString();
-        START_TIME = Long.parseLong(properties.getOrDefault("START_TIME", START_TIME).toString());
-        END_TIME = Long.parseLong(properties.getOrDefault("END_TIME", END_TIME).toString());
 
+        String startTime = properties.getOrDefault("START_TIME", START_TIME).toString();
+        if(startTime.toLowerCase().contains("min")) {
+            START_TIME = Long.MIN_VALUE;
+        } else {
+            START_TIME = Long.parseLong(startTime);
+        }
+
+        String endTime = properties.getOrDefault("END_TIME", END_TIME).toString();
+        if(startTime.toLowerCase().contains("max")) {
+            END_TIME = Long.MAX_VALUE;
+        } else {
+            END_TIME = Long.parseLong(endTime);
+        }
 
     }
 }

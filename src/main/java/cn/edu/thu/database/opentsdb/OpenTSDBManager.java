@@ -27,6 +27,16 @@ public class OpenTSDBManager implements IDataBaseManager {
     }
 
     @Override
+    public void initServer() {
+
+    }
+
+    @Override
+    public void initClient() {
+
+    }
+
+    @Override
     public long insertBatch(List<Record> records) {
 
         LinkedList<OpenTSDBPoint> openTSDBPoints = new LinkedList<>();
@@ -37,14 +47,14 @@ public class OpenTSDBManager implements IDataBaseManager {
 
         String body = JSON.toJSONString(openTSDBPoints);
 
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         try {
             String response = ThuHttpRequest.sendPost(writeUrl, body);
         } catch (IOException e) {
             logger.error(e.getMessage());
         }
 
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
 
     }
 
@@ -59,18 +69,13 @@ public class OpenTSDBManager implements IDataBaseManager {
             model.setValue(record.fields.get(i));
 
             Map<String, String> tags = new HashMap<>();
-            tags.put(config.TAG_NAME, record.tag);
+            tags.put(Config.TAG_NAME, record.tag);
             model.setTags(tags);
             models.addLast(model);
         }
         return models;
     }
 
-
-    @Override
-    public void createSchema() {
-
-    }
 
     @Override
     public long count(String tagValue, String field, long startTime, long endTime) {
@@ -81,7 +86,7 @@ public class OpenTSDBManager implements IDataBaseManager {
 
         // query tag
         Map<String, String> subsubQuery = new HashMap<>();
-        subsubQuery.put(config.TAG_NAME, tagValue);
+        subsubQuery.put(Config.TAG_NAME, tagValue);
         subQuery.put("tags", subsubQuery);
 
         if(startTime == -1 || endTime == -1) {
@@ -104,7 +109,7 @@ public class OpenTSDBManager implements IDataBaseManager {
         String sql = JSON.toJSONString(queryMap);
 
         logger.info("sql: {}", sql);
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
 
         try {
             String response = ThuHttpRequest.sendPost(queryUrl, sql);
@@ -113,7 +118,7 @@ public class OpenTSDBManager implements IDataBaseManager {
             e.printStackTrace();
         }
 
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
 
     @Override

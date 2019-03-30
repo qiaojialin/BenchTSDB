@@ -36,9 +36,15 @@ public class InfluxDBManager implements IDataBaseManager {
     }
 
     @Override
-    public void createSchema() {
+    public void initServer() {
         influxDB.deleteDatabase(database);
         influxDB.createDatabase(database);
+        flush();
+        close();
+    }
+
+    @Override
+    public void initClient() {
     }
 
     @Override
@@ -47,30 +53,32 @@ public class InfluxDBManager implements IDataBaseManager {
         String sql;
 
         if(startTime == -1 || endTime == -1) {
-            sql = String.format(COUNT_SQL_WITHOUT_TIME, field, measurementId, config.TAG_NAME, tagValue);
+            sql = String.format(COUNT_SQL_WITHOUT_TIME, field, measurementId, Config.TAG_NAME, tagValue);
         } else {
-            sql = String.format(COUNT_SQL_WITH_TIME, field, measurementId, startTime, endTime, config.TAG_NAME, tagValue);
+            sql = String.format(COUNT_SQL_WITH_TIME, field, measurementId, startTime, endTime, Config.TAG_NAME, tagValue);
         }
 
         logger.debug("Executing sql {}", sql);
 
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
 
         QueryResult queryResult = influxDB.query(new Query(sql, database));
 
         logger.debug(queryResult.toString());
 
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
 
     }
 
     @Override
     public long flush() {
+        influxDB.flush();
         return 0;
     }
 
     @Override
     public long close() {
+        influxDB.close();
         return 0;
     }
 
@@ -82,7 +90,7 @@ public class InfluxDBManager implements IDataBaseManager {
 
         BatchPoints batchPoints = BatchPoints.database(database).points(points.toArray(new Point[0])).build();
 
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
 
         try {
             influxDB.write(batchPoints);
@@ -94,7 +102,7 @@ public class InfluxDBManager implements IDataBaseManager {
             }
         }
 
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
 
     private List<Point> convertRecords(List<Record> records) {
@@ -109,7 +117,7 @@ public class InfluxDBManager implements IDataBaseManager {
     private Point convertRecord(Record record) {
 
         Map<String, String> tagSet = new HashMap<>();
-        tagSet.put(config.TAG_NAME, record.tag);
+        tagSet.put(Config.TAG_NAME, record.tag);
 
         HashMap<String, Object> fieldSet = new HashMap<>();
         for(int i = 0; i < config.FIELDS.length; i++) {

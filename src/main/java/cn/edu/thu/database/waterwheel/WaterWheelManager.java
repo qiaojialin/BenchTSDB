@@ -43,12 +43,22 @@ public class WaterWheelManager implements IDataBaseManager {
   private static Logger logger = LoggerFactory.getLogger(WaterWheelManager.class);
   private DataSchema schema;
   private Config config;
-  private static final String TIME = "timestamp";
   private IngestionClientBatchMode ingestionClient;
+  private boolean forQuery;
 
   public WaterWheelManager(Config config, boolean forQuery) {
     this.config = config;
     schema = getSchema(config);
+    this.forQuery = forQuery;
+  }
+
+  @Override
+  public void initServer() {
+
+  }
+
+  @Override
+  public void initClient() {
     try {
       if (!forQuery) {
         ingestionClient = new IngestionClientBatchMode(config.WATERWHEEL_IP,
@@ -60,13 +70,12 @@ public class WaterWheelManager implements IDataBaseManager {
     }
   }
 
-
   @Override
   public long insertBatch(List<Record> records) {
 
     List<DataTuple> tuples = convertToTuples(records);
 
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
 
     try {
       for (DataTuple tuple : tuples) {
@@ -77,7 +86,7 @@ public class WaterWheelManager implements IDataBaseManager {
       e.printStackTrace();
     }
 
-    return System.currentTimeMillis() - start;
+    return System.nanoTime() - start;
 
   }
 
@@ -116,11 +125,6 @@ public class WaterWheelManager implements IDataBaseManager {
 
 
   @Override
-  public void createSchema() {
-
-  }
-
-  @Override
   public long count(String tagValue, String field, long startTime, long endTime) {
 
     final QueryClient queryClient = new QueryClient(config.WATERWHEEL_IP, 10001);
@@ -133,10 +137,10 @@ public class WaterWheelManager implements IDataBaseManager {
 
     long tagV = toLong(tagValue);
 
-    Aggregator<Integer> aggregator = new Aggregator<>(schema, config.TAG_NAME,
+    Aggregator<Integer> aggregator = new Aggregator<>(schema, Config.TAG_NAME,
         new AggregateField(new Count(), field));
 
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
     try {
       //a key range query
       QueryResponse response;
@@ -152,12 +156,12 @@ public class WaterWheelManager implements IDataBaseManager {
       e.printStackTrace();
     }
 
-    return System.currentTimeMillis() - start;
+    return System.nanoTime() - start;
   }
 
   @Override
   public long flush() {
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
     try {
       ingestionClient.flush();
       ingestionClient.waitFinish();
@@ -165,7 +169,7 @@ public class WaterWheelManager implements IDataBaseManager {
       e.printStackTrace();
     }
 
-    return System.currentTimeMillis() - start;
+    return System.nanoTime() - start;
   }
 
   @Override
@@ -182,7 +186,7 @@ public class WaterWheelManager implements IDataBaseManager {
 
 
   /**
-   * deploy WaterWheelManager
+   * deploy WaterWheel topology in Storm
    */
   public static void main(String... args) {
     Config config;
@@ -268,11 +272,11 @@ public class WaterWheelManager implements IDataBaseManager {
   static DataSchema getSchema(Config config) {
     DataSchema schema = new DataSchema();
 
-    schema.addLongField(config.TAG_NAME);
-    schema.setPrimaryIndexField(config.TAG_NAME);
+    schema.addLongField(Config.TAG_NAME);
+    schema.setPrimaryIndexField(Config.TAG_NAME);
 
-    schema.addLongField(TIME);
-    schema.setTemporalField(TIME);
+    schema.addLongField(Config.TIME_NAME);
+    schema.setTemporalField(Config.TIME_NAME);
 
     for (String field : config.FIELDS) {
       schema.addDoubleField(field);

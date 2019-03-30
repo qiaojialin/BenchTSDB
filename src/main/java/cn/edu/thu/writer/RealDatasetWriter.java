@@ -1,27 +1,30 @@
-package cn.edu.thu.datasource;
+package cn.edu.thu.writer;
 
 import cn.edu.thu.common.Record;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
 import cn.edu.thu.database.*;
-import cn.edu.thu.datasource.parser.*;
+import cn.edu.thu.reader.BasicReader;
+import cn.edu.thu.reader.GeolifeReader;
+import cn.edu.thu.reader.NOAAReader;
+import cn.edu.thu.reader.ReddReader;
+import cn.edu.thu.reader.TDriveReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.*;
-import utils.MLabUtilizationParser;
+import backup.MLabUtilizationReader;
 
-public class FileReaderThread implements Runnable {
+public class RealDatasetWriter implements Runnable {
 
-  private static Logger logger = LoggerFactory.getLogger(FileReaderThread.class);
+  private static Logger logger = LoggerFactory.getLogger(RealDatasetWriter.class);
   private IDataBaseManager database;
   private Config config;
-  private BasicParser parser;
+  private BasicReader reader;
   private final Statistics statistics;
 
-  public FileReaderThread(IDataBaseManager database, Config config,
-      List<String> files,
-      final Statistics statistics) {
-    this.database = database;
+  public RealDatasetWriter(Config config, List<String> files, final Statistics statistics) {
+    this.database = DatabaseFactory.getDbManager(config);
+    database.initClient();
     this.config = config;
     this.statistics = statistics;
 
@@ -29,22 +32,19 @@ public class FileReaderThread implements Runnable {
 
     switch (config.DATA_SET) {
       case "NOAA":
-        parser = new NOAAParser(config, files);
+        reader = new NOAAReader(config, files);
         break;
       case "GEOLIFE":
-        parser = new GeolifeParser(config, files);
+        reader = new GeolifeReader(config, files);
         break;
       case "TDRIVE":
-        parser = new TDriveParser(config, files);
+        reader = new TDriveReader(config, files);
         break;
-//      case "MLAB_IP":
-//        parser = new MLabIPParser(config, files);
-//        break;
       case "MLAB_UTILIZATION":
-        parser = new MLabUtilizationParser(config, files);
+        reader = new MLabUtilizationReader(config, files);
         break;
       case "REDD":
-        parser = new ReddParser(config, files);
+        reader = new ReddReader(config, files);
         break;
       default:
         throw new RuntimeException(config.DATA_SET + " not supported");
@@ -61,15 +61,15 @@ public class FileReaderThread implements Runnable {
 
       long recordNum = 0;
 
-      while(parser.hasNextBatch()) {
-        List<Record> rowBatch = parser.nextBatch();
+      while(reader.hasNextBatch()) {
+        List<Record> rowBatch = reader.nextBatch();
         recordNum += rowBatch.size();
 
-        // rowBatch maybe too large, make sure each batch <= config.BATCH_SIZE
+        // Each line may produce multiple Records, make sure each batch <= config.BATCH_SIZE
         List<List<Record>> batches = new ArrayList<>();
         List<Record> tempBatch = new ArrayList<>();
-        for (int j = 0; j < rowBatch.size(); j++) {
-          tempBatch.add(rowBatch.get(j));
+        for (Record rowBatch1 : rowBatch) {
+          tempBatch.add(rowBatch1);
           if (tempBatch.size() >= config.BATCH_SIZE) {
             batches.add(tempBatch);
             tempBatch = new ArrayList<>();
@@ -80,15 +80,12 @@ public class FileReaderThread implements Runnable {
         }
 
         for (List<Record> batch : batches) {
-          long timecost = database.insertBatch(batch);
-          logger
-              .info("write a batch of {} records in {} ms", batch.size(), timecost);
-          totalTime += timecost;
+          totalTime += database.insertBatch(batch);
         }
-
       }
 
       totalTime += database.flush();
+      totalTime += database.close();
 
       statistics.timeCost.addAndGet(totalTime);
       statistics.recordNum.addAndGet(recordNum);
@@ -97,7 +94,6 @@ public class FileReaderThread implements Runnable {
     } catch (Exception e) {
       e.printStackTrace();
     }
-
 
   }
 

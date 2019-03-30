@@ -1,11 +1,8 @@
-package cn.edu.thu.datasource.parser;
+package cn.edu.thu.reader;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,12 +10,12 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TDriveParser extends BasicParser {
+public class TDriveReader extends BasicReader {
 
   private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-  private static Logger logger = LoggerFactory.getLogger(TDriveParser.class);
+  private static Logger logger = LoggerFactory.getLogger(TDriveReader.class);
 
-  public TDriveParser(Config config, List<String> files) {
+  public TDriveReader(Config config, List<String> files) {
     super(config, files);
   }
 

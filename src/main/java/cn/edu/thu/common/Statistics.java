@@ -17,6 +17,6 @@ public class Statistics {
      * @return points / s
      */
     public float speed() {
-        return ((float) pointNum.get()) / ((float) timeCost.get()) * 1000;
+        return ((float) pointNum.get()) / ((float) timeCost.get()) * 1000_000_000;
     }
 }

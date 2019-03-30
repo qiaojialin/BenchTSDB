@@ -36,7 +36,7 @@ public class GeoLoad {
             for(long j = 1000; j > 10; j--) {
                 DataTuple tuple = new DataTuple();
                 tuple.add(i);
-                tuple.add(System.currentTimeMillis() + j);
+                tuple.add(System.nanoTime() + j);
                 tuple.add(3.14d);
                 tuple.add(100d);
                 tuple.add(0d);

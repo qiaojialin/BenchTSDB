@@ -1,4 +1,4 @@
-//package cn.edu.thu.datasource.parser;
+//package cn.edu.thu.datasource.reader;
 //
 //import cn.edu.thu.common.Config;
 //import cn.edu.thu.common.Record;
@@ -10,7 +10,7 @@
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 //
-//public class MLabIPParser extends BasicParser {
+//public class MLabIPParser extends BasicReader {
 //
 //  private Config config;
 //  private static Logger logger = LoggerFactory.getLogger(MLabIPParser.class);

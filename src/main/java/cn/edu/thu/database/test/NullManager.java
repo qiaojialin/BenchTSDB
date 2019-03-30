@@ -17,7 +17,12 @@ public class NullManager implements IDataBaseManager {
     }
 
     @Override
-    public void createSchema() {
+    public void initServer() {
+
+    }
+
+    @Override
+    public void initClient() {
 
     }
 

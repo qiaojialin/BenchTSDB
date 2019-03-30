@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.iotdb.tsfile.common.conf.TSFileConfig;
-import org.apache.iotdb.tsfile.common.conf.TSFileDescriptor;
 import org.apache.iotdb.tsfile.encoding.encoder.Encoder;
 import org.apache.iotdb.tsfile.file.metadata.enums.CompressionType;
 import org.apache.iotdb.tsfile.file.metadata.enums.TSDataType;
@@ -44,22 +42,18 @@ public class TsFileManager implements IDataBaseManager {
     this.filePath = config.FILE_PATH;
   }
 
-  @Override
-  public long insertBatch(List<Record> records) {
-    long start = System.currentTimeMillis();
-    List<TSRecord> tsRecords = convertToRecords(records);
-    for(TSRecord tsRecord: tsRecords) {
-      try {
-        writer.write(tsRecord);
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
-    return System.currentTimeMillis() - start;
+  public TsFileManager(Config config, int threadNum) {
+    this.config = config;
+    this.filePath = config.FILE_PATH + "_" + threadNum;
   }
 
   @Override
-  public void createSchema() {
+  public void initServer() {
+
+  }
+
+  @Override
+  public void initClient() {
     File file = new File(filePath);
     try {
       writer = new TsFileWriter(file);
@@ -73,6 +67,21 @@ public class TsFileManager implements IDataBaseManager {
       e.printStackTrace();
     }
   }
+
+  @Override
+  public long insertBatch(List<Record> records) {
+    long start = System.nanoTime();
+    List<TSRecord> tsRecords = convertToRecords(records);
+    for(TSRecord tsRecord: tsRecords) {
+      try {
+        writer.write(tsRecord);
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+    return System.nanoTime() - start;
+  }
+
 
   private List<TSRecord> convertToRecords(List<Record> records) {
     List<TSRecord> tsRecords = new ArrayList<>();
@@ -90,7 +99,7 @@ public class TsFileManager implements IDataBaseManager {
   @Override
   public long count(String tagValue, String field, long startTime, long endTime) {
 
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
     try {
       TsFileSequenceReader reader = new TsFileSequenceReader(config.FILE_PATH);
 
@@ -115,7 +124,7 @@ public class TsFileManager implements IDataBaseManager {
       e.printStackTrace();
     }
 
-    return System.currentTimeMillis() - start;
+    return System.nanoTime() - start;
   }
 
   @Override
@@ -125,12 +134,12 @@ public class TsFileManager implements IDataBaseManager {
 
   @Override
   public long close() {
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
     try {
       writer.close();
     } catch (IOException e) {
       e.printStackTrace();
     }
-    return System.currentTimeMillis() - start;
+    return System.nanoTime() - start;
   }
 }

@@ -46,11 +46,21 @@ public class ParquetManager implements IDataBaseManager {
     this.filePath = config.FILE_PATH;
   }
 
+  public ParquetManager(Config config, int threadNum) {
+    this.config = config;
+    this.filePath = config.FILE_PATH + "_" + threadNum;
+  }
+
   @Override
-  public void createSchema() {
+  public void initServer() {
+
+  }
+
+  @Override
+  public void initClient() {
     Types.MessageTypeBuilder builder = Types.buildMessage();
-    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.INT64, "timestamp"));
-    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.BINARY, config.TAG_NAME));
+    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.INT64, config.TIME_NAME));
+    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.BINARY, Config.TAG_NAME));
     for (int i = 0; i < config.FIELDS.length; i++) {
       builder.addField(new PrimitiveType(Type.Repetition.OPTIONAL, PrimitiveType.PrimitiveTypeName.DOUBLE, config.FIELDS[i]));
     }
@@ -74,7 +84,7 @@ public class ParquetManager implements IDataBaseManager {
 
   @Override
   public long insertBatch(List<Record> records) {
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
 
     List<Group> groups = convertRecords(records);
     for(Group group: groups) {
@@ -85,7 +95,7 @@ public class ParquetManager implements IDataBaseManager {
       }
     }
 
-    return System.currentTimeMillis() - start;
+    return System.nanoTime() - start;
   }
 
 
@@ -93,8 +103,8 @@ public class ParquetManager implements IDataBaseManager {
     List<Group> groups = new ArrayList<>();
     for(Record record: records) {
       Group group = simpleGroupFactory.newGroup();
-      group.add("timestamp", record.timestamp);
-      group.add(config.TAG_NAME, record.tag);
+      group.add(Config.TIME_NAME, record.timestamp);
+      group.add(Config.TAG_NAME, record.tag);
       for(int i = 0; i < config.FIELDS.length; i++) {
         double floatV = (double) record.fields.get(i);
         group.add(config.FIELDS[i], floatV);
@@ -108,13 +118,13 @@ public class ParquetManager implements IDataBaseManager {
   public long count(String tagValue, String field, long startTime, long endTime) {
 
     Configuration conf = new Configuration();
-    ParquetInputFormat.setFilterPredicate(conf, and(and(gtEq(longColumn("timestamp"), startTime),
-            ltEq(longColumn("timestamp"), endTime)), eq(binaryColumn(config.TAG_NAME), Binary.fromString(tagValue))));
+    ParquetInputFormat.setFilterPredicate(conf, and(and(gtEq(longColumn(Config.TIME_NAME), startTime),
+            ltEq(longColumn(Config.TIME_NAME), endTime)), eq(binaryColumn(Config.TAG_NAME), Binary.fromString(tagValue))));
     FilterCompat.Filter filter = ParquetInputFormat.getFilter(conf);
 
     Types.MessageTypeBuilder builder = Types.buildMessage();
-    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.INT64, "timestamp"));
-    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.BINARY, config.TAG_NAME));
+    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.INT64, Config.TIME_NAME));
+    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.BINARY, Config.TAG_NAME));
     builder.addField(new PrimitiveType(Type.Repetition.OPTIONAL, PrimitiveType.PrimitiveTypeName.DOUBLE, field));
 
     MessageType querySchema = builder.named(schemaName);
@@ -126,7 +136,7 @@ public class ParquetManager implements IDataBaseManager {
             .withConf(conf)
             .withFilter(filter);
 
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
 
     ParquetReader<Group> build;
     int result = 0;
@@ -141,7 +151,7 @@ public class ParquetManager implements IDataBaseManager {
     }
     logger.info("Parquet result: {}", result);
 
-    return System.currentTimeMillis() - start;
+    return System.nanoTime() - start;
   }
 
   @Override
@@ -151,12 +161,12 @@ public class ParquetManager implements IDataBaseManager {
 
   @Override
   public long close() {
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
     try {
       writer.close();
     } catch (IOException e) {
       e.printStackTrace();
     }
-    return System.currentTimeMillis() - start;
+    return System.nanoTime() - start;
   }
 }

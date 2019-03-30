@@ -34,6 +34,23 @@ public class KairosDBManager implements IDataBaseManager {
   }
 
   @Override
+  public void initServer() {
+    for (String sensor : config.FIELDS) {
+      try {
+        ThuHttpRequest.sendDelete(String.format(deleteUrl, sensor), "");
+      } catch (IOException e) {
+        logger.error("Delete metric {} failed when initializing KairosDBManager.", sensor);
+        e.printStackTrace();
+      }
+    }
+  }
+
+  @Override
+  public void initClient() {
+
+  }
+
+  @Override
   public long insertBatch(List<Record> records) {
     List<KairosDBPoint> points = new ArrayList<>();
 
@@ -43,7 +60,7 @@ public class KairosDBManager implements IDataBaseManager {
     }
     String body = JSON.toJSONString(points);
 
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
 
     String response = null;
     try {
@@ -54,14 +71,14 @@ public class KairosDBManager implements IDataBaseManager {
       logger.error("meet error when writing: {}", e.getMessage());
     }
 
-    return System.currentTimeMillis() - start;
+    return System.nanoTime() - start;
   }
 
   private List<KairosDBPoint> convertToPoints(Record record) {
     List<KairosDBPoint> points = new ArrayList<>();
 
     Map<String, String> tags = new HashMap<>();
-    tags.put(config.TAG_NAME, record.tag);
+    tags.put(Config.TAG_NAME, record.tag);
     for (int i = 0; i < config.FIELDS.length; i++) {
       KairosDBPoint point = new KairosDBPoint();
       point.setName(config.FIELDS[i]);
@@ -71,18 +88,6 @@ public class KairosDBManager implements IDataBaseManager {
       points.add(point);
     }
     return points;
-  }
-
-  @Override
-  public void createSchema() {
-    for (String sensor : config.FIELDS) {
-      try {
-        ThuHttpRequest.sendDelete(String.format(deleteUrl, sensor), "");
-      } catch (IOException e) {
-        logger.error("Delete metric {} failed when initializing KairosDBManager.", sensor);
-        e.printStackTrace();
-      }
-    }
   }
 
 
@@ -152,7 +157,7 @@ public class KairosDBManager implements IDataBaseManager {
     Map<String, List<String>> tags = new HashMap<>();
     List<String> tagVs = new ArrayList<>();
     tagVs.add(tagValue);
-    tags.put(config.TAG_NAME, tagVs);
+    tags.put(Config.TAG_NAME, tagVs);
     subQuery.put("tags", tags);
 
     List<Map<String, Object>> aggregators = new ArrayList<>();
@@ -177,7 +182,7 @@ public class KairosDBManager implements IDataBaseManager {
 
     logger.info("sql：{}", json);
 
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
     try {
       String response = ThuHttpRequest.sendPost(queryUrl, json);
       logger.info("result: {}", response);
@@ -185,7 +190,7 @@ public class KairosDBManager implements IDataBaseManager {
       e.printStackTrace();
     }
 
-    return System.currentTimeMillis() - start;
+    return System.nanoTime() - start;
   }
 
   @Override

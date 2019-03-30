@@ -19,12 +19,23 @@ public class SummaryStoreManager implements IDataBaseManager {
     private Config config;
 
     private SummaryStore store = null;
+    private boolean forQuery;
 
     private Set<Long> allStreams = new HashSet<>();
 
     public SummaryStoreManager(Config config, boolean forQuery) {
         this.config = config;
         this.storePath = config.SUMMARYSTORE_PATH;
+        this.forQuery = forQuery;
+    }
+
+    @Override
+    public void initServer() {
+
+    }
+
+    @Override
+    public void initClient() {
         try {
             if (forQuery) {
                 store = new SummaryStore(storePath, new SummaryStore.StoreOptions().setKeepReadIndexes(true).setReadOnly(true));
@@ -62,7 +73,7 @@ public class SummaryStoreManager implements IDataBaseManager {
             }
         }
 
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
 
         // write streams
         try {
@@ -79,7 +90,7 @@ public class SummaryStoreManager implements IDataBaseManager {
             logger.error(e.getMessage());
         }
 
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
 
 
@@ -120,19 +131,12 @@ public class SummaryStoreManager implements IDataBaseManager {
         return Long.parseLong(builder.toString());
     }
 
-
-    @Override
-    public void createSchema() {
-
-
-    }
-
     @Override
     public long count(String tag, String field, long startTime, long endTime) {
 
         long series = getStreamId(tag, field);
 
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         try {
             Object stream = store.query(series, startTime, endTime, 0);
             logger.info(stream.toString());
@@ -140,13 +144,13 @@ public class SummaryStoreManager implements IDataBaseManager {
             logger.error(e.getMessage());
         }
 
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
 
     }
 
     @Override
     public long flush() {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         try {
             for (long stream : allStreams) {
                 store.unloadStream(stream);
@@ -154,12 +158,12 @@ public class SummaryStoreManager implements IDataBaseManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
 
     @Override
     public long close() {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
 
         try {
             store.close();
@@ -167,7 +171,7 @@ public class SummaryStoreManager implements IDataBaseManager {
             logger.error(e.getMessage());
         }
 
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
 
 }

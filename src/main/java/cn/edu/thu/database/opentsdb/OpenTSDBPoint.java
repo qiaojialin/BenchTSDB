@@ -15,7 +15,7 @@ public class OpenTSDBPoint implements Serializable {
 
     public static void main(String... args) {
         long nano = System.nanoTime();
-        System.out.println(System.currentTimeMillis());
+        System.out.println(System.nanoTime());
         System.out.println(nano);
     }
 

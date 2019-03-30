@@ -1,4 +1,4 @@
-package cn.edu.thu.datasource.parser;
+package cn.edu.thu.reader;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
@@ -9,10 +9,10 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class BasicParser {
+public abstract class BasicReader {
 
-  private static Logger logger = LoggerFactory.getLogger(BasicParser.class);
-  private Config config;
+  private static Logger logger = LoggerFactory.getLogger(BasicReader.class);
+  protected Config config;
   protected List<String> files;
   protected BufferedReader reader;
   protected List<String> cachedLines;
@@ -21,12 +21,13 @@ public abstract class BasicParser {
   protected String currentFile;
   protected String currentDeviceId;
 
-  public BasicParser(Config config, List<String> files) {
+  public BasicReader(Config config, List<String> files) {
     this.config = config;
     this.files = files;
     try {
       reader = new BufferedReader(new FileReader(files.get(currentFileIndex)));
       currentFile = files.get(currentFileIndex);
+      logger.info("start to read {}-th file {}", currentFileIndex, currentFile);
       init();
     } catch (Exception e) {
       logger.error("meet exception when init file: {}", currentFile);
@@ -56,6 +57,7 @@ public abstract class BasicParser {
           if(cachedLines.isEmpty()) {
             if (currentFileIndex < files.size() - 1) {
               currentFile = files.get(currentFileIndex++);
+              logger.info("start to read {}-th file {}", currentFileIndex, currentFile);
               reader.close();
               reader = new BufferedReader(new FileReader(currentFile));
               init();
@@ -70,6 +72,8 @@ public abstract class BasicParser {
             // resolve current file
             return true;
           }
+        } else if (line.isEmpty()){
+          continue;
         }
 
         // read a line, cache it
@@ -92,6 +96,7 @@ public abstract class BasicParser {
    * convert the cachedLines to Record list
    */
   abstract public List<Record> nextBatch();
+
 
   /**
    * initialize when start reading a file

@@ -2,21 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cc7bd03-3231-46f9-b10b-c82aca07f2b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/ReddParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/MLabIPParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backup/AzureReadWrite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backup/ExtendRedd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/DatabaseFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/CalculateThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/CalculateThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/FileReaderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/FileReaderThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/BasicParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/BasicParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/CalculateMLabIPParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/CalculateMLabIPParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/GeolifeParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/GeolifeParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/MLabIPParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/MLabUtilizationParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/MLabUtilizationParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/NOAAParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/NOAAParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/TDriveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/TDriveParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Statistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/DruidManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/IDataBaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/IDataBaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/InfluxDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/InfluxDBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/SummaryStoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/SummaryStoreManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ORCManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ORCManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ParquetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ParquetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/TsFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/TsFileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/KairosDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/KairosDBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/TestKairosDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/TestKairosDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/test/NullManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/test/NullManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/waterwheel/GeoLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/waterwheel/GeoLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/waterwheel/WaterWheelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/waterwheel/WaterWheelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/FileReaderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/writer/RealDatasetWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/BasicParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/BasicReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/GeolifeParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/GeolifeReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/NOAAParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/NOAAReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/ReddParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/ReddReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/TDriveParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/TDriveReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/CalculateMLabIPParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backup/CalculateMLabIPParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/CalculateThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backup/CalculateThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ExtendRedd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/MLabIPParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backup/MLabIPParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/MLabUtilizationParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backup/MLabUtilizationReader.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,10 +49,70 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/InfluxDBManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="322">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/SummaryStoreManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/BasicReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/GeolifeReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/DatabaseFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,51 +121,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/utils/ExtendRedd.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/writer/RealDatasetWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="124" column="54" lean-forward="true" selection-start-line="124" selection-start-column="54" selection-end-line="124" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/ReddParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="206">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#231#232#0" expanded="true" />
-                <element signature="e#248#249#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/utils/CalculateMLabIPParser.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/IDataBaseManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/KairosDBManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -114,9 +174,18 @@
       <find>google.g</find>
       <find>fast</find>
       <find>Float.parseFloat</find>
+      <find>System.nano</find>
+      <find>System.currentTimeMillis</find>
+      <find>nano</find>
+      <find>config.TAG_NAME</find>
+      <find>&quot;timestamp&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>Double.parseDouble</replace>
+      <replace>System.nanoTime</replace>
+      <replace>config.TIME_NAME</replace>
+      <replace>Config.TAG_NAME</replace>
+      <replace>Config.TIME_NAME</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -125,25 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/InfluxDBManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/Druid.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/DruidManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBM.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/KairosDBM.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/RDFParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/test/test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/druid/JavaExample.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/example.json" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/druid/InsertExample.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBPoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/CalculateMLabIPParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/waterwheel/GeoSubmit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/waterwheel/WaterWheelManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/KairosDBManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/TestKairosDB.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Statistics.java" />
-        <option value="$PROJECT_DIR$/data/noaa/3" />
         <option value="$PROJECT_DIR$/data/noaa/4" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/TestORC.java" />
         <option value="$PROJECT_DIR$/data/noaa/2" />
@@ -152,30 +202,49 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/GoogleParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/GeoWriter.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/NOAAWriter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/IDataBaseManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/AzureWriter.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/AzureReadWrite.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/AzureReadWrite.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/TestOpenTSDB.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ParquetManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ORCManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/AbstractParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/TsFileManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/MLabIPParser.java" />
         <option value="$PROJECT_DIR$/conf/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/FileReaderThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/CalculateThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/MLabUtilizationParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/BasicParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/MLabUtilizationParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/ReddParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/NOAAParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/GeolifeParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/TDriveParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/AzureReadWrite.java" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/ExtendRedd.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/ReddParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/GeolifeParser.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/backup/ExtendRedd.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Statistics.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/BasicParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/KairosDBManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/test/NullManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/TsFileManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ParquetManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/DatabaseFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ORCManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/waterwheel/WaterWheelManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/SummaryStoreManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/FileReaderThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/FileReaderClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/Worker/FileReaderClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/IDataBaseManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/InfluxDBManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/GeolifeParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/BasicParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/BasicReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/writer/FileReaderClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/thu/writer/RealDatasetWriter.java" />
       </list>
     </option>
   </component>
@@ -215,11 +284,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-153" />
-    <option name="y" value="-1129" />
-    <option name="width" value="2048" />
-    <option name="height" value="1129" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="825" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -388,6 +456,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -404,11 +473,6 @@
             <path>
               <item name="BenchTSDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="BenchTSDB" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BenchTSDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BenchTSDB" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -439,7 +503,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="thu" type="462c0819:PsiDirectoryNode" />
-              <item name="datasource" type="462c0819:PsiDirectoryNode" />
+              <item name="reader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BenchTSDB" type="b2602c69:ProjectViewProjectNode" />
@@ -448,16 +512,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="thu" type="462c0819:PsiDirectoryNode" />
-              <item name="datasource" type="462c0819:PsiDirectoryNode" />
-              <item name="parser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BenchTSDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BenchTSDB" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="writer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BenchTSDB" type="b2602c69:ProjectViewProjectNode" />
@@ -470,14 +525,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="DataSch&#9;FILE&#9;jar:///Users/qiaojialin/.m2/repository/storm/topologies/topology/1.0-SNAPSHOT/topology-1.0-SNAPSHOT.jar!/indexingTopology/common/data/DataSchema.class" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553856355851" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553927839763" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -515,7 +569,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainQuery">
+  <component name="RunManager" selected="Application.MainLoad">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -536,13 +590,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoogleParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.thu.datasource.parser.GoogleParser" />
+    <configuration name="ExtendRedd" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="backup.ExtendRedd" />
       <module name="BenchTSDB" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="utils.*" />
+          <option name="PATTERN" value="backup.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -578,13 +632,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestORC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.thu.database.fileformat.TestORC" />
+    <configuration name="WaterWheelManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.thu.database.waterwheel.WaterWheelManager" />
       <module name="BenchTSDB" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.edu.thu.database.fileformat.*" />
+          <option name="PATTERN" value="cn.edu.thu.database.waterwheel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -626,17 +680,17 @@
     <list>
       <item itemvalue="Application.MainLoad" />
       <item itemvalue="Application.MainQuery" />
-      <item itemvalue="Application.TestORC" />
-      <item itemvalue="Application.GoogleParser" />
       <item itemvalue="Application.AzureReadWrite" />
+      <item itemvalue="Application.ExtendRedd" />
+      <item itemvalue="Application.WaterWheelManager" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainQuery" />
         <item itemvalue="Application.MainLoad" />
+        <item itemvalue="Application.WaterWheelManager" />
+        <item itemvalue="Application.ExtendRedd" />
+        <item itemvalue="Application.MainQuery" />
         <item itemvalue="Application.AzureReadWrite" />
-        <item itemvalue="Application.GoogleParser" />
-        <item itemvalue="Application.TestORC" />
       </list>
     </recent_temporary>
   </component>
@@ -659,17 +713,19 @@
       <option name="presentableId" value="Default" />
       <updated>1551417101730</updated>
       <workItem from="1553561052647" duration="14956000" />
-      <workItem from="1553657487823" duration="44418000" />
+      <workItem from="1553657487823" duration="57137000" />
+      <workItem from="1553925722805" duration="1989000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59374000" />
+    <option name="totallyTimeSpent" value="74082000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-153" y="-1129" width="2048" height="1129" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="825" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20687936" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24821173" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -677,17 +733,17 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.24590164" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32883316" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.24420191" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29604366" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32304725" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="SonarLint" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.33076182" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.21282402" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32786885" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.22510232" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -717,7 +773,7 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/utils/MLabIPParser.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/backup/MLabIPParser.java</url>
           <line>68</line>
           <properties />
           <option name="timeStamp" value="26" />
@@ -736,147 +792,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/AzureWriter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/druid/InsertExample.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/AzureReadWrite.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/TestOpenTSDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/IDataBaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/InfluxDBManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="22" column="42" selection-start-line="22" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/SummaryStoreManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="103" column="9" selection-start-line="97" selection-start-column="8" selection-end-line="103" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/orc/orc-core/1.4.1/orc-core-1.4.1-nohive.jar!/org/apache/orc/RecordReader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/parquet/parquet-column/1.8.2/parquet-column-1.8.2.jar!/org/apache/parquet/schema/Types.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="89" column="27" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/parquet/parquet-column/1.8.2/parquet-column-1.8.2.jar!/org/apache/parquet/filter2/predicate/Operators.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="390" column="74" selection-start-line="390" selection-start-column="68" selection-end-line="390" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/parquet/parquet-column/1.8.2/parquet-column-1.8.2.jar!/org/apache/parquet/filter2/predicate/FilterApi.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="59" column="58" selection-start-line="59" selection-start-column="58" selection-end-line="59" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/tdrive/2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/tdrive/1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9139">
-          <caret line="4" column="40" lean-forward="true" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/geolife/000/Trajectory/20081024020959.plt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/noaa/1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ParquetManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-          <folding>
-            <element signature="e#5500#5501#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ORCManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/iotdb/tsfile/0.8.0-SNAPSHOT/tsfile-0.8.0-SNAPSHOT.jar!/org/apache/iotdb/tsfile/common/conf/TSFileConfig.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/noaa/501360-99999-1973.op">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
@@ -891,33 +806,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/IParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/GeoWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/NOAAWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/IParser.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/GeoWriter.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/NOAAWriter.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.2/commons-cli-1.2-sources.jar!/org/apache/commons/cli/BasicParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -960,115 +851,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2278">
-          <caret line="134" selection-start-line="134" selection-end-line="134" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/redd_low/house_1/channel_1.dat">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="521">
-          <caret line="71466" column="17" lean-forward="true" selection-start-line="71466" selection-start-column="17" selection-end-line="71466" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/FileReaderThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/TsFileManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="64" column="38" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/CalculateMLabIPParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/backup/CalculateMLabIPParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/MLabIPParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/backup/MLabIPParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/TDriveParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/TDriveReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/ReddParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#231#232#0" expanded="true" />
-            <element signature="e#248#249#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/BasicParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="124" column="54" lean-forward="true" selection-start-line="124" selection-start-column="54" selection-end-line="124" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/NOAAParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/NOAAReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="453">
           <caret line="58" column="3" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/MLabUtilizationParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/backup/MLabUtilizationReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
@@ -1079,17 +890,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/CalculateThread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/backup/CalculateThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/datasource/parser/GeolifeParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
@@ -1107,10 +911,256 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backup/AzureReadWrite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="79" column="5" selection-start-line="68" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/redd_low/house_1/channel_1.dat">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state>
+          <caret selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/ReddReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#248#249#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/tdrive/1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/geolife/000/Trajectory/20081023025304.plt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="63" lean-forward="true" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/orc/orc-core/1.4.1/orc-core-1.4.1-nohive.jar!/org/apache/orc/storage/ql/exec/vector/VectorizedRowBatch.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/orc/orc-core/1.4.1/orc-core-1.4.1-nohive.jar!/org/apache/orc/storage/ql/exec/vector/LongColumnVector.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/DruidManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/backup/ExtendRedd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/test/NullManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ParquetManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="101" column="57" selection-start-line="101" selection-start-column="57" selection-end-line="101" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/TestKairosDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/KairosDBPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="1199">
+          <caret line="73" column="15" selection-start-line="73" selection-start-column="15" selection-end-line="73" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ORCManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/waterwheel/WaterWheelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/TsFileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="137" column="9" selection-start-line="137" selection-start-column="9" selection-end-line="137" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/InfluxDBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/common/Statistics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/DatabaseFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/opentsdb/OpenTSDBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/kairosdb/KairosDBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/IDataBaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/database/SummaryStoreManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/GeolifeReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/BasicReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/thu/writer/RealDatasetWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

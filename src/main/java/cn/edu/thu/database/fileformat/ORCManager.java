@@ -32,10 +32,35 @@ public class ORCManager implements IDataBaseManager {
         this.filePath = config.FILE_PATH;
     }
 
+    public ORCManager(Config config, int threadNum) {
+        this.config = config;
+        this.filePath = config.FILE_PATH + "_" + threadNum;
+    }
+
+    @Override
+    public void initServer() {
+
+    }
+
+    @Override
+    public void initClient() {
+        schema = TypeDescription.fromString(genWriteSchema());
+        new File(filePath).delete();
+        try {
+            writer = OrcFile.createWriter(new Path(filePath),
+                OrcFile.writerOptions(new Configuration())
+                    .setSchema(schema)
+                    .compress(CompressionKind.SNAPPY)
+                    .version(OrcFile.Version.V_0_12));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public long insertBatch(List<Record> records) {
 
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
 
         VectorizedRowBatch batch = schema.createRowBatch(records.size());
 
@@ -65,23 +90,9 @@ public class ORCManager implements IDataBaseManager {
             }
         }
 
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
 
-    @Override
-    public void createSchema() {
-        schema = TypeDescription.fromString(genWriteSchema());
-        new File(filePath).delete();
-        try {
-            writer = OrcFile.createWriter(new Path(filePath),
-                    OrcFile.writerOptions(new Configuration())
-                            .setSchema(schema)
-                            .compress(CompressionKind.SNAPPY)
-                            .version(OrcFile.Version.V_0_12));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private String genWriteSchema() {
         String s = "struct<timestamp:bigint,deviceId:string";
@@ -99,7 +110,7 @@ public class ORCManager implements IDataBaseManager {
     @Override
     public long count(String tagValue, String field, long startTime, long endTime) {
 
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
 
         String schema = getReadSchema(field);
         try {
@@ -143,7 +154,7 @@ public class ORCManager implements IDataBaseManager {
             e.printStackTrace();
         }
 
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
 
     @Override
@@ -153,12 +164,12 @@ public class ORCManager implements IDataBaseManager {
 
     @Override
     public long close() {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         try {
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
 }

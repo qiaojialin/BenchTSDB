@@ -1,20 +1,17 @@
-package utils;
+package backup;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
-import cn.edu.thu.datasource.parser.BasicParser;
+import cn.edu.thu.reader.BasicReader;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MLabUtilizationParser extends BasicParser {
+public class MLabUtilizationReader extends BasicReader {
 
-    public MLabUtilizationParser(Config config, List<String> files) {
+    public MLabUtilizationReader(Config config, List<String> files) {
         super(config, files);
     }
 

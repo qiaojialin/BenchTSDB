@@ -40,7 +40,7 @@ public class TestKairosDB {
     Map<String, String> tags = new HashMap<>();
     tags.put(tagName, tagV);
     point.setName(measurement);
-    point.setTimestamp(System.currentTimeMillis() + i*1000);
+    point.setTimestamp(System.nanoTime() + i*1000);
     point.setValue(0.1d);
     point.setTags(tags);
     return  point;
@@ -51,7 +51,7 @@ public class TestKairosDB {
     tags.put(tagName, tagV);
     tags.put(tagName2, tagV2);
     point.setName(measurement);
-    point.setTimestamp(System.currentTimeMillis() + i*1000);
+    point.setTimestamp(System.nanoTime() + i*1000);
     point.setValue(0.1d);
     point.setTags(tags);
     return  point;

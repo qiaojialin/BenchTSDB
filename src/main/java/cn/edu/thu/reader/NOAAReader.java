@@ -1,21 +1,17 @@
-package cn.edu.thu.datasource.parser;
+package cn.edu.thu.reader;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class NOAAParser extends BasicParser {
+public class NOAAReader extends BasicReader {
 
   private DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 
-  public NOAAParser(Config config, List<String> files) {
+  public NOAAReader(Config config, List<String> files) {
     super(config, files);
   }
 

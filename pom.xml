@@ -130,8 +130,9 @@
               <archive>
                 <manifest>
                   <!--<mainClass>cn.edu.thu.database.waterwheel.WaterWheelManager</mainClass>-->
-                  <!--<mainClass>cn.edu.thu.MainLoad</mainClass>-->
-                  <mainClass>cn.edu.thu.MainQuery</mainClass>
+                  <mainClass>cn.edu.thu.MainLoad</mainClass>
+                  <!--<mainClass>cn.edu.thu.MainQuery</mainClass>-->
+                  <!--<mainClass>backup.ExtendRedd</mainClass>-->
                 </manifest>
               </archive>
               <descriptorRefs>

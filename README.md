@@ -11,14 +11,17 @@ List<Object> fields
 不同数据集的 tag 和 fields 的含义不同：
 
 * NOAA 
-	* tag：STN_WBAN，如：010230_99999
-	* fields：13个
+	* tag: STN_WBAN，如：010230_99999
+	* fields: 13个
 * GeoLife
-	* tag：文件名中的人员编号，即：0~179
-	* fields：4 个：经、纬、0、海拔
-* mlab
+	* tag: 文件名中的人员编号，即：0~179
+	* fields: 经、纬、0、海拔
+* mlab_utilization
 	* tag：json 中 metric、hostname、experiment 用 . 拼接
-	* fields：只有一个，就叫 value
+	* fields: 只有一个，就叫 value
+* Redd
+  * tag: house_1_channel_1
+  * value: 只有一个，就叫 value
 
 ## 数据库 
 

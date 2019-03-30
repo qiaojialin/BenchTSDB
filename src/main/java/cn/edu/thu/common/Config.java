@@ -12,15 +12,15 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
-    public String DATABASE = "ORC";
+    public String DATABASE = "TSFILE";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE, REDD
-    public String DATA_SET = "REDD";
+    public String DATA_SET = "NOAA";
 
-    public String FILE_PATH = "redd.orc";
+    public String FILE_PATH = "noaa.tsfile";
 
     // noaa, geolife, mlab_utilization, mlab_ip, tdrive, redd_low
-    public String DATA_DIR = "data/redd_low";
+    public String DATA_DIR = "data/noaa";
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
@@ -117,6 +117,7 @@ public class Config {
         if (!DATA_DIR.endsWith("/")) {
             DATA_DIR += "/";
         }
+        BATCH_SIZE = BATCH_SIZE / FIELDS.length;
         logger.info("use dataset: {}", DATA_SET);
     }
 

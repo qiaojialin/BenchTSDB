@@ -62,26 +62,9 @@ public class RealDatasetWriter implements Runnable {
       long recordNum = 0;
 
       while(reader.hasNextBatch()) {
-        List<Record> rowBatch = reader.nextBatch();
-        recordNum += rowBatch.size();
-
-        // Each line may produce multiple Records, make sure each batch <= config.BATCH_SIZE
-        List<List<Record>> batches = new ArrayList<>();
-        List<Record> tempBatch = new ArrayList<>();
-        for (Record rowBatch1 : rowBatch) {
-          tempBatch.add(rowBatch1);
-          if (tempBatch.size() >= config.BATCH_SIZE) {
-            batches.add(tempBatch);
-            tempBatch = new ArrayList<>();
-          }
-        }
-        if (!tempBatch.isEmpty()) {
-          batches.add(tempBatch);
-        }
-
-        for (List<Record> batch : batches) {
-          totalTime += database.insertBatch(batch);
-        }
+        List<Record> batch = reader.nextBatch();
+        totalTime += database.insertBatch(batch);
+        recordNum += batch.size();
       }
 
       totalTime += database.flush();

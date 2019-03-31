@@ -37,6 +37,7 @@ public class ReddReader extends BasicReader {
       fields.add(value);
       return new Record(time, currentDeviceId, fields);
     } catch (Exception ignore) {
+      ignore.printStackTrace();
     }
     return null;
   }

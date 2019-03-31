@@ -4,12 +4,13 @@ import cn.edu.thu.common.Utils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.slf4j.Logger;
@@ -21,8 +22,8 @@ public class ExtendTdrive {
 
   public static void main(String[] args) {
 
-    String src = "/Users/qiaojialin/Desktop/testfile";
-    int threadNum = 10;
+    String src = "data/tdrive/1.txt";
+    int threadNum = 1;
 
     if (args.length != 0) {
       src = args[0];
@@ -76,6 +77,8 @@ public class ExtendTdrive {
 
       try {
 
+        dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+
         // extend each file
         for (String file : files) {
 
@@ -83,30 +86,53 @@ public class ExtendTdrive {
 
           BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
+          String carId = "";
           List<String> values = new ArrayList<>();
+          List<Long> times = new ArrayList<>();
 
-          long time = 0;
+          long startTime = 0;
+          long endTime = 0;
 
           String str;
 
+          boolean first = true;
+
           while ((str = bufferedReader.readLine()) != null) {
-            String[] items = str.split(" ");
-            time = Long.parseLong(items[0]);
-            values.add(items[1]);
+            String[] items = str.split(",");
+              Date date = dateFormat.parse(items[1]);
+              String a = dateFormat.format(date);
+
+              if(first) {
+                startTime = date.getTime();
+                carId = items[0];
+                first = false;
+              }
+              endTime = date.getTime();
+              times.add(date.getTime());
+              values.add(items[2] + "," + items[3]);
           }
+
           bufferedReader.close();
 
           FileWriter writer = new FileWriter(file, true);
 
-          for (int i = 0; i < 1000; i++) {
-            for (String value : values) {
-              writer.write("\n" + (time++) + " " + value);
+          long period = endTime - startTime;
+
+          for (int i = 0; i < 2; i++) {
+
+            for(int j = 0; j < times.size(); j++) {
+              long time = times.get(j) + period * (i+1);
+              Date date = new Date(time);
+              String dataStr = dateFormat.format(date);
+              System.out.println(dataStr);
+//              writer.write("\n"  + carId + "," + dataStr + "," + values.get(j));
             }
+
           }
           writer.close();
         }
         logger.info("I'm done.");
-      } catch (IOException e) {
+      } catch (Exception e) {
         e.printStackTrace();
       }
 

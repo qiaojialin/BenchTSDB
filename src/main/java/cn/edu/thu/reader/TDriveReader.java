@@ -52,6 +52,7 @@ public class TDriveReader extends BasicReader {
 
       return new Record(time, items[0], fields);
     } catch (Exception ignore) {
+      ignore.printStackTrace();
     }
     return null;
   }

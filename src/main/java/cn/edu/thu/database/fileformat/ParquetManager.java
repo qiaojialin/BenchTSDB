@@ -88,9 +88,8 @@ public class ParquetManager implements IDataBaseManager {
 
   @Override
   public long insertBatch(List<Record> records) {
-    long start = System.nanoTime();
-
     List<Group> groups = convertRecords(records);
+    long start = System.nanoTime();
     for(Group group: groups) {
       try {
         writer.write(group);

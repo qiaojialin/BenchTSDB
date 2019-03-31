@@ -12,14 +12,14 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
-    public String DATABASE = "PARQUET";
+    public String DATABASE = "TSFILE";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE, REDD
-    public String DATA_SET = "TDRIVE";
-    public String DATA_DIR = "data/tdrive";
+    public String DATA_SET = "REDD";
+    public String DATA_DIR = "data/redd_low";
 
     // for read
-    public String FILE_PATH = "data/tdrive/1.txt.tsfile";
+    public String FILE_PATH = "data/tdrive/1.txt";
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
@@ -28,8 +28,8 @@ public class Config {
     public static final String TIME_NAME = "time";
     public static boolean FOR_QUERY = false;
 
-    public int THREAD_NUM = 2;
-    public int BATCH_SIZE = 500;
+    public int THREAD_NUM = 1;
+    public int BATCH_SIZE = 5000;
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
 

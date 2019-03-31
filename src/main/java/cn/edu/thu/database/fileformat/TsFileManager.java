@@ -71,8 +71,8 @@ public class TsFileManager implements IDataBaseManager {
 
   @Override
   public long insertBatch(List<Record> records) {
-    long start = System.nanoTime();
     List<TSRecord> tsRecords = convertToRecords(records);
+    long start = System.nanoTime();
     for (TSRecord tsRecord : tsRecords) {
       try {
         writer.write(tsRecord);

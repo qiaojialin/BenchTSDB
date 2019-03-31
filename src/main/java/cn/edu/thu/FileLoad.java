@@ -23,6 +23,10 @@ import java.util.concurrent.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+/**
+ * write each file along the raw file
+ */
 public class FileLoad {
 
   private static Logger logger = LoggerFactory.getLogger(FileLoad.class);

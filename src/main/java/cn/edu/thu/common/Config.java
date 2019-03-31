@@ -12,15 +12,15 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
-    public String DATABASE = "INFLUXDB";
+    public String DATABASE = "TSFILE";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE, REDD
-    public String DATA_SET = "GEOLIFE";
+    public String DATA_SET = "REDD";
+    public String DATA_DIR = "data/redd_low";
 
-    public String FILE_PATH = "geolife.orc";
+    // out file path
+    public String FILE_PATH = "redd.tsfile";
 
-    // noaa, geolife, mlab_utilization, mlab_ip, tdrive, redd_low
-    public String DATA_DIR = "data/geolife";
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
@@ -44,8 +44,7 @@ public class Config {
     public String SUMMARYSTORE_PATH = "sstore";
 
     public String WATERWHEEL_IP = "127.0.0.1";
-    // must end with '/'
-    public String HDFS_IP="hdfs://127.0.0.1:9000/";
+    public String HDFS_IP="hdfs://127.0.0.1:9000/"; // must end with '/'
     public boolean LOCAL = false;
 
     public String[] FIELDS = null;
@@ -57,8 +56,14 @@ public class Config {
     // for query
 
     // geolife
-    public String QUERY_TAG = "000";
-    public String FIELD = "Latitude";
+//    public String QUERY_TAG = "000";
+//    public String FIELD = "Latitude";
+//    public long START_TIME = 0;
+//    public long END_TIME = 1946816515000L;
+
+    // redd
+    public String QUERY_TAG = "house_1_channel_1";
+    public String FIELD = "value";
     public long START_TIME = 0;
     public long END_TIME = 1946816515000L;
 

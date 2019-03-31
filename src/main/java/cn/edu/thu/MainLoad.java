@@ -1,5 +1,6 @@
 package cn.edu.thu;
 
+import cn.edu.thu.common.BenchmarkExceptionHandler;
 import cn.edu.thu.writer.RealDatasetWriter;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
@@ -19,7 +20,7 @@ public class MainLoad {
 
   private static Logger logger = LoggerFactory.getLogger(MainLoad.class);
 
-  public static void main(String args[]) {
+  public static void main(String[] args) {
 
     //args = new String[]{"conf/config.properties"};
 
@@ -78,11 +79,12 @@ public class MainLoad {
       thread_files.get(thread).add(filePath);
     }
 
-
+    Thread.UncaughtExceptionHandler handler = new BenchmarkExceptionHandler();
     ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
     for (int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
-      executorService.submit(
-          new RealDatasetWriter(config, thread_files.get(threadId), statistics));
+      Thread thread = new Thread(new RealDatasetWriter(config, thread_files.get(threadId), statistics));
+      thread.setUncaughtExceptionHandler(handler);
+      executorService.submit(thread);
     }
 
     executorService.shutdown();

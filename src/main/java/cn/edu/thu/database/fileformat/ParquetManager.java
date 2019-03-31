@@ -31,6 +31,14 @@ import org.slf4j.LoggerFactory;
 
 import static org.apache.parquet.filter2.predicate.FilterApi.*;
 
+
+/**
+ * time, seriesid, value
+ *
+ * time, deviceId, s1, s2, s3...
+ *
+ * time, series1, series2...
+ */
 public class ParquetManager implements IDataBaseManager {
 
   private static Logger logger = LoggerFactory.getLogger(ParquetManager.class);

@@ -1,4 +1,4 @@
-package cn.edu.thu.database.test;
+package cn.edu.thu.database;
 
 import cn.edu.thu.common.Record;
 

@@ -6,7 +6,6 @@ import cn.edu.thu.database.fileformat.ParquetManager;
 import cn.edu.thu.database.fileformat.TsFileManager;
 import cn.edu.thu.database.kairosdb.KairosDBManager;
 import cn.edu.thu.database.opentsdb.OpenTSDBManager;
-import cn.edu.thu.database.test.NullManager;
 import cn.edu.thu.database.waterwheel.WaterWheelManager;
 
 public class DatabaseFactory {

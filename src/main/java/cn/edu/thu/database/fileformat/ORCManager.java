@@ -19,6 +19,14 @@ import org.apache.orc.storage.ql.exec.vector.VectorizedRowBatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+/**
+ * time, seriesid, value
+ *
+ * time, deviceId, s1, s2, s3...
+ *
+ * time, series1, series2...
+ */
 public class ORCManager implements IDataBaseManager {
 
   private static Logger logger = LoggerFactory.getLogger(ORCManager.class);

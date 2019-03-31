@@ -45,4 +45,29 @@ public class DatabaseFactory {
     }
   }
 
+  public static IDataBaseManager getQueryDBManager(Config config) {
+    switch (config.DATABASE) {
+      case "NULL":
+        return new NullManager();
+      case "INFLUXDB":
+        return new InfluxDBManager(config);
+      case "OPENTSDB":
+        return new OpenTSDBManager(config);
+      case "KAIROSDB":
+        return new KairosDBManager(config);
+      case "SUMMARYSTORE":
+        return new SummaryStoreManager(config);
+      case "WATERWHEEL":
+        return new WaterWheelManager(config);
+      case "TSFILE":
+        return new TsFileManager(config, config.FILE_PATH);
+      case "PARQUET":
+        return new ParquetManager(config, config.FILE_PATH);
+      case "ORC":
+        return new ORCManager(config, config.FILE_PATH);
+      default:
+        throw new RuntimeException(config.DATABASE + " not supported");
+    }
+  }
+
 }

@@ -166,7 +166,7 @@ public class Config {
         }
 
         String endTime = properties.getOrDefault("END_TIME", END_TIME).toString();
-        if(startTime.toLowerCase().contains("max")) {
+        if(endTime.toLowerCase().contains("max")) {
             END_TIME = Long.MAX_VALUE;
         } else {
             END_TIME = Long.parseLong(endTime);

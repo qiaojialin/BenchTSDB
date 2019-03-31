@@ -29,7 +29,7 @@ public class MainQuery {
 
         Config.FOR_QUERY = true;
 
-        IDataBaseManager database = DatabaseFactory.getDatabaseManager(config);
+        IDataBaseManager database = DatabaseFactory.getQueryDBManager(config);
         database.initClient();
 
         long start = System.nanoTime();

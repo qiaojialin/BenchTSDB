@@ -131,8 +131,8 @@
                 <manifest>
                   <!--<mainClass>cn.edu.thu.database.waterwheel.WaterWheelManager</mainClass>-->
                   <!--<mainClass>cn.edu.thu.DatabaseLoad</mainClass>-->
-                  <mainClass>cn.edu.thu.FileLoad</mainClass>
-                  <!--<mainClass>cn.edu.thu.MainQuery</mainClass>-->
+                  <!--<mainClass>cn.edu.thu.FileLoad</mainClass>-->
+                  <mainClass>cn.edu.thu.MainQuery</mainClass>
                   <!--<mainClass>backup.ExtendRedd</mainClass>-->
                 </manifest>
               </archive>

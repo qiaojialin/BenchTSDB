@@ -37,15 +37,11 @@ public class TsFileManager implements IDataBaseManager {
   private String filePath;
   private Config config;
 
-  public TsFileManager(Config config) {
+  public TsFileManager(Config config, String filePath) {
     this.config = config;
-    this.filePath = config.FILE_PATH;
+    this.filePath = filePath;
   }
 
-  public TsFileManager(Config config, int threadNum) {
-    this.config = config;
-    this.filePath = config.FILE_PATH + "_" + threadNum;
-  }
 
   @Override
   public void initServer() {

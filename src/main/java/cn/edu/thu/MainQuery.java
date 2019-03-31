@@ -2,12 +2,6 @@ package cn.edu.thu;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.database.*;
-import cn.edu.thu.database.fileformat.ORCManager;
-import cn.edu.thu.database.fileformat.ParquetManager;
-import cn.edu.thu.database.fileformat.TsFileManager;
-import cn.edu.thu.database.kairosdb.KairosDBManager;
-import cn.edu.thu.database.opentsdb.OpenTSDBManager;
-import cn.edu.thu.database.waterwheel.WaterWheelManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +29,7 @@ public class MainQuery {
 
         Config.FOR_QUERY = true;
 
-        IDataBaseManager database = DatabaseFactory.getDbManager(config);
+        IDataBaseManager database = DatabaseFactory.getDatabaseManager(config);
         database.initClient();
 
         long start = System.nanoTime();

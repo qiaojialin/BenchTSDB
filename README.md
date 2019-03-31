@@ -19,7 +19,7 @@ List<Object> fields
 * mlab_utilization
 	* tag：json 中 metric、hostname、experiment 用 . 拼接
 	* fields: 只有一个，就叫 value
-* Redd
+* Redd（需指定到redd根目录）
   * tag: house_1_channel_1
   * value: 只有一个，就叫 value
 

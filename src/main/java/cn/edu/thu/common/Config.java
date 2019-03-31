@@ -12,15 +12,14 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
-    public String DATABASE = "TSFILE";
+    public String DATABASE = "PARQUET";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE, REDD
-    public String DATA_SET = "REDD";
-    public String DATA_DIR = "data/redd_low";
+    public String DATA_SET = "TDRIVE";
+    public String DATA_DIR = "data/tdrive";
 
-    // out file path
-    public String FILE_PATH = "redd.tsfile";
-
+    // for read
+    public String FILE_PATH = "data/tdrive/1.txt.tsfile";
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
@@ -29,7 +28,7 @@ public class Config {
     public static final String TIME_NAME = "time";
     public static boolean FOR_QUERY = false;
 
-    public int THREAD_NUM = 1;
+    public int THREAD_NUM = 2;
     public int BATCH_SIZE = 500;
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
@@ -65,7 +64,13 @@ public class Config {
     public String QUERY_TAG = "house_1_channel_1";
     public String FIELD = "value";
     public long START_TIME = 0;
-    public long END_TIME = 1946816515000L;
+    public long END_TIME = Long.MAX_VALUE;
+
+    // tdrive
+//    public String QUERY_TAG = "1";
+//    public String FIELD = "longitude";
+//    public long START_TIME = 0;
+//    public long END_TIME = Long.MAX_VALUE;
 
     // noaa
 //    public String QUERY_TAG = "010230_99999";

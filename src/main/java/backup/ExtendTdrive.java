@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,9 +15,9 @@ import java.util.concurrent.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ExtendRedd {
+public class ExtendTdrive {
 
-  private static Logger logger = LoggerFactory.getLogger(ExtendRedd.class);
+  private static Logger logger = LoggerFactory.getLogger(ExtendTdrive.class);
 
   public static void main(String[] args) {
 
@@ -59,11 +61,11 @@ public class ExtendRedd {
 
   }
 
-
   static class Worker implements Runnable {
 
     private Logger logger = LoggerFactory.getLogger(Worker.class);
     private List<String> files;
+    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
     public Worker(List<String> files) {
       this.files = files;
@@ -110,7 +112,7 @@ public class ExtendRedd {
 
     }
   }
-
 }
+
 
 

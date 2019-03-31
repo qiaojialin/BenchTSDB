@@ -10,7 +10,7 @@ import cn.edu.thu.database.waterwheel.WaterWheelManager;
 
 public class DatabaseFactory {
 
-  public static IDataBaseManager getDbManager(Config config) {
+  public static IDataBaseManager getDatabaseManager(Config config) {
     switch (config.DATABASE) {
       case "NULL":
         return new NullManager();
@@ -24,12 +24,22 @@ public class DatabaseFactory {
         return new SummaryStoreManager(config);
       case "WATERWHEEL":
         return new WaterWheelManager(config);
+      default:
+        throw new RuntimeException(config.DATABASE + " not supported");
+    }
+  }
+
+
+  public static IDataBaseManager getFileManager(Config config, String filePath) {
+    switch (config.DATABASE) {
+      case "NULL":
+        return new NullManager();
       case "TSFILE":
-        return new TsFileManager(config);
+        return new TsFileManager(config, filePath);
       case "PARQUET":
-        return new ParquetManager(config);
+        return new ParquetManager(config, filePath);
       case "ORC":
-        return new ORCManager(config);
+        return new ORCManager(config, filePath);
       default:
         throw new RuntimeException(config.DATABASE + " not supported");
     }

@@ -2,17 +2,15 @@ package cn.edu.thu.database.fileformat;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
+import cn.edu.thu.common.Utils;
 import cn.edu.thu.database.IDataBaseManager;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.orc.*;
-import org.apache.orc.storage.ql.exec.vector.BytesColumnVector;
 import org.apache.orc.storage.ql.exec.vector.DoubleColumnVector;
 import org.apache.orc.storage.ql.exec.vector.LongColumnVector;
 import org.apache.orc.storage.ql.exec.vector.VectorizedRowBatch;
@@ -21,11 +19,9 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * time, seriesid, value
  *
- * time, deviceId, s1, s2, s3...
+ * time, s1, s2, s3...
  *
- * time, series1, series2...
  */
 public class ORCManager implements IDataBaseManager {
 
@@ -35,14 +31,9 @@ public class ORCManager implements IDataBaseManager {
   private Config config;
   private String filePath;
 
-  public ORCManager(Config config) {
+  public ORCManager(Config config, String filePath) {
     this.config = config;
-    this.filePath = config.FILE_PATH;
-  }
-
-  public ORCManager(Config config, int threadNum) {
-    this.config = config;
-    this.filePath = config.FILE_PATH + "_" + threadNum;
+    this.filePath = filePath;
   }
 
   @Override
@@ -81,11 +72,8 @@ public class ORCManager implements IDataBaseManager {
       LongColumnVector time = (LongColumnVector) batch.cols[0];
       time.vector[i] = record.timestamp;
 
-      BytesColumnVector device = (BytesColumnVector) batch.cols[1];
-      device.setVal(i, record.tag.getBytes(StandardCharsets.UTF_8));
-
       for (int j = 0; j < config.FIELDS.length; j++) {
-        DoubleColumnVector v = (DoubleColumnVector) batch.cols[j + 2];
+        DoubleColumnVector v = (DoubleColumnVector) batch.cols[j + 1];
         v.vector[i] = (double) record.fields.get(j);
       }
 
@@ -107,7 +95,7 @@ public class ORCManager implements IDataBaseManager {
 
 
   private String genWriteSchema() {
-    String s = "struct<timestamp:bigint,deviceId:string";
+    String s = "struct<timestamp:bigint";
     for (int i = 0; i < config.FIELDS.length; i++) {
       s += ("," + config.FIELDS[i] + ":" + "DOUBLE");
     }
@@ -116,7 +104,7 @@ public class ORCManager implements IDataBaseManager {
   }
 
   private String getReadSchema(String field) {
-    return "struct<timestamp:bigint,deviceId:string," + field + ":DOUBLE>";
+    return "struct<timestamp:bigint," + field + ":DOUBLE>";
   }
 
   @Override
@@ -145,19 +133,14 @@ public class ORCManager implements IDataBaseManager {
       while (rowIterator.nextBatch(batch)) {
         for (int r = 0; r < batch.size; ++r) {
 
-          // time, deviceId, field
+          // time, field
           long t = ((LongColumnVector) batch.cols[0]).vector[r];
           if (t < startTime || t > endTime) {
             continue;
           }
+          result++;
 
-          String deviceId = ((BytesColumnVector) batch.cols[1]).toString(r);
-
-          if (deviceId.endsWith(tagValue)) {
-            result++;
-          }
-
-          double fieldValue = ((DoubleColumnVector) batch.cols[2]).vector[r];
+          double fieldValue = ((DoubleColumnVector) batch.cols[1]).vector[r];
         }
       }
       rowIterator.close();
@@ -181,9 +164,17 @@ public class ORCManager implements IDataBaseManager {
     long start = System.nanoTime();
     try {
       writer.close();
+      start = System.nanoTime() - start;
+
+      String crcfilePath = Utils.replaceLast(filePath, "/", "/.") + ".crc";
+      File file = new File(crcfilePath);
+      if(file.exists()) {
+        file.delete();
+      }
+
     } catch (IOException e) {
       e.printStackTrace();
     }
-    return System.nanoTime() - start;
+    return start;
   }
 }

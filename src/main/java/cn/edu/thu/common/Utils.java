@@ -18,4 +18,10 @@ public class Utils {
     }
   }
 
+  public static String replaceLast( String text, String strToReplace,
+      String replaceWithThis ) {
+    return text.replaceFirst( "(?s)" + strToReplace + "(?!.*?" + strToReplace
+        + ")", replaceWithThis );
+  }
+
 }

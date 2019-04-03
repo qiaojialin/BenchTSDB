@@ -3,23 +3,28 @@ package cn.edu.thu.extend;
 import cn.edu.thu.extend.record.TDriveRecord;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.TimeZone;
 import java.util.TreeSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class HExtendRedd implements Runnable {
+public abstract class ExtendTdrive implements Runnable {
 
   private List<String> files;
-  private int copyNum;
-  private String outputDir;
-  private int offset;
+  protected int copyNum;
+  protected String outputDir;
+  protected int offset;
 
-  private Logger logger = LoggerFactory.getLogger(HExtendRedd.class);
+  private Logger logger = LoggerFactory.getLogger(ExtendTdrive.class);
+  private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-  public HExtendRedd(List<String> files, int copyNum, String outputDir, int offset) {
+  public ExtendTdrive(List<String> files, int copyNum, String outputDir, int offset) {
     this.files = files;
     this.copyNum = copyNum;
     this.outputDir = outputDir;
@@ -29,6 +34,7 @@ public class HExtendRedd implements Runnable {
   @Override
   public void run() {
     try {
+      dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 
       // extend each file
       for (int s = 0; s < files.size(); s++) {
@@ -41,29 +47,13 @@ public class HExtendRedd implements Runnable {
         String str;
 
         while ((str = bufferedReader.readLine()) != null) {
-          String[] items = str.split(" ");
-          long time = Long.parseLong(items[0]);
-          TDriveRecord record = new TDriveRecord(time, items[1]);
+          String[] items = str.split(",");
+          Date date = dateFormat.parse(items[1]);
+          TDriveRecord record = new TDriveRecord(date.getTime(), items[2], items[3]);
           recordSet.add(record);
         }
         bufferedReader.close();
-
-        for (int t = 0; t < copyNum; t++) {
-          int fileId = (s + offset) * copyNum + t;
-          FileWriter writer = new FileWriter(outputDir + fileId + ".txt");
-          boolean isFirst = true;
-          for (TDriveRecord record : recordSet) {
-            if (isFirst) {
-              writer.write(record.genRecordStr(" "));
-              isFirst = false;
-            } else {
-              writer.write("\n"+record.genRecordStr(" "));
-            }
-          }
-          writer.close();
-          logger.debug("file {} is finished.", fileId);
-        }
-
+        write(s, recordSet);
       }
       logger.info("I'm done.");
     } catch (Exception e) {
@@ -71,6 +61,6 @@ public class HExtendRedd implements Runnable {
     }
 
   }
+
+  protected abstract void write(int fileNum, Set<TDriveRecord> recordSet) throws IOException;
 }
-
-

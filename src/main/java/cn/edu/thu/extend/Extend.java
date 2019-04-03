@@ -1,6 +1,9 @@
 package cn.edu.thu.extend;
 
 import cn.edu.thu.common.Utils;
+import cn.edu.thu.extend.horizon.HExtendRedd;
+import cn.edu.thu.extend.horizon.HExtendTdrive;
+import cn.edu.thu.extend.vertical.VExtendTdrive;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,14 +17,15 @@ public class Extend {
   static String inputDir = "data/tdrive/1.txt";
   static String outputDir = "";
   static int copyNum = 2;
+  static String choice = "";
   static int threadNum = 5;
 
   /**
-   * 在服务器上扩展时，需要的参数为 1、扩展数据集名称 2、数据集目录 3、扩展数据集输出目录 4、扩展的倍数
+   * 在服务器上扩展时，需要的参数为： 1、扩展数据集名称 2、数据集目录 3、扩展数据集输出目录 4、扩展的倍数 5、横向扩展还是纵向扩展
    *
-   * @param args dataSetName, inputDir, outputDir, copyNum
+   * @param args dataSetName, inputDir, outputDir, copyNum, choice
    */
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     if (!parseInput(args)) {
       return;
     }
@@ -60,16 +64,25 @@ public class Extend {
   }
 
   static boolean parseInput(String[] args) {
-    if (args.length != 4) {
-      System.out.println("need to specify dataSetName, inputDir, outputDir, copyNum");
+    if (args.length != 5) {
+      System.out.println("need to specify dataSetName, inputDir, outputDir, copyNum, extendChoice");
+      System.out.println("extendChoice should be h or v");
       return false;
     }
     dataset = args[0].toLowerCase();
     inputDir = args[1];
     outputDir = args[2];
     copyNum = Integer.parseInt(args[3]);
+    choice = args[4].toLowerCase();
     if (!outputDir.endsWith("/")) {
       outputDir += "/";
+    }
+    if (choice.contains("h")) {
+      choice = "h";
+    } else if (choice.contains("v")) {
+      choice = "v";
+    } else {
+      return false;
     }
 
     if (dataset.equals("tdrive") || dataset.equals("redd")) {
@@ -82,18 +95,25 @@ public class Extend {
     }
   }
 
-  static Runnable constructWork(List<List<String>> thread_files, int threadId) {
+  static Runnable constructWork(List<List<String>> thread_files, int threadId) throws Exception {
     int offset = 0;
     for (int i = 0; i < threadId; i++) {
       offset += thread_files.get(i).size();
     }
-    if (dataset.equals("tdrive")) {
-      return new HExtendTdrive(thread_files.get(threadId), copyNum, outputDir, offset);
-    } else if (dataset.equals("redd")) {
-      return new HExtendRedd(thread_files.get(threadId), copyNum, outputDir, offset);
-    } else {
-      return null;
+    if (choice.equals("h")) {
+      if (dataset.equals("tdrive")) {
+        return new HExtendTdrive(thread_files.get(threadId), copyNum, outputDir, offset);
+      } else if (dataset.equals("redd")) {
+        return new HExtendRedd(thread_files.get(threadId), copyNum, outputDir, offset);
+      }
+    } else if (choice.equals("v")) {
+      if (dataset.equals("tdrive")) {
+        return new VExtendTdrive(thread_files.get(threadId), copyNum, outputDir, offset);
+      } else if (dataset.equals("redd")) {
+        throw new Exception("not support vertical extend for redd!");
+      }
     }
+    return null;
   }
 
 }

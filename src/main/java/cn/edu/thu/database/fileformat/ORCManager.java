@@ -13,14 +13,18 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hive.ql.exec.vector.DoubleColumnVector;
 import org.apache.hadoop.hive.ql.exec.vector.LongColumnVector;
 import org.apache.hadoop.hive.ql.exec.vector.VectorizedRowBatch;
-import org.apache.hadoop.hive.ql.io.orc.CompressionKind;
-import org.apache.hadoop.hive.ql.io.orc.OrcFile;
-import org.apache.hadoop.hive.ql.io.orc.Reader;
-import org.apache.hadoop.hive.ql.io.sarg.PredicateLeaf;
-import org.apache.hadoop.hive.ql.io.sarg.SearchArgumentFactory;
-import org.apache.orc.RecordReader;
+import org.apache.orc.CompressionKind;
+import org.apache.orc.OrcFile;
 import org.apache.orc.TypeDescription;
 import org.apache.orc.Writer;
+import org.apache.hadoop.hive.ql.exec.vector.DoubleColumnVector;
+import org.apache.hadoop.hive.ql.exec.vector.LongColumnVector;
+import org.apache.hadoop.hive.ql.exec.vector.VectorizedRowBatch;
+import org.apache.hadoop.hive.ql.io.sarg.PredicateLeaf;
+import org.apache.hadoop.hive.ql.io.sarg.SearchArgumentFactory;
+import org.apache.orc.OrcFile;
+import org.apache.orc.Reader;
+import org.apache.orc.RecordReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -130,17 +134,15 @@ public class ORCManager implements IDataBaseManager {
           .searchArgument(
               SearchArgumentFactory
                   .newBuilder()
-                  .between(Config.TIME_NAME, PredicateLeaf.Type.LONG, 1L, 2L)
+                  .between("timestamp", PredicateLeaf.Type.LONG, startTime, endTime)
                   .build(),
-              new String[]{Config.TIME_NAME}
+              new String[]{"timestamp"}
           );
 
 
       VectorizedRowBatch batch = readSchema.createRowBatch();
 
       RecordReader rowIterator = reader.rows(readerOptions.schema(readSchema));
-
-
 
       int fieldId;
 
@@ -150,7 +152,6 @@ public class ORCManager implements IDataBaseManager {
         }
       }
 
-      int traverse = 0;
       int result = 0;
       while (rowIterator.nextBatch(batch)) {
         for (int r = 0; r < batch.size; ++r) {
@@ -158,15 +159,10 @@ public class ORCManager implements IDataBaseManager {
           // time, field
           long t = ((LongColumnVector) batch.cols[0]).vector[r];
 
-          traverse ++;
-          System.out.println(traverse + " " + t);
-
           if (t < startTime || t > endTime) {
             continue;
           }
           result++;
-
-
 
           double fieldValue = ((DoubleColumnVector) batch.cols[1]).vector[r];
         }

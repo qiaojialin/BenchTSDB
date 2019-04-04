@@ -30,7 +30,7 @@ public class OrcRead {
             .searchArgument(
                     SearchArgumentFactory
                             .newBuilder()
-                            .between("time", PredicateLeaf.Type.LONG, 1303132933000L,1303132993000L)
+                            .between("time", PredicateLeaf.Type.LONG, 0L,1024L)
                             .build(),
                     new String[]{"time"}
             );

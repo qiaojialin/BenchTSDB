@@ -19,7 +19,9 @@ public class Config {
     public String DATA_DIR = "data/redd_low";
 
     // for read
-    public String FILE_PATH = "data/redd_low/house_1/96.txt.orc";
+//    public String FILE_PATH = "data/redd_low/house_1/96.txt.orc";
+
+    public String FILE_PATH = "/Users/qiaojialin/Desktop/orctest/my-file.orc";
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;

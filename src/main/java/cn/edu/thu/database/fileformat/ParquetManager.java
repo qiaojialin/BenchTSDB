@@ -35,7 +35,7 @@ import static org.apache.parquet.filter2.predicate.FilterApi.*;
 
 /**
  *
- * time, deviceId, s1, s2, s3...
+ * time, s1, s2, s3...
  */
 public class ParquetManager implements IDataBaseManager {
 

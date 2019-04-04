@@ -14,6 +14,8 @@ import org.apache.orc.*;
 import org.apache.orc.storage.ql.exec.vector.DoubleColumnVector;
 import org.apache.orc.storage.ql.exec.vector.LongColumnVector;
 import org.apache.orc.storage.ql.exec.vector.VectorizedRowBatch;
+import org.apache.orc.storage.ql.io.sarg.PredicateLeaf;
+import org.apache.orc.storage.ql.io.sarg.SearchArgumentFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -114,12 +116,26 @@ public class ORCManager implements IDataBaseManager {
 
     String schema = getReadSchema(field);
     try {
+      Configuration conf = new Configuration();
       Reader reader = OrcFile.createReader(new Path(filePath),
-          OrcFile.readerOptions(new Configuration()));
+          OrcFile.readerOptions(conf));
       TypeDescription readSchema = TypeDescription.fromString(schema);
 
+      Reader.Options readerOptions = new Reader.Options(conf)
+          .searchArgument(
+              SearchArgumentFactory
+                  .newBuilder()
+                  .between(Config.TIME_NAME, PredicateLeaf.Type.LONG, startTime,endTime)
+                  .build(),
+              new String[]{Config.TIME_NAME}
+          );
+
+
       VectorizedRowBatch batch = readSchema.createRowBatch();
-      RecordReader rowIterator = reader.rows(reader.options().schema(readSchema));
+
+      RecordReader rowIterator = reader.rows(readerOptions.schema(readSchema));
+
+
 
       int fieldId;
 

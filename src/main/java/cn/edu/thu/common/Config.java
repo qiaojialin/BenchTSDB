@@ -19,7 +19,7 @@ public class Config {
     public String DATA_DIR = "data/redd_low";
 
     // for read
-    public String FILE_PATH = "data/redd_low/house_1/channel_1.dat.orc";
+    public String FILE_PATH = "data/redd_low/house_1/96.txt.orc";
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
@@ -63,8 +63,8 @@ public class Config {
     // redd
     public String QUERY_TAG = "house_1_channel_1";
     public String FIELD = "value";
-    public long START_TIME = 1303132929000L;
-    public long END_TIME = 1303149872000L;
+    public long START_TIME = 1303132933000L;
+    public long END_TIME = 1303132993000L;
 
     // tdrive
 //    public String QUERY_TAG = "1";

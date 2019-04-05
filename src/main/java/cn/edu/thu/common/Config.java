@@ -106,7 +106,7 @@ public class Config {
                 break;
             case "GEOLIFE":
                 FIELDS = new String[]{"Latitude", "Longitude", "Zero", "Altitude"};
-                PRECISION = new int[]{6, 6, 0, 0};
+                PRECISION = new int[]{6, 6, 0, 12};
                 break;
             case "TDRIVE":
                 FIELDS = new String[]{"longitude", "latitude"};

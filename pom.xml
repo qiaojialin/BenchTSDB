@@ -82,7 +82,7 @@
       <artifactId>tsfile</artifactId>
       <version>0.8.0-SNAPSHOT</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-client</artifactId>
@@ -145,9 +145,10 @@
                 <manifest>
                   <!--<mainClass>cn.edu.thu.database.waterwheel.WaterWheelManager</mainClass>-->
                   <!--<mainClass>cn.edu.thu.DatabaseLoad</mainClass>-->
+                  <mainClass>backup.SortGoogle</mainClass>
                   <!--<mainClass>cn.edu.thu.FileLoad</mainClass>-->
                   <!--<mainClass>cn.edu.thu.MainQuery</mainClass>-->
-                  <mainClass>backup.MoveSort</mainClass>
+                  <!--<mainClass>backup.MoveSort</mainClass>-->
                 </manifest>
               </archive>
               <descriptorRefs>

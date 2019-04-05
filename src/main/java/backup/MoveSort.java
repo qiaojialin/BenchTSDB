@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 将输入文件夹中的文件从小到大排序，每满一定大小就移动到输出文件夹的一个目录中，输出目录从0开始编号
+ */
 public class MoveSort {
 
   public static void main(String[] args) {

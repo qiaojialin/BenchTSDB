@@ -14,9 +14,21 @@ public class TestKairosDB {
 
     String url = "http://127.0.0.1:1408/api/v1/datapoints";
 
+    KairosDBPoint point = new KairosDBPoint();
+
+//    String body1 = JSON.toJSONString(point);
+//    String response = null;
+//    try {
+//      response = ThuHttpRequest.sendPost(url, body1);
+//      System.out.println(response);
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//    }
+
+
     List<KairosDBPoint> pointList = new ArrayList<>();
 
-      pointList.add(genOne("tag1", "tagv1", "s1", 1));
+    pointList.add(genOne("tag1", "tagv1", "s1", 1));
     pointList.add(genOne("tag1", "tagv1", "s1", 2));
     pointList.add(genOne("tag1", "tagv2", "s1", 1));
     pointList.add(genOne("tag1", "tagv2", "s2", 1));

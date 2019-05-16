@@ -12,7 +12,7 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
-    public String DATABASE = "ORC";
+    public String DATABASE = "PARQUET";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE, REDD
     public String DATA_SET = "REDD";
@@ -21,7 +21,7 @@ public class Config {
     // for read
 //    public String FILE_PATH = "data/redd_low/house_1/96.txt.orc";
 
-    public String FILE_PATH = "/Users/qiaojialin/Desktop/orctest/my-file.orc";
+    public String FILE_PATH = "data/redd_low/house_1/96.txt.parquet";
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
@@ -65,8 +65,8 @@ public class Config {
     // redd
     public String QUERY_TAG = "house_1_channel_1";
     public String FIELD = "value";
-    public long START_TIME = 1303132933000L;
-    public long END_TIME = 1303132993000L;
+    public long START_TIME = 1303277621000L;
+    public long END_TIME = 1305109759000L;
 
     // tdrive
 //    public String QUERY_TAG = "1";

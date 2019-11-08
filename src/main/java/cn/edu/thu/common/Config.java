@@ -15,13 +15,13 @@ public class Config {
     public String DATABASE = "PARQUET";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE, REDD
-    public String DATA_SET = "REDD";
-    public String DATA_DIR = "data/redd_low";
+    public String DATA_SET = "NOAA";
+    public String DATA_DIR = "data\\noaa";
 
     // for read
 //    public String FILE_PATH = "data/redd_low/house_1/96.txt.orc";
 
-    public String FILE_PATH = "data/redd_low/house_1/96.txt.parquet";
+    public String FILE_PATH = "data\\noaa\\501360-99999-1973.op";
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;

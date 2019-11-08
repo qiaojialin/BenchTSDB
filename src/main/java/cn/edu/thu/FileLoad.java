@@ -59,7 +59,6 @@ public class FileLoad {
       logger.error(config.DATA_DIR + " do not exit");
       return;
     }
-
     List<String> files = new ArrayList<>();
     Utils.getAllFiles(config.DATA_DIR, files);
     logger.info("total files: {}", files.size());
@@ -125,7 +124,6 @@ public class FileLoad {
 
     @Override
     public void run() {
-
       try {
 
         // extend each file

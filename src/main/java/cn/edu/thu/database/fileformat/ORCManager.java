@@ -97,6 +97,19 @@ public class ORCManager implements IDataBaseManager {
       }
     }
 
+    if(batch.size != 0){
+      try {
+        writer.addRowBatch(batch);
+        batch.reset();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+//    try {
+//      writer.close();
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//    }
     return System.nanoTime() - start;
   }
 

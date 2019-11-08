@@ -3,14 +3,8 @@ package cn.edu.thu.database.fileformat;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
 import cn.edu.thu.database.IDataBaseManager;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.iotdb.tsfile.encoding.encoder.Encoder;
+import org.apache.iotdb.tsfile.exception.write.WriteProcessException;
 import org.apache.iotdb.tsfile.file.metadata.enums.CompressionType;
 import org.apache.iotdb.tsfile.file.metadata.enums.TSDataType;
 import org.apache.iotdb.tsfile.file.metadata.enums.TSEncoding;
@@ -24,22 +18,33 @@ import org.apache.iotdb.tsfile.read.filter.TimeFilter;
 import org.apache.iotdb.tsfile.read.filter.operator.AndFilter;
 import org.apache.iotdb.tsfile.read.query.dataset.QueryDataSet;
 import org.apache.iotdb.tsfile.write.TsFileWriter;
+import org.apache.iotdb.tsfile.write.record.RowBatch;
 import org.apache.iotdb.tsfile.write.record.TSRecord;
 import org.apache.iotdb.tsfile.write.record.datapoint.DoubleDataPoint;
 import org.apache.iotdb.tsfile.write.schema.MeasurementSchema;
+import org.apache.iotdb.tsfile.write.schema.Schema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TsFileManager implements IDataBaseManager {
 
   private static Logger logger = LoggerFactory.getLogger(TsFileManager.class);
   private TsFileWriter writer;
+  private Schema schema;
   private String filePath;
   private Config config;
 
   public TsFileManager(Config config, String filePath) {
     this.config = config;
     this.filePath = filePath;
+    schema = new Schema();
   }
 
 
@@ -61,7 +66,8 @@ public class TsFileManager implements IDataBaseManager {
         Map<String, String> props = new HashMap<>();
         props.put(Encoder.MAX_POINT_NUMBER, config.PRECISION[i] + "");
         MeasurementSchema schema = new MeasurementSchema(config.FIELDS[i], TSDataType.DOUBLE,
-            TSEncoding.RLE, CompressionType.SNAPPY, props);
+                TSEncoding.RLE, CompressionType.SNAPPY, props);
+        this.schema.registerMeasurement(schema);
         writer.addMeasurement(schema);
       }
     } catch (Exception e) {
@@ -71,18 +77,50 @@ public class TsFileManager implements IDataBaseManager {
 
   @Override
   public long insertBatch(List<Record> records) {
-    List<TSRecord> tsRecords = convertToRecords(records);
     long start = System.nanoTime();
-    for (TSRecord tsRecord : tsRecords) {
-      try {
-        writer.write(tsRecord);
-      } catch (Exception e) {
-        e.printStackTrace();
+
+    RowBatch batch = schema.createRowBatch(records.get(0).tag);
+
+    for (int i = 0; i < records.size(); i++) {
+      Record record = records.get(i);
+      long[] timestamps = batch.timestamps;
+      timestamps[i] = record.timestamp;
+
+      for (int j = 0; j < config.FIELDS.length; j++) {
+        double[] value = (double[]) batch.values[j]; // TODO
+        value[i] = (double) record.fields.get(j);
+      }
+      batch.batchSize++;
+
+      if (batch.batchSize == batch.getMaxBatchSize()) {
+        try {
+          writer.write(batch);
+        } catch (IOException e) {
+          e.printStackTrace();
+        } catch (WriteProcessException e) {
+          e.printStackTrace();
+        }
+        batch.reset();
       }
     }
+
+    if (batch.batchSize != 0) {
+      try {
+        writer.write(batch);
+      } catch (IOException e) {
+        e.printStackTrace();
+      } catch (WriteProcessException e) {
+        e.printStackTrace();
+      }
+      batch.reset();
+    }
+//    try {
+//      writer.close();
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//    }
     return System.nanoTime() - start;
   }
-
 
   private List<TSRecord> convertToRecords(List<Record> records) {
     List<TSRecord> tsRecords = new ArrayList<>();
@@ -108,7 +146,7 @@ public class TsFileManager implements IDataBaseManager {
       ArrayList<Path> paths = new ArrayList<>();
       paths.add(new Path(tagValue + "." + field));
       IExpression filter = new SingleSeriesExpression(new Path(tagValue + "." + field),
-          new AndFilter(TimeFilter.gtEq(startTime), TimeFilter.ltEq(endTime)));
+              new AndFilter(TimeFilter.gtEq(startTime), TimeFilter.ltEq(endTime)));
 
       QueryExpression queryExpression = QueryExpression.create(paths, filter);
 

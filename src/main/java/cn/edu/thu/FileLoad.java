@@ -13,8 +13,8 @@ import cn.edu.thu.reader.GeolifeReader;
 import cn.edu.thu.reader.NOAAReader;
 import cn.edu.thu.reader.ReddReader;
 import cn.edu.thu.reader.TDriveReader;
-import java.io.File;
-import java.io.FileInputStream;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -31,7 +31,8 @@ public class FileLoad {
 
   private static Logger logger = LoggerFactory.getLogger(FileLoad.class);
 
-  public static void main(String[] args) {
+  // if there's args, inputdir, dataset(noaa), database(tsfile)
+  public static void main(String[] args) throws IOException {
 
     //args = new String[]{"conf/config.properties"};
 
@@ -40,8 +41,16 @@ public class FileLoad {
     Config config;
     if (args.length > 0) {
       try {
-        FileInputStream fileInputStream = new FileInputStream(args[0]);
-        config = new Config(fileInputStream);
+//        FileInputStream fileInputStream = new FileInputStream(args[0]);
+//        config = new Config(fileInputStream);
+        config = new Config(args[2], args[1], args[0]);
+
+        // initialize the output dir
+        File f = new File(config.OUTPUT);
+        if(!f.exists()){
+          f.mkdir();
+        }
+
       } catch (Exception e) {
         e.printStackTrace();
         logger.error("Load config from {} failed, using default config", args[0]);
@@ -107,6 +116,13 @@ public class FileLoad {
         statistics.pointNum, (float)statistics.timeCost.get() / 1000_000F, statistics.speed());
 
     logger.info("total time: {}ms, speed: {} points/s", start, statistics.pointNum.get()/start * 1000);
+    File f = new File("rpt.txt");
+    if(!f.exists()){
+      f.createNewFile();
+    }
+    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f, true)));
+    writer.write(config.DATA_SET + ", " + config.DATABASE + ", " + statistics.speed() + "\n");
+    writer.close();
   }
 
   static class Worker implements Runnable {
@@ -126,63 +142,121 @@ public class FileLoad {
     public void run() {
       try {
 
-        // extend each file
-        for (String file : files) {
-
-          String outPath = file + "." + config.DATABASE.toLowerCase();
-          IDataBaseManager database = DatabaseFactory.getFileManager(config, outPath);
-          database.initClient();
-
-          logger.info("start to read file: {}", file);
-
-          BasicReader reader;
-          List<String> afile = new ArrayList<>();
-          afile.add(file);
-
-          switch (config.DATA_SET) {
-            case "NOAA":
-              reader = new NOAAReader(config, afile);
-              break;
-            case "GEOLIFE":
-              reader = new GeolifeReader(config, afile);
-              break;
-            case "TDRIVE":
-              reader = new TDriveReader(config, afile);
-              break;
-            case "MLAB_UTILIZATION":
-              reader = new MLabUtilizationReader(config, afile);
-              break;
-            case "REDD":
-              reader = new ReddReader(config, afile);
-              break;
-            default:
-              throw new RuntimeException(config.DATA_SET + " not supported");
-          }
-
-
-          long totalTime = 1;
-          long recordNum = 0;
-
-          while(reader.hasNextBatch()) {
-            List<Record> batch = reader.nextBatch();
-            totalTime += database.insertBatch(batch);
-            recordNum += batch.size();
-          }
-
-          totalTime += database.flush();
-          totalTime += database.close();
-
-          statistics.timeCost.addAndGet(totalTime);
-          statistics.recordNum.addAndGet(recordNum);
-          statistics.pointNum.addAndGet(recordNum * config.FIELDS.length);
-
+        // put each input files into one file
+        String outputPath = config.OUTPUT + "/" + config.DATA_SET.toLowerCase() + "." + config.DATABASE.toLowerCase();
+        File f = new File(outputPath);
+        if(f.exists()){
+          f.delete();
         }
+        IDataBaseManager database = DatabaseFactory.getFileManager(config, outputPath);
+        BasicReader reader;
+
+        database.initClient();
+        switch (config.DATA_SET) {
+          case "NOAA":
+            reader = new NOAAReader(config, files);
+            break;
+          case "GEOLIFE":
+            reader = new GeolifeReader(config, files);
+            break;
+          case "TDRIVE":
+            reader = new TDriveReader(config, files);
+            break;
+          case "MLAB_UTILIZATION":
+            reader = new MLabUtilizationReader(config, files);
+            break;
+          case "REDD":
+            reader = new ReddReader(config, files);
+            break;
+          default:
+            throw new RuntimeException(config.DATA_SET + " not supported");
+        }
+
+        long totalTime = 0;
+        long recordNum = 0;
+        while(reader.hasNextBatch()) {
+          List<Record> batch = reader.nextBatch();
+          if (batch.size() == 0){
+            continue;
+          }
+          totalTime += database.insertBatch(batch);
+          recordNum += batch.size();
+        }
+        totalTime += database.flush();
+        totalTime += database.close();
+        statistics.timeCost.addAndGet(totalTime);
+        statistics.recordNum.addAndGet(recordNum);
+        statistics.pointNum.addAndGet(recordNum * config.FIELDS.length);
+
+
         logger.info("I'm done.");
       } catch (Exception e) {
         e.printStackTrace();
       }
 
     }
+
+//    @Override
+//    public void run() {
+//      try {
+//
+//        // extend each file
+//        for (String file : files) {
+//
+//          String outPath = file + "." + config.DATABASE.toLowerCase();
+//          IDataBaseManager database = DatabaseFactory.getFileManager(config, outPath);
+//          database.initClient();
+//
+//          logger.info("start to read file: {}", file);
+//
+//          BasicReader reader;
+//          List<String> afile = new ArrayList<>();
+//          afile.add(file);
+//
+//          switch (config.DATA_SET) {
+//            case "NOAA":
+//              reader = new NOAAReader(config, afile);
+//              break;
+//            case "GEOLIFE":
+//              reader = new GeolifeReader(config, afile);
+//              break;
+//            case "TDRIVE":
+//              reader = new TDriveReader(config, afile);
+//              break;
+//            case "MLAB_UTILIZATION":
+//              reader = new MLabUtilizationReader(config, afile);
+//              break;
+//            case "REDD":
+//              reader = new ReddReader(config, afile);
+//              break;
+//            default:
+//              throw new RuntimeException(config.DATA_SET + " not supported");
+//          }
+//
+//
+//          long totalTime = 1;
+//          long recordNum = 0;
+//
+//          while(reader.hasNextBatch()) {
+//            List<Record> batch = reader.nextBatch();
+//            totalTime += database.insertBatch(batch);
+//            recordNum += batch.size();
+//          }
+//
+//          totalTime += database.flush();
+//          totalTime += database.close();
+//
+//          statistics.timeCost.addAndGet(totalTime);
+//          statistics.recordNum.addAndGet(recordNum);
+//          statistics.pointNum.addAndGet(recordNum * config.FIELDS.length);
+//
+//        }
+//        logger.info("I'm done.");
+//      } catch (Exception e) {
+//        e.printStackTrace();
+//      }
+//
+//    }
 
   }
 

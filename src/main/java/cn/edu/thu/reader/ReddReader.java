@@ -2,7 +2,9 @@ package cn.edu.thu.reader;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ReddReader extends BasicReader {

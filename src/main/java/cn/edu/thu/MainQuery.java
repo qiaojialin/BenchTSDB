@@ -33,7 +33,7 @@ public class MainQuery {
         database.initClient();
 
         long start = System.nanoTime();
-        database.count(config.QUERY_TAG, config.FIELD, config.START_TIME, config.END_TIME);
+        database.count(config.QUERY_DEVICE_TAG, config.FIELD, config.START_TIME, config.END_TIME);
         start = System.nanoTime()-start;
         logger.info("query time: {} ms", (float)start / 1000_000F);
 

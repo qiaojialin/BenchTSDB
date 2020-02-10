@@ -28,7 +28,7 @@ public class GeolifeReader extends BasicReader {
 
       fields.add(Double.parseDouble(items[0]));
       fields.add(Double.parseDouble(items[1]));
-      fields.add(Double.parseDouble(items[2]));
+//      fields.add(Double.parseDouble(items[2]));
       fields.add(Double.parseDouble(items[3]));
 
       Date date = dateFormat.parse(items[5] + "-" + items[6]);

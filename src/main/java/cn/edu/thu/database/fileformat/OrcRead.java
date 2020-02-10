@@ -3,12 +3,14 @@ package cn.edu.thu.database.fileformat;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import java.io.IOException;
+
+import org.apache.hadoop.hive.ql.exec.vector.DoubleColumnVector;
+import org.apache.hadoop.hive.ql.exec.vector.LongColumnVector;
+import org.apache.hadoop.hive.ql.exec.vector.VectorizedRowBatch;
+import org.apache.hadoop.hive.ql.io.sarg.SearchArgument;
 import org.apache.orc.OrcFile;
 import org.apache.orc.Reader;
 import org.apache.orc.RecordReader;
-import org.apache.orc.storage.ql.exec.vector.DoubleColumnVector;
-import org.apache.orc.storage.ql.exec.vector.LongColumnVector;
-import org.apache.orc.storage.ql.exec.vector.VectorizedRowBatch;
 import org.apache.orc.storage.ql.io.sarg.PredicateLeaf;
 import org.apache.orc.storage.ql.io.sarg.SearchArgumentFactory;
 
@@ -26,7 +28,7 @@ public class OrcRead {
 
     Reader.Options readerOptions = new Reader.Options(conf)
             .searchArgument(
-                    SearchArgumentFactory
+                    (SearchArgument) SearchArgumentFactory
                             .newBuilder()
                             .between("time", PredicateLeaf.Type.LONG, 0L,1024L)
                             .build(),

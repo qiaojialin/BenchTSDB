@@ -1,5 +1,6 @@
 package cn.edu.thu.common;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -17,4 +18,12 @@ public class Record {
         this.fields = fields;
     }
 
+    @Override
+    public String toString() {
+        return "Record{" +
+                "timestamp=" + timestamp +
+                ", tag='" + tag + '\'' +
+                ", fields=" + Arrays.toString(fields.toArray()) +
+                '}';
+    }
 }

@@ -9,19 +9,22 @@ import java.util.Properties;
 
 public class Config {
 
+
     private static Logger logger = LoggerFactory.getLogger(Config.class);
 
     // INFLUXDB, OPENTSDB, SUMMARYSTORE, WATERWHEEL, KAIROSDB, TSFILE, PARQUET, ORC
-    public String DATABASE = "PARQUET";
+        public String DATABASE = "ORC";
 
     // NOAA, GEOLIFE, MLAB_UTILIZATION, MLAB_IP, TDRIVE, REDD
-    public String DATA_SET = "NOAA";
-    public String DATA_DIR = "data\\noaa";
+    public String DATA_SET = "TDRIVE";
+    public String DATA_DIR = "tdrive10";
+
+    public String OUTPUT = "output";
 
     // for read
 //    public String FILE_PATH = "data/redd_low/house_1/96.txt.orc";
 
-    public String FILE_PATH = "data\\noaa\\501360-99999-1973.op";
+    public String FILE_PATH = "geolife" + "." + DATABASE.toLowerCase();
 
     public int BEGIN_FILE = 0;
     public int END_FILE = 100000;
@@ -31,7 +34,7 @@ public class Config {
     public static boolean FOR_QUERY = false;
 
     public int THREAD_NUM = 1;
-    public int BATCH_SIZE = 5000;
+    public int BATCH_SIZE = 1024;
 
     public String INFLUXDB_URL = "http://127.0.0.1:8086";
 
@@ -57,30 +60,41 @@ public class Config {
     // for query
 
     // geolife
-//    public String QUERY_TAG = "000";
-//    public String FIELD = "Latitude";
-//    public long START_TIME = 0;
-//    public long END_TIME = 1946816515000L;
+    public String QUERY_DEVICE_TAG = "011";
+    public String FIELD = "Latitude";
+    public long START_TIME = 0;
+    public long END_TIME = 1946816515000L;
 
     // redd
-    public String QUERY_TAG = "house_1_channel_1";
-    public String FIELD = "value";
-    public long START_TIME = 1303277621000L;
-    public long END_TIME = 1305109759000L;
+//    public String QUERY_DEVICE_TAG = "50";
+//    public String FIELD = "value";
+//    public long START_TIME = 0;
+//    public long END_TIME = 1305109759000L;
 
     // tdrive
-//    public String QUERY_TAG = "1";
+//    public String QUERY_DEVICE_TAG = "10";
 //    public String FIELD = "longitude";
 //    public long START_TIME = 0;
 //    public long END_TIME = Long.MAX_VALUE;
 
     // noaa
-//    public String QUERY_TAG = "010230_99999";
+//    public String QUERY_DEVICE_TAG = "010230_99999";
 //    public String FIELD = "TEMP";
 //    public long START_TIME = 0L;
 //    public long END_TIME = 1946816515000L;
 
     public Config() {
+        Properties properties = new Properties();
+        properties.putAll(System.getenv());
+        load(properties);
+        init();
+        logger.debug("construct config without config file");
+    }
+
+    public Config(String database, String dataset, String dataDir){
+        this.DATABASE = database;
+        this.DATA_SET = dataset;
+        this.DATA_DIR = dataDir;
         Properties properties = new Properties();
         properties.putAll(System.getenv());
         load(properties);
@@ -104,9 +118,13 @@ public class Config {
                     "VISIB", "WDSP", "MXSPD", "GUST", "MAX", "MIN", "PRCP", "SNDP", "FRSHTT"};
                 PRECISION = new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0};
                 break;
+//            case "GEOLIFE":
+//                FIELDS = new String[]{"Latitude", "Longitude", "Zero", "Altitude"};
+//                PRECISION = new int[]{6, 6, 0, 12};
+//                break;
             case "GEOLIFE":
-                FIELDS = new String[]{"Latitude", "Longitude", "Zero", "Altitude"};
-                PRECISION = new int[]{6, 6, 0, 12};
+                FIELDS = new String[]{"Latitude", "Longitude", "Altitude"};
+                PRECISION = new int[]{6, 6, 12};
                 break;
             case "TDRIVE":
                 FIELDS = new String[]{"longitude", "latitude"};
@@ -156,7 +174,7 @@ public class Config {
         WATERWHEEL_QUERY_PORT = Integer.parseInt(properties.getOrDefault("WATERWHEEL_QUERY_PORT", WATERWHEEL_QUERY_PORT).toString());
         LOCAL = Boolean.parseBoolean(properties.getOrDefault("LOCAL", LOCAL).toString());
 
-        QUERY_TAG = properties.getOrDefault("QUERY_TAG", QUERY_TAG).toString();
+        QUERY_DEVICE_TAG = properties.getOrDefault("QUERY_TAG", QUERY_DEVICE_TAG).toString();
 
         FIELD = properties.getOrDefault("FIELD", FIELD).toString();
 

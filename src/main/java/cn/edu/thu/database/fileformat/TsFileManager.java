@@ -3,6 +3,7 @@ package cn.edu.thu.database.fileformat;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
 import cn.edu.thu.database.IDataBaseManager;
+import org.apache.iotdb.tsfile.common.conf.TSFileDescriptor;
 import org.apache.iotdb.tsfile.encoding.encoder.Encoder;
 import org.apache.iotdb.tsfile.exception.write.WriteProcessException;
 import org.apache.iotdb.tsfile.file.metadata.enums.CompressionType;
@@ -11,6 +12,7 @@ import org.apache.iotdb.tsfile.file.metadata.enums.TSEncoding;
 import org.apache.iotdb.tsfile.read.ReadOnlyTsFile;
 import org.apache.iotdb.tsfile.read.TsFileSequenceReader;
 import org.apache.iotdb.tsfile.read.common.Path;
+import org.apache.iotdb.tsfile.read.common.RowRecord;
 import org.apache.iotdb.tsfile.read.expression.IExpression;
 import org.apache.iotdb.tsfile.read.expression.QueryExpression;
 import org.apache.iotdb.tsfile.read.expression.impl.SingleSeriesExpression;
@@ -40,6 +42,7 @@ public class TsFileManager implements IDataBaseManager {
   private Schema schema;
   private String filePath;
   private Config config;
+  long t = -1;
 
   public TsFileManager(Config config, String filePath) {
     this.config = config;
@@ -58,7 +61,7 @@ public class TsFileManager implements IDataBaseManager {
     if (Config.FOR_QUERY) {
       return;
     }
-
+//    TSFileDescriptor.getInstance().getConfig().setTimeEncoder("REGULAR");
     File file = new File(filePath);
     try {
       writer = new TsFileWriter(file);
@@ -78,20 +81,23 @@ public class TsFileManager implements IDataBaseManager {
   @Override
   public long insertBatch(List<Record> records) {
     long start = System.nanoTime();
+    RowBatch batch = schema.createRowBatch(records.get(0).tag, records.size());
 
-    RowBatch batch = schema.createRowBatch(records.get(0).tag);
-
-    for (int i = 0; i < records.size(); i++) {
-      Record record = records.get(i);
+    // i is the row index
+    int index = 0;
+    for(Record record : records){
+      if(t == record.timestamp){
+        continue;
+      }else {
+        t = record.timestamp;
+      }
       long[] timestamps = batch.timestamps;
-      timestamps[i] = record.timestamp;
-
+      timestamps[index] = record.timestamp;
       for (int j = 0; j < config.FIELDS.length; j++) {
         double[] value = (double[]) batch.values[j]; // TODO
-        value[i] = (double) record.fields.get(j);
+        value[index] = (double) record.fields.get(j);
       }
       batch.batchSize++;
-
       if (batch.batchSize == batch.getMaxBatchSize()) {
         try {
           writer.write(batch);
@@ -102,6 +108,7 @@ public class TsFileManager implements IDataBaseManager {
         }
         batch.reset();
       }
+      index++;
     }
 
     if (batch.batchSize != 0) {
@@ -114,11 +121,6 @@ public class TsFileManager implements IDataBaseManager {
       }
       batch.reset();
     }
-//    try {
-//      writer.close();
-//    } catch (IOException e) {
-//      e.printStackTrace();
-//    }
     return System.nanoTime() - start;
   }
 
@@ -141,14 +143,12 @@ public class TsFileManager implements IDataBaseManager {
     long start = System.nanoTime();
     try {
       TsFileSequenceReader reader = new TsFileSequenceReader(config.FILE_PATH);
-
+//      TSFileDescriptor.getInstance().getConfig().setTimeEncoder("REGULAR");
       ReadOnlyTsFile readTsFile = new ReadOnlyTsFile(reader);
       ArrayList<Path> paths = new ArrayList<>();
       paths.add(new Path(tagValue + "." + field));
-      IExpression filter = new SingleSeriesExpression(new Path(tagValue + "." + field),
-              new AndFilter(TimeFilter.gtEq(startTime), TimeFilter.ltEq(endTime)));
 
-      QueryExpression queryExpression = QueryExpression.create(paths, filter);
+      QueryExpression queryExpression = QueryExpression.create(paths, null);
 
       QueryDataSet queryDataSet = readTsFile.query(queryExpression);
 
@@ -156,6 +156,8 @@ public class TsFileManager implements IDataBaseManager {
       while (queryDataSet.hasNext()) {
         i++;
         queryDataSet.next();
+//        RowRecord row = queryDataSet.next();
+//        System.out.println(i + " " + row);
       }
 
       logger.info("TsFile count result: {}", i);

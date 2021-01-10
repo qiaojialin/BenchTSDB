@@ -13,7 +13,7 @@ public class ReddReader extends BasicReader {
 
   @Override
   public void init() {
-    currentDeviceId = currentFile.split(config.DATA_DIR)[1].replace(".dat", "").replace("/", "_");
+    currentDeviceId = currentFile.split(config.DATA_DIR)[1].replaceAll("\\.dat", "").replace("/", "_");
   }
 
   @Override

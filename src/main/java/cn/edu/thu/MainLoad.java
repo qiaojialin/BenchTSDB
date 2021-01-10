@@ -22,7 +22,9 @@ public class MainLoad {
 
   public static void main(String[] args) {
 
-    //args = new String[]{"conf/config.properties"};
+    if (args == null || args.length == 0) {
+      args = new String[]{"conf/config.properties"};
+    }
 
     final Statistics statistics = new Statistics();
 

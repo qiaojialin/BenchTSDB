@@ -19,18 +19,18 @@ public class MainQuery {
 
     public static void main(String[] args) {
 
-        Config config;
-        if (args.length > 0) {
-            try {
-                FileInputStream fileInputStream = new FileInputStream(args[0]);
-                config = new Config(fileInputStream);
-            } catch (Exception e) {
-                e.printStackTrace();
-                logger.error("Load config from {} failed, using default config", args[0]);
-                config = new Config();
-            }
-        } else {
-            config = new Config();
+        if (args.length == 0) {
+            args = new String[]{"conf/config.properties"};
+        }
+
+        Config config = null;
+        try {
+            FileInputStream fileInputStream = new FileInputStream(args[0]);
+            config = new Config(fileInputStream);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("Load config from {} failed, using default config", args[0]);
+            System.exit(1);
         }
 
         Config.FOR_QUERY = true;

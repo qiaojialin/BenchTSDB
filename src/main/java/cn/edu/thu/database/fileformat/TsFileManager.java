@@ -25,6 +25,7 @@ import org.apache.iotdb.tsfile.read.filter.operator.AndFilter;
 import org.apache.iotdb.tsfile.read.query.dataset.QueryDataSet;
 import org.apache.iotdb.tsfile.write.TsFileWriter;
 import org.apache.iotdb.tsfile.write.record.TSRecord;
+import org.apache.iotdb.tsfile.write.record.Tablet;
 import org.apache.iotdb.tsfile.write.record.datapoint.DoubleDataPoint;
 import org.apache.iotdb.tsfile.write.schema.MeasurementSchema;
 import org.slf4j.Logger;
@@ -36,6 +37,7 @@ public class TsFileManager implements IDataBaseManager {
   private TsFileWriter writer;
   private String filePath;
   private Config config;
+  private List<MeasurementSchema> schemas = new ArrayList<>();
 
   public TsFileManager(Config config) {
     this.config = config;
@@ -57,34 +59,66 @@ public class TsFileManager implements IDataBaseManager {
     if (Config.FOR_QUERY) {
       return;
     }
-
     File file = new File(filePath);
     try {
       writer = new TsFileWriter(file);
+      Map<String, MeasurementSchema> template = new HashMap<>();
       for (int i = 0; i < config.FIELDS.length; i++) {
         Map<String, String> props = new HashMap<>();
         props.put(Encoder.MAX_POINT_NUMBER, config.PRECISION[i] + "");
         MeasurementSchema schema = new MeasurementSchema(config.FIELDS[i], TSDataType.DOUBLE,
             TSEncoding.RLE, CompressionType.SNAPPY, props);
-        writer.addMeasurement(schema);
+        template.put(config.FIELDS[i], schema);
+        schemas.add(schema);
       }
+      writer.registerDeviceTemplate("template", template);
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
+//  @Override
+//  public long insertBatch(List<Record> records) {
+//    long start = System.nanoTime();
+//    List<TSRecord> tsRecords = convertToRecords(records);
+//    for (TSRecord tsRecord : tsRecords) {
+//      try {
+//        writer.write(tsRecord);
+//      } catch (Exception e) {
+//        e.printStackTrace();
+//      }
+//    }
+//    return System.nanoTime() - start;
+//  }
+
+
   @Override
   public long insertBatch(List<Record> records) {
     long start = System.nanoTime();
-    List<TSRecord> tsRecords = convertToRecords(records);
-    for (TSRecord tsRecord : tsRecords) {
-      try {
-        writer.write(tsRecord);
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
+    Tablet tablet = convertToTablet(records);
+    try {
+      writer.write(tablet);
+    } catch (Exception e) {
+      e.printStackTrace();
     }
     return System.nanoTime() - start;
+  }
+
+
+  private Tablet convertToTablet(List<Record> records) {
+    Tablet tablet = new Tablet(records.get(0).tag, schemas, records.size());
+    long[] timestamps = tablet.timestamps;
+    Object[] values = tablet.values;
+
+    for (Record record: records) {
+      int row = tablet.rowSize++;
+      timestamps[row] = record.timestamp;
+      for (int i = 0; i < config.FIELDS.length; i++) {
+        double[] sensor = (double[]) values[i];
+        sensor[row] = (double) record.fields.get(i);
+      }
+    }
+    return tablet;
   }
 
 
@@ -110,7 +144,7 @@ public class TsFileManager implements IDataBaseManager {
 
       ReadOnlyTsFile readTsFile = new ReadOnlyTsFile(reader);
       ArrayList<Path> paths = new ArrayList<>();
-      paths.add(new Path(tagValue + "." + field));
+      paths.add(new Path(tagValue, field));
       IExpression filter = new SingleSeriesExpression(new Path(tagValue + "." + field),
           new AndFilter(TimeFilter.gtEq(startTime), TimeFilter.ltEq(endTime)));
 

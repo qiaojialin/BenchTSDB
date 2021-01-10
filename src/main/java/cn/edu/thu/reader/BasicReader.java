@@ -56,7 +56,7 @@ public abstract class BasicReader {
           // current file has been resolved, read next file
           if(cachedLines.isEmpty()) {
             if (currentFileIndex < files.size() - 1) {
-              currentFile = files.get(currentFileIndex++);
+              currentFile = files.get(++currentFileIndex);
               logger.info("start to read {}-th file {}", currentFileIndex, currentFile);
               reader.close();
               reader = new BufferedReader(new FileReader(currentFile));

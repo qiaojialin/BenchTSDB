@@ -6,7 +6,7 @@ import cn.edu.thu.database.fileformat.ParquetManager;
 import cn.edu.thu.database.fileformat.TsFileManager;
 import cn.edu.thu.database.kairosdb.KairosDBManager;
 import cn.edu.thu.database.opentsdb.OpenTSDBManager;
-import cn.edu.thu.database.waterwheel.WaterWheelManager;
+//import cn.edu.thu.database.waterwheel.WaterWheelManager;
 
 public class DatabaseFactory {
 
@@ -20,10 +20,10 @@ public class DatabaseFactory {
         return new OpenTSDBManager(config);
       case "KAIROSDB":
         return new KairosDBManager(config);
-      case "SUMMARYSTORE":
-        return new SummaryStoreManager(config);
-      case "WATERWHEEL":
-        return new WaterWheelManager(config);
+//      case "SUMMARYSTORE":
+//        return new SummaryStoreManager(config);
+//      case "WATERWHEEL":
+//        return new WaterWheelManager(config);
       default:
         throw new RuntimeException(config.DATABASE + " not supported");
     }
@@ -55,10 +55,10 @@ public class DatabaseFactory {
         return new OpenTSDBManager(config);
       case "KAIROSDB":
         return new KairosDBManager(config);
-      case "SUMMARYSTORE":
-        return new SummaryStoreManager(config);
-      case "WATERWHEEL":
-        return new WaterWheelManager(config);
+//      case "SUMMARYSTORE":
+//        return new SummaryStoreManager(config);
+//      case "WATERWHEEL":
+//        return new WaterWheelManager(config);
       case "TSFILE":
         return new TsFileManager(config, config.FILE_PATH);
       case "PARQUET":

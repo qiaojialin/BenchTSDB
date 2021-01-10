@@ -33,7 +33,7 @@ public class FileLoad {
 
   public static void main(String[] args) {
 
-    //args = new String[]{"conf/config.properties"};
+    args = new String[]{"conf/config.properties"};
 
     final Statistics statistics = new Statistics();
 

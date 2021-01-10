@@ -6,7 +6,7 @@ import cn.edu.thu.database.fileformat.ParquetManager;
 import cn.edu.thu.database.fileformat.TsFileManager;
 import cn.edu.thu.database.kairosdb.KairosDBManager;
 import cn.edu.thu.database.opentsdb.OpenTSDBManager;
-import cn.edu.thu.database.waterwheel.WaterWheelManager;
+//import cn.edu.thu.database.waterwheel.WaterWheelManager;
 
 public class DatabaseFactory {
 
@@ -14,16 +14,16 @@ public class DatabaseFactory {
     switch (config.DATABASE) {
       case "NULL":
         return new NullManager();
-      case "INFLUXDB":
-        return new InfluxDBManager(config);
+//      case "INFLUXDB":
+//        return new InfluxDBManager(config);
       case "OPENTSDB":
         return new OpenTSDBManager(config);
       case "KAIROSDB":
         return new KairosDBManager(config);
-      case "SUMMARYSTORE":
-        return new SummaryStoreManager(config);
-      case "WATERWHEEL":
-        return new WaterWheelManager(config);
+//      case "SUMMARYSTORE":
+//        return new SummaryStoreManager(config);
+//      case "WATERWHEEL":
+//        return new WaterWheelManager(config);
       case "TSFILE":
         return new TsFileManager(config);
       case "PARQUET":

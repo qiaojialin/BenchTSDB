@@ -57,17 +57,17 @@
     </dependency>
 
 
-    <dependency>
-      <groupId>com.samsung.sra.summarystore</groupId>
-      <artifactId>summarystore-store</artifactId>
-      <version>1.0</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>com.samsung.sra.summarystore</groupId>-->
+      <!--<artifactId>summarystore-store</artifactId>-->
+      <!--<version>1.0</version>-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>org.influxdb</groupId>
-      <artifactId>influxdb-java</artifactId>
-      <version>2.7</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.influxdb</groupId>-->
+      <!--<artifactId>influxdb-java</artifactId>-->
+      <!--<version>2.7</version>-->
+    <!--</dependency>-->
 
 
     <dependency>
@@ -94,18 +94,18 @@
       <version>2.3.0</version>
     </dependency>
     <!-- water wheel-->
-    <dependency>
-      <groupId>storm.topologies</groupId>
-      <artifactId>topology</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.storm</groupId>
-      <artifactId>storm-core</artifactId>
-      <version>1.1.0</version>
-      <scope>provided</scope>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>storm.topologies</groupId>-->
+      <!--<artifactId>topology</artifactId>-->
+      <!--<version>1.0-SNAPSHOT</version>-->
+      <!--<scope>provided</scope>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.apache.storm</groupId>-->
+      <!--<artifactId>storm-core</artifactId>-->
+      <!--<version>1.1.0</version>-->
+      <!--<scope>provided</scope>-->
+    <!--</dependency>-->
 
   </dependencies>
 
@@ -129,10 +129,8 @@
             <configuration>
               <archive>
                 <manifest>
-                  <!--<mainClass>cn.edu.thu.database.waterwheel.WaterWheelManager</mainClass>-->
                   <mainClass>cn.edu.thu.MainLoad</mainClass>
                   <!--<mainClass>cn.edu.thu.MainQuery</mainClass>-->
-                  <!--<mainClass>backup.ExtendRedd</mainClass>-->
                 </manifest>
               </archive>
               <descriptorRefs>

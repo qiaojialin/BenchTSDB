@@ -1,3 +1,40 @@
+# 写入测试
+
+pom 中指定主类 cn.edu.thu.MainLoad
+
+打包 mvn clean package
+
+配置文件为 conf/config.properties
+
+```$xslt
+DATA_SET 为数据集类型
+DATA_DIR 为数据集位置
+FILE_PATH 为写出的文件位置
+```
+
+启动命令：
+
+```
+java -jar BenchTSDB-1.0-jar-with-dependencies.jar conf/config.properties
+```
+
+# 查询测试
+
+pom 中指定主类 cn.edu.thu.MainQuery
+
+打包 mvn clean package
+
+配置文件为 conf/config.properties
+
+```$xslt
+DATA_SET 为数据集类型
+FILE_PATH 查询的文件位置
+QUERY_TAG 查询的设备ID
+FIELD 查询的测点名字
+START_TIME 查询的起始时间：long 或 min
+END_TIME 查询的终止时间：long 或 max
+```
+
 # 数据集
 
 统一生成的数据集为 Record 类型，有三个字段：
@@ -15,13 +52,13 @@ List<Object> fields
 	* fields: 13个
 * GeoLife
 	* tag: 文件名中的人员编号，即：0~179
-	* fields: 经、纬、0、海拔
-* mlab_utilization
-	* tag：json 中 metric、hostname、experiment 用 . 拼接
-	* fields: 只有一个，就叫 value
+	* fields: Latitude, Longitude, Zero, Altitude
+* TDrive
+  * tag：文件名去掉 .txt
+  * fields: longitude, latitude
 * Redd
   * tag: house_1_channel_1
-  * value: 只有一个，就叫 value
+  * value: value
 
 ## 数据库 
 

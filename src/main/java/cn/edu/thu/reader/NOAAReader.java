@@ -42,7 +42,7 @@ public class NOAAReader extends BasicReader {
       fields.add(Double.parseDouble(line.substring(125, 130).trim()));
       fields.add(Double.parseDouble(line.substring(132, 138).trim()));
 
-      return new Record(time, tag, fields);
+      return new Record(time, currentDeviceId, fields);
     } catch (Exception ingore) {
       return null;
     }
@@ -50,6 +50,10 @@ public class NOAAReader extends BasicReader {
 
   @Override
   public void init() throws Exception {
+    String[] splitStrings = currentFile.split(config.DATA_DIR)[1].replaceAll("\\.op", "")
+        .split("-");
+    currentDeviceId = DEVICE_PREFIX + splitStrings[0] + "_" + splitStrings[1];
+
     // skip first line, which is the metadata
     reader.readLine();
   }

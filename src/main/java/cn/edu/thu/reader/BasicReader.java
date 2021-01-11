@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 
 public abstract class BasicReader {
 
+  public static final String DEVICE_PREFIX = "root.group_0.d_";
+
   private static Logger logger = LoggerFactory.getLogger(BasicReader.class);
   protected Config config;
   protected List<String> files;

@@ -2,6 +2,7 @@ package cn.edu.thu.reader;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +22,8 @@ public class TDriveReader extends BasicReader {
 
   @Override
   public void init() {
-
+    currentDeviceId =
+        DEVICE_PREFIX + currentFile.split(config.DATA_DIR)[1].replaceAll("\\.txt", "");
   }
 
   @Override
@@ -50,7 +52,7 @@ public class TDriveReader extends BasicReader {
       Date date = dateFormat.parse(items[1]);
       long time = date.getTime();
 
-      return new Record(time, items[0], fields);
+      return new Record(time, currentDeviceId, fields);
     } catch (Exception ignore) {
     }
     return null;

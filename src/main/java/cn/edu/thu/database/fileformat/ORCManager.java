@@ -95,7 +95,6 @@ public class ORCManager implements IDataBaseManager {
 
         BytesColumnVector device = (BytesColumnVector) batch.cols[1];
         device.setVal(indexInBatch, record.tag.getBytes(StandardCharsets.UTF_8));
-        device.isNull[indexInBatch] = nullValues.get(nullValues.size() - 1);
 
         for (int k = 0; k < config.FIELDS.length; k++) {
           DoubleColumnVector v = (DoubleColumnVector) batch.cols[k + 2];

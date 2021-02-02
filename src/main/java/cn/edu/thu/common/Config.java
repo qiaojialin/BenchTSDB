@@ -86,79 +86,76 @@ public class Config {
         NOAA_NULL_VALUES_MAP.add(null); // 0
         NOAA_NULL_VALUES_MAP.add(Arrays.asList(
             Arrays.asList(false, false, false, false, false, false, false, false, false, false,
-                false, false, false, false)
+                false, false, false)
         )); // 1
         NOAA_NULL_VALUES_MAP.add(Arrays.asList(
             Arrays.asList(false, false, false, false, false, false, false, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, true, false, false, false,
-                false, false, false, false)
+                false, false, false)
         )); // 2
         NOAA_NULL_VALUES_MAP.add(null); // 3
         NOAA_NULL_VALUES_MAP.add(Arrays.asList(
             Arrays.asList(false, false, false, true, true, true, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, false, false, false, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, false, false, false, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, true, true, true, false,
-                false, false, false, false)
+                false, false, false)
         )); // 4
         NOAA_NULL_VALUES_MAP.add(null); // 5
         NOAA_NULL_VALUES_MAP.add(null); // 6
         NOAA_NULL_VALUES_MAP.add(Arrays.asList(
             Arrays.asList(false, false, true, true, true, true, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, false, false, true, true, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, false, false, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, false, false, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, true, true, false, false,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, true, true, true, true,
-                false, false, true, true),
+                false, false, true),
             Arrays.asList(true, true, true, true, true, true, true, true, true, true,
-                true, true, false, false)
+                true, true, false)
         )); // 7
         NOAA_NULL_VALUES_MAP.add(null); // 8
         NOAA_NULL_VALUES_MAP.add(null); // 9
         NOAA_NULL_VALUES_MAP.add(null); // 10
         NOAA_NULL_VALUES_MAP.add(null); // 11
         NOAA_NULL_VALUES_MAP.add(null); // 12
-        NOAA_NULL_VALUES_MAP.add(null); // 13
         NOAA_NULL_VALUES_MAP.add(Arrays.asList(
             Arrays.asList(false, true, true, true, true, true, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, false, true, true, true, true, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, false, true, true, true, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, false, true, true, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, false, true, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, false, true, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, false, true, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, true, false, true, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, true, true, false, true,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, true, true, true, false,
-                true, true, true, true),
+                true, true, true),
             Arrays.asList(true, true, true, true, true, true, true, true, true, true,
-                false, true, true, true),
+                false, true, true),
             Arrays.asList(true, true, true, true, true, true, true, true, true, true,
-                true, false, true, true),
+                true, false, true),
             Arrays.asList(true, true, true, true, true, true, true, true, true, true,
-                true, true, false, true),
-            Arrays.asList(true, true, true, true, true, true, true, true, true, true,
-                true, true, true, false)
-        )); // 14
+                true, true, false)
+        )); // 13
     }
 
     public Config() {

@@ -2,7 +2,7 @@ import os
 import subprocess
 
 source = ['noaa-orc', 'noaa-parquet']
-target = ['1', '2', '4', '7', '14']
+target = ['1', '2', '4', '7', '13']
 
 for s in source:
     for t in target:

@@ -132,9 +132,7 @@ public class ParquetManager implements IDataBaseManager {
         List<Boolean> nullValues = extendedColumnNullValues.get(i);
         Group group = simpleGroupFactory.newGroup();
         group.add(Config.TIME_NAME, record.timestamp);
-        if (!nullValues.get(nullValues.size() - 1)) {
-          group.add(Config.TAG_NAME, record.tag);
-        }
+        group.add(Config.TAG_NAME, record.tag);
         for (int j = 0; j < config.FIELDS.length; j++) {
           double floatV = (double) record.fields.get(j);
           if (!nullValues.get(j)) {

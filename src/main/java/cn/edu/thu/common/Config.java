@@ -1,6 +1,12 @@
 package cn.edu.thu.common;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
@@ -72,6 +78,88 @@ public class Config {
 //    public String FIELD = "TEMP";
 //    public long START_TIME = 0L;
 //    public long END_TIME = 1946816515000L;
+    public int NOAA_EXTENDED_COLUMN_NUMBER = 1;
+
+    public static final List<List<List<Boolean>>> NOAA_NULL_VALUES_MAP = new ArrayList<>();
+
+    static {
+        NOAA_NULL_VALUES_MAP.add(null); // 0
+        NOAA_NULL_VALUES_MAP.add(Arrays.asList(
+            Arrays.asList(false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false)
+        )); // 1
+        NOAA_NULL_VALUES_MAP.add(Arrays.asList(
+            Arrays.asList(false, false, false, false, false, false, false, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, false, false, false,
+                false, false, false, false)
+        )); // 2
+        NOAA_NULL_VALUES_MAP.add(null); // 3
+        NOAA_NULL_VALUES_MAP.add(Arrays.asList(
+            Arrays.asList(false, false, false, true, true, true, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, false, false, false, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, false, false, false, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, true, true, false,
+                false, false, false, false)
+        )); // 4
+        NOAA_NULL_VALUES_MAP.add(null); // 5
+        NOAA_NULL_VALUES_MAP.add(null); // 6
+        NOAA_NULL_VALUES_MAP.add(Arrays.asList(
+            Arrays.asList(false, false, true, true, true, true, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, false, false, true, true, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, false, false, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, false, false, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, true, false, false,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, true, true, true,
+                false, false, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, true, true, true,
+                true, true, false, false)
+        )); // 7
+        NOAA_NULL_VALUES_MAP.add(null); // 8
+        NOAA_NULL_VALUES_MAP.add(null); // 9
+        NOAA_NULL_VALUES_MAP.add(null); // 10
+        NOAA_NULL_VALUES_MAP.add(null); // 11
+        NOAA_NULL_VALUES_MAP.add(null); // 12
+        NOAA_NULL_VALUES_MAP.add(null); // 13
+        NOAA_NULL_VALUES_MAP.add(Arrays.asList(
+            Arrays.asList(false, true, true, true, true, true, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, false, true, true, true, true, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, false, true, true, true, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, false, true, true, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, false, true, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, false, true, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, false, true, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, false, true, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, true, false, true,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, true, true, false,
+                true, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, true, true, true,
+                false, true, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, true, true, true,
+                true, false, true, true),
+            Arrays.asList(true, true, true, true, true, true, true, true, true, true,
+                true, true, false, true),
+            Arrays.asList(true, true, true, true, true, true, true, true, true, true,
+                true, true, true, false)
+        )); // 14
+    }
 
     public Config() {
         Properties properties = new Properties();
@@ -152,6 +240,7 @@ public class Config {
         QUERY_TAG = properties.getOrDefault("QUERY_TAG", QUERY_TAG).toString();
 
         FIELD = properties.getOrDefault("FIELD", FIELD).toString();
+        NOAA_EXTENDED_COLUMN_NUMBER = Integer.parseInt(properties.getOrDefault("NOAA_EXTENDED_COLUMN_NUMBER", NOAA_EXTENDED_COLUMN_NUMBER).toString());
 
         String startTime = properties.getOrDefault("START_TIME", START_TIME).toString();
         if(startTime.toLowerCase().contains("min")) {

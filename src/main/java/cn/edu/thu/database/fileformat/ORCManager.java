@@ -22,9 +22,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * time, seriesid, value
- *
+ * <p>
  * time, deviceId, s1, s2, s3...
- *
+ * <p>
  * time, series1, series2...
  */
 public class ORCManager implements IDataBaseManager {
@@ -35,9 +35,14 @@ public class ORCManager implements IDataBaseManager {
   private Config config;
   private String filePath;
 
+  private int extendedColumnNumber;
+  private List<List<Boolean>> extendedColumnNullValues;
+
   public ORCManager(Config config) {
     this.config = config;
     this.filePath = config.FILE_PATH;
+    extendedColumnNumber = config.NOAA_EXTENDED_COLUMN_NUMBER;
+    extendedColumnNullValues = Config.NOAA_NULL_VALUES_MAP.get(extendedColumnNumber);
   }
 
   public ORCManager(Config config, int threadNum) {
@@ -74,31 +79,39 @@ public class ORCManager implements IDataBaseManager {
 
     long start = System.nanoTime();
 
-    VectorizedRowBatch batch = schema.createRowBatch(records.size());
+    VectorizedRowBatch batch = schema.createRowBatch(records.size() * extendedColumnNumber);
 
     for (int i = 0; i < records.size(); i++) {
       Record record = records.get(i);
-      LongColumnVector time = (LongColumnVector) batch.cols[0];
-      time.vector[i] = record.timestamp;
 
-      BytesColumnVector device = (BytesColumnVector) batch.cols[1];
-      device.setVal(i, record.tag.getBytes(StandardCharsets.UTF_8));
+      for (int j = 0; j < extendedColumnNumber; j++) {
+        List<Boolean> nullValues = extendedColumnNullValues.get(j);
+        final int indexInBatch = i * extendedColumnNumber + j;
 
-      for (int j = 0; j < config.FIELDS.length; j++) {
-        DoubleColumnVector v = (DoubleColumnVector) batch.cols[j + 2];
-        v.vector[i] = (double) record.fields.get(j);
-      }
+        LongColumnVector time = (LongColumnVector) batch.cols[0];
+        time.vector[indexInBatch] = record.timestamp;
 
-      batch.size++;
+        BytesColumnVector device = (BytesColumnVector) batch.cols[1];
+        device.setVal(indexInBatch, record.tag.getBytes(StandardCharsets.UTF_8));
+        device.isNull[indexInBatch] = nullValues.get(nullValues.size() - 1);
 
-      // If the batch is full, write it out and start over. actually not needed here
-      if (batch.size == batch.getMaxSize()) {
-        try {
-          writer.addRowBatch(batch);
-        } catch (IOException e) {
-          e.printStackTrace();
+        for (int k = 0; k < config.FIELDS.length; k++) {
+          DoubleColumnVector v = (DoubleColumnVector) batch.cols[k + 2];
+          v.vector[indexInBatch] = (double) record.fields.get(k);
+          v.isNull[indexInBatch] = nullValues.get(k);
         }
-        batch.reset();
+
+        batch.size++;
+
+        // If the batch is full, write it out and start over. actually not needed here
+        if (batch.size == batch.getMaxSize()) {
+          try {
+            writer.addRowBatch(batch);
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
+          batch.reset();
+        }
       }
     }
 

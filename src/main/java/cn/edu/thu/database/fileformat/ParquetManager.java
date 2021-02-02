@@ -11,6 +11,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.parquet.column.ParquetProperties;
 import org.apache.parquet.example.data.Group;
+import org.apache.parquet.example.data.simple.SimpleGroup;
 import org.apache.parquet.example.data.simple.SimpleGroupFactory;
 import org.apache.parquet.filter2.compat.FilterCompat;
 import org.apache.parquet.filter2.predicate.Operators;
@@ -34,9 +35,9 @@ import static org.apache.parquet.filter2.predicate.FilterApi.*;
 
 /**
  * time, seriesid, value
- *
+ * <p>
  * time, deviceId, s1, s2, s3...
- *
+ * <p>
  * time, series1, series2...
  */
 public class ParquetManager implements IDataBaseManager {
@@ -49,14 +50,21 @@ public class ParquetManager implements IDataBaseManager {
   private String filePath;
   private String schemaName = "defaultSchema";
 
+  private int extendedColumnNumber;
+  private List<List<Boolean>> extendedColumnNullValues;
+
   public ParquetManager(Config config) {
     this.config = config;
     this.filePath = config.FILE_PATH;
+    extendedColumnNumber = config.NOAA_EXTENDED_COLUMN_NUMBER;
+    extendedColumnNullValues = Config.NOAA_NULL_VALUES_MAP.get(extendedColumnNumber);
   }
 
   public ParquetManager(Config config, int threadNum) {
     this.config = config;
     this.filePath = config.FILE_PATH + "_" + threadNum;
+    extendedColumnNumber = config.NOAA_EXTENDED_COLUMN_NUMBER;
+    extendedColumnNullValues = Config.NOAA_NULL_VALUES_MAP.get(extendedColumnNumber);
   }
 
   @Override
@@ -71,10 +79,16 @@ public class ParquetManager implements IDataBaseManager {
     }
 
     Types.MessageTypeBuilder builder = Types.buildMessage();
-    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.INT64, config.TIME_NAME));
-    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.BINARY, Config.TAG_NAME));
+    builder.addField(
+        new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.INT64,
+            config.TIME_NAME));
+    builder.addField(
+        new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.BINARY,
+            Config.TAG_NAME));
     for (int i = 0; i < config.FIELDS.length; i++) {
-      builder.addField(new PrimitiveType(Type.Repetition.OPTIONAL, PrimitiveType.PrimitiveTypeName.DOUBLE, config.FIELDS[i]));
+      builder.addField(
+          new PrimitiveType(Type.Repetition.OPTIONAL, PrimitiveType.PrimitiveTypeName.DOUBLE,
+              config.FIELDS[i]));
     }
 
     schema = builder.named(schemaName);
@@ -87,8 +101,8 @@ public class ParquetManager implements IDataBaseManager {
     new File(filePath).delete();
     try {
       writer = new ParquetWriter(new Path(filePath), groupWriteSupport, CompressionCodecName.SNAPPY,
-          ParquetWriter.DEFAULT_BLOCK_SIZE, ParquetWriter.DEFAULT_PAGE_SIZE, ParquetWriter.DEFAULT_PAGE_SIZE,
-          true, true, ParquetProperties.WriterVersion.PARQUET_2_0);
+          ParquetWriter.DEFAULT_BLOCK_SIZE, ParquetWriter.DEFAULT_PAGE_SIZE,
+          ParquetWriter.DEFAULT_PAGE_SIZE, true, true, ParquetProperties.WriterVersion.PARQUET_2_0);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -99,7 +113,7 @@ public class ParquetManager implements IDataBaseManager {
     long start = System.nanoTime();
 
     List<Group> groups = convertRecords(records);
-    for(Group group: groups) {
+    for (Group group : groups) {
       try {
         writer.write(group);
       } catch (Exception e) {
@@ -113,15 +127,22 @@ public class ParquetManager implements IDataBaseManager {
 
   private List<Group> convertRecords(List<Record> records) {
     List<Group> groups = new ArrayList<>();
-    for(Record record: records) {
-      Group group = simpleGroupFactory.newGroup();
-      group.add(Config.TIME_NAME, record.timestamp);
-      group.add(Config.TAG_NAME, record.tag);
-      for(int i = 0; i < config.FIELDS.length; i++) {
-        double floatV = (double) record.fields.get(i);
-        group.add(config.FIELDS[i], floatV);
+    for (Record record : records) {
+      for (int i = 0; i < extendedColumnNumber; ++i) {
+        List<Boolean> nullValues = extendedColumnNullValues.get(i);
+        Group group = simpleGroupFactory.newGroup();
+        group.add(Config.TIME_NAME, record.timestamp);
+        if (!nullValues.get(nullValues.size() - 1)) {
+          group.add(Config.TAG_NAME, record.tag);
+        }
+        for (int j = 0; j < config.FIELDS.length; j++) {
+          double floatV = (double) record.fields.get(j);
+          if (!nullValues.get(j)) {
+            group.add(config.FIELDS[j], floatV);
+          }
+        }
+        groups.add(group);
       }
-      groups.add(group);
     }
     return groups;
   }
@@ -130,23 +151,30 @@ public class ParquetManager implements IDataBaseManager {
   public long count(String tagValue, String field, long startTime, long endTime) {
 
     Configuration conf = new Configuration();
-    ParquetInputFormat.setFilterPredicate(conf, and(and(gtEq(longColumn(Config.TIME_NAME), startTime),
-            ltEq(longColumn(Config.TIME_NAME), endTime)), eq(binaryColumn(Config.TAG_NAME), Binary.fromString(tagValue))));
+    ParquetInputFormat
+        .setFilterPredicate(conf, and(and(gtEq(longColumn(Config.TIME_NAME), startTime),
+            ltEq(longColumn(Config.TIME_NAME), endTime)),
+            eq(binaryColumn(Config.TAG_NAME), Binary.fromString(tagValue))));
     FilterCompat.Filter filter = ParquetInputFormat.getFilter(conf);
 
     Types.MessageTypeBuilder builder = Types.buildMessage();
-    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.INT64, Config.TIME_NAME));
-    builder.addField(new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.BINARY, Config.TAG_NAME));
-    builder.addField(new PrimitiveType(Type.Repetition.OPTIONAL, PrimitiveType.PrimitiveTypeName.DOUBLE, field));
+    builder.addField(
+        new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.INT64,
+            Config.TIME_NAME));
+    builder.addField(
+        new PrimitiveType(Type.Repetition.REQUIRED, PrimitiveType.PrimitiveTypeName.BINARY,
+            Config.TAG_NAME));
+    builder.addField(
+        new PrimitiveType(Type.Repetition.OPTIONAL, PrimitiveType.PrimitiveTypeName.DOUBLE, field));
 
     MessageType querySchema = builder.named(schemaName);
     conf.set(ReadSupport.PARQUET_READ_SCHEMA, querySchema.toString());
 
     // set reader
-    ParquetReader.Builder<Group> reader= ParquetReader
-            .builder(new GroupReadSupport(), new Path(filePath))
-            .withConf(conf)
-            .withFilter(filter);
+    ParquetReader.Builder<Group> reader = ParquetReader
+        .builder(new GroupReadSupport(), new Path(filePath))
+        .withConf(conf)
+        .withFilter(filter);
 
     long start = System.nanoTime();
 
@@ -155,7 +183,7 @@ public class ParquetManager implements IDataBaseManager {
     try {
       build = reader.build();
       Group line;
-      while((line=build.read())!=null) {
+      while ((line = build.read()) != null) {
         result++;
       }
     } catch (IOException e) {

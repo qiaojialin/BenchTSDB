@@ -48,6 +48,8 @@ public class ORCManager implements IDataBaseManager {
   public ORCManager(Config config, int threadNum) {
     this.config = config;
     this.filePath = config.FILE_PATH + "_" + threadNum;
+    extendedColumnNumber = config.NOAA_EXTENDED_COLUMN_NUMBER;
+    extendedColumnNullValues = Config.NOAA_NULL_VALUES_MAP.get(extendedColumnNumber);
   }
 
   @Override

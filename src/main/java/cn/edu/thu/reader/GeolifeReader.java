@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,7 +44,7 @@ public class GeolifeReader extends BasicReader {
 
   @Override
   public void init() throws Exception {
-    currentDeviceId = currentFile.split(config.DATA_DIR)[1].split("/Trajectory")[0];
+    currentDeviceId = DEVICE_PREFIX + currentFile.split(config.DATA_DIR)[1].split("/Trajectory")[0];
     // skip 6 lines, which is useless
     for (int i = 0; i < 6; i++) {
       reader.readLine();
@@ -53,7 +54,7 @@ public class GeolifeReader extends BasicReader {
   @Override
   public List<Record> nextBatch() {
     List<Record> records = new ArrayList<>();
-    for(String line: cachedLines) {
+    for (String line : cachedLines) {
       Record record = convertToRecord(line);
       if (record != null) {
         records.add(record);

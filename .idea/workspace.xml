@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cc7bd03-3231-46f9-b10b-c82aca07f2b4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainLoad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/MainQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/DatabaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/DatabaseFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ORCManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ORCManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ParquetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/database/fileformat/ParquetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/TDriveReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/reader/TDriveReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/thu/writer/RealDatasetWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/thu/writer/RealDatasetWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +271,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainLoad">
+  <component name="RunManager" selected="Application.MainQuery">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -361,6 +354,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -395,8 +401,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainLoad" />
         <item itemvalue="Application.MainQuery" />
+        <item itemvalue="Application.MainLoad" />
         <item itemvalue="Application.WaterWheelManager" />
         <item itemvalue="Application.ExtendRedd" />
         <item itemvalue="Application.AzureReadWrite" />
@@ -422,7 +428,7 @@
       <workItem from="1614680919687" duration="4578000" />
       <workItem from="1615015943167" duration="17000" />
       <workItem from="1615015995569" duration="6533000" />
-      <workItem from="1615600733204" duration="601000" />
+      <workItem from="1615600733204" duration="1158000" />
     </task>
     <servers />
   </component>

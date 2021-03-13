@@ -2,19 +2,15 @@ package cn.edu.thu.reader;
 
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
-import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class TDriveReader extends BasicReader {
 
   private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-  private static Logger logger = LoggerFactory.getLogger(TDriveReader.class);
 
   public TDriveReader(Config config, List<String> files) {
     super(config, files);

@@ -1,19 +1,22 @@
 package cn.edu.thu;
 
 import cn.edu.thu.common.BenchmarkExceptionHandler;
-import cn.edu.thu.writer.RealDatasetWriter;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Statistics;
-import cn.edu.thu.database.*;
+import cn.edu.thu.database.DatabaseFactory;
+import cn.edu.thu.database.IDataBaseManager;
+import cn.edu.thu.writer.RealDatasetWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.FileInputStream;
-import java.util.concurrent.*;
 
 
 public class MainLoad {
@@ -29,21 +32,17 @@ public class MainLoad {
     final Statistics statistics = new Statistics();
 
     Config config;
-    if (args.length > 0) {
-      try {
-        FileInputStream fileInputStream = new FileInputStream(args[0]);
-        config = new Config(fileInputStream);
-      } catch (Exception e) {
-        e.printStackTrace();
-        logger.error("Load config from {} failed, using default config", args[0]);
-        config = new Config();
-      }
-    } else {
+    try {
+      FileInputStream fileInputStream = new FileInputStream(args[0]);
+      config = new Config(fileInputStream);
+    } catch (Exception e) {
+      e.printStackTrace();
+      logger.error("Load config from {} failed, using default config", args[0]);
       config = new Config();
     }
 
     // init database
-    IDataBaseManager database = DatabaseFactory.getDbManager(config);
+    IDataBaseManager database = DatabaseFactory.getDbManager(config, null);
     database.initServer();
 
     logger.info("thread num : {}", config.THREAD_NUM);
@@ -62,32 +61,23 @@ public class MainLoad {
 
     Collections.sort(files);
 
-    List<List<String>> thread_files = new ArrayList<>();
-    for (int i = 0; i < config.THREAD_NUM; i++) {
-      thread_files.add(new ArrayList<>());
-    }
-
-    for (int i = 0; i < files.size(); i++) {
-
-//      if (i < config.BEGIN_FILE || i > config.END_FILE) {
-//        continue;
-//      }
-
-      String filePath = files.get(i);
+    Map<String, List<String>> map = new HashMap<>();
+    for (String filePath : files) {
       if (filePath.contains(".DS_Store")) {
         continue;
       }
-      int thread = i % config.THREAD_NUM;
-      thread_files.get(thread).add(filePath);
+      String deviceId = DatabaseFactory.getDeviceId(config, filePath);
+      map.computeIfAbsent(deviceId, k -> new ArrayList<>()).add(filePath);
     }
 
     Thread.UncaughtExceptionHandler handler = new BenchmarkExceptionHandler();
     ExecutorService executorService = Executors.newFixedThreadPool(config.THREAD_NUM);
-    for (int threadId = 0; threadId < config.THREAD_NUM; threadId++) {
-      Thread thread = new Thread(new RealDatasetWriter(config, thread_files.get(threadId), statistics));
+    Config finalConfig = config;
+    map.forEach((deviceId, fileList) -> {
+      Thread thread = new Thread(new RealDatasetWriter(finalConfig, deviceId, fileList, statistics));
       thread.setUncaughtExceptionHandler(handler);
       executorService.submit(thread);
-    }
+    });
 
     executorService.shutdown();
     logger.info("@+++<<<: shutdown thread pool");

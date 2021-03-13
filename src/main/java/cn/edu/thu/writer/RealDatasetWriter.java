@@ -1,34 +1,31 @@
 package cn.edu.thu.writer;
 
-import cn.edu.thu.common.Record;
+import backup.MLabUtilizationReader;
 import cn.edu.thu.common.Config;
+import cn.edu.thu.common.Record;
 import cn.edu.thu.common.Statistics;
-import cn.edu.thu.database.*;
+import cn.edu.thu.database.DatabaseFactory;
+import cn.edu.thu.database.IDataBaseManager;
 import cn.edu.thu.reader.BasicReader;
 import cn.edu.thu.reader.GeolifeReader;
 import cn.edu.thu.reader.NOAAReader;
 import cn.edu.thu.reader.ReddReader;
 import cn.edu.thu.reader.TDriveReader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import java.util.*;
-import backup.MLabUtilizationReader;
+import java.util.List;
 
 public class RealDatasetWriter implements Runnable {
 
-  private static Logger logger = LoggerFactory.getLogger(RealDatasetWriter.class);
   private IDataBaseManager database;
   private Config config;
   private BasicReader reader;
   private final Statistics statistics;
 
-  public RealDatasetWriter(Config config, List<String> files, final Statistics statistics) {
-    this.database = DatabaseFactory.getDbManager(config);
+  public RealDatasetWriter(Config config, String deviceId, List<String> files, final Statistics statistics) {
+    this.database = DatabaseFactory.getDbManager(config, deviceId);
     database.initClient();
     this.config = config;
     this.statistics = statistics;
 
-    logger.info("thread construct!, need to read {} files", files.size());
 
     switch (config.DATA_SET) {
       case "NOAA":

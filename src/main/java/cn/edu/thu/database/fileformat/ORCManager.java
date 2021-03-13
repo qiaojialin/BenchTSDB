@@ -3,16 +3,17 @@ package cn.edu.thu.database.fileformat;
 import cn.edu.thu.common.Config;
 import cn.edu.thu.common.Record;
 import cn.edu.thu.database.IDataBaseManager;
-
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.orc.*;
-import org.apache.orc.storage.ql.exec.vector.BytesColumnVector;
+import org.apache.orc.CompressionKind;
+import org.apache.orc.OrcFile;
+import org.apache.orc.Reader;
+import org.apache.orc.RecordReader;
+import org.apache.orc.TypeDescription;
+import org.apache.orc.Writer;
 import org.apache.orc.storage.ql.exec.vector.DoubleColumnVector;
 import org.apache.orc.storage.ql.exec.vector.LongColumnVector;
 import org.apache.orc.storage.ql.exec.vector.VectorizedRowBatch;
@@ -35,14 +36,9 @@ public class ORCManager implements IDataBaseManager {
   private Config config;
   private String filePath;
 
-  public ORCManager(Config config) {
+  public ORCManager(Config config, String deviceId) {
     this.config = config;
-    this.filePath = config.FILE_PATH;
-  }
-
-  public ORCManager(Config config, int threadNum) {
-    this.config = config;
-    this.filePath = config.FILE_PATH + "_" + threadNum;
+    this.filePath = config.FILE_PATH + deviceId + ".orc";
   }
 
   @Override
@@ -81,11 +77,8 @@ public class ORCManager implements IDataBaseManager {
       LongColumnVector time = (LongColumnVector) batch.cols[0];
       time.vector[i] = record.timestamp;
 
-      BytesColumnVector device = (BytesColumnVector) batch.cols[1];
-      device.setVal(i, record.tag.getBytes(StandardCharsets.UTF_8));
-
       for (int j = 0; j < config.FIELDS.length; j++) {
-        DoubleColumnVector v = (DoubleColumnVector) batch.cols[j + 2];
+        DoubleColumnVector v = (DoubleColumnVector) batch.cols[j + 1];
         v.vector[i] = (double) record.fields.get(j);
       }
 
@@ -107,7 +100,7 @@ public class ORCManager implements IDataBaseManager {
 
 
   private String genWriteSchema() {
-    String s = "struct<timestamp:bigint,deviceId:string";
+    String s = "struct<timestamp:bigint";
     for (int i = 0; i < config.FIELDS.length; i++) {
       s += ("," + config.FIELDS[i] + ":" + "DOUBLE");
     }
@@ -116,7 +109,7 @@ public class ORCManager implements IDataBaseManager {
   }
 
   private String getReadSchema(String field) {
-    return "struct<timestamp:bigint,deviceId:string," + field + ":DOUBLE>";
+    return "struct<timestamp:bigint," + field + ":DOUBLE>";
   }
 
   @Override
@@ -145,19 +138,12 @@ public class ORCManager implements IDataBaseManager {
       while (rowIterator.nextBatch(batch)) {
         for (int r = 0; r < batch.size; ++r) {
 
-          // time, deviceId, field
+          // time, field
           long t = ((LongColumnVector) batch.cols[0]).vector[r];
-          if (t < startTime || t > endTime) {
-            continue;
-          }
-
-          String deviceId = ((BytesColumnVector) batch.cols[1]).toString(r);
-
-          if (deviceId.endsWith(tagValue)) {
+          if (t >= startTime && t <= endTime) {
             result++;
           }
 
-          double fieldValue = ((DoubleColumnVector) batch.cols[2]).vector[r];
         }
       }
       rowIterator.close();
